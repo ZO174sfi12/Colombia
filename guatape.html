@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🪨 Guatapé · Colombia 24 Dagen</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:#4A1A6E;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:#4A1A6E;border-bottom-color:#4A1A6E;}
+.hero{background:linear-gradient(135deg,#2D0A4A,#4A1A6E,#6B2E9E);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.day-banner{background:linear-gradient(135deg,#2D0A4A,#4A1A6E);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
+.day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
+.day-banner h2{font-size:1.1rem;font-weight:700;}
+.day-banner p{font-size:0.82rem;opacity:0.78;margin-top:0.2rem;}
+.route-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:1.4rem;}
+.route-block h3{font-size:0.9rem;font-weight:800;color:#4A1A6E;margin-bottom:0.8rem;text-transform:uppercase;}
+.route-row{display:flex;gap:0.7rem;align-items:flex-start;padding:0.35rem 0;border-bottom:1px solid #F5F0E8;}
+.route-row:last-child{border-bottom:none;}
+.route-dot{width:8px;height:8px;border-radius:50%;margin-top:0.35rem;flex-shrink:0;}
+.route-time{font-size:0.72rem;font-weight:700;color:var(--muted);min-width:2.5rem;flex-shrink:0;}
+.route-label{font-size:0.84rem;} .route-sub{font-size:0.72rem;color:var(--muted);}
+.timeline{position:relative;padding-left:2.5rem;}
+.timeline::before{content:'';position:absolute;left:0.85rem;top:0;bottom:0;width:2px;background:var(--border);}
+.event{position:relative;margin-bottom:1rem;}
+.event::before{content:'';position:absolute;left:-1.85rem;top:0.9rem;width:10px;height:10px;border-radius:50%;background:#8B5CF6;border:2px solid white;box-shadow:0 0 0 2px #C4B5FD;}
+.event.transit::before{background:#9CA3AF;box-shadow:0 0 0 2px #E5E7EB;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.95rem 1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.card.purple{border-left:4px solid #8B5CF6;} .card.transit{border-left:4px solid #9CA3AF;}
+.card .time{font-size:0.72rem;font-weight:700;color:var(--muted);margin-bottom:0.3rem;}
+.card h3{font-size:0.97rem;font-weight:700;margin-bottom:0.25rem;}
+.card .desc{font-size:0.85rem;color:var(--muted);line-height:1.5;}
+.card .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.55rem;}
+.chip{font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
+.chip.price{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
+.chip.warn{background:#FFF7ED;border-color:#FDB97D;color:#92400E;}
+.chip.dist{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.card-details{border:1px solid #C4B5FD;border-radius:8px;overflow:hidden;margin-top:0.7rem;}
+.card-details summary{padding:0.6rem 0.9rem;cursor:pointer;font-size:0.82rem;font-weight:700;background:#F5F3FF;list-style:none;display:flex;align-items:center;justify-content:space-between;color:#4A1A6E;}
+.card-details summary::-webkit-details-marker{display:none;}
+.card-details summary::after{content:'＋';font-size:1rem;}
+.card-details[open] summary::after{content:'－';}
+.details-body{padding:0.9rem 1rem;font-size:0.82rem;color:var(--muted);line-height:1.65;background:white;}
+.details-body p{margin-bottom:0.6rem;} .details-body strong{color:var(--text);}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:0.7rem 0;}
+.info-cell{padding:0.55rem 0.75rem;background:#FAFAFA;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+.info-cell:nth-child(2n){border-right:none;} .info-cell:nth-last-child(-n+2){border-bottom:none;}
+.info-cell.full{grid-column:1/-1;border-right:none;}
+.info-cell dt{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:0.15rem;}
+.info-cell dd{font-size:0.82rem;} .info-cell dd.hi{color:#4A1A6E;font-weight:600;} .info-cell dd.warn{color:#D97706;}
+.prac-block{background:linear-gradient(135deg,#2D0A4A,#4A1A6E);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.prac-block h3{font-size:1rem;font-weight:700;margin-bottom:0.75rem;}
+.prac-item{display:flex;gap:0.6rem;align-items:flex-start;margin-bottom:0.5rem;font-size:0.84rem;line-height:1.5;}
+.prac-item:last-child{margin-bottom:0;} .prac-item .pi{min-width:1.2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html" class="active">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <h1>🪨 Guatapé</h1>
+  <p class="sub">Dag 10 · La Piedra del Peñón · Kleurrijke Zocalo's · Dagtrip vanuit Medellín</p>
+  <div class="badges">
+    <span class="badge">🚌 Bus 2u vanuit Medellín</span>
+    <span class="badge">🪨 740 treden</span>
+    <span class="badge">🎨 Kleurrijkste stad Colombia</span>
+    <span class="badge">⚠️ Uiterlijk 15u terug</span>
+    <span class="badge">🏨 Hotel Guatatur</span>
+  </div>
+</div>
+
+<div class="section">
+
+  <div class="day-banner">
+    <div class="dn">10</div>
+    <div>
+      <h2>Guatapé — La Piedra del Peñón</h2>
+      <p>1 nacht · Hotel Guatatur · €26 incl. ontbijt · ⚠️ Uiterlijk 15:00 terug naar Medellín (vlucht dag 11!)</p>
+    </div>
+  </div>
+
+  <div class="route-block">
+    <h3>📍 Dag 10 op één blik</h3>
+    <div class="route-row"><div class="route-dot" style="background:#9CA3AF;"></div><div class="route-time">VM</div><div><div class="route-label">🚖 Uber vanuit Medellín naar bushalte</div><div class="route-sub">Naar de bushalte voor Guatapé-bussen</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#8B5CF6;"></div><div class="route-time">±2u</div><div><div class="route-label">🚌 Bus Medellín → Guatapé</div><div class="route-sub">Reistijd ±2 uur · landschappelijke rit</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#8B5CF6;"></div><div class="route-time">Dag</div><div><div class="route-label">🛺 Tuktuk → La Piedra del Peñón</div><div class="route-sub">Groot granieten monoliet · 740 treden beklimmen</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#8B5CF6;"></div><div class="route-time">Dag</div><div><div class="route-label">🎨 Kleurrijke zocalo's bewonderen</div><div class="route-sub">Elk huis heeft kleurrijke reliëf-decoraties (zocalo's)</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#EF4444;"></div><div class="route-time">Max 15u</div><div><div class="route-label">🚌 Bus terug naar Medellín!</div><div class="route-sub">VERPLICHT: uiterlijk 15:00 vertrekken voor vlucht dag 11</div></div></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="event transit">
+      <div class="card transit">
+        <div class="time">Ochtend · Vanuit Medellín</div>
+        <h3>🚌 Bus Medellín → Guatapé</h3>
+        <p class="desc">Neem een Uber naar de bushalte in Medellín en daarna de bus naar Guatapé (±2 uur). Een prachtige rit door de Antioquiaanse heuvels langs het Embalse del Peñol-meer.</p>
+        <div class="meta">
+          <span class="chip">🚌 ±2 uur reistijd</span>
+          <span class="chip dist">📍 Bushalte Medellín (vragen via hotel)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="card purple">
+        <div class="time">Hoofdattractie · ~3 uur</div>
+        <h3>🪨 La Piedra del Peñón — 740 Treden Omhoog</h3>
+        <p class="desc">Een van de indrukwekkendste rotsformaties ter wereld: een 200 meter hoge granieten monoliet uit het water rijzend. Met een tuktuk naar de voet en dan 740 treden omhoog via een smalle trappengang in een spleet van de rots. Boven wacht een spectaculair panorama.</p>
+        <div class="meta">
+          <span class="chip price">💶 Kleine ingang + tuktuk</span>
+          <span class="chip">🪨 200 m hoog</span>
+          <span class="chip">740 treden</span>
+        </div>
+        <details class="card-details">
+          <summary>Tips voor La Piedra del Peñón</summary>
+          <div class="details-body">
+            <p><strong>Wat is het?</strong> El Peñol (of La Piedra del Peñón) is een enorme granieten monoliet van 200 meter hoog die uit het Embalse del Peñol-meer rijst. Gevormd door magma 65 miljoen jaar geleden. Een van de meest iconische plekken van Colombia.</p>
+            <p><strong>De klim:</strong> 740 treden via een smalle spleet tussen de rotsen. Metalen trap die zigzaggend naar boven loopt. Ongeveer 20-30 minuten klimmen. Neem water mee!</p>
+            <p><strong>Boven:</strong> Restaurant, souvenirwinkels en een ongelooflijk panorama over het kunstmatige meer met zijn eilandjes en de kleurrijke stad Guatapé beneden.</p>
+            <p><strong>Tuktuk:</strong> Neem een tuktuk van het centrum van Guatapé naar de voet van La Piedra.</p>
+            <div class="info-grid">
+              <dl class="info-cell"><dt>Hoogte</dt><dd class="hi">200 m</dd></dl>
+              <dl class="info-cell"><dt>Treden</dt><dd class="hi">740</dd></dl>
+              <dl class="info-cell"><dt>Klimtijd</dt><dd>20–30 min</dd></dl>
+              <dl class="info-cell full"><dt>Tip</dt><dd>Vroeg gaan — minder mensen en beter licht voor foto's. Na 11u wordt het drukker.</dd></dl>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="card purple">
+        <div class="time">Namiddag · Wandelen</div>
+        <h3>🎨 Kleurrijke Zocalo's van Guatapé</h3>
+        <p class="desc">Guatapé is de kleurrijkste stad van Colombia. Elk huis heeft unieke ingekleurde reliëf-panelen (zocalo's) op de onderkant van de gevels die taferelen uit het dagelijkse leven verbeelden. Wandel door de straatjes en bewonder de details.</p>
+        <div class="meta">
+          <span class="chip price">💶 Gratis</span>
+          <span class="chip">🎨 Uniek in Colombia</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event transit">
+      <div class="card transit" style="border-left:4px solid #EF4444;">
+        <div class="time">Uiterlijk 15:00 · VERPLICHT</div>
+        <h3>🚌 Terug naar Medellín — Niet te laat!</h3>
+        <p class="desc">De volgende ochtend (dag 11) vertrekt de bus terug naar Medellín vanuit Guatapé. Van de bushalte Medellín tot de luchthaven is het ±1 uur met Uber. De vlucht naar Cartagena vertrekt om 20:20 — tijdig vertrekken is cruciaal!</p>
+        <div class="meta">
+          <span class="chip warn">⚠️ Uiterlijk 15:00 vertrekken dag 11!</span>
+          <span class="chip">✈️ Vlucht MDE→CTG: 20:20</span>
+        </div>
+        <div class="info-grid">
+          <dl class="info-cell"><dt>Max vertrek Guatapé</dt><dd style="color:#D97706;font-weight:600;">15:00</dd></dl>
+          <dl class="info-cell"><dt>Reistijd bus</dt><dd>±2 uur</dd></dl>
+          <dl class="info-cell"><dt>Luchthaven</dt><dd>Uber ±1u van bushalte</dd></dl>
+          <dl class="info-cell"><dt>Vlucht</dt><dd style="color:#1A4A2E;font-weight:600;">20:20 MDE→CTG · 3C8F4V</dd></dl>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="prac-block">
+    <h3>📌 Praktische noten Guatapé</h3>
+    <div class="prac-item"><span class="pi">⏰</span><span><strong>Tijdplanning:</strong> Uiterlijk 15u00 vertrekken naar Medellín op dag 11. Vlucht naar Cartagena om 20:20!</span></div>
+    <div class="prac-item"><span class="pi">🛺</span><span><strong>Tuktuk:</strong> Neem een tuktuk van het centrum naar La Piedra. Klein bedrag, onderhandelbaar.</span></div>
+    <div class="prac-item"><span class="pi">💵</span><span><strong>Cash:</strong> Guatapé is een klein toeristendorp — breng cash mee. ATM aanwezig maar niet altijd werkzaam.</span></div>
+    <div class="prac-item"><span class="pi">🌊</span><span><strong>Bootjes:</strong> Er zijn ook bootjes op het meer. Leuk als er tijd over is.</span></div>
+  </div>
+
+</div>
+<div class="footer">🇨🇴 Colombia · Guatapé · Dag 10</div>
+</body>
+</html>

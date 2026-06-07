@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🌴 Tayrona NP · Colombia 24 Dagen</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:#0F172A;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:#0369A1;border-bottom-color:#0369A1;}
+.hero{background:linear-gradient(135deg,#0C1A2E,#0369A1,#0891B2);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.day-banner{background:linear-gradient(135deg,#0C1A2E,#0369A1);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
+.day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
+.day-banner h2{font-size:1.1rem;font-weight:700;}
+.day-banner p{font-size:0.82rem;opacity:0.78;margin-top:0.2rem;}
+.warn-block{background:linear-gradient(135deg,#451A03,#9A3412);border-radius:14px;padding:1.1rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.warn-block h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem;}
+.warn-block p{font-size:0.85rem;opacity:0.9;line-height:1.5;}
+.route-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:1.4rem;}
+.route-block h3{font-size:0.9rem;font-weight:800;color:#0369A1;margin-bottom:0.8rem;text-transform:uppercase;}
+.route-row{display:flex;gap:0.7rem;align-items:flex-start;padding:0.35rem 0;border-bottom:1px solid #F5F0E8;}
+.route-row:last-child{border-bottom:none;}
+.route-dot{width:8px;height:8px;border-radius:50%;margin-top:0.35rem;flex-shrink:0;}
+.route-time{font-size:0.72rem;font-weight:700;color:var(--muted);min-width:2.5rem;flex-shrink:0;}
+.route-label{font-size:0.84rem;} .route-sub{font-size:0.72rem;color:var(--muted);}
+.timeline{position:relative;padding-left:2.5rem;}
+.timeline::before{content:'';position:absolute;left:0.85rem;top:0;bottom:0;width:2px;background:var(--border);}
+.event{position:relative;margin-bottom:1rem;}
+.event::before{content:'';position:absolute;left:-1.85rem;top:0.9rem;width:10px;height:10px;border-radius:50%;background:#0369A1;border:2px solid white;box-shadow:0 0 0 2px #93C5FD;}
+.event.green::before{background:#16A34A;box-shadow:0 0 0 2px #86EFAC;}
+.event.transit::before{background:#9CA3AF;box-shadow:0 0 0 2px #E5E7EB;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.95rem 1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.card.blue{border-left:4px solid #0369A1;} .card.green{border-left:4px solid #16A34A;}
+.card.transit{border-left:4px solid #9CA3AF;}
+.card .time{font-size:0.72rem;font-weight:700;color:var(--muted);margin-bottom:0.3rem;}
+.card h3{font-size:0.97rem;font-weight:700;margin-bottom:0.25rem;}
+.card .desc{font-size:0.85rem;color:var(--muted);line-height:1.5;}
+.card .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.55rem;}
+.chip{font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
+.chip.price{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
+.chip.warn{background:#FFF7ED;border-color:#FDB97D;color:#92400E;}
+.chip.dist{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.card-details{border:1px solid #93C5FD;border-radius:8px;overflow:hidden;margin-top:0.7rem;}
+.card-details summary{padding:0.6rem 0.9rem;cursor:pointer;font-size:0.82rem;font-weight:700;background:#EFF6FF;list-style:none;display:flex;align-items:center;justify-content:space-between;color:#1E40AF;}
+.card-details summary::-webkit-details-marker{display:none;}
+.card-details summary::after{content:'＋';font-size:1rem;}
+.card-details[open] summary::after{content:'－';}
+.details-body{padding:0.9rem 1rem;font-size:0.82rem;color:var(--muted);line-height:1.65;background:white;}
+.details-body p{margin-bottom:0.6rem;} .details-body strong{color:var(--text);}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:0.7rem 0;}
+.info-cell{padding:0.55rem 0.75rem;background:#FAFAFA;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+.info-cell:nth-child(2n){border-right:none;} .info-cell:nth-last-child(-n+2){border-bottom:none;}
+.info-cell.full{grid-column:1/-1;border-right:none;}
+.info-cell dt{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:0.15rem;}
+.info-cell dd{font-size:0.82rem;} .info-cell dd.hi{color:#0369A1;font-weight:600;} .info-cell dd.warn{color:#D97706;}
+.prac-block{background:linear-gradient(135deg,#0C1A2E,#0369A1);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.prac-block h3{font-size:1rem;font-weight:700;margin-bottom:0.75rem;}
+.prac-item{display:flex;gap:0.6rem;align-items:flex-start;margin-bottom:0.5rem;font-size:0.84rem;line-height:1.5;}
+.prac-item:last-child{margin-bottom:0;} .prac-item .pi{min-width:1.2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html" class="active">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <h1>🌴 Tayrona NP</h1>
+  <p class="sub">Dag 17–18 · Nationaal Park · Jungle & Paradijselijk Strand</p>
+  <div class="badges">
+    <span class="badge">⚠️ Check opening vóór vertrek!</span>
+    <span class="badge">🌴 Jungle wandelingen</span>
+    <span class="badge">🏝️ Afgelegen stranden</span>
+    <span class="badge">🎒 Paspoort meenemen!</span>
+    <span class="badge">🏨 Quetzal Dorado Eco-Lodge</span>
+  </div>
+</div>
+
+<div class="section">
+
+  <div class="warn-block">
+    <h3>⚠️ BELANGRIJK: Controleer of het park OPEN is!</h3>
+    <p>Tayrona Nationaal Park is 3 keer per jaar 2 weken gesloten voor ecologisch herstel: <strong>begin februari, begin juni en eind oktober</strong>. Controleer op parquesnacionales.gov.co vóór vertrek of het park open is op jullie reisdagen!</p>
+  </div>
+
+  <div class="day-banner">
+    <div class="dn">17–18</div>
+    <div>
+      <h2>Tayrona Nationaal Park — Caribische Jungle</h2>
+      <p>2 nachten · Quetzal Dorado Eco-Lodge · €122 incl. ontbijt · Airco · Zwembad · 1,5 km wandelen tot parksingang</p>
+    </div>
+  </div>
+
+  <!-- DAG 17 -->
+  <div class="route-block">
+    <h3>📍 Dag 17 — Transport Minca → Tayrona</h3>
+    <div class="route-row"><div class="route-dot" style="background:#9CA3AF;"></div><div class="route-time">VM</div><div><div class="route-label">🚐 Bus/taxi Minca → Santa Marta</div><div class="route-sub">Aan het dorpje beneden is de halte waar jullie werden afgezet — daar ook bus terug nemen</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#0369A1;"></div><div class="route-time">NM</div><div><div class="route-label">🚌 Santa Marta → Tayrona NP</div><div class="route-sub">Check met Quetzal Dorado Eco-Lodge hoe je het beste aankomt!</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#0369A1;"></div><div class="route-time">NM</div><div><div class="route-label">🚶 1,5 km wandelen tot ingang park</div><div class="route-sub">Eco-Lodge ligt 1,5 km van de parksingang</div></div></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="event transit">
+      <div class="card transit">
+        <div class="time">Dag 17 · Transport</div>
+        <h3>🚌 Minca → Santa Marta → Tayrona</h3>
+        <p class="desc">Terug naar de bushalte onderaan Minca (zelfde halte waar je aankwam). Bus naar Santa Marta, dan verder naar Tayrona. Neem contact op met het Quetzal Dorado Eco-Lodge voor transportadvies specifiek voor hun locatie.</p>
+        <div class="meta">
+          <span class="chip warn">📞 Check met Quetzal Dorado voor beste route</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="card blue">
+        <div class="time">Dag 17–18 · Park activiteiten</div>
+        <h3>🌴 Tayrona Nationaal Park — Hikes & Stranden</h3>
+        <p class="desc">Het park combineert tropisch regenwoud met het Caribisch Zeekust — de Andes-uitlopers dalen letterlijk in de zee. Wandelingen door de jungle leiden naar geïsoleerde stranden zoals Cabo San Juan, La Piscina en Arrecifes.</p>
+        <div class="meta">
+          <span class="chip price">💶 Parkentree apart betalen</span>
+          <span class="chip warn">🎒 Paspoort meenemen! (geen kopie)</span>
+          <span class="chip">🌡️ Veel water en muggenspray</span>
+          <span class="chip">☀️ Zonnecrème</span>
+        </div>
+        <details class="card-details">
+          <summary>Praktisch park info & beste stranden</summary>
+          <div class="details-body">
+            <p><strong>Meenemen:</strong> Paspoort (verplicht, geen kopie), zwemgerei, voldoende water (2L+ p.p.), zonnecrème, muggenspray, lichte wandelschoenen of slippers die nat mogen worden.</p>
+            <p><strong>Beste stranden:</strong></p>
+            <ul>
+              <li><strong>Cabo San Juan:</strong> Het meest iconische strand — palmbomen, grote rotsen, turquoise water. ±2u wandelen van de ingang. Hangen in een hangmat in de palmbomen.</li>
+              <li><strong>La Piscina:</strong> Kalme lagune, ideaal voor zwemmen. Korter te bereiken.</li>
+              <li><strong>Arrecifes:</strong> Indrukwekkend maar gevaarlijk voor zwemmen — sterke onderstroom.</li>
+            </ul>
+            <p><strong>Zwemmen:</strong> Sommige stranden zijn gevaarlijk door onderstromen. Volg altijd de vlaggen: groen = veilig, geel = opgelet, rood = verboden te zwemmen.</p>
+            <p><strong>Wildlife:</strong> Kansen op miereneters, howler monkeys, kleurrijke vogels, agouts en zelfs capibara's langs de wandelpaden.</p>
+            <div class="info-grid">
+              <dl class="info-cell"><dt>Openingstijden</dt><dd class="hi">Check parquesnacionales.gov.co</dd></dl>
+              <dl class="info-cell"><dt>Paspoort</dt><dd class="warn">Verplicht (geen kopie!)</dd></dl>
+              <dl class="info-cell"><dt>Wandeling ingang→strand</dt><dd>±1,5–2 uur</dd></dl>
+              <dl class="info-cell full"><dt>Tip</dt><dd>Vroeg vertrekken (v.a. 7u) voor de hitte en drukte. Strand verlaten voor 16u voor terugweg.</dd></dl>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="prac-block">
+    <h3>📌 Praktische noten Tayrona</h3>
+    <div class="prac-item"><span class="pi">⚠️</span><span><strong>OPEN CHECK:</strong> Controleer op parquesnacionales.gov.co of het park open is! Gesloten begin februari, begin juni en eind oktober.</span></div>
+    <div class="prac-item"><span class="pi">🎒</span><span><strong>Paspoort:</strong> Origineel paspoort verplicht bij parksingang — geen kopie geaccepteerd!</span></div>
+    <div class="prac-item"><span class="pi">💧</span><span><strong>Water:</strong> Neem minstens 2L water mee per persoon. In het park is water beperkt beschikbaar.</span></div>
+    <div class="prac-item"><span class="pi">🌊</span><span><strong>Zwemvlaggen:</strong> Volg altijd de kleurcode. Arrecifes is gevaarlijk — nooit zwemmen bij rode vlag.</span></div>
+    <div class="prac-item"><span class="pi">🐒</span><span><strong>Bagage:</strong> Laat waardevolle spullen in de lodge. Apen in het park zijn nieuwsgierig naar rugzakken.</span></div>
+    <div class="prac-item"><span class="pi">🚌</span><span><strong>Dag 19:</strong> Tayrona → Palomino. Rustig na ontbijt (±10–11u). Reistijd ±45 minuten. Check met lodge voor transport.</span></div>
+  </div>
+
+</div>
+<div class="footer">🇨🇴 Colombia · Tayrona NP · Dag 17–18</div>
+</body>
+</html>

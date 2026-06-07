@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>☕ Salento · Colombia 24 Dagen</title>
+<style>
+:root{--navy:#1A4A2E;--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:#78350F;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:#78350F;border-bottom-color:#78350F;}
+.hero{background:linear-gradient(135deg,#451A03,#78350F,#92400E);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.day-banner{background:linear-gradient(135deg,#451A03,#78350F);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
+.day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
+.day-banner h2{font-size:1.1rem;font-weight:700;}
+.day-banner p{font-size:0.82rem;opacity:0.78;margin-top:0.2rem;}
+.route-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:1.4rem;}
+.route-block h3{font-size:0.9rem;font-weight:800;color:#78350F;margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.5px;}
+.route-row{display:flex;gap:0.7rem;align-items:flex-start;padding:0.35rem 0;border-bottom:1px solid #F5F0E8;}
+.route-row:last-child{border-bottom:none;}
+.route-dot{width:8px;height:8px;border-radius:50%;margin-top:0.35rem;flex-shrink:0;}
+.route-time{font-size:0.72rem;font-weight:700;color:var(--muted);min-width:2.5rem;flex-shrink:0;}
+.route-label{font-size:0.84rem;}
+.route-sub{font-size:0.72rem;color:var(--muted);}
+.timeline{position:relative;padding-left:2.5rem;}
+.timeline::before{content:'';position:absolute;left:0.85rem;top:0;bottom:0;width:2px;background:var(--border);}
+.event{position:relative;margin-bottom:1rem;}
+.event::before{content:'';position:absolute;left:-1.85rem;top:0.9rem;width:10px;height:10px;border-radius:50%;background:#F59E0B;border:2px solid white;box-shadow:0 0 0 2px #FDE68A;}
+.event.green::before{background:#1A4A2E;box-shadow:0 0 0 2px #86EFAC;}
+.event.red::before{background:#EF4444;box-shadow:0 0 0 2px #FCA5A5;}
+.event.transit::before{background:#9CA3AF;box-shadow:0 0 0 2px #E5E7EB;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.95rem 1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.card.coffee{border-left:4px solid #F59E0B;}
+.card.nature{border-left:4px solid #1A4A2E;}
+.card.transport{border-left:4px solid #9CA3AF;}
+.card .time{font-size:0.72rem;font-weight:700;color:var(--muted);margin-bottom:0.3rem;}
+.card h3{font-size:0.97rem;font-weight:700;margin-bottom:0.25rem;}
+.card .desc{font-size:0.85rem;color:var(--muted);line-height:1.5;}
+.card .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.55rem;}
+.chip{font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
+.chip.price{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
+.chip.warn{background:#FFF7ED;border-color:#FDB97D;color:#92400E;}
+.chip.dist{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.card-details{border:1px solid #FDE68A;border-radius:8px;overflow:hidden;margin-top:0.7rem;}
+.card-details summary{padding:0.6rem 0.9rem;cursor:pointer;font-size:0.82rem;font-weight:700;background:#FEF3C7;list-style:none;display:flex;align-items:center;justify-content:space-between;color:#78350F;}
+.card-details summary::-webkit-details-marker{display:none;}
+.card-details summary::after{content:'＋';font-size:1rem;}
+.card-details[open] summary::after{content:'－';}
+.details-body{padding:0.9rem 1rem;font-size:0.82rem;color:var(--muted);line-height:1.65;background:white;}
+.details-body p{margin-bottom:0.6rem;} .details-body strong{color:var(--text);}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:0.7rem 0;}
+.info-cell{padding:0.55rem 0.75rem;background:#FAFAFA;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+.info-cell:nth-child(2n){border-right:none;} .info-cell:nth-last-child(-n+2){border-bottom:none;}
+.info-cell.full{grid-column:1/-1;border-right:none;}
+.info-cell dt{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:0.15rem;}
+.info-cell dd{font-size:0.82rem;} .info-cell dd.hi{color:#78350F;font-weight:600;}
+.walk-pill{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:#78350F;background:#FEF3C7;border:1px solid #FDE68A;padding:0.35rem 0.75rem;border-radius:20px;margin-top:0.65rem;}
+.prac-block{background:linear-gradient(135deg,#451A03,#78350F);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.prac-block h3{font-size:1rem;font-weight:700;margin-bottom:0.75rem;}
+.prac-item{display:flex;gap:0.6rem;align-items:flex-start;margin-bottom:0.5rem;font-size:0.84rem;line-height:1.5;}
+.prac-item:last-child{margin-bottom:0;} .prac-item .pi{min-width:1.2rem;}
+.sec-divider{font-size:0.85rem;font-weight:800;color:#78350F;margin:1.5rem 0 0.8rem;text-transform:uppercase;letter-spacing:0.5px;border-top:2px solid var(--border);padding-top:1rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html" class="active">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <h1>☕ Salento</h1>
+  <p class="sub">Dag 4–6 · Koffiestreek · Valle de Cocora · Waspalmen</p>
+  <div class="badges">
+    <span class="badge">🚌 Bus via Armenia</span>
+    <span class="badge">🌿 Hike 13 km</span>
+    <span class="badge">☕ Koffieboerderij</span>
+    <span class="badge">🌴 Hoogste waspalmen ter wereld</span>
+    <span class="badge">🏨 Casa Salento</span>
+  </div>
+</div>
+
+<div class="section">
+
+  <div class="day-banner">
+    <div class="dn">4–6</div>
+    <div>
+      <h2>Salento — Hart van de Koffiestreek</h2>
+      <p>3 nachten · Casa Salento · €191 incl. ontbijt · Centraal plein op loopafstand</p>
+    </div>
+  </div>
+
+  <!-- DAG 4 -->
+  <div class="sec-divider">📅 Dag 4 — Aankomst via Bus</div>
+  <div class="route-block">
+    <h3>📍 Dag 4 — Busrit Bogotá → Salento</h3>
+    <div class="route-row"><div class="route-dot" style="background:#9CA3AF;"></div><div class="route-time">6u30</div><div><div class="route-label">Taxi van hotel naar busstation Bogotá</div><div class="route-sub">±30 min rijden · Vroeg vertrekken om 6u30</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#F59E0B;"></div><div class="route-time">7u30</div><div><div class="route-label">Aanwezig op busstation Bogotá</div><div class="route-sub">Lunchpakket meevragen bij hotel de avond ervoor!</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#F59E0B;"></div><div class="route-time">8u</div><div><div class="route-label">🚌 Bus Bogotá → Armenia (Bolivariano)</div><div class="route-sub">bolivariano.com.co · Reistijd ±5–6 uur</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#F59E0B;"></div><div class="route-time">Middag</div><div><div class="route-label">🚌 In Armenia: bus naar Salento</div><div class="route-sub">Ter plekke bus nemen vanuit Armenia terminal</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#1A4A2E;"></div><div class="route-time">Avond</div><div><div class="route-label">🏨 Installeren in Casa Salento</div><div class="route-sub">Iets eten op het centraal plein (walking distance)</div></div></div>
+  </div>
+
+  <div class="timeline">
+    <div class="event transit">
+      <div class="card transport">
+        <div class="time">Dag 4 · Hele dag transport</div>
+        <h3>🚌 Busrit Bogotá → Armenia → Salento</h3>
+        <p class="desc">Een lange maar prachtige rit door de Andes naar de koffiestreek. Ticket boeken via Bolivariano (bolivariano.com.co). In Armenia overstap naar lokale bus richting Salento — geen reservering nodig, gewoon instappen.</p>
+        <div class="meta">
+          <span class="chip warn">⏰ 6u30 vertrekken van hotel!</span>
+          <span class="chip dist">📍 Bus station Bogotá</span>
+          <span class="chip">🥪 Lunchpakket meevragen</span>
+        </div>
+        <details class="card-details">
+          <summary>Busticket en praktisch advies</summary>
+          <div class="details-body">
+            <p><strong>Boeken:</strong> bolivariano.com.co — ticket online boeken voor Bogotá → Armenia. In Armenia ter plaatse bus pakken naar Salento (goedkoop, geen boeking nodig).</p>
+            <p><strong>Lunchpakket:</strong> De avond voor dag 4 vragen aan het hotel om een lunchpakket klaar te maken. Er zijn weinig stops onderweg.</p>
+            <p><strong>Taxi naar station:</strong> Vanuit Masaya Bogotá duurt het ±30 min met taxi. Uber om 6u30 bestellen.</p>
+            <div class="info-grid">
+              <dl class="info-cell"><dt>Vertrek hotel</dt><dd class="hi">6u30</dd></dl>
+              <dl class="info-cell"><dt>Op station</dt><dd class="hi">7u30</dd></dl>
+              <dl class="info-cell"><dt>Bus vertrekt</dt><dd>8u00</dd></dl>
+              <dl class="info-cell"><dt>Boeken</dt><dd>bolivariano.com.co</dd></dl>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAG 5 -->
+  <div class="sec-divider">📅 Dag 5 — Valle de Cocora Hike</div>
+  <div class="route-block">
+    <h3>📍 Dag 5 op één blik</h3>
+    <div class="route-row"><div class="route-dot" style="background:#F59E0B;"></div><div class="route-time">VM</div><div><div class="route-label">🚐 Jeep naar startpunt wandeling</div><div class="route-sub">Centraal plein · €2 p.p. · Jeep regelen in hotel</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#1A4A2E;"></div><div class="route-time">Dag</div><div><div class="route-label">🥾 Hike Valle de Cocora (13 km)</div><div class="route-sub">€4,25 p.p. entree · Waspalmen · Jungle loop</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#F59E0B;"></div><div class="route-time">NM</div><div><div class="route-label">🚐 Jeep terug naar Salento</div><div class="route-sub">Wachten tot jeep vol is · Let op laatste jeep!</div></div></div>
+  </div>
+
+  <div class="timeline">
+    <div class="event">
+      <div class="card coffee">
+        <div class="time">Vroeg vertrek · Jeep €2 p.p.</div>
+        <h3>🚐 Jeep naar Valle de Cocora</h3>
+        <p class="desc">'s Ochtends staan er jeeps te wachten op het centrale plein. €2 p.p. voor de rit naar het begin van de wandeling. Regelen kan ook via het hotel.</p>
+        <div class="meta">
+          <span class="chip price">💶 €2 p.p. enkele rit</span>
+          <span class="chip dist">📍 Centraal plein Salento</span>
+        </div>
+        <div class="walk-pill">⚠️ Let op de tijd van de laatste jeep terug!</div>
+      </div>
+    </div>
+
+    <div class="event green">
+      <div class="card nature">
+        <div class="time">Volledige dag · 13 km</div>
+        <h3>🌿 Hike Valle de Cocora — Waspalmen & Jungle</h3>
+        <p class="desc">Een van de mooiste wandelingen van Colombia: door een mistige jungleloop langs beken, hängebrug en uiteindelijk naar de open vallei met de imposante waspalmen — de nationale boom van Colombia en de hoogste palmbomen ter wereld (tot 60m).</p>
+        <div class="meta">
+          <span class="chip price">💶 €4,25 p.p. entree</span>
+          <span class="chip">🥾 13 km · ~5–6 uur</span>
+          <span class="chip warn">💧 Voldoende water mee!</span>
+        </div>
+        <details class="card-details">
+          <summary>Route-uitleg & tips voor de hike</summary>
+          <div class="details-body">
+            <p><strong>BELANGRIJK:</strong> Wanneer je uit de jeep stapt, moet je <strong>NIET</strong> de hoofdweg naar de palmbomen volgen, maar <strong>RECHTS het veld inwandelen</strong>. Daar begint de hike door de jungle. Vraag dit na in het hotel — zij geven normaal een plannetje.</p>
+            <p><strong>Route:</strong> Jungle loop → beken oversteken → hängebrug → kolibrie-tuin → dan uitkomen bij de waspalmen in de open vallei. Terug langs de hoofdweg.</p>
+            <p><strong>Meenemen:</strong> Voldoende water (minstens 1,5L p.p.), snacks, regenjas (misty jungle!), goede wandelschoenen. Zonnecrème voor het open deel bij de palmbomen.</p>
+            <p><strong>Terug:</strong> Wacht aan het beginpunt van de jeeps. Kan zijn dat je even wacht tot de jeep vol is.</p>
+            <div class="info-grid">
+              <dl class="info-cell"><dt>Entree</dt><dd class="hi">€4,25 p.p.</dd></dl>
+              <dl class="info-cell"><dt>Afstand</dt><dd>13 km</dd></dl>
+              <dl class="info-cell"><dt>Duur</dt><dd>5–6 uur</dd></dl>
+              <dl class="info-cell"><dt>Niveau</dt><dd>Gemiddeld · glibberig bij regen</dd></dl>
+              <dl class="info-cell full"><dt>Tip</dt><dd>Vertrek vroeg — voor 8u als mogelijk. Hoe vroeger, hoe minder mensen en hoe beter het licht voor foto's.</dd></dl>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAG 6 -->
+  <div class="sec-divider">📅 Dag 6 — Koffieboerderij & Mirador</div>
+
+  <div class="timeline">
+    <div class="event">
+      <div class="card coffee">
+        <div class="time">Dag 6 · Voormiddag</div>
+        <h3>☕ Koffieboerderij — Finca Las Acacías</h3>
+        <p class="desc">Een rondleiding op een werkende koffie-finca. Ontdek het volledige proces van koffieboon tot kopje: plukken, fermentatie, drogen, roosteren. Inclusief koffieproeverij. Een must in de koffiestreek!</p>
+        <div class="meta">
+          <span class="chip price">💶 €5 p.p.</span>
+          <span class="chip">☕ Finca Las Acacías</span>
+          <span class="chip">~2 uur</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event green">
+      <div class="card nature">
+        <div class="time">Dag 6 · Namiddag/Avond</div>
+        <h3>🌅 Mirador van Salento — Zonsondergang</h3>
+        <p class="desc">Wandel door het kleurrijke dorpje Salento en klim naar de Mirador (Alto de la Cruz) voor een panoramisch uitzicht over de groene heuvels van de koffiestreek. Perfecte plek voor de zonsondergang.</p>
+        <div class="meta">
+          <span class="chip price">💶 Gratis</span>
+          <span class="chip dist">📍 Alto de la Cruz · 253 treden</span>
+          <span class="chip">🌅 Zonsondergang</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRAKTISCHE NOTEN -->
+  <div class="prac-block">
+    <h3>📌 Praktische noten Salento</h3>
+    <div class="prac-item"><span class="pi">🚌</span><span><strong>Dag 4 bus:</strong> Lunchpakket avond tevoren vragen bij hotel! Vroeg vertrekken (6u30 van hotel).</span></div>
+    <div class="prac-item"><span class="pi">🚐</span><span><strong>Jeeps Valle de Cocora:</strong> 's Ochtends staan ze op het plein. Regelen kan ook via hotel. Let op laatste jeep terug.</span></div>
+    <div class="prac-item"><span class="pi">🥾</span><span><strong>Hike:</strong> Niet de hoofdweg nemen maar rechts het veld in bij de jeepstop. Vraag plannetje bij hotel. Genoeg water en snacks meenemen.</span></div>
+    <div class="prac-item"><span class="pi">🚌</span><span><strong>Dag 7:</strong> Bus Salento → Terminal del Sur Medellín om 9u30. Om 9u aanwezig op het busstation in Salento.</span></div>
+    <div class="prac-item"><span class="pi">💵</span><span><strong>Cash:</strong> Kleine plaatsen zoals jeep en koffieboerderij werken cash. Zorg voor pesos.</span></div>
+  </div>
+
+</div>
+<div class="footer">🇨🇴 Colombia · Salento · Dag 4–6</div>
+</body>
+</html>

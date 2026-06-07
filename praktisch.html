@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>📌 Praktisch · Colombia 24 Dagen</title>
+<style>
+:root {
+  --navy:#1A4A2E; --gold:#C9962A; --red:#B91C1C;
+  --cream:#FAF8F4; --card:#FFFFFF; --border:#E5E0D8;
+  --text:#1C2A1E; --muted:#4A5E4D;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
+.hero{background:linear-gradient(135deg,#263238,#37474F,#455A64);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.sec-title{font-size:1rem;font-weight:800;margin-bottom:0.9rem;color:var(--text);text-transform:uppercase;letter-spacing:0.4px;}
+.day-header{background:linear-gradient(135deg,#263238,#37474F);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.2rem;color:white;display:flex;align-items:center;gap:1rem;}
+.day-header .dn{font-size:2rem;font-weight:900;opacity:0.85;}
+.day-header h2{font-size:1.1rem;font-weight:700;}
+.day-header p{font-size:0.82rem;opacity:0.78;margin-top:0.2rem;}
+.prac-grid{display:grid;gap:0.65rem;margin-bottom:1.6rem;}
+.prac-item{background:white;border-radius:10px;padding:0.85rem 1rem;border:1px solid var(--border);}
+.prac-item h4{font-size:0.88rem;font-weight:700;margin-bottom:0.2rem;color:var(--navy);}
+.prac-item p{font-size:0.81rem;color:var(--muted);line-height:1.5;}
+.res-block{background:linear-gradient(135deg,#7C2D12,#9A3412);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.6rem;}
+.res-block h3{font-size:0.95rem;font-weight:800;margin-bottom:0.85rem;text-transform:uppercase;}
+.res-item{display:flex;gap:0.65rem;align-items:flex-start;margin-bottom:0.6rem;font-size:0.83rem;line-height:1.5;}
+.res-item:last-child{margin-bottom:0;}
+.res-item .ri{min-width:1.3rem;}
+.res-item strong{display:block;font-size:0.85rem;}
+.res-item span{opacity:0.82;font-size:0.78rem;}
+.res-urgent{background:rgba(255,255,255,0.18);border-radius:6px;padding:0.15rem 0.55rem;font-size:0.7rem;font-weight:800;display:inline-block;margin-left:0.35rem;vertical-align:middle;}
+.warn-bar{background:#FEF3C7;border:1px solid #FCD34D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.4rem;font-size:0.83rem;color:#78350F;line-height:1.5;}
+.cash-bar{background:#FFF7ED;border:1px solid #FDB97D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.4rem;font-size:0.83rem;color:#92400E;line-height:1.5;}
+.ov-table{background:white;border-radius:12px;border:1px solid var(--border);overflow:hidden;margin-bottom:1.6rem;}
+.ov-row{display:flex;gap:0;border-bottom:1px solid var(--border);align-items:stretch;}
+.ov-row:last-child{border-bottom:none;}
+.ov-day{min-width:80px;padding:0.7rem 0.6rem;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;text-align:center;}
+.ov-content{padding:0.7rem 0.9rem;flex:1;border-left:1px solid var(--border);}
+.ov-content strong{font-size:0.85rem;display:block;margin-bottom:0.1rem;}
+.ov-content span{font-size:0.76rem;color:var(--muted);}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.prac-grid{grid-template-columns:1fr 1fr;}.hero h1{font-size:2.3rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="praktisch.html" class="active">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <h1>📌 Praktisch</h1>
+  <p class="sub">Alles wat je moet weten · Colombia · 24 Dagen · 2 personen</p>
+  <div class="badges">
+    <span class="badge">💵 Geld & ATM</span>
+    <span class="badge">🚖 Transport</span>
+    <span class="badge">📱 Simkaart</span>
+    <span class="badge">🔒 Veiligheid</span>
+    <span class="badge">🌡️ Gezondheid</span>
+  </div>
+</div>
+
+<div class="section">
+
+  <div class="day-header">
+    <div class="dn">📌</div>
+    <div><h2>Praktische Info & Reservaties</h2><p>2 personen · Colombia · 24 dagen</p></div>
+  </div>
+
+  <!-- RESERVEER OVERZICHT -->
+  <div class="sec-title">📞 Dit Moet Je Regelen Vóór Vertrek</div>
+  <div class="res-block">
+    <h3>Boekingen & Reservaties</h3>
+    <div class="res-item">
+      <span class="ri">🚌</span>
+      <div>
+        <strong>Bus Bogotá → Armenia (Dag 4) <span class="res-urgent">BOEKEN</span></strong>
+        <span>bolivariano.com.co · 7u30 aanwezig, 8u vertrek · Lunchpakket vragen in hotel!</span>
+      </div>
+    </div>
+    <div class="res-item">
+      <span class="ri">🚌</span>
+      <div>
+        <strong>Bus Salento → Medellín (Dag 7) <span class="res-urgent">BOEKEN</span></strong>
+        <span>flotaoccidental.co · 9u aanwezig, 9u30 vertrek</span>
+      </div>
+    </div>
+    <div class="res-item">
+      <span class="ri">🛶</span>
+      <div>
+        <strong>Rosario Eilanden tour (Dag 13)</strong>
+        <span>GetYourGuide · ±€52 p.p. · Of El Totumo modderbad</span>
+      </div>
+    </div>
+    <div class="res-item">
+      <span class="ri">🚌</span>
+      <div>
+        <strong>Bus Cartagena → Santa Marta (Dag 14)</strong>
+        <span>bookaway.com · Elk uur een bus · Na ontbijt vertrekken</span>
+      </div>
+    </div>
+    <div class="res-item">
+      <span class="ri">⛏️</span>
+      <div>
+        <strong>Zoutmijnen Zipaquirá Tour (Dag 24)</strong>
+        <span>Georganiseerde tour vanuit Bogotá · Terug ~16u · Vlucht 21:35</span>
+      </div>
+    </div>
+    <div class="res-item">
+      <span class="ri">⚠️</span>
+      <div>
+        <strong>Tayrona NP: Check openingsdatum! <span class="res-urgent">VERPLICHT</span></strong>
+        <span>parquesnacionales.gov.co · Gesloten: begin feb, begin juni, eind okt</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASH STRATEGIE -->
+  <div class="cash-bar">
+    💵 <strong>Cash-strategie:</strong> Dag 2 (Bogotá): Davivienda ATM — max €400/opname, geen commissie. Neem ook $300 USD mee uit België voor wisselkantoren. Dag 12 (Cartagena): LAATSTE KANS voor grote ATM-opnames! Daarna enkel kleine plaatsen. Altijd cash hebben voor kleine steden (Salento, Minca, Tayrona, Palomino).
+  </div>
+
+  <!-- TAYRONA WAARSCHUWING -->
+  <div class="warn-bar">
+    ⚠️ <strong>Tayrona:</strong> Controleer op parquesnacionales.gov.co of het park open is. Gesloten ±3x per jaar (begin feb, begin juni, eind okt). Paspoort meenemen bij bezoek — geen kopie.
+  </div>
+
+  <!-- ESSENTIËLE INFO -->
+  <div class="sec-title">ℹ️ Essentiële Info</div>
+  <div class="prac-grid">
+    <div class="prac-item">
+      <h4>🚖 Transport in Colombia</h4>
+      <p><strong>Uber/Cabify:</strong> Altijd gebruiken in steden. Nooit officiële taxichauffeurs van de luchthaven nemen!<br>
+      <strong>Bussen:</strong> Veilig en goedkoop voor lange afstanden.<br>
+      <strong>Bogotá luchthaven (dag 23):</strong> UBER nemen, nooit een bus!</p>
+    </div>
+    <div class="prac-item">
+      <h4>📱 Simkaart & Internet</h4>
+      <p>E-sim activeren op dag 1 in het hotel:<br>
+      Verbindingen → SIM beheer → Sim1 Global → mobiel internet: roaming aan.<br>
+      WiFi aanwezig in alle hotels.</p>
+    </div>
+    <div class="prac-item">
+      <h4>💵 Geld & Betalen</h4>
+      <p>Munteenheid: Colombiaanse peso (COP)<br>
+      €1 ≈ 4500 COP (wisselkoers variabel)<br>
+      Davivienda: beste ATM (geen commissie, max €400)<br>
+      Dollars: nuttig als backup<br>
+      Kleine plaatsen: cash-only</p>
+    </div>
+    <div class="prac-item">
+      <h4>🔒 Veiligheid</h4>
+      <p>Colombia is veilig voor toeristen als je voorzorgen neemt:<br>
+      • Nooit telefoon ostentatief tonen<br>
+      • 's Avonds Uber gebruiken<br>
+      • Toeristische wijken zijn overdag veilig<br>
+      • Noodnummer: <strong>123</strong></p>
+    </div>
+    <div class="prac-item">
+      <h4>🏔️ Hoogteverschil Bogotá</h4>
+      <p>Bogotá: 2640m hoogte. De eerste 2 dagen rustig aan doen. Symptomen: hoofdpijn, vermoeidheid, kortademigheid. Geen alcohol op dag 1. Voldoende water drinken. Hoogtepillen (Acetazolamide) optioneel.</p>
+    </div>
+    <div class="prac-item">
+      <h4>🌡️ Klimaat</h4>
+      <p><strong>Bogotá/Salento:</strong> 15–20°C (koud 's avonds)<br>
+      <strong>Medellín:</strong> 22–28°C, "eeuwige lente"<br>
+      <strong>Cartagena/kust:</strong> 30–35°C, heet en vochtig<br>
+      <strong>Minca:</strong> Frisser door hoogte<br>
+      <strong>Tayrona/Palomino:</strong> 28–32°C</p>
+    </div>
+    <div class="prac-item">
+      <h4>🦟 Gezondheid & Vaccins</h4>
+      <p>• Muggenspray DEET ≥30% meenemen<br>
+      • Gele koorts vaccin aanbevolen (zeker voor Minca/Tayrona)<br>
+      • Hepatitis A vaccin aanbevolen<br>
+      • Reisapotheek: buikpillen, pleisters, zonnecrème<br>
+      • Bioreafbreekbare zonnecrème voor Tayrona</p>
+    </div>
+    <div class="prac-item">
+      <h4>🗣️ Taal</h4>
+      <p>Spaans. Engels wordt gesproken in toeristische gebieden maar niet overal.<br>
+      Handige zinnen:<br>
+      <em>¿Cuánto cuesta?</em> = Hoeveel kost het?<br>
+      <em>¿Dónde está...?</em> = Waar is...?<br>
+      <em>Gracias</em> = Dank je<br>
+      <em>La cuenta por favor</em> = De rekening graag</p>
+    </div>
+    <div class="prac-item">
+      <h4>💰 Budget per Dag</h4>
+      <p>Hotels: gemiddeld €65/nacht (2 pers, incl. ontbijt)<br>
+      Eten & drinken: €20–40 p.p./dag<br>
+      Activiteiten: variabel (zie per dag)<br>
+      Transport: €5–20/dag<br>
+      <strong>Totaal: ±€80–120 p.p./dag (excl. vluchten)</strong></p>
+    </div>
+    <div class="prac-item">
+      <h4>🆘 Noodgevallen</h4>
+      <p>Noodnummer Colombia: <strong>123</strong><br>
+      Politie: 112<br>
+      EU-reiskaart/verzekering meenemen<br>
+      Ambassade België: Bogotá<br>
+      Bewaar kopie paspoort apart van origineel</p>
+    </div>
+  </div>
+
+  <!-- TRANSPORT OVERZICHT -->
+  <div class="sec-title">🚌 Transport Chronologisch</div>
+  <div class="ov-table">
+    <div class="ov-row" style="border-left:4px solid #1A4A2E;">
+      <div class="ov-day" style="background:#DCFCE7;color:#14532D;">✈️<br><small>Dag 1</small></div>
+      <div class="ov-content"><strong>Vlucht Brussel → Bogotá</strong><span>Uber/Cabify van luchthaven naar hotel. GEEN gewone taxi!</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #78350F;">
+      <div class="ov-day" style="background:#FEF3C7;color:#78350F;">🚌<br><small>Dag 4</small></div>
+      <div class="ov-content"><strong>Bus Bogotá → Armenia → Salento</strong><span>6u30 vertrek hotel · 7u30 op station · 8u bus · bolivariano.com.co</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #A0450D;">
+      <div class="ov-day" style="background:#FFF7ED;color:#A0450D;">🚌<br><small>Dag 7</small></div>
+      <div class="ov-content"><strong>Bus Salento → Medellín Terminal del Sur</strong><span>9u aanwezig · 9u30 bus · flotaoccidental.co</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #4A1A6E;">
+      <div class="ov-day" style="background:#F5F3FF;color:#4A1A6E;">🚌<br><small>Dag 10</small></div>
+      <div class="ov-content"><strong>Bus Medellín → Guatapé (dagtrip)</strong><span>Uber naar bushalte · 2u bus · Max 15u00 terug vertrekken!</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #C9962A;">
+      <div class="ov-day" style="background:#FFFBEB;color:#92400E;">✈️<br><small>Dag 11</small></div>
+      <div class="ov-content"><strong>Vlucht Medellín → Cartagena (20:20–21:25)</strong><span>Booking: 3C8F4V · Van bushalte tot luchthaven ±1u Uber</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #065F46;">
+      <div class="ov-day" style="background:#ECFDF5;color:#065F46;">🚌<br><small>Dag 14</small></div>
+      <div class="ov-content"><strong>Bus Cartagena → Santa Marta → Minca</strong><span>Na ontbijt · bookaway.com · Taxi in SM naar bushalte Minca</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #0369A1;">
+      <div class="ov-day" style="background:#EFF6FF;color:#1E40AF;">🚌<br><small>Dag 17</small></div>
+      <div class="ov-content"><strong>Minca → Santa Marta → Tayrona NP</strong><span>Check met Quetzal Dorado Eco-Lodge voor beste route · 1,5 km wandelen tot lodge</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #0F766E;">
+      <div class="ov-day" style="background:#F0FDFA;color:#134E4A;">🚌<br><small>Dag 19</small></div>
+      <div class="ov-content"><strong>Tayrona → Palomino (±45 min)</strong><span>Na ontbijt · rustig aan · Check met lodge</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #B91C1C;">
+      <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">🚌<br><small>Dag 22</small></div>
+      <div class="ov-content"><strong>Bus Palomino → Cartagena</strong><span>Vorige dagen directe verbinding checken · Na ontbijt vertrekken</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #B91C1C;">
+      <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">✈️<br><small>Dag 23</small></div>
+      <div class="ov-content"><strong>Vlucht Cartagena → Bogotá + UBER!</strong><span>Van luchthaven BOG: UBER nemen naar hotel. NOOIT een bus!</span></div>
+    </div>
+    <div class="ov-row" style="border-left:4px solid #B91C1C;">
+      <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">✈️<br><small>Dag 24</small></div>
+      <div class="ov-content"><strong>Vlucht Bogotá → Brussel (21:35)</strong><span>Zoutmijnen Zipaquirá tour · Terug Bogotá ~16u · Luchthaven ±1u rijden</span></div>
+    </div>
+  </div>
+
+</div>
+<div class="footer">🇨🇴 Colombia · 24 dagen · 2 personen</div>
+</body>
+</html>

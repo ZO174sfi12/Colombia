@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🌊 Cartagena · Colombia 24 Dagen</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:#92400E;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:#92400E;border-bottom-color:#92400E;}
+.hero{background:linear-gradient(135deg,#451A03,#92400E,#B45309);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.day-banner{background:linear-gradient(135deg,#451A03,#92400E);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
+.day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
+.day-banner h2{font-size:1.1rem;font-weight:700;}
+.day-banner p{font-size:0.82rem;opacity:0.78;margin-top:0.2rem;}
+.route-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:1.4rem;}
+.route-block h3{font-size:0.9rem;font-weight:800;color:#92400E;margin-bottom:0.8rem;text-transform:uppercase;}
+.route-row{display:flex;gap:0.7rem;align-items:flex-start;padding:0.35rem 0;border-bottom:1px solid #F5F0E8;}
+.route-row:last-child{border-bottom:none;}
+.route-dot{width:8px;height:8px;border-radius:50%;margin-top:0.35rem;flex-shrink:0;}
+.route-time{font-size:0.72rem;font-weight:700;color:var(--muted);min-width:2.5rem;flex-shrink:0;}
+.route-label{font-size:0.84rem;} .route-sub{font-size:0.72rem;color:var(--muted);}
+.timeline{position:relative;padding-left:2.5rem;}
+.timeline::before{content:'';position:absolute;left:0.85rem;top:0;bottom:0;width:2px;background:var(--border);}
+.event{position:relative;margin-bottom:1rem;}
+.event::before{content:'';position:absolute;left:-1.85rem;top:0.9rem;width:10px;height:10px;border-radius:50%;background:#F59E0B;border:2px solid white;box-shadow:0 0 0 2px #FDE68A;}
+.event.blue::before{background:#0369A1;box-shadow:0 0 0 2px #93C5FD;}
+.event.red::before{background:#EF4444;box-shadow:0 0 0 2px #FCA5A5;}
+.event.transit::before{background:#9CA3AF;box-shadow:0 0 0 2px #E5E7EB;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.95rem 1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.card.gold{border-left:4px solid #F59E0B;} .card.blue{border-left:4px solid #0369A1;}
+.card.red{border-left:4px solid #EF4444;} .card.transit{border-left:4px solid #9CA3AF;}
+.card .time{font-size:0.72rem;font-weight:700;color:var(--muted);margin-bottom:0.3rem;}
+.card h3{font-size:0.97rem;font-weight:700;margin-bottom:0.25rem;}
+.card .desc{font-size:0.85rem;color:var(--muted);line-height:1.5;}
+.card .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.55rem;}
+.chip{font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
+.chip.price{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
+.chip.warn{background:#FFF7ED;border-color:#FDB97D;color:#92400E;}
+.chip.dist{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.card-details{border:1px solid #FDE68A;border-radius:8px;overflow:hidden;margin-top:0.7rem;}
+.card-details summary{padding:0.6rem 0.9rem;cursor:pointer;font-size:0.82rem;font-weight:700;background:#FEF3C7;list-style:none;display:flex;align-items:center;justify-content:space-between;color:#78350F;}
+.card-details summary::-webkit-details-marker{display:none;}
+.card-details summary::after{content:'＋';font-size:1rem;}
+.card-details[open] summary::after{content:'－';}
+.details-body{padding:0.9rem 1rem;font-size:0.82rem;color:var(--muted);line-height:1.65;background:white;}
+.details-body p{margin-bottom:0.6rem;} .details-body strong{color:var(--text);}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:0.7rem 0;}
+.info-cell{padding:0.55rem 0.75rem;background:#FAFAFA;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+.info-cell:nth-child(2n){border-right:none;} .info-cell:nth-last-child(-n+2){border-bottom:none;}
+.info-cell.full{grid-column:1/-1;border-right:none;}
+.info-cell dt{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:0.15rem;}
+.info-cell dd{font-size:0.82rem;} .info-cell dd.hi{color:#92400E;font-weight:600;}
+.keuze-intro{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:0.75rem 1rem;margin-top:0.65rem;font-size:0.83rem;color:#92400E;}
+.prac-block{background:linear-gradient(135deg,#451A03,#92400E);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.prac-block h3{font-size:1rem;font-weight:700;margin-bottom:0.75rem;}
+.prac-item{display:flex;gap:0.6rem;align-items:flex-start;margin-bottom:0.5rem;font-size:0.84rem;line-height:1.5;}
+.prac-item:last-child{margin-bottom:0;} .prac-item .pi{min-width:1.2rem;}
+.cash-bar{background:#FFF7ED;border:1px solid #FDB97D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.4rem;font-size:0.83rem;color:#92400E;line-height:1.5;}
+.sec-divider{font-size:0.85rem;font-weight:800;color:#92400E;margin:1.5rem 0 0.8rem;text-transform:uppercase;border-top:2px solid var(--border);padding-top:1rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html" class="active">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <h1>🌊 Cartagena</h1>
+  <p class="sub">Dag 11–13 · Koloniale Parels · Getsemane · Caribisch Strand</p>
+  <div class="badges">
+    <span class="badge">✈️ Vlucht Medellín 20:20 · 3C8F4V</span>
+    <span class="badge">🏰 Historisch centrum</span>
+    <span class="badge">🏝️ Rosario eilanden</span>
+    <span class="badge">🌋 El Totumo vulkaan</span>
+    <span class="badge">🏨 Hotel 3 Banderas</span>
+  </div>
+</div>
+
+<div class="section">
+
+  <div class="day-banner">
+    <div class="dn">11–13</div>
+    <div>
+      <h2>Cartagena — Koloniale Hoofdstad van de Caribische Kust</h2>
+      <p>3 nachten · Hotel 3 Banderas Getsemane · €243 incl. ontbijt · Zwembad · Airco</p>
+    </div>
+  </div>
+
+  <div class="cash-bar">
+    💵 <strong>Laatste kans voor cash!</strong> Dit is de laatste grote stad met goede ATM-toegang. Haal hier extra pesos op voor de rest van de reis (Minca, Tayrona, Palomino zijn kleine plaatsen).
+  </div>
+
+  <!-- DAG 11 -->
+  <div class="sec-divider">📅 Dag 11 — Aankomst per Vlucht</div>
+  <div class="timeline">
+    <div class="event transit">
+      <div class="card transit">
+        <div class="time">20:20–21:25 · Vlucht</div>
+        <h3>✈️ Vlucht Medellín → Cartagena</h3>
+        <p class="desc">Korte vlucht van de luchthaven Olaya Herrera (MDE) naar Rafael Núñez International Airport (CTG). Boekingsnummer: 3C8F4V.</p>
+        <div class="meta">
+          <span class="chip warn">⚠️ Van bushalte tot luchthaven MDE: ±1u Uber</span>
+          <span class="chip">✈️ 3C8F4V · 20:20–21:25</span>
+        </div>
+        <div class="info-grid">
+          <dl class="info-cell"><dt>Vlucht</dt><dd class="hi">3C8F4V</dd></dl>
+          <dl class="info-cell"><dt>Route</dt><dd>MDE 20:20 → CTG 21:25</dd></dl>
+          <dl class="info-cell"><dt>Na aankomst</dt><dd>Uber naar Hotel 3 Banderas Getsemane</dd></dl>
+          <dl class="info-cell"><dt>Van bushalte MDE</dt><dd>±1u met Uber</dd></dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAG 12 -->
+  <div class="sec-divider">📅 Dag 12 — Walking Tour & Strand</div>
+  <div class="timeline">
+
+    <div class="event">
+      <div class="card gold">
+        <div class="time">10u · Free tour</div>
+        <h3>🚶 Free Walking Tour — Historisch Centrum + Getsemane</h3>
+        <p class="desc">Twee uur durende wandeling door de UNESCO-beschermde binnenstad van Cartagena. Kleurrijke koloniale architectuur, de stadsmuren, bloemrijke balkons en het kunstzinnige Getsemane-kwartier. Betaal een fooi.</p>
+        <div class="meta">
+          <span class="chip price">💶 Gratis (fooi)</span>
+          <span class="chip">⏰ 10:00 vertrek</span>
+          <span class="chip">🌺 Koloniale architectuur</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event blue">
+      <div class="card blue">
+        <div class="time">Namiddag · Relaxen</div>
+        <h3>🏖️ Strand & Avondeten</h3>
+        <p class="desc">Relaxen op het strand. 's Avonds eten bij de Terraza Municipal — een soort foodmarkt aan het water met geweldige sfeer. Wandelafstand van het hotel (18 min).</p>
+        <div class="meta">
+          <span class="chip dist">📍 Terraza Municipal · 18 min wandelen</span>
+          <span class="chip">🌅 Aan het water</span>
+        </div>
+        <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:0.6rem 0.85rem;margin-top:0.65rem;font-size:0.8rem;color:#1E40AF;">
+          💡 <strong>Tip:</strong> Ga ook wat cash afhalen — dit is de laatste grote stad vóór de Caribische kustplaatsen.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DAG 13 -->
+  <div class="sec-divider">📅 Dag 13 — Kasteel & Eilanden OF Vulkaan</div>
+  <div class="timeline">
+
+    <div class="event">
+      <div class="card gold">
+        <div class="time">Ochtend · Prioriteit</div>
+        <h3>🏰 Castillo de San Felipe de Barajas</h3>
+        <p class="desc">Het indrukwekkendste fort van Zuid-Amerika. Een kolossaal 17e-eeuws Spaans fort bovenop een heuvel met een doolhof van tunnels. Bezoek 's ochtends voor de hitte.</p>
+        <div class="meta">
+          <span class="chip price">💶 €6,38 p.p.</span>
+          <span class="chip dist">📍 Cra. 17 #36-49</span>
+          <span class="chip">🏰 17e eeuw</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event blue">
+      <div class="card blue">
+        <div class="time">Namiddag · KEUZE</div>
+        <h3>🏝️ Rosario Eilanden ÓÓÓF 🌋 El Totumo Vulkaan</h3>
+        <p class="desc">Twee geweldige opties — kies één of wissel met dag 12.</p>
+        <div class="keuze-intro">
+          💡 <strong>Optie A — Rosario Eilanden (aanbevolen):</strong> Vier eilanden dagtour via boot. Snorkelen, wit zand, turquoise water. ±€52 p.p. via GetYourGuide.<br><br>
+          💡 <strong>Optie B — El Totumo Vulkaan:</strong> Modderbad in een kleine, lauwwarme vulkaan. Unieke ervaring! Halve dagtrip. Boeken via lokaal touroperator.
+        </div>
+        <details class="card-details">
+          <summary>Rosario Eilanden — detail & boeking</summary>
+          <div class="details-body">
+            <p><strong>Vier eilanden tour:</strong> De tour bezoekt meerdere eilanden in de Rosario-archipel, een nationaal park voor de kust van Cartagena. Wit strand, heldere zee, snorkelen bij koraalriffen.</p>
+            <p><strong>Vertrek:</strong> De boten vertrekken vroeg (7-8u) vanuit Muelle Turistico de la Bodeguita. Boek via GetYourGuide of via het hotel.</p>
+            <p><strong>Meenemen:</strong> Zonnecrème (bioreafbreekbaar voor het koraal), zwemgerei, cash voor drankjes op de eilanden, reisdocument.</p>
+            <div class="info-grid">
+              <dl class="info-cell"><dt>Prijs</dt><dd class="hi">±€52 p.p.</dd></dl>
+              <dl class="info-cell"><dt>Duur</dt><dd>Hele dag</dd></dl>
+              <dl class="info-cell"><dt>Boeken</dt><dd>GetYourGuide of hotel</dd></dl>
+              <dl class="info-cell full"><dt>Tip</dt><dd>Bioreafbreekbare zonnecrème meenemen — vereist in het nationaal park</dd></dl>
+            </div>
+          </div>
+        </details>
+        <details class="card-details" style="margin-top:0.5rem;">
+          <summary>El Totumo Vulkaan — modderbad detail</summary>
+          <div class="details-body">
+            <p><strong>Wat is El Totumo?</strong> Een 15 meter hoge mini-vulkaan gevuld met lauw, mineraalrijk modder. Je kunt erin zwemmen — de modder is zo dik dat je er bijna op drijft. Een van de meest bijzondere ervaringen van Colombia.</p>
+            <p><strong>Praktisch:</strong> Halve dagtrip (ochtend beter). Daarna wassen in een nabijgelegen meer. Breng oude badkleding mee — de modder kleurt sterk.</p>
+            <div class="info-grid">
+              <dl class="info-cell"><dt>Afstand</dt><dd>45 min van Cartagena</dd></dl>
+              <dl class="info-cell"><dt>Duur</dt><dd>Halve dag</dd></dl>
+              <dl class="info-cell full"><dt>Tip</dt><dd>Ochtendtour aanbevolen (minder heet). Laat fototoestel of telefoon bij het hotel.</dd></dl>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="prac-block">
+    <h3>📌 Praktische noten Cartagena</h3>
+    <div class="prac-item"><span class="pi">💵</span><span><strong>CASH:</strong> Dit is de laatste grote stad! Haal hier genoeg pesos op voor Minca, Tayrona en Palomino — kleine plaatsen met beperkte ATM-toegang.</span></div>
+    <div class="prac-item"><span class="pi">🌡️</span><span><strong>Hitte:</strong> Cartagena is heet en vochtig (30–35°C). Plan activiteiten 's ochtends. Strand en avondwandeling zijn aangenaam.</span></div>
+    <div class="prac-item"><span class="pi">🏰</span><span><strong>Castillo:</strong> Ga 's ochtends vroeg (opent om 8u). Na 10u is het erg heet in de open forten.</span></div>
+    <div class="prac-item"><span class="pi">🚌</span><span><strong>Dag 14:</strong> Bus Cartagena → Santa Marta (elk uur, via bookaway.com). Na ontbijt vertrekken! In Santa Marta taxi nemen naar bushalte voor Minca.</span></div>
+    <div class="prac-item"><span class="pi">🍽️</span><span><strong>Terraza Municipal:</strong> 's Avonds absoluut gaan — fantastische foodmarkt aan het water, 18 min wandelen van het hotel.</span></div>
+  </div>
+
+</div>
+<div class="footer">🇨🇴 Colombia · Cartagena · Dag 11–13 + Dag 22</div>
+</body>
+</html>

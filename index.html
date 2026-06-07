@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🏠 Overzicht · Colombia 24 Dagen</title>
+<style>
+:root {
+  --navy:#1A4A2E; --gold:#C9962A; --red:#B91C1C;
+  --teal:#0F5B5B; --orange:#A0450D; --purple:#4A1A6E;
+  --cream:#FAF8F4; --card:#FFFFFF; --border:#E5E0D8;
+  --text:#1C2A1E; --muted:#4A5E4D;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+
+.topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.topbar .home-link:hover{background:rgba(255,255,255,0.1);}
+
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;transition:all 0.2s;}
+.subnav a:hover{color:var(--navy);}
+.subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
+
+.hero{background:linear-gradient(135deg,#0D2E18 0%,#1A4A2E 50%,#2A3A0A 100%);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.sec-title{font-size:1rem;font-weight:800;margin-bottom:0.9rem;color:var(--text);text-transform:uppercase;letter-spacing:0.4px;}
+
+.ov-table{background:white;border-radius:12px;border:1px solid var(--border);overflow:hidden;margin-bottom:1.6rem;}
+.ov-row{display:flex;gap:0;border-bottom:1px solid var(--border);align-items:stretch;text-decoration:none;color:inherit;transition:background 0.15s;cursor:pointer;}
+.ov-row:last-child{border-bottom:none;}
+.ov-row:hover{background:#F5F2EE;}
+.ov-day{min-width:84px;padding:0.75rem 0.6rem;font-weight:800;font-size:0.8rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.4;gap:0.1rem;}
+.ov-day .od-date{font-size:0.65rem;font-weight:600;opacity:0.7;}
+.ov-content{padding:0.75rem 0.9rem;flex:1;border-left:1px solid var(--border);}
+.ov-content strong{font-size:0.87rem;display:block;margin-bottom:0.2rem;}
+.ov-content span{font-size:0.77rem;color:var(--muted);line-height:1.5;}
+.ov-content .ov-tags{display:flex;gap:0.3rem;flex-wrap:wrap;margin-top:0.3rem;}
+.ov-tag{font-size:0.68rem;padding:0.15rem 0.45rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
+.ov-arrow{font-size:0.75rem;color:var(--muted);align-self:center;padding-right:0.7rem;flex-shrink:0;}
+
+.res-block{background:linear-gradient(135deg,#7C2D12,#9A3412);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.6rem;}
+.res-block h3{font-size:0.95rem;font-weight:800;margin-bottom:0.85rem;text-transform:uppercase;letter-spacing:0.4px;}
+.res-item{display:flex;gap:0.65rem;align-items:flex-start;margin-bottom:0.6rem;font-size:0.83rem;line-height:1.5;}
+.res-item:last-child{margin-bottom:0;}
+.res-item .ri{min-width:1.3rem;font-size:0.9rem;}
+.res-item strong{display:block;font-size:0.85rem;margin-bottom:0.05rem;}
+.res-item span{opacity:0.82;font-size:0.78rem;}
+.res-urgent{background:rgba(255,255,255,0.18);border-radius:6px;padding:0.15rem 0.55rem;font-size:0.7rem;font-weight:800;display:inline-block;margin-left:0.35rem;vertical-align:middle;}
+
+.prac-grid{display:grid;gap:0.65rem;margin-bottom:1.6rem;}
+.prac-item{background:white;border-radius:10px;padding:0.85rem 1rem;border:1px solid var(--border);}
+.prac-item h4{font-size:0.88rem;font-weight:700;margin-bottom:0.2rem;color:var(--navy);}
+.prac-item p{font-size:0.81rem;color:var(--muted);line-height:1.5;}
+
+.flight-card{background:linear-gradient(135deg,#1A4A2E,#2A6A3E);border-radius:10px;padding:0.85rem 1rem;color:white;}
+.flight-card h4{font-size:0.88rem;font-weight:700;margin-bottom:0.45rem;opacity:0.9;}
+.flight-row{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;font-size:0.82rem;}
+.flight-row .fn{font-weight:800;font-size:0.9rem;background:rgba(255,255,255,0.15);border-radius:5px;padding:0.1rem 0.4rem;}
+.flight-times{display:flex;align-items:center;gap:0.4rem;font-size:0.9rem;font-weight:700;margin-bottom:0.3rem;}
+.flight-times .arr{opacity:0.65;}
+.flight-arrow{font-size:0.75rem;opacity:0.5;}
+.flight-tip{font-size:0.74rem;opacity:0.72;margin-top:0.4rem;border-top:1px solid rgba(255,255,255,0.15);padding-top:0.4rem;line-height:1.5;}
+
+.cash-bar{background:#FFF7ED;border:1px solid #FDB97D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.6rem;font-size:0.83rem;color:#92400E;line-height:1.5;}
+.warn-bar{background:#FEF3C7;border:1px solid #FCD34D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.6rem;font-size:0.83rem;color:#78350F;line-height:1.5;}
+
+.budget-table{background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1.6rem;}
+.budget-row{display:flex;padding:0.6rem 1rem;border-bottom:1px solid var(--border);font-size:0.83rem;}
+.budget-row:last-child{border-bottom:none;font-weight:700;background:#F5F2EE;}
+.budget-row .bl{flex:1;color:var(--muted);}
+.budget-row .bv{font-weight:600;color:var(--text);}
+
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+
+@media(min-width:580px){
+  .prac-grid{grid-template-columns:1fr 1fr;}
+  .hero h1{font-size:2.3rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+
+<div class="subnav">
+  <a href="index.html" class="active">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <h1>🇨🇴 Colombia<br>24 Dagen</h1>
+  <p class="sub">2 personen · Bogotá → Salento → Medellín → Cartagena → Minca → Tayrona → Palomino</p>
+  <div class="badges">
+    <span class="badge">✈️ Brussel → Bogotá</span>
+    <span class="badge">☕ Koffie & Natuur</span>
+    <span class="badge">🌊 Caribische kust</span>
+    <span class="badge">🏔️ Andes & Jungle</span>
+    <span class="badge">✈️ Bogotá → Brussel</span>
+  </div>
+</div>
+
+<div class="section">
+
+  <!-- DAGOVERZICHT -->
+  <div class="sec-title">🗺️ Reisoverzicht</div>
+  <div class="ov-table">
+
+    <a href="bogota.html" class="ov-row" style="border-left:4px solid #1A4A2E;">
+      <div class="ov-day" style="background:#DCFCE7;color:#14532D;">
+        🏙️<div class="od-date">Dag 1–3</div>
+      </div>
+      <div class="ov-content">
+        <strong>Bogotá — Hoofdstad, Goudmuseum, Monserrate</strong>
+        <span>Aankomst · Acclimatiseren (hoogte!) · Historisch centrum · Walking tours · La Candelaria</span>
+        <div class="ov-tags">
+          <span class="ov-tag">✈️ Aankomstvlucht</span>
+          <span class="ov-tag">🏔️ 2640 m hoogte</span>
+          <span class="ov-tag">🏨 Masaya Bogotá</span>
+        </div>
+      </div>
+      <div class="ov-arrow">›</div>
+    </a>
+
+    <a href="salento.html" class="ov-row" style="border-left:4px solid #78350F;">
+      <div class="ov-day" style="background:#FEF3C7;color:#78350F;">
+        ☕<div class="od-date">Dag 4–6</div>
+      </div>
+      <div class="ov-content">
+        <strong>Salento — Koffiestreek, Valle de Cocora, Waspalmen</strong>
+        <span>Bus Bogotá → Armenia → Salento · Hike Valle de Cocora (13 km) · Koffieboerderij · Mirador</span>
+        <div class="ov-tags">
+          <span class="ov-tag">🚌 Bus 9u</span>
+          <span class="ov-tag">🌿 Hike 13 km</span>
+          <span class="ov-tag">🏨 Casa Salento</span>
+        </div>
+      </div>
+      <div class="ov-arrow">›</div>
+    </a>
+
+    <a href="medellin.html" class="ov-row" style="border-left:4px solid #A0450D;">
+      <div class="ov-day" style="background:#FFF7ED;color:#9A3412;">
+        🌆<div class="od-date">Dag 7–9</div>
+      </div>
+      <div class="ov-content">
+        <strong>Medellín — Eeuwige lente, Comuna 13, Parque Arvi</strong>
+        <span>Bus Salento → Terminal del Sur · Free tour Comuna 13 · Downhill biken · Kabelbaan → Parque Arvi</span>
+        <div class="ov-tags">
+          <span class="ov-tag">🚌 Bus 9u30</span>
+          <span class="ov-tag">🎨 Straatkunst</span>
+          <span class="ov-tag">🏨 574 Hotel Poblado</span>
+        </div>
+      </div>
+      <div class="ov-arrow">›</div>
+    </a>
+
+    <a href="guatape.html" class="ov-row" style="border-left:4px solid #4A1A6E;">
+      <div class="ov-day" style="background:#F5F3FF;color:#4A1A6E;">
+        🪨<div class="od-date">Dag 10</div>
+      </div>
+      <div class="ov-content">
+        <strong>Guatapé — La Piedra del Peñón, Kleurrijke stad</strong>
+        <span>Bus Medellín → Guatapé · Tuktuk → La Piedra · 740 treden beklimmen · Kleurrijke zocalo's bewonderen</span>
+        <div class="ov-tags">
+          <span class="ov-tag">🚌 Bus 2u</span>
+          <span class="ov-tag">740 treden</span>
+          <span class="ov-tag">🏨 Hotel Guatatur</span>
+        </div>
+      </div>
+      <div class="ov-arrow">›</div>
+    </a>
+
+    <a href="cartagena.html" class="ov-row" style="border-left:4px solid #C9962A;">
+      <div class="ov-day" style="background:#FFFBEB;color:#92400E;">
+        🌊<div class="od-date">Dag 11–13</div>
+      </div>
+      <div class="ov-content">
+        <strong>Cartagena — Koloniale parels, Eilanden, Kasteel</strong>
+        <span>Vlucht Medellín → Cartagena · Historisch centrum · Castillo San Felipe · Rosario eilanden · El Totumo</span>
+        <div class="ov-tags">
+          <span class="ov-tag">✈️ Vlucht 3C8F4V</span>
+          <span class="ov-tag">🏖️ Strand</span>
+          <span class="ov-tag">🏨 Hotel 3 Banderas</span>
+        </div>
+      </div>
+      <div class="ov-arrow">›</div>
+    </a>
+
+    <a href="minca.html" class="ov-row" style="border-left:4px solid #0F5B5B;">
+      <div class="ov-day" style="background:#ECFDF5;color:#065F46;">
+        🌿<div class="od-date">Dag 14–16</div>
+      </div>
+      <div class="ov-content">
+        <strong>Minca — Jungle, Watervallen, Sierra Nevada</strong>
+        <span>Bus Cartagena → Santa Marta → Minca · Pozo Azul · Cascade de Marinka · Minca Sierra</span>
+        <div class="ov-tags">
+          <span class="ov-tag">🚌 Via Santa Marta</span>
+          <span class="ov-tag">💧 Watervallen</span>
+          <span class="ov-tag">🏨 Costeño River</span>
+        </div>
+      </div>
+      <div class="ov-arrow">›</div>
+    </a>
+
+    <a href="tayrona.html" class="ov-row" style="border-left:4px solid #0369A1;">
+      <div class="ov-day" style="background:#EFF6FF;color:#1E40AF;">
+        🌴<div class="od-date">Dag 17–18</div>
+      </div>
+      <div class="ov-content">
+        <strong>Tayrona NP — Paradijselijke stranden, Jungle wandelingen</strong>
+        <span>Bus Minca → Santa Marta → Tayrona · Jungle hikes · Zwemmen op afgelegen stranden · Eco-lodge</span>
+        <div class="ov-tags">
+          <span class="ov-tag">⚠️ Check opening</span>
+          <span class="ov-tag">🏝️ Afgelegen strand</span>
+          <span class="ov-tag">🏨 Quetzal Dorado</span>
+        </div>
+      </div>
+      <div class="ov-arrow">›</div>
+    </a>
+
+    <a href="palomino.html" class="ov-row" style="border-left:4px solid #0F766E;">
+      <div class="ov-day" style="background:#F0FDFA;color:#134E4A;">
+        🏖️<div class="od-date">Dag 19–21</div>
+      </div>
+      <div class="ov-content">
+        <strong>Palomino — Tubing, Surfen, Relaxen</strong>
+        <span>Tayrona → Palomino (45 min) · Tubing op de rivier · Strandwandeling · Bodyboarden · Totale rust</span>
+        <div class="ov-tags">
+          <span class="ov-tag">🚌 45 min</span>
+          <span class="ov-tag">🏄 Surfen</span>
+          <span class="ov-tag">🏨 Casa del Pavo Real</span>
+        </div>
+      </div>
+      <div class="ov-arrow">›</div>
+    </a>
+
+    <a href="bogota.html" class="ov-row" style="border-left:4px solid #B91C1C;">
+      <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">
+        ✈️<div class="od-date">Dag 22–24</div>
+      </div>
+      <div class="ov-content">
+        <strong>Terugkeer — Cartagena · Bogotá · Zoutmijnen · Brussel</strong>
+        <span>Bus Palomino → Cartagena · Vlucht Cartagena → Bogotá · Zoutmijnen Zipaquirá · Vlucht Bogotá → Brussel 21:35</span>
+        <div class="ov-tags">
+          <span class="ov-tag">✈️ Dag 23: vluchten</span>
+          <span class="ov-tag">⛏️ Zoutmijnen</span>
+          <span class="ov-tag">🏨 Masaya Bogotá</span>
+        </div>
+      </div>
+      <div class="ov-arrow">›</div>
+    </a>
+
+  </div>
+
+  <!-- VLUCHTEN -->
+  <div class="sec-title">✈️ Vluchten</div>
+  <div class="prac-grid" style="margin-bottom:1.6rem;">
+    <div class="flight-card">
+      <h4>✈️ Heenvlucht — Dag 1</h4>
+      <div class="flight-times">
+        <span>BRU</span><span class="flight-arrow">→</span><span class="arr">BOG</span>
+      </div>
+      <div class="flight-tip">
+        🚖 Van luchthaven: Uber of Cabify naar hotel<br>
+        📱 Simkaart installeren in hotel (SIM1 Global, roaming aan)<br>
+        🏔️ Eerste dagen rustig aan — hoogteverschil (2640m)!
+      </div>
+    </div>
+    <div class="flight-card">
+      <h4>✈️ Medellín → Cartagena — Dag 11</h4>
+      <div class="flight-times">
+        <span>MDE 20:20</span><span class="flight-arrow">→</span><span class="arr">CTG 21:25</span>
+      </div>
+      <div class="flight-row"><span class="fn">3C8F4V</span></div>
+      <div class="flight-tip">
+        🚖 Van bushalte Medellín naar luchthaven: ±1u met Uber<br>
+        ⏰ Vroeg genoeg vertrekken van Guatapé (uiterlijk 15:00)
+      </div>
+    </div>
+    <div class="flight-card">
+      <h4>✈️ Cartagena → Bogotá — Dag 23</h4>
+      <div class="flight-times">
+        <span>CTG</span><span class="flight-arrow">→</span><span class="arr">BOG</span>
+      </div>
+      <div class="flight-tip">
+        ⚠️ UBER nemen van luchthaven BOG → hotel. GEEN bus!<br>
+        🏨 Masaya Bogotá · €72 voor 1 nacht
+      </div>
+    </div>
+    <div class="flight-card">
+      <h4>✈️ Terugvlucht — Dag 24</h4>
+      <div class="flight-times">
+        <span>BOG 21:35</span><span class="flight-arrow">→</span><span class="arr">BRU</span>
+      </div>
+      <div class="flight-tip">
+        ⛏️ Dag: Zoutmijnen Zipaquirá (georganiseerde tour) → terug in Bogotá ~16u<br>
+        🍽️ Rustig eten → luchthaven (±1u rijden)
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVEER VOORAF -->
+  <div class="sec-title">📞 Reserveer dit vóór vertrek</div>
+  <div class="res-block">
+    <h3>Nog te boeken</h3>
+    <div class="res-item">
+      <span class="ri">🚌</span>
+      <div>
+        <strong>Bus Bogotá → Armenia (Dag 4) <span class="res-urgent">BOEKEN</span></strong>
+        <span>Bolivariano: bolivariano.com.co · Vertrek 8u, 7u30 aanwezig · Met taxi van hotel 6u30 vertrekken · Lunchpakket vragen in hotel</span>
+      </div>
+    </div>
+    <div class="res-item">
+      <span class="ri">🚌</span>
+      <div>
+        <strong>Bus Salento → Medellín (Dag 7) <span class="res-urgent">BOEKEN</span></strong>
+        <span>Flota Occidental: flotaoccidental.co · Vertrek 9u30 · 9u aanwezig in Salento station</span>
+      </div>
+    </div>
+    <div class="res-item">
+      <span class="ri">🛶</span>
+      <div>
+        <strong>Rosario Eilanden dagtour (Dag 13) <span class="res-urgent">BOEKEN</span></strong>
+        <span>Vier eilanden tour ±€52 p.p. · Via GetYourGuide · Of El Totumo modderbad — keuze ter plaatse</span>
+      </div>
+    </div>
+    <div class="res-item">
+      <span class="ri">🚌</span>
+      <div>
+        <strong>Bus Cartagena → Santa Marta (Dag 14) <span class="res-urgent">BOEKEN</span></strong>
+        <span>bookaway.com · Elk uur een bus · Na ontbijt vertrekken · Reistijd ±5u</span>
+      </div>
+    </div>
+    <div class="res-item">
+      <span class="ri">⛏️</span>
+      <div>
+        <strong>Zoutmijnen Zipaquirá (Dag 24)</strong>
+        <span>Georganiseerde tour vanuit Bogotá · Terug in Bogotá ~16u · Vlucht 21:35 — genoeg marge</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASH WAARSCHUWING -->
+  <div class="cash-bar">
+    💵 <strong>Cash/Geld:</strong> Dag 2: Geld afhalen bij Davivienda in Bogotá (max €400 / 2.000.000 pesos). Neem $300 USD mee. Dag 12: Laatste goede plek om cash te halen in Cartagena voor de kust. Let op: sommige kleine plaatsen (markt, taxi, Jeep Salento) werken cash-only.
+  </div>
+
+  <!-- TAYRONA WAARSCHUWING -->
+  <div class="warn-bar">
+    ⚠️ <strong>Tayrona Nationaal Park:</strong> Het park is 3 keer per jaar 2 weken gesloten (begin februari, begin juni, eind oktober). Controleer de openingsdatum vóór vertrek! Website: parquesnacionales.gov.co
+  </div>
+
+  <!-- BUDGET -->
+  <div class="sec-title">💰 Budget Overzicht</div>
+  <div class="budget-table">
+    <div class="budget-row"><span class="bl">🏨 Hotels (23 nachten, 2 personen)</span><span class="bv">±€1.491</span></div>
+    <div class="budget-row"><span class="bl">✈️ Vluchten internationaal</span><span class="bv">pm</span></div>
+    <div class="budget-row"><span class="bl">✈️ Vlucht Medellín → Cartagena</span><span class="bv">pm</span></div>
+    <div class="budget-row"><span class="bl">🚌 Bussen overland</span><span class="bv">±€60</span></div>
+    <div class="budget-row"><span class="bl">🎟️ Activiteiten & Tours</span><span class="bv">±€150 p.p.</span></div>
+    <div class="budget-row"><span class="bl">🍽️ Eten & Drinken</span><span class="bv">±€30–40 p.p./dag</span></div>
+    <div class="budget-row"><span class="bl">💰 Gemiddelde hotelprijs</span><span class="bv">€65/nacht (2 pers, incl. ontbijt)</span></div>
+  </div>
+
+  <!-- BASISINFO -->
+  <div class="sec-title">🏨 Accommodaties</div>
+  <div class="prac-grid">
+    <div class="prac-item">
+      <h4>🏙️ Bogotá — Masaya Bogotá</h4>
+      <p>Vlak in oude stadscentrum<br>€171 voor 3 nachten (incl. ontbijt)<br>+ €72 voor 1 nacht op terugweg</p>
+    </div>
+    <div class="prac-item">
+      <h4>☕ Salento — Casa Salento</h4>
+      <p>Wandelafstand van centraal plein<br>€191 voor 3 nachten (incl. ontbijt)<br>Jeeps naar Valle de Cocora staan op het plein</p>
+    </div>
+    <div class="prac-item">
+      <h4>🌆 Medellín — 574 Hotel Poblado</h4>
+      <p>Veilige wijk El Poblado<br>€172 voor 3 nachten (incl. ontbijt)</p>
+    </div>
+    <div class="prac-item">
+      <h4>🪨 Guatapé — Hotel Guatatur</h4>
+      <p>Deluxe tweepersoonskamer<br>€26 voor 1 nacht (incl. ontbijt)</p>
+    </div>
+    <div class="prac-item">
+      <h4>🌊 Cartagena — Hotel 3 Banderas</h4>
+      <p>In Getsemane · Zwembad · Airco<br>€243 voor 3 nachten (incl. ontbijt)</p>
+    </div>
+    <div class="prac-item">
+      <h4>🌿 Minca — Costeño River Minca</h4>
+      <p>Vlakbij het dorpje<br>€176 voor 3 nachten (incl. ontbijt)</p>
+    </div>
+    <div class="prac-item">
+      <h4>🌴 Tayrona — Quetzal Dorado Eco-Lodge</h4>
+      <p>1,5 km wandelen tot ingang park · Airco · Zwembad<br>€122 voor 2 nachten (incl. ontbijt)</p>
+    </div>
+    <div class="prac-item">
+      <h4>🏖️ Palomino — Casa del Pavo Real</h4>
+      <p>Airco · Zwembad<br>€367 voor 3 nachten (incl. ontbijt)</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">🇨🇴 Colombia · 24 dagen · 2 personen</div>
+</body>
+</html>

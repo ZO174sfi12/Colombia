@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🌿 Minca · Colombia 24 Dagen</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:#065F46;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:#065F46;border-bottom-color:#065F46;}
+.hero{background:linear-gradient(135deg,#022C22,#065F46,#0F766E);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.day-banner{background:linear-gradient(135deg,#022C22,#065F46);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
+.day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
+.day-banner h2{font-size:1.1rem;font-weight:700;}
+.day-banner p{font-size:0.82rem;opacity:0.78;margin-top:0.2rem;}
+.route-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:1.4rem;}
+.route-block h3{font-size:0.9rem;font-weight:800;color:#065F46;margin-bottom:0.8rem;text-transform:uppercase;}
+.route-row{display:flex;gap:0.7rem;align-items:flex-start;padding:0.35rem 0;border-bottom:1px solid #F5F0E8;}
+.route-row:last-child{border-bottom:none;}
+.route-dot{width:8px;height:8px;border-radius:50%;margin-top:0.35rem;flex-shrink:0;}
+.route-time{font-size:0.72rem;font-weight:700;color:var(--muted);min-width:2.5rem;flex-shrink:0;}
+.route-label{font-size:0.84rem;} .route-sub{font-size:0.72rem;color:var(--muted);}
+.timeline{position:relative;padding-left:2.5rem;}
+.timeline::before{content:'';position:absolute;left:0.85rem;top:0;bottom:0;width:2px;background:var(--border);}
+.event{position:relative;margin-bottom:1rem;}
+.event::before{content:'';position:absolute;left:-1.85rem;top:0.9rem;width:10px;height:10px;border-radius:50%;background:#16A34A;border:2px solid white;box-shadow:0 0 0 2px #86EFAC;}
+.event.water::before{background:#0369A1;box-shadow:0 0 0 2px #93C5FD;}
+.event.transit::before{background:#9CA3AF;box-shadow:0 0 0 2px #E5E7EB;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.95rem 1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.card.green{border-left:4px solid #16A34A;} .card.water{border-left:4px solid #0369A1;}
+.card.transit{border-left:4px solid #9CA3AF;}
+.card .time{font-size:0.72rem;font-weight:700;color:var(--muted);margin-bottom:0.3rem;}
+.card h3{font-size:0.97rem;font-weight:700;margin-bottom:0.25rem;}
+.card .desc{font-size:0.85rem;color:var(--muted);line-height:1.5;}
+.card .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.55rem;}
+.chip{font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
+.chip.price{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
+.chip.warn{background:#FFF7ED;border-color:#FDB97D;color:#92400E;}
+.chip.dist{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.card-details{border:1px solid #86EFAC;border-radius:8px;overflow:hidden;margin-top:0.7rem;}
+.card-details summary{padding:0.6rem 0.9rem;cursor:pointer;font-size:0.82rem;font-weight:700;background:#DCFCE7;list-style:none;display:flex;align-items:center;justify-content:space-between;color:#14532D;}
+.card-details summary::-webkit-details-marker{display:none;}
+.card-details summary::after{content:'＋';font-size:1rem;}
+.card-details[open] summary::after{content:'－';}
+.details-body{padding:0.9rem 1rem;font-size:0.82rem;color:var(--muted);line-height:1.65;background:white;}
+.details-body p{margin-bottom:0.6rem;} .details-body strong{color:var(--text);}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:0.7rem 0;}
+.info-cell{padding:0.55rem 0.75rem;background:#FAFAFA;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+.info-cell:nth-child(2n){border-right:none;} .info-cell:nth-last-child(-n+2){border-bottom:none;}
+.info-cell.full{grid-column:1/-1;border-right:none;}
+.info-cell dt{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:0.15rem;}
+.info-cell dd{font-size:0.82rem;} .info-cell dd.hi{color:#065F46;font-weight:600;}
+.prac-block{background:linear-gradient(135deg,#022C22,#065F46);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.prac-block h3{font-size:1rem;font-weight:700;margin-bottom:0.75rem;}
+.prac-item{display:flex;gap:0.6rem;align-items:flex-start;margin-bottom:0.5rem;font-size:0.84rem;line-height:1.5;}
+.prac-item:last-child{margin-bottom:0;} .prac-item .pi{min-width:1.2rem;}
+.sec-divider{font-size:0.85rem;font-weight:800;color:#065F46;margin:1.5rem 0 0.8rem;text-transform:uppercase;border-top:2px solid var(--border);padding-top:1rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html" class="active">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <h1>🌿 Minca</h1>
+  <p class="sub">Dag 14–16 · Jungle Bergdorpje · Watervallen · Sierra Nevada</p>
+  <div class="badges">
+    <span class="badge">🚌 Via Santa Marta</span>
+    <span class="badge">💧 Pozo Azul & Cascade de Marinka</span>
+    <span class="badge">⛰️ Minca Sierra dagtrip</span>
+    <span class="badge">🦜 Vogelparadijs</span>
+    <span class="badge">🏨 Costeño River Minca</span>
+  </div>
+</div>
+
+<div class="section">
+
+  <div class="day-banner">
+    <div class="dn">14–16</div>
+    <div>
+      <h2>Minca — Verborgen Jungle Oase in de Sierra Nevada</h2>
+      <p>3 nachten · Costeño River Minca · €176 incl. ontbijt · Vlakbij het dorpje</p>
+    </div>
+  </div>
+
+  <!-- DAG 14 -->
+  <div class="sec-divider">📅 Dag 14 — Aankomst via Santa Marta</div>
+  <div class="route-block">
+    <h3>📍 Dag 14 — Transport Cartagena → Minca</h3>
+    <div class="route-row"><div class="route-dot" style="background:#9CA3AF;"></div><div class="route-time">Ochtend</div><div><div class="route-label">🚌 Bus Cartagena → Santa Marta</div><div class="route-sub">Na ontbijt · elk uur een bus · bookaway.com · ±5u reistijd</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#16A34A;"></div><div class="route-time">Middag</div><div><div class="route-label">🚖 In Santa Marta: taxi naar bushalte Minca</div><div class="route-sub">maps.app.goo.gl/Hct46k9MLzDeih5z9 · Bushalte centrum Santa Marta</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#16A34A;"></div><div class="route-time">NM</div><div><div class="route-label">🚐 Bus/taxi naar Minca (30–45 min bergop)</div><div class="route-sub">Kleine kolektivo of taxi · kronkelende bergweg</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#16A34A;"></div><div class="route-time">Avond</div><div><div class="route-label">🏨 Installeren Costeño River Minca</div><div class="route-sub">Verkennen van het kleine dorpje</div></div></div>
+  </div>
+
+  <div class="timeline">
+    <div class="event transit">
+      <div class="card transit">
+        <div class="time">Dag 14 · Transport</div>
+        <h3>🚌 Bus Cartagena → Santa Marta → Minca</h3>
+        <p class="desc">Vertrek na ontbijt vanuit Cartagena richting Santa Marta (elk uur een bus). In Santa Marta een taxi nemen naar de bushalte voor Minca, dan bergop naar het dorpje.</p>
+        <div class="meta">
+          <span class="chip warn">Na ontbijt vertrekken</span>
+          <span class="chip">bookaway.com · Cartagena → SM</span>
+          <span class="chip dist">📍 <a href="https://goo.gl/maps/Hct46k9MLzDeih5z9" target="_blank" style="color:#1E40AF;">Bushalte Santa Marta</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAG 15 -->
+  <div class="sec-divider">📅 Dag 15 — Watervallen</div>
+  <div class="timeline">
+
+    <div class="event water">
+      <div class="card water">
+        <div class="time">Dag 15 · Ochtend</div>
+        <h3>💧 Pozo Azul — Kristalheldere Zwemplek</h3>
+        <p class="desc">Een prachtige natuurlijke zwemplaats langs een rivier met helderblauwe stromen. Een korte wandeling vanuit het centrum van Minca leidt naar dit verfrissende waterparadijs omgeven door junglevegetatie. Gratis toegang.</p>
+        <div class="meta">
+          <span class="chip price">💶 Gratis</span>
+          <span class="chip">💧 Zwemmen</span>
+          <span class="chip dist">📍 ±30 min wandelen van centrum</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event water">
+      <div class="card water">
+        <div class="time">Dag 15 · Namiddag</div>
+        <h3>🌊 Cascade de Marinka — Waterval</h3>
+        <p class="desc">Een mooie wandeling door de jungle naar de Marinka waterval. Langs de weg passeer je koffieplantages, brullende apen en tropische vogels. De waterval heeft een zwemplaats onderaan.</p>
+        <div class="meta">
+          <span class="chip price">💶 Kleine inkomprijs</span>
+          <span class="chip">🦜 Junglevoetpad</span>
+          <span class="chip">~2 uur wandelen</span>
+        </div>
+        <details class="card-details">
+          <summary>Route & tips Cascade de Marinka</summary>
+          <div class="details-body">
+            <p><strong>Route:</strong> Vanuit het centrum van Minca volg je het pad omhoog langs de rivier. Je passeert koffiestructuren, varens en bamboe. De waterval is ±2 km lopen.</p>
+            <p><strong>Meenemen:</strong> Zwemgerei, waterfles, muggenspray, goed wandelschoenen (pad is glibberig bij regen).</p>
+            <p><strong>Timing:</strong> Ga in de ochtend of vroege namiddag — 's middags kan het gaan regenen (tropische buien).</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DAG 16 -->
+  <div class="sec-divider">📅 Dag 16 — Minca Sierra Dagtrip</div>
+  <div class="timeline">
+    <div class="event">
+      <div class="card green">
+        <div class="time">Dag 16 · Volle dag</div>
+        <h3>⛰️ Minca Sierra — Uitzicht &amp; Koffieplantages</h3>
+        <p class="desc">Een dagtrip hoger de Sierra Nevada in vanuit Minca. Per motortaxi naar de hogere delen (€12,50 p.p. retour vanuit het centrum). Dagpas: €4,10. Ruim uitzicht over Santa Marta en de zee.</p>
+        <div class="meta">
+          <span class="chip price">💶 €12,50 p.p. motortaxi retour</span>
+          <span class="chip warn">💶 + €4,10 dagpas</span>
+          <span class="chip">🏔️ Sierra Nevada</span>
+        </div>
+        <details class="card-details">
+          <summary>Meer over de Sierra Nevada dagtrip</summary>
+          <div class="details-body">
+            <p><strong>Motortaxi's</strong> in het centrum van Minca brengen je hoger de berg in. Onderhandel de retourprijs vóór je instaptt. ±€12,50 p.p. retour.</p>
+            <p><strong>Dagpas:</strong> Bovenaan is er een toegangspoort voor het natuurgebied — €4,10 p.p.</p>
+            <p><strong>Wat te zien:</strong> Koffieplantages, ceiba-bomen, orchideeën, panorama over Santa Marta en de Caribische zee. Op heldere dagen zie je zelfs de Ciénaga Grande.</p>
+            <p><strong>Vogels:</strong> Minca is een van de beste vogelkijkplekken van Colombia — meer dan 200 soorten. Vroeg gaan voor het beste spektakel.</p>
+            <div class="info-grid">
+              <dl class="info-cell"><dt>Motortaxi retour</dt><dd class="hi">€12,50 p.p.</dd></dl>
+              <dl class="info-cell"><dt>Dagpas</dt><dd class="hi">€4,10 p.p.</dd></dl>
+              <dl class="info-cell"><dt>Vertrek</dt><dd>Centrum Minca</dd></dl>
+              <dl class="info-cell full"><dt>Tip</dt><dd>Vroeg vertrekken — namiddag troebeler door wolken. Rugzak met water, muggenspray en lichte regenjas.</dd></dl>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <div class="prac-block">
+    <h3>📌 Praktische noten Minca</h3>
+    <div class="prac-item"><span class="pi">🌿</span><span><strong>Minca:</strong> Een klein bergdorpje — geen supermarkt of ATM. Breng genoeg cash mee vanuit Cartagena!</span></div>
+    <div class="prac-item"><span class="pi">🦟</span><span><strong>Muggen:</strong> Jungle — muggenspray is absoluut noodzakelijk. Lange mouwen 's avonds ook handig.</span></div>
+    <div class="prac-item"><span class="pi">🌧️</span><span><strong>Regen:</strong> Tropische buien in de namiddag zijn normaal. Ochtendactiviteiten hebben de voorkeur.</span></div>
+    <div class="prac-item"><span class="pi">🚌</span><span><strong>Dag 17:</strong> Terug naar de bushalte aan de voet van het dorpje. Bus naar Santa Marta, dan verder naar Tayrona. Check met hotel hoe je het beste aankomt bij Tayrona.</span></div>
+    <div class="prac-item"><span class="pi">💵</span><span><strong>Cash-only:</strong> Breng voldoende cash voor 3 nachten (eten, motortaxi's, dagpassen, waterval).</span></div>
+  </div>
+
+</div>
+<div class="footer">🇨🇴 Colombia · Minca · Dag 14–16</div>
+</body>
+</html>
