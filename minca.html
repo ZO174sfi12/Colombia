@@ -68,6 +68,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .prac-item:last-child{margin-bottom:0;} .prac-item .pi{min-width:1.2rem;}
 .sec-divider{font-size:0.85rem;font-weight:800;color:#065F46;margin:1.5rem 0 0.8rem;text-transform:uppercase;border-top:2px solid var(--border);padding-top:1rem;}
 .footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+
+.nav-buttons{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.75rem;justify-content:space-between;align-items:center;}
+.nav-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;transition:opacity 0.15s;}
+.nav-btn:hover{opacity:0.85;}
+.nav-btn.prev{background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;}
+.nav-btn.next{color:white;}
 </style>
 </head>
 <body>
@@ -85,6 +91,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="minca.html" class="active">🌿 Minca</a>
   <a href="tayrona.html">🌴 Tayrona</a>
   <a href="palomino.html">🏖️ Palomino</a>
+  <a href="kaart.html">🗺️ Kaart</a>
+  <a href="keuken.html">🍽️ Keuken</a>
   <a href="praktisch.html">📌 Praktisch</a>
 </div>
 
@@ -218,6 +226,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 
 </div>
+
+<div class="nav-buttons">
+  <span></span>
+  <a href="tayrona.html" class="nav-btn next" style="background:#065F46;">Volgende: 🌴 Tayrona →</a>
+</div>
+
 <div class="footer">🇨🇴 Colombia · Minca · Dag 14–16</div>
 </body>
 </html>
