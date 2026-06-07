@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🍽️ Culinair Colombia</title>
+<style>
+:root{
+  --navy:#1A4A2E;--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+
+.topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
+
+.hero{background:linear-gradient(135deg,#2D1B00,#78350F,#9A3412);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+
+.section{max-width:1040px;margin:0 auto;padding:1.5rem 1rem 0.5rem;}
+
+.cat-header{display:flex;align-items:baseline;gap:0.75rem;margin:2rem 0 0.35rem;}
+.cat-header h2{font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;}
+.cat-sub{font-size:0.8rem;color:var(--muted);}
+.cat-line{height:2px;background:var(--border);margin-bottom:1.1rem;}
+
+/* GRID */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:0.5rem;}
+
+/* FLIP CARD */
+.flip-card{
+  height:250px;cursor:pointer;
+  user-select:none;-webkit-user-select:none;
+  /* No hover effect — click/tap only */
+}
+.flip-inner{
+  position:relative;width:100%;height:100%;
+  transition:transform 0.55s cubic-bezier(.4,0,.2,1);
+  transform-style:preserve-3d;
+}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+
+.flip-front,.flip-back{
+  position:absolute;inset:0;border-radius:14px;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  overflow:hidden;
+}
+
+/* FRONT */
+.flip-front{
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:1rem 1.1rem;color:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.12);
+}
+.flip-front::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 55%);
+  border-radius:14px;
+}
+.flip-front>*{position:relative;z-index:1;}
+.cat-tag{
+  font-size:0.63rem;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;
+  background:rgba(255,255,255,0.22);backdrop-filter:blur(4px);
+  border-radius:20px;padding:0.18rem 0.55rem;
+  display:inline-block;margin-bottom:0.35rem;width:fit-content;
+}
+.dish-name{font-size:1.05rem;font-weight:800;line-height:1.25;margin-bottom:0.25rem;}
+.dish-desc{font-size:0.73rem;line-height:1.5;opacity:0.9;}
+.region-tag{font-size:0.66rem;opacity:0.75;font-style:italic;margin-top:0.4rem;}
+.tap-hint{
+  position:absolute;top:0.6rem;right:0.7rem;
+  font-size:0.6rem;opacity:0.55;
+  background:rgba(255,255,255,0.15);border-radius:20px;padding:0.15rem 0.5rem;
+}
+
+/* BACK */
+.flip-back{transform:rotateY(180deg);background:#1a1a1a;}
+.flip-back img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  border-radius:14px;
+}
+.img-cap{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(0,0,0,0.72));
+  padding:1.5rem 0.8rem 0.65rem;color:white;border-radius:0 0 14px 14px;
+}
+.img-cap strong{display:block;font-size:0.82rem;font-weight:700;}
+.img-cap small{font-size:0.65rem;opacity:0.75;}
+
+.no-photo{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:100%;background:#2a2a2a;color:#999;font-size:0.78rem;text-align:center;
+  padding:1rem;gap:0.5rem;border-radius:14px;
+}
+.no-photo .icon{font-size:2.2rem;opacity:0.4;}
+
+/* GOOGLE ZOEKLIJST */
+.google-box{background:white;border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin:1rem 0 2.5rem;}
+.google-box h3{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+.google-box p{font-size:0.79rem;color:var(--muted);margin-bottom:0.7rem;}
+.gtags{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.gtag{font-size:0.76rem;padding:0.25rem 0.65rem;border-radius:20px;background:#EFF6FF;border:1px solid #BFDBFE;color:#1E40AF;text-decoration:none;transition:background 0.12s;}
+.gtag:hover{background:#DBEAFE;}
+
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:0.5rem;}
+
+@media(min-width:580px){.hero h1{font-size:2.3rem;}}
+@media(max-width:440px){.cards-grid{grid-template-columns:repeat(2,1fr);} .flip-card{height:220px;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="kaart.html">🗺️ Kaart</a>
+  <a href="culinair.html" class="active">🍽️ Culinair</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <h1>🍽️ Colombiaanse Keuken</h1>
+  <p class="sub">Tik een tegel om de foto te zien · Tik opnieuw om terug te draaien</p>
+  <div class="badges">
+    <span class="badge">🍲 Gerechten</span>
+    <span class="badge">🌽 Street Food</span>
+    <span class="badge">🐟 Vis & Kust</span>
+    <span class="badge">☕ Dranken</span>
+    <span class="badge">🍮 Desserts</span>
+    <span class="badge">🐜 Avontuurlijk</span>
+  </div>
+</div>
+
+<div class="section">
+
+<!-- ══════════════════════════════════ GERECHTEN -->
+<div class="cat-header"><h2>🍲 Hoofdgerechten</h2><span class="cat-sub">De klassiekers van de Colombiaanse tafel</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#7C2D12,#A0450D);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Antioquia · Iconic</span>
+        <div class="dish-name">Bandeja Paisa</div>
+        <div class="dish-desc">Colombia's meest iconische bord: bonen, rijst, gehakt, chorizo, chicharrón, gebakken ei en avocado. Eén bord = één maaltijd voor twee.</div>
+        <div class="region-tag">📍 Medellín & Antioquia</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bandeja_Paisa_(Bogot%C3%A1).jpg?width=600" alt="Bandeja Paisa" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Bandeja Paisa</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#1A4A2E,#2D6A44);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Bogotá · Soep</span>
+        <div class="dish-name">Ajiaco</div>
+        <div class="dish-desc">Bogotá's handtekening: romige kippensoep met drie soorten aardappelen, guasca-kruid en kappertjes. Troostend en uniek.</div>
+        <div class="region-tag">📍 Bogotá</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ajiaco_in_Bogot%C3%A1.jpg?width=600" alt="Ajiaco Bogotá" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Ajiaco</strong><small>© Wikimedia Commons · kwaliteitsafbeelding</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#4A1A6E,#6B2E9E);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Nationaal · Soep</span>
+        <div class="dish-name">Sancocho</div>
+        <div class="dish-desc">Colombia's comfort food: stevige stoofsoep met vlees, yuca, maïs en plantain. Elke regio maakt een eigen versie. Onvermijdelijk.</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sancocho_cruzado_de_gallina%2C_rabo_y_costilla_con_arepa.jpg?width=600" alt="Sancocho" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Sancocho</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#7C1A1A,#B91C1C);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Huila · Grill</span>
+        <div class="dish-name">Asado Huilense</div>
+        <div class="dish-desc">Varkensfilet gemarineerd in sinaasappelsap, laurier en tijm, traag gegrild. Typisch uit Huila — een van de beste grillgerechten van het land.</div>
+        <div class="region-tag">📍 Huila</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chuleta_Valluna_-_Colombiana.jpg?width=600" alt="Colombiaans gegrild varkensvlees" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Geen foto beschikbaar</div>'">
+        <div class="img-cap"><strong>Chuleta Valluna</strong><small>Colombiaans gegrild varkensvlees · © Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#065F46,#0F766E);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Tolima · Feest</span>
+        <div class="dish-name">Lechona</div>
+        <div class="dish-desc">Heel spit-geroosterd varken gevuld met gekruide gele erwten. Klassiek bij feesten — een spektakel om te zien én te eten.</div>
+        <div class="region-tag">📍 Tolima</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lechona.JPG?width=600" alt="Lechona" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Lechona</strong><small>© Wikimedia Commons · CC BY-SA 3.0</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#78350F,#92400E);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Ontbijt · Overal</span>
+        <div class="dish-name">Tamales</div>
+        <div class="dish-desc">Maïsmeel met kip of varken, gegaard in bananenblaad. Elk deel van Colombia heeft z'n eigen versie. Het klassieke ochtendgerecht.</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/080924_tamal_de_viaje.JPG?width=600" alt="Tamal in bananenblaad" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Geen foto beschikbaar</div>'">
+        <div class="img-cap"><strong>Tamal</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════ VIS & KUST -->
+<div class="cat-header"><h2>🐟 Vis & Kust</h2><span class="cat-sub">Twee kusten, twee smaken</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#0369A1,#0891B2);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Caribbean · Lunch</span>
+        <div class="dish-name">Carib. Lunch</div>
+        <div class="dish-desc">Rijst met kokos, gebakken vis, patacones, salade en ají. De standaard middag-combo van Cartagena tot Palomino — vers en overvloedig.</div>
+        <div class="region-tag">📍 Cartagena · Palomino</div>
+      </div>
+      <div class="flip-back">
+        <img src="img/food/caribbean_lunch.jpg" alt="Caribbean lunch" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Caribbean Lunch</strong><small>© Lonely Planet Colombia</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#1D4ED8,#2563EB);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Caribisch · Vis</span>
+        <div class="dish-name">Pargo Sudado</div>
+        <div class="dish-desc">Hele rode snapper gestoofd in kokos, tomaat en ui. Een van de beste visgerechten van de Caribische kust — verplicht in Cartagena.</div>
+        <div class="region-tag">📍 Cartagena</div>
+      </div>
+      <div class="flip-back">
+        <div class="no-photo"><span class="icon">📸</span>Geen foto beschikbaar<br><small>→ zie Google-lijst</small></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#0F766E,#14B8A6);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Rivier · Vis</span>
+        <div class="dish-name">Viudo de Bocachico</div>
+        <div class="dish-desc">Hele gestoomde zoetwatervis op plantain. Typisch langs de grote rivieren — simpel, puur en smaakvoller dan het klinkt.</div>
+      </div>
+      <div class="flip-back">
+        <div class="no-photo"><span class="icon">📸</span>Geen foto in gids<br><small>→ zie Zoeklijst</small></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════ STREET FOOD -->
+<div class="cat-header"><h2>🌽 Street Food & Snacks</h2><span class="cat-sub">Colombia heeft de beste straatsnacks van Zuid-Amerika</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#B45309,#D97706);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Nationaal · Overal</span>
+        <div class="dish-name">Arepa</div>
+        <div class="dish-desc">Colombia's iconische maïsbrood — gegrild, gebakken of gestoomd. Bij elk maaltijd. Gevuld met kaas, ei, vlees of chicharrón.</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Arepas_Colombia.JPG?width=600" alt="Arepas Colombia" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Arepas</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#9A3412,#C2570F);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Street food</span>
+        <div class="dish-name">Empanadas</div>
+        <div class="dish-desc">Gefrituurd maïsdeeg gevuld met vlees en aardappel. Overal voor een paar peso's. Het perfecte tussendoortje op elk uur van de dag.</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bogota_Empanadas_de_la_53_con_carrera_17,_Chapinero.JPG?width=600" alt="Empanadas Colombia" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Geen foto beschikbaar</div>'">
+        <div class="img-cap"><strong>Empanadas</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#065F46,#10B981);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Caribisch · Snack</span>
+        <div class="dish-name">Patacones</div>
+        <div class="dish-desc">Plat gebakken groene plantain — geplet en tweemaal gefrituurd. Knapperig buiten, zacht binnen. Bijgerecht of met guacamole.</div>
+      </div>
+      <div class="flip-back">
+        <img src="img/food/patacones.jpg" alt="Patacones" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Patacones</strong><small>© Lonely Planet Colombia</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#78350F,#B45309);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Zoet · Street</span>
+        <div class="dish-name">Arequipe</div>
+        <div class="dish-desc">Colombia's dulce de leche — gekaramelliseerde gecondenseerde melk. Met kaas, brood of gewoon zo. Bocadillo (guave-gelei) is z'n zoete broertje.</div>
+      </div>
+      <div class="flip-back">
+        <img src="img/food/street_food.jpg" alt="Straateten Bogotá" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Arequipe & Street Food</strong><small>© Lonely Planet Colombia</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#1A4A2E,#2D7A40);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Brood · Valle</span>
+        <div class="dish-name">Pan de Bono</div>
+        <div class="dish-desc">Zacht broodje van maïsmeel en cassave met kaas. Warm uit de oven met tinto — één van de beste ontbijtcombos van Colombia.</div>
+        <div class="region-tag">📍 Cali · Valle del Cauca</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pandebono.jpg?width=600" alt="Pan de bono" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Geen foto beschikbaar</div>'">
+        <div class="img-cap"><strong>Pan de Bono</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#5B21B6,#7C3AED);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Snack · Kerst</span>
+        <div class="dish-name">Buñuelos</div>
+        <div class="dish-desc">Zoet-hartige bolletjes van gefrituurd maïsmeel en kaas. Traditioneel met kerst, maar het hele jaar door verkrijgbaar. Altijd warm bestellen.</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Home-made_bu%C3%B1uelos.JPG?width=600" alt="Buñuelos" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Geen foto beschikbaar</div>'">
+        <div class="img-cap"><strong>Buñuelos</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════ DRANKEN -->
+<div class="cat-header"><h2>☕ Koffie & Dranken</h2><span class="cat-sub">Derde grootste koffieproducent ter wereld — dat proef je</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#1C1410,#3D2B1F);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Koffie · Overal</span>
+        <div class="dish-name">Tinto</div>
+        <div class="dish-desc">Colombia's alomtegenwoordige zwarte koffie. Klein kopje, sterk, altijd vers. Stedelijke koffiecultuur groeit explosief — Bogotá heeft wereldklasse cafés.</div>
+      </div>
+      <div class="flip-back">
+        <img src="img/food/coffee_cafe.jpg" alt="Koffiecafé Colombia" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Tinto — Colombiaanse koffie</strong><small>© Lonely Planet Colombia</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#78350F,#9D6022);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Koffiestreek · Salento</span>
+        <div class="dish-name">Koffieplukken</div>
+        <div class="dish-desc">Van kers tot kopje: meeplukken op een finca, fermenteren, drogen en proeven. Een onvergetelijke halve dag in Salento.</div>
+        <div class="region-tag">📍 Salento · Manizales</div>
+      </div>
+      <div class="flip-back">
+        <img src="img/food/coffee_picking.jpg" alt="Koffieplukken" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Koffieplukken</strong><small>© Lonely Planet Colombia</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#064E3B,#15803D);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Fruit · Markten</span>
+        <div class="dish-name">Tropisch Fruit</div>
+        <div class="dish-desc">Maracuyá, lulo, guanábana, tomate de árbol, uchuva... Colombia heeft 40+ exotische fruitsoorten. Marktbezoek is verplicht!</div>
+      </div>
+      <div class="flip-back">
+        <img src="img/food/fruits.jpg" alt="Colombiaans tropisch fruit" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Tropisch Fruit</strong><small>© Lonely Planet Colombia</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#1E3A5F,#1D4ED8);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Drank · Nationaal</span>
+        <div class="dish-name">Aguardiente</div>
+        <div class="dish-desc">"El Guaro" — Colombia's nationale anijsdrank op basis van suikerriet. Geen feest zonder. Shots, koud, met gember. Sterk (29–30%).</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aguardientes_de_Colombia_Nectar.JPG?width=600" alt="Aguardiente Colombia" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Aguardiente Néctar</strong><small>© Wikimedia Commons · CC BY-SA 3.0</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#14532D,#16A34A);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Fruitdrank · Cali</span>
+        <div class="dish-name">Lulada</div>
+        <div class="dish-desc">Verfrissende drank van lulo — kruising tussen sinaasappel en passievrucht. Typisch uit Cali, maar overal aan de kust verkrijgbaar.</div>
+        <div class="region-tag">📍 Cali · Eje Cafetero</div>
+      </div>
+      <div class="flip-back">
+        <div class="no-photo"><span class="icon">📸</span>Geen foto beschikbaar<br><small>→ zie Google-lijst</small></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#0E7490,#0891B2);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">IJsdrank · Caribisch</span>
+        <div class="dish-name">Cholado</div>
+        <div class="dish-desc">Crushed ice met lagen vers fruit, gecondenseerde melk en siroop. Verplicht bij 35°C in Cartagena — te koop bij straatkarren.</div>
+        <div class="region-tag">📍 Cartagena · Cali</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cholado_jamundi.jpg?width=600" alt="Cholado" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Geen foto beschikbaar</div>'">
+        <div class="img-cap"><strong>Cholado</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════ DESSERTS -->
+<div class="cat-header"><h2>🍮 Desserts & Zoet</h2><span class="cat-sub">Colombianen houden van zoet</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#78350F,#B45309);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Kerst · Nationaal</span>
+        <div class="dish-name">Natilla</div>
+        <div class="dish-desc">Zoete maïspudding van panela en kaneel — Colombia's kerstdessert. Stevige, goudgele plak die ook het hele jaar door op markten te vinden is.</div>
+      </div>
+      <div class="flip-back">
+        <img src="img/food/natilla.jpg" alt="Natilla" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Natilla</strong><small>© Lonely Planet Colombia</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#1A4A2E,#166534);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">IJs · Artisanaal</span>
+        <div class="dish-name">Helado de Paila</div>
+        <div class="dish-desc">Met de hand gemaakt ijs in een bronzen kom boven ijs. Fruit en suiker traag geroerd tot romig roomijs. In Salento en op marktsteden.</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Helado_de_paila_01.jpg?width=600" alt="Helado de Paila" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Geen foto beschikbaar</div>'">
+        <div class="img-cap"><strong>Helado de Paila</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#92400E,#B45309);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Caribisch · Snoep</span>
+        <div class="dish-name">Cocadas</div>
+        <div class="dish-desc">Klontjes geraspte kokos met panela — hard of kleverig zacht. Populair snoep langs de hele Caribische kust. Niet te missen in Cartagena.</div>
+        <div class="region-tag">📍 Cartagena</div>
+      </div>
+      <div class="flip-back">
+        <div class="no-photo"><span class="icon">📸</span>Geen foto beschikbaar<br><small>→ zie Google-lijst</small></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#0F766E,#0D9488);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Fruit · Dessert</span>
+        <div class="dish-name">Salpicón</div>
+        <div class="dish-desc">Fijngesneden verse fruitsalade in zoet sinaasappelsap, soms met een scheut aguardiente. Fris, kleurrijk, perfecte lunch-afsluiter bij warmte.</div>
+      </div>
+      <div class="flip-back">
+        <img src="img/food/fruits2.jpg" alt="Tropisch fruit Colombia" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Foto laden mislukt</div>'">
+        <div class="img-cap"><strong>Salpicón</strong><small>© Lonely Planet Colombia</small></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════ AVONTUURLIJK -->
+<div class="cat-header"><h2>🐜 Avontuurlijk</h2><span class="cat-sub">Voor de durvers</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#1C1410,#44260C);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Insecten · Santander</span>
+        <div class="dish-name">Hormigas Culonas</div>
+        <div class="dish-desc">"Dikbillige mieren" — gefrituurd met zout. Eeuwenoude delicatesse uit Santander. Knapperig en nootachtig. Meer durvers dan verwacht.</div>
+        <div class="region-tag">📍 Bucaramanga · Santander</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hormigas_fritas_1.jpg?width=600" alt="Hormigas Culonas" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Geen foto beschikbaar</div>'">
+        <div class="img-cap"><strong>Hormigas Culonas</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#3B1A5E,#5B21B6);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Wild · Nariño</span>
+        <div class="dish-name">Cuy</div>
+        <div class="dish-desc">Gegrild cavia — pre-Colombiaans gerecht uit de Andesregio bij de Ecuadoriaanse grens. Mager vlees, pittig gemarineerd. Niet voor iedereen.</div>
+        <div class="region-tag">📍 Nariño · Pasto</div>
+      </div>
+      <div class="flip-back">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cuy_asado.jpg?width=600" alt="Cuy" onerror="this.parentElement.innerHTML='<div class=no-photo><span class=icon>📸</span>Geen foto beschikbaar</div>'">
+        <div class="img-cap"><strong>Cuy</strong><small>© Wikimedia Commons</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#1A5C38,#166534);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Wild · Llanos</span>
+        <div class="dish-name">Chiguiro</div>
+        <div class="dish-desc">Capibara gegrild boven open vuur — het grootste knaagdier ter wereld. Typisch in de Llanos. Licht vlees, vergelijkbaar met lam.</div>
+        <div class="region-tag">📍 Llanos · Casanare</div>
+      </div>
+      <div class="flip-back">
+        <div class="no-photo"><span class="icon">📸</span>Geen foto beschikbaar<br><small>→ zie Google-lijst</small></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front" style="background:linear-gradient(145deg,#7C2D12,#9A3412);">
+        <span class="tap-hint">↺ tik</span>
+        <span class="cat-tag">Grill · Weekend</span>
+        <div class="dish-name">Chunchullo</div>
+        <div class="dish-desc">Gegrilde koedarm — knapperig buiten, mals van binnen. Op weekend-grillmarkten in Bogotá en Medellín. Met empanadas en ají erbij.</div>
+      </div>
+      <div class="flip-back">
+        <div class="no-photo"><span class="icon">📸</span>Geen foto beschikbaar<br><small>→ zie Google-lijst</small></div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════ GOOGLE LIJST -->
+<div class="google-box">
+  <h3>📸 Zoek zelf op Google Images — tegels zonder bevestigde foto</h3>
+  <p>Klik een label om direct op Google Images te zoeken:</p>
+  <div class="gtags">
+    <a class="gtag" href="https://www.google.com/search?tbm=isch&q=viudo+bocachico+Colombia" target="_blank">Viudo de Bocachico</a>
+    <a class="gtag" href="https://www.google.com/search?tbm=isch&q=asado+huilense+Colombia+cerdo" target="_blank">Asado Huilense</a>
+    <a class="gtag" href="https://www.google.com/search?tbm=isch&q=pargo+sudado+Cartagena" target="_blank">Pargo Sudado</a>
+    <a class="gtag" href="https://www.google.com/search?tbm=isch&q=lulada+Cali+Colombia" target="_blank">Lulada</a>
+    <a class="gtag" href="https://www.google.com/search?tbm=isch&q=cocadas+Colombia+Cartagena" target="_blank">Cocadas</a>
+    <a class="gtag" href="https://www.google.com/search?tbm=isch&q=chiguiro+asado+Llanos+Colombia" target="_blank">Chiguiro</a>
+    <a class="gtag" href="https://www.google.com/search?tbm=isch&q=chunchullo+parrilla+Colombia" target="_blank">Chunchullo</a>
+  </div>
+</div>
+
+</div><!-- /section -->
+
+<div class="footer">🇨🇴 Colombia · Culinaire gids · Foto's via Wikimedia Commons (CC) & Lonely Planet Colombia 2023</div>
+
+<script>
+// Click/tap only — no hover
+document.querySelectorAll('.flip-card').forEach(card => {
+  let startY = 0;
+  // Touch: only flip on tap, not on scroll
+  card.addEventListener('touchstart', e => {
+    startY = e.touches[0].clientY;
+  }, {passive: true});
+  card.addEventListener('touchend', e => {
+    const dy = Math.abs(e.changedTouches[0].clientY - startY);
+    if (dy < 8) {
+      e.preventDefault();
+      card.classList.toggle('flipped');
+    }
+  }, {passive: false});
+  // Desktop click
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+});
+</script>
+
+<script src="feedback.js"></script>
+</body>
+</html>
+        
