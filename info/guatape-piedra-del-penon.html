@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🪨 La Piedra del Peñón · Guatapé · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#4A1A6E;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#2D0A4A,#4A1A6E,#6B2E9E);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#2D0A4A,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../guatape.html">← Guatapé</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../guatape.html">Guatapé</a> › La Piedra del Peñón</div>
+  <h1>🪨 La Piedra del Peñón</h1>
+  <p class="sub">Guatapé · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>La Piedra del Peñón de Guatapé is een van de meest indrukwekkende geologische wonderen van Colombia — een reusachtige granietrots van 220 meter hoog die letterlijk midden in het landschap oprijst. De klim via 740 treden (met een zig-zag kloof in de rots) eindigt in een spectaculair 360°-uitzicht over het Embalse de Guatapé, het kunstmatige meer met zijn labyrint van eilanden en schiereilanden.</p>
+    <p>Het meer is gecreëerd door een dam in de jaren '70 waarvoor dorpen werden overstroomd — bij laag water zijn soms de kerktorenspitsen nog zichtbaar. Het uitzicht vanaf de top is uniek en onvergetelijk: een eindeloze caleidoscoop van groen water, eilandjes en blauwe hemel.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Entree</div><div class="fact-value">±€4 p.p.</div></div><div class="fact"><div class="fact-label">Trap</div><div class="fact-value">740 treden (zig-zag in rotsspleet)</div></div><div class="fact"><div class="fact-label">Uitzicht</div><div class="fact-value">360° over Embalse Guatapé</div></div><div class="fact"><div class="fact-label">Afstand</div><div class="fact-value">2u bus vanuit Medellín</div></div><div class="fact"><div class="fact-label">Tip</div><div class="fact-value">Vroeg gaan — minder heet en minder drukte</div></div><div class="fact"><div class="fact-label">Hoogte monoliet</div><div class="fact-value">220 m</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">If you prefer fresh mountain air, set a course for the east where the artificial reservoir Embalse de Guatapé is watched over by the immense Piedra del Peñol. After, the road winds down to Río Claro, a pristine nature reserve with a peaceful river that’s perfect for a refreshing swim. Puente de Occidente, Santa Fe de Antioquia | “Margarita Shudro / EyeEm”/GETTY IMAGES © TOP TIP Travel during the week to avoid crowds and for cheaper accommodations. Day-trippers should buy return transportation tickets on arrival to secure a seat. Cycling in Rural Antioquia Antioquia’s mountain roads are some of the best in the country for cycling with spectacular mountain scenery, drivers that are accustomed to riders and plenty of enthusiastic local pedalers for company. On weekends you’ll spot groups of riders of all ages exploring the countryside on two wheels and many are quick to invite visitors to join them. Among the best places for a day ride are the downhill run from Guatapé to San Rafael, the cross-country jaunt from Santa Fe de Antioquia to Sopetrán and from Caldas to Fredonia via Piedra Verde in the south. Pedaleando Alma organizes regular short excursions throughout the department as well as epic multi-day adventures. Guatapé CLIMB ANTIOQUIA’S ICONIC ROCK Created by man but adorned by nature, the spectacular Embalse de Guatapé , a two-hour drive east of Medellín into the mountains, is one of Colombia’s most attractive lakes. Formed when the Río Nare was dammed in the 1970s to create hydroelectric power, the immense waterway is set among magnificent countryside with multitudes of pine-covered peninsulas caressing its emerald-green waters. Covering an impressive 74 sq km, the reservoir is spread across many municipalities and has far-flung branches surrounded by unspoiled mountain wilderness, but most visitors access it at the colorful little vacation town of Guatapé . On the road into the town overlooking the lake is the immense Piedra del Peñol , a 200m-high granite monolith that dominates the landscape. You’ll spot the rock from the highway well before you arrive – it juts out from the gently rolling green hills like an Andean Sugarloaf Mountain. Make sure to climb to the top for wonderful 360-degree views of the reservoir and the surrounding countryside.</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">Many tourists come largely to see the nearby Piedra del Peñol , Colombia’s answer to Sugar Loaf Mountain, but the town itself is a far greater attraction. Its picturesque little houses, painted in cheerful, bright pastels, with multicoloured wooden verandas, are famous for their decorative panels called zócalos (see page 201 ). Unsurprisingly, Guatapé is a big favourite with weekenders from Medellín, and it can get quite crowded come Saturday or Sunday, with many hotel prices rising sharply on Saturday nights. Guatapé’s zó calos Guatapé’s prettily painted houses are a far cry from the typical whitewashed buildings in most of Colombia’s colonial towns, let alone Medellín’s modern apartment blocks, but their most distinctive feature is their zócalos . These are colourful decorative panels, usually square, painted in relief along the base of the houses up to waist-height. Originally, they were all representations of the Lamb of God, and some do still have religious images on them. More commonly, however, they show rural scenes, geometric shapes, flowers, animals (not necessarily lambs, although there are still one or two), or new-fangled designs such as buses, chivas , cars or boats, or – if it’s a business – things related to the services on offer, such as keys in the case of a locksmith, or sewing machines in the case of a tailor. You can spend hours wandering around town checking out the sheer variety. Founded in 1811, Guatapé is older than the lake on whose shore it now stands, the Embalse del Peñol, which has only been there since the River Nare was dammed to create it in 1972 (the dam now provides up to thirty percent of Colombia’s electricity). The palm-lined parque principal (main square), Plaza de Simón Bolívar , is just a block off the lakeside, and must surely be one of the prettiest main squares in South America. On its north side, the Iglesia del Carmen church was originally faced with bare brick, but since the 1980s has been white with brick-red highlights. Those include its four zócalos , by local sculptor Mario Hernández, representing the four gospel authors – an angel for Matthew, a lion for Mark, an ox for Luke and an eagle for John. Some of Guatapé’s prettiest streets are off the Calle del Comercio (Calle 31), which leads east from the parque principal . Stairs opposite No. 29–9 lead down to the Plazoleta de los Zócalos , a lovely little square positively bursting with colour, and on past a row of little shops to the waterfront.</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• Ga zo vroeg mogelijk — de hitte kan 's middags intens zijn en het is drukker</p><p>• Breng water en zonnebescherming mee — op de klim is er geen schaduw</p><p>• Voeg de klim samen met een bezoek aan het kleurrijke dorp Guatapé</p><p>• Een boottocht op het meer na de klim is een geweldige combinatie</p><p>• Uiterlijk om 15:00 terugvertrekken naar Medellín — de laatste bus kan vol zijn</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../guatape.html" class="back-btn">← Terug naar Guatapé</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · La Piedra del Peñón · Guatapé</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🎨 Comuna 13 · Medellín · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#A0450D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#4A1A03,#A0450D,#C2570F);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#4A1A03,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../medellin.html">← Medellín</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../medellin.html">Medellín</a> › Comuna 13</div>
+  <h1>🎨 Comuna 13</h1>
+  <p class="sub">Medellín · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>Comuna 13 is het meest indrukwekkende staaltje van Medellín's transformatie. In de jaren '90 was dit de gevaarlijkste wijk van de gevaarlijkste stad ter wereld — het territorium van gewapende bendes en drugsbaronnen. Vandaag is het een levendige culturele gemeenschap vol straatkunst, muziek en energie.</p>
+    <p>De transformatie begon met de installatie van buitenroltrappen (escalators) in 2011 — de eerste openbare buitenroltrappen ter wereld. Ze verbonden de hoge woonwijken met de stad, verminderde isolatie en gaf bewoners toegang tot werkgelegenheid. Lokale kunstenaars versierden de wijk met muurschilderingen die het verhaal van het conflict en de wederopbouw vertellen.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Prijs</div><div class="fact-value">Gratis (tour: fooi)</div></div><div class="fact"><div class="fact-label">Tours</div><div class="fact-value">Elke dag, meerdere tijden</div></div><div class="fact"><div class="fact-label">Bereikbaar</div><div class="fact-value">Metro lijn B → San Javier</div></div><div class="fact"><div class="fact-label">Roltrappen</div><div class="fact-value">6 buitenroltrappen, gratis</div></div><div class="fact"><div class="fact-label">Beste tijd</div><div class="fact-value">Voormiddag of vroege namiddag</div></div><div class="fact"><div class="fact-label">Veiligheid</div><div class="fact-value">Overdag veilig in groep of op tour</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">Plan Your Time When planning your itineraries, note that Medellín is more fun on weekends, while the coffee country towns are more relaxed and easy to navigate during the week. Comuna 13, Medellín | Antoine Barthelemy/shutterstock © A Taster of a Few Days • Fly into Medellín and base yourself in the city for the duration of your stay. Get versed on the recent history on a walking tour of the center before visiting the barrios of Comuna 13 and the Museo Casa de la Memoria . • Leave a day to ride the cable cars high above the valley and to check out the sculptures of the city’s prodigal son Fernando Botero . • Then take a day trip to Guatapé to climb the stone monolith and enjoy 360-degree views of the sprawling lake that embraces a maze of peninsulas and islands. 10 Days to Travel Around • After finding your bearings in Medellín and visiting Guatapé , continue eastward to bathe in the crystal-clear waters of Río Claro , which flow through a jungle-clad limestone canyon. • Head south and then west over the Páramo de Letras to Manizales to check out its urban nature reserves and soak in the thermal baths. • After a day trip to the peaks of the Parque Nacional Natural Los Nevados , take the short trip south to Salento to spend your last couple of days learning about the coffee-growing process and hiking among the wax palms of the Valle de Cocora . If You Have Time to Explore • Begin in Medellín . Spend three or four days getting to know the city before taking day trips to Guatapé and Santa Fe de Antioquia to check out the classic architecture. • Next, pack your bags and head southwest to Jardín for an introduction to coffee country and some countryside walks. Visit the Cueva del Esplendor before taking the less-traveled unpaved road over the mountains via Río Sucio to Manizales . • End your trip with a multi-day trek through the Parque Nacional Natural Los Nevados to Salento via the stunning Laguna de Otún . Seasonal Highlights Medellín has a spring-like climate. The Zona Cafetera gets chilly during heavy rains in March to April and October to November. JANUARY Let loose at the Zona Cafetera’s biggest festival, the Feria de Manizales, with concerts, parades and traditional dance in Manizales . Jorge Ivan Vasquez C/shutterstock © FEBRUARY Fewer crowds and lower prices make this the perfect time for exploring the towns of the Zona Cafetera .</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">The Comuna 13 escalators 4km west of the centre • Free • Metro San Javier (then bus to “20 de Julio”); it’s also possible to visit Comuna 13 on a guided tour (see page 198 ) To see one of the innovative projects that have helped rejuvenate the city, pop over to Las Independencias I in Comuna 13 , a formerly gang-ridden, violent neighbourhood clinging to a hillside on the western edge of town. As part of the area’s regeneration, the mayor’s office have installed six flights of escalators ( escaleras eléctricas ) up the hillside, along with children’s slides and fountains to play in on the streets, paint to brighten up the houses and youth clubs to keep local kids out of trouble. The result: a neighbourhood still poor, but with a better quality of life, less troubled and on the up. The escalators, installed in 2011, were among a number of projects called PUIs (Integrated Urban Projects), designed to improve life in the city, and uniformed staff, all local residents, will tell you with pride about the effect they have had. On the way back, it’s worth taking a detour to do a round trip on the cable car from San Javier station and to see how the cable car system has connected outlying areas to the city centre, cutting as much as an hour off journey times into town. It’s certainly notable how, in Medellín, regeneration means improving life for the poor rather than shifting them out to replace them with the rich. Laureles The Laureles neighbourhood, within walking distance west of the city, is increasingly popular as a place to stay and to eat. Served by the metro (line 2), it doesn’t have any tourist sights as such, but it’s home to the Atanasio Girardot sports complex , including the home ground for both of the city’s football teams. Arrival and departure Medellín By plane José María Córdova airport Medellín’s José María Córdova airport ( https://aeropuertorionegro.co ) lies a hilly 28km from the city along a scenic highway; it services all international and most domestic flights. There are buses between the airport and Cra 50A No. 53–13 in the city centre (4 511 4023, https://bit.ly/combuses ). Taxis are available from the airport into town; you may be able to share that as a taxi colectivo . From town, a good taxi firm with slightly lower prices is ACOA ( https://acoataxiaeropuerto.com.co ).</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• Doe een guided tour met een lokale gids — ze vertellen het volledige verhaal van de buurt en kennen de beste muurschilderingen</p><p>• Bekende kunstenaars: Chota, Yair Ojeda, Buenaventura — zoek hun namen op de muren</p><p>• 's Avonds NIET alleen gaan — de wijk is overdag veilig maar 's nachts nog steeds risicovol</p><p>• De roltrappen zijn gratis voor iedereen — wandel er gewoon op</p><p>• Combineer met El Poblado voor avondeten — veiligste wijk voor restaurants en bars</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../medellin.html" class="back-btn">← Terug naar Medellín</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Comuna 13 · Medellín</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

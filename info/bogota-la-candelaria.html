@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🎨 La Candelaria · Bogotá · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#1A4A2E;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#0D2E18,#1A4A2E,#14532D);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#0D2E18,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../bogota.html">← Bogotá</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../bogota.html">Bogotá</a> › La Candelaria</div>
+  <h1>🎨 La Candelaria</h1>
+  <p class="sub">Bogotá · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>La Candelaria is de oudste wijk van Bogotá — een levendig labyrint van koloniale gebouwen, kleurrijke gevels, lokale cantines en legale straatkunst van wereldklasse. Hier sloeg Gonzalo Jiménez de Quesada in 1538 zijn kamp op en stichtte de stad.</p>
+    <p>Vandaag is de wijk het culturele hart van Bogotá: het Museo del Oro, de Plaza de Bolívar, de kathedraal, het Teatro Colón, de Plazoleta del Chorro de Quevedo en tientallen kleine musea en galeries liggen allemaal op wandelafstand van elkaar. De straatkunst — legaal en vaak politiek — maakt van de wijk zelf een openluchtmuseum.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Karakter</div><div class="fact-value">Historische wijk / cultureel centrum</div></div><div class="fact"><div class="fact-label">Prijs</div><div class="fact-value">Gratis (museumingang apart)</div></div><div class="fact"><div class="fact-label">Bereikbaar</div><div class="fact-value">Vanuit elke wijk met Uber</div></div><div class="fact"><div class="fact-label">Beste tijd</div><div class="fact-value">Voormiddag op weekdag</div></div><div class="fact"><div class="fact-label">Straat kunst</div><div class="fact-value">Calle 13-16, rond Chorro de Quevedo</div></div><div class="fact"><div class="fact-label">Musea</div><div class="fact-value">Museo del Oro, Botero, Candelaria, Naval</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">The city’s cultural epicenter is La Candelaria, the historic downtown quarter toward which most travelers gravitate. Here, an assortment of preserved colonial buildings are punctuated with newer neoclassical and art-deco styles. This area has Bogotá’s highest concentration of museums, restaurants, hotels, and bars dotted amid 300-year-old houses, churches and convents. The sentinel Eastern Hills, dominated by the church-topped Cerro de Monserrate, provide a welcome green backdrop. The city’s grittier sides sit south and southwest of La Candelaria, where working-class barrios, not yet tourist magnets, have shrugged off the no-go reputations of yesteryear. Skyscrapers crowd the Centro Internacional’s business district, while streets to the north have boutique hotels and fashionably clad locals perusing chic entertainment in the Zona Rosa. Here, rust-tinted sunsets bounce off the terracotta bricks of Bogotá’s Andes-hugging residential towers – a cinematic ceremony that ushers in the city’s uproarious evenings. La Candelaria | posztos/SHUTTERSTOCK © THE MAIN AREAS LA CANDELARIA Historic quarter with bars and cafes. CITY CENTER & CENTRO INTERNACIONAL Business, bustle and big museums. CHAPINERO Gourmet food, shopping malls and nightlife. USAQUÉN Elongated brunches and Sunday market. Find Your Way While the historic Candelaria neighborhood and parts of the city center are easily walkable, the rest of Bogotá is stretched over a large area. It’s 13km from Candelaria to Usaquén. Fortunately, the capital has developed a rapid metro-bus network (the TransMilenio) and, despite snarling traffic, makes good provision for cyclists. Plan Your Days If you’re short on time, base yourself around Candelaria, from where you can make sorties into the northern neighborhoods for more varied eating and nightlife. La Puerta Falsa | Milena Ramirez/SHUTTERSTOCK © Day 1 Morning • Get orientated in the Plaza de Bolívar where the city is thought to have been founded in 1538. You’ll be naturally drawn to the neoclassical facade of the gigantic Catedral Primada , but also reserve time for the Capitolio Nacional and the Casa de Nariño that sits behind it. Afternoon • Grab lunch in La Puerta Falsa and stroll up La Séptima , spending the best part of the afternoon in the extraordinary Museo del Oro . Evening • Pass the evening admiring creative street art and dipping into the bars around the Plazoleta del Chorro de Quevedo . Be sure to decamp to Origen Bistro for dinner.</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">The city’s oldest neighbourhood, La Candelaria , lies at what was once the junction of two rivers, the Río San Agustín (which now runs under Calle 7), and the Río San Francisco, which still flows through the centre of town to this day, in a channel down Avenida Jiménez. La Candelaria is home to some of South America’s most impressive colonial buildings, and is the neighbourhood where most tourists – and certainly most backpackers – choose to stay. The downtown city centre , though more modern than La Candelaria, gives the impression of having gone slightly to seed, and is nowadays to a large extent upstaged as a commercial and business district by smarter uptown neighbourhoods such as the Zona Rosa . The city’s nightlife zone, Zona Rosa positively heaves with clubs and restaurants, which only really comes to life after nightfall. All over town, one thing you’ll notice is the vibrant and colourful graffiti and street art, a result of the city’s liberal attitude to graffiti, which has made it a mecca for street artists from around the world. Situated on the Sabana de Bogotá, Colombia’s highest plateau and 2600m up in the Andes, Bogotá can be cold and wet year-round. March to May and September to November are the wettest periods, while late December through January is the sunniest time of year. Brief history Bogotá started life as Bacatá, seat of the Zipa, supreme chief of the Muisca people’s southern confederation (see page 104 ). After defeating the Muiscas in battle in 1538, the Spanish Conquistador Gonzalo Jiménez de Quesada founded today’s city, calling it Santa Fe de Bogotá, or just Santa Fe . In 1550, it was made capital of New Granada, and – with its name trimmed to just plain Bogotá – it remained the capital of Gran Colombia after independence in 1819, when its population was around 30,000. In 1884, Bogotá got a tram system, which really helped draw it together. The trams ran until 1948, by which time the city had around half a million residents. That year saw the assassination of the massively popular Liberal Party leader Jorge Eliécer Gaitán , sparking off a huge riot called the Bogotazo (see page 78 ), which left over six hundred dead and destroyed half the city centre. In the second half of the twentieth century, industrialization and civil war prompted a mass influx of peasant farmers from rural areas into slums on the southern approach to the city – in marked contrast to the affluent neighbourhoods in the northern part of town.</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• 's Ochtends rustig, 's middags levendig tijdens de schoolpauze en aan het einde van de werkdag</p><p>• De Plazoleta del Chorro de Quevedo is het gezelligste plein in de avond — artsen, studenten en straatartiesten</p><p>• Stinkfish en Toxicómano zijn de bekendste lokale street-art namen — zoek hun werken</p><p>• 's Avonds Uber nemen — de wijk is 's nachts minder veilig voor toeristen</p><p>• Gratis guided walking tours vertrekken elke dag om 14u voor het Goudmuseum</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../bogota.html" class="back-btn">← Terug naar Bogotá</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · La Candelaria · Bogotá</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

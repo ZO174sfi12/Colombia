@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🏛️ Plaza de Bolívar · Bogotá · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#1A4A2E;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#0D2E18,#1A4A2E,#14532D);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#0D2E18,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../bogota.html">← Bogotá</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../bogota.html">Bogotá</a> › Plaza de Bolívar</div>
+  <h1>🏛️ Plaza de Bolívar</h1>
+  <p class="sub">Bogotá · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>De Plaza de Bolívar is het historische en symbolische hart van Bogotá en heel Colombia. Aan dit plein — omgeven door imposante gebouwen die vijf eeuwen geschiedenis vertegenwoordigen — staan de Catedral Primada, het Capitolio Nacional, het Palacio de Justicia en het Liévano-paleis (stadhuis).</p>
+    <p>In het midden staat het beroemde bronzen standbeeld van Simón Bolívar, de bevrijder van Colombia. Het plein is een ontmoetingsplek voor Bogotanen en toeristen, wordt gebruikt voor nationale ceremonies en laat- zie je er soms Colombianen die je fotograferen met hun llama voor een paar pesos.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Prijs</div><div class="fact-value">Gratis</div></div><div class="fact"><div class="fact-label">Karakter</div><div class="fact-value">Symbolisch hart van Colombia</div></div><div class="fact"><div class="fact-label">Omgeven door</div><div class="fact-value">Kathedraal, Capitolio, Palacio de Justicia, Stadhuis</div></div><div class="fact"><div class="fact-label">Standbeeld</div><div class="fact-value">Simón Bolívar (1846)</div></div><div class="fact"><div class="fact-label">Ligging</div><div class="fact-value">La Candelaria, centrum Bogotá</div></div><div class="fact"><div class="fact-label">Tip</div><div class="fact-value">Kathedraal binnengaan bij een mis</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">La Puerta Falsa | Milena Ramirez/SHUTTERSTOCK © Day 1 Morning • Get orientated in the Plaza de Bolívar where the city is thought to have been founded in 1538. You’ll be naturally drawn to the neoclassical facade of the gigantic Catedral Primada , but also reserve time for the Capitolio Nacional and the Casa de Nariño that sits behind it. Afternoon • Grab lunch in La Puerta Falsa and stroll up La Séptima , spending the best part of the afternoon in the extraordinary Museo del Oro . Evening • Pass the evening admiring creative street art and dipping into the bars around the Plazoleta del Chorro de Quevedo . Be sure to decamp to Origen Bistro for dinner. Day 2 Morning • Get up with the larks and hike to the top of Cerro de Monserrate for an early-morning fitness test. Back down at the base, pay a visit to the Casa Museo Quinta de Bolívar before grabbing a deli sandwich at Chantonner Delikatessen . Afternoon • Work your way north stopping at the Museo Nacional and the Torre Colpatria . Consider a side trip to the San Felipe Art District to meander between galleries, bars and offbeat street sculpture. Evening • Make a dinner date at a restaurant in Zona G and fill what’s left of the evening bar-hopping in the Zona Rosa . Day 3 Morning • Start in the historic grid of La Candelaria absorbing the life and flavors of modern-day Bogotá from street level. Endeavor to devote at least an hour or two to the seminal Museo Botero . Afternoon • Admire the trilogy of churches along La Séptima and then catch a TransMilenio bus to Chapinero. Sample a flight of coffee tasters at Azahar Café and explore the shops and greenery of Parque de la 93 before investigating the Museo El Chicó . Evening • Call a taxi to take you out to the party emporium better known as Andrés Carne de Res . You’ll Also Want To… When you’ve covered all the obvious sights, veer off-piste on a hike or bike-ride, seeking out esoteric street snacks and powerful coffee. PARTAKE IN CICLOVIA Bogotá’s Ciclovia is one of the world’s oldest and largest car-free Sundays. You won’t know Bogotá until you’ve taken part. Ivan_Sabo/GETTY IMAGES © INDULGE IN THE COFFEE The world’s third-largest coffee producer has, in recent years, developed a sophisticated cafe society plugging the best local flavors. Fotos593/SHUTTERSTOCK © GO LOOKING FOR EMERALDS Colombia is the world’s leading emerald producer and Bogotá’s Emerald Trade Center is a good place to ponder a purchase.</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">Plaza de Bolívar Explore Bogotá’s history via its cathedral, law courts and a couple of palaces – or have your photo taken with a llama. See page 73 2 Museo Botero Marvel at the biggest and best collection of works by Colombia’s favourite artist, all for free. See page 75 3 Museo del Oro (Gold Museum) Stuffed to the rafters with gold, gold and more gold from pre-Hispanic Colombia – no wonder the Spanish thought it was El Dorado. See page 78 4 Cerro de Monserrate Take the funicular or a cable car, or just climb up the stairs to this popular pilgrimage site for a fantastic bird’s-eye view over the whole city. See page 79 5 Cementerio Central Wander this fascinating cemetery where most of Colombia’s presidents lie buried, as well as British and Irish troops who fell fighting for Bolívar. See page 80 6 Dine out in La Macarena This bohemian inner-city neighbourhood has become Bogotá’s favourite place to eat out, full of new and innovative restaurants serving cuisine from Colombia, South America and the world. See page 87 7 Zona Rosa nightlife The epicentre of Bogotá’s evening entertainment is chock-full of bars, clubs, cafés and restaurants, and throbs to the beat of everything from house or hip-hop to rock or salsa. See page 88 View of Bogotá Copyright (c) 2022 Santiago Robayo Escobar/Shutterstock. No use without permission. Bogotá Colombia’s capital is a city that divides opinion. Its detractors cite poverty, gridlocked traffic and crime, as well as depressingly regular rain, and with over eight million tightly packed inhabitants and some decidedly drab neighbourhoods, Bogotá rarely elicits love at first sight. Given a day or two, however, most people do fall for this cosmopolitan city with its colonial architecture, numerous restaurants and raucous nightlife. In any case, love it or hate it, odds are you’ll have to pass through it at some stage during your travels in Colombia. Capitolio Nacional de Colombia Shutterstock Bogotá is bounded on its western side by the Río Bogotá, and to its east by the Cerro de Monserrate , a mountain ridge topped by a church that can be seen from pretty much anywhere in town, making it a very useful landmark. Thus constricted (although seeping out beyond its traditional boundary on the west side), the city’s expansion has largely been to the north and south. The southern end of town consists of down-at-heel barrios largely inhabited by people who’ve come in from the countryside seeking work.</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• Bezoek de Catedral Primada — vrij toegankelijk, indrukwekkend interieur</p><p>• Het Capitolio Nacional biedt soms rondleidingen op werkdagen</p><p>• Het Palacio de Justicia is herbouwd na de dramatische bestorming van 1985</p><p>• Mooi fotomoment: vroeg in de ochtend als het plein nog leeg is</p><p>• Combineer met Museo del Oro (5 min lopen) en Iglesia de San Francisco</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../bogota.html" class="back-btn">← Terug naar Bogotá</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Plaza de Bolívar · Bogotá</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

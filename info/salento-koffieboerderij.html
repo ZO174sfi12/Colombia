@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>☕ Koffieboerderij — Finca Las Acacías · Salento · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#78350F;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#451A03,#78350F,#92400E);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#451A03,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../salento.html">← Salento</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../salento.html">Salento</a> › Koffieboerderij — Finca Las Acacías</div>
+  <h1>☕ Koffieboerderij — Finca Las Acacías</h1>
+  <p class="sub">Salento · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>Colombia produceert een van de beste koffies ter wereld, en de regio rond Salento is het hart van de Zona Cafetera — het koffiegebied. Een bezoek aan een werkende koffie-finca onthult het volledige verhaal achter je kopje: van de bessen aan de struik tot de gebrande boon.</p>
+    <p>Finca Las Acacías biedt een rondleiding van ±2 uur waarbij je zelf bessen plukt, het fermentatieproces ziet, de droging, de ontdopping en het roosteren. Afgesloten met een koffieproeverij om de kwaliteitsverschillen te proeven. Een onmisbare ervaring als je begrijpt waarom Colombiaanse koffie zo goed smaakt.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Prijs</div><div class="fact-value">€5 p.p.</div></div><div class="fact"><div class="fact-label">Duur</div><div class="fact-value">±2 uur</div></div><div class="fact"><div class="fact-label">Finca</div><div class="fact-value">Las Acacías (ook andere fincas beschikbaar)</div></div><div class="fact"><div class="fact-label">Taal</div><div class="fact-value">Spaans/Engels</div></div><div class="fact"><div class="fact-label">Inclusief</div><div class="fact-value">Koffieproeverij + rondleiding</div></div><div class="fact"><div class="fact-label">Tip</div><div class="fact-value">Reserveer 's avonds tevoren via hotel</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">Colombia is the third-largest coffee exporter in the world and the only big producer that grows arabica beans exclusively. The coffee bean was brought to Colombia from Venezuela in the early 18th century by Jesuit priests. It was first cultivated in the area that is now Norte de Santander before spreading throughout the country. Local conditions proved ideal for growing arabica coffee. Colombia’s location near the equator means that coffee can be grown high in the mountains, where the beans mature more slowly.</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">Of the coffee farm visits which you can make from Salento, the tours of Finca Don Eduardo are the easiest, the most informative and the closest to town. They also have the advantage of being conducted in English. Tim from The Plantation House , who owns the farm, gives a comprehensive explanation of the different types of coffee, how they’re grown and how they’re processed, and is happy to answer questions.</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• Boek via het hotel de avond tevoren — ze kennen de beste lokale fincas</p><p>• De meeste tours zijn in het Spaans maar gidsen spreken vaak ook Engels</p><p>• Breng een waterfles mee — het werken op de finca kan warm zijn</p><p>• Je kan ook zelfgeplukte bonen kopen als souvenir</p><p>• Andere populaire finca: Don Elías (ook in Salento, iets verder buiten het centrum)</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../salento.html" class="back-btn">← Terug naar Salento</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Koffieboerderij — Finca Las Acacías · Salento</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>💧 Pozo Azul · Minca · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#065F46;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#064E3B,#065F46,#047857);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#064E3B,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../minca.html">← Minca</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../minca.html">Minca</a> › Pozo Azul</div>
+  <h1>💧 Pozo Azul</h1>
+  <p class="sub">Minca · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>Pozo Azul is een kristalhelder bergbeekje net buiten Minca — een reeks kleine watervallen en zwemplekken met stralend azuurblauw-turquoise water. De naam ('blauwe put') zegt het al: het water heeft een onwerkelijke kleur door de mineraalsamenstelling en de weerkaatsing van het zonlicht.</p>
+    <p>Het is een ideale plek om af te koelen na een wandeling of motorritje door het dorp. De tochtig rit erheen — vaak per motortaxi — door weelderig jungleland is al een beleving. Pozo Azul is een van de eerste activiteiten die toeristen doen na aankomst in Minca.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Afstand</div><div class="fact-value">±4 km van Minca centrum</div></div><div class="fact"><div class="fact-label">Bereikbaar</div><div class="fact-value">Motortaxi (±€2-3)</div></div><div class="fact"><div class="fact-label">Prijs</div><div class="fact-value">Klein entreeticket</div></div><div class="fact"><div class="fact-label">Water</div><div class="fact-value">Kristalhelder, mineraalrijk</div></div><div class="fact"><div class="fact-label">Beste tijd</div><div class="fact-value">Ochtend (minder bezoekers)</div></div><div class="fact"><div class="fact-label">Zwemmen</div><div class="fact-value">Ja, veilig</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">Swimming Pozo Azul and the Cascadas de Marinka are two popular natural swimming pools. The latter has a small entrance fee, but fewer crowds, a cafe and giant nets for lounging. Bird-watching Jungle Joe Minca takes groups on three-hour birding tours daily at 6am. Alternatively, birding haven Reserva Natural El Dorado has sweeping views from the San Lorenzo ridge. Coastal Crescendo PARQUE TAYRONA’S DRAMATIC NATURAL BEAUTY The Parque Nacional Natural Tayrona , one of Colombia’s most-visited national parks, takes up an immense chunk of the Caribbean coastline and is characterized by giant boulders bookending palm-fringed inlets with golden sand tumbling under the waves. The park is 30 to 45 minutes east of Santa Marta by bus from the Mercado Público. Don’t expect instant gratification at the park entrances El Zaino or Calabazo ; it takes two to three hours hiking along ancient Indigenous footpaths, past the Pueblito ruins (currently closed to visitors), to reach the most scenic spots, such as Cabo San Juan de la Guia with its thatched-roof structure perched high on a rocky outcrop called El Mirador . Day-trippers barely get a chance to dip a toe in; a night or two is needed to feel immersed. The cheapest way is to bring a tent and stay in a designated camping area for a small fee. You can also travel light and spend an unforgettable night swinging in one of the 16 hammocks in El Mirador’s hut, or stay in an ecolodge at playas Brava, Arrecife or Cañaveral. Bring cash to cover the park entrance, mandatory insurance for emergencies (separate to personal travel insurance), shuttle from El Zaino to the trailhead, lodging, food and drinks. A fresh coconut at Punta Las Gaviotas or the famous chocolate bread at Panadería Bere are well-earned treats. Cabo San Juan de la Guia | Nadège Mazars/LONELY PLANET © WHERE TO STAY ON THE WATERFRONT Ecohabs Tequendama Parque Tayrona PNN Tayrona’s best splurge are these two-story huts overlooking Cañaveral. $$$ Finca Barlovento Has a sea-cliff cabaña and a riverfront maloka with spacious suites and semi-private pool. $$$ Viajero Tayrona Hostel Resort-like hostel with spacious rooms, plus lots of activities or space to do nothing. $$ Real-Life Macondo Novelist Gabriel García Márquez, the father of Latin America’s magical realism, was born in Aracataca , which inspired the town of Macondo in Cien años de soledad (100 Years of Solitude).</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">Popular activities include a forty-minute hike (or short mototaxi ride) to Pozo Azul (free entry) a set of two enchanting swimming holes at the foot of a small waterfall, and Las Cascadas de Marinka , a larger waterfall (entry fee), a one-hour hike from the centre (15min via mototaxi ). You can also tour the organic coffee farm H acienda La Victoria , established in 1892 with English investors, thus the name (daily 9am–5pm; 1hr 30min; charge for tours; https://facebook.com/LaVictoria1892 ). Mototaxis one-way take around 25 minutes, while 4WD jeeps take approximately 35 minutes; otherwise it’s a 2hr hike. Arrival and departure Minca By minibus Cootrasminca minibuses depart the small office on Cra 9, at C 12 next to the market area in Santa Marta; the trip takes around 45 minutes. By taxi You’ll have to negotiate a fixed rate with regular Santa Marta taxis. Mototaxis will usually take you for less (25min). Accommodation and eating Casa Loma 10min walk from the plaza; https://casalomaminca.com . Wooden hilltop house (it’s a short but steep hike) with stunning views, five simple but cosy rooms, hammocks (which you can spend the night in), dorm beds and camping (tents available for rent). Congenial owners Jay (English), Anne (German) and Helena (French) are a font of local information. Cold showers and no wi-fi. The great on-site restaurant serves breakfast, lunch and dinner. Yoga classes (1hr 30min) are extra. Sleeping options in include camping (with own tent), hammocks, dorms and doubles. $ Lazy Cat C Principal No. 1–460; 300 748 2406. Alluring riverside cottage restaurant, with a relaxed terrace, free wi-fi, friendly Anglo/Colombian owners and superb food (from steaks and home-made burgers – to Thai-style noodles). Sunset happy hour daily 6–7pm. The name is in honour of the resident cats. $ Masaya Casas Viejas Hacienda la Victoria; https://masaya-experience.com/minca . This French-owned guesthouse on the Hacienda Victoria estate (6km from central Minca) is definitely worth the bumpy ride up for the spectacular views and simple, clean rooms and wonderful hot-water showers. There’s no kitchen. but meals at the restaurant or the hacienda’s El Bistro de La Victoria are all fresh and home cooked. Yoga classes and salsa lessons are also offered. Dorms $ , doubles $$ La Miga Cra 66, next to Banco de Bogotá; 313 537 2218.</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• Ga 's ochtends vroeg — 's middags komen de schoolgroepen uit Santa Marta</p><p>• Neem een wisselpak mee — het water is verleidelijk om lang in te blijven</p><p>• Combineer met de Cascade de Marinka op dezelfde dag</p><p>• Motortaxi's staan altijd klaar in het centrum van Minca</p><p>• Breng insectenwerend middel mee voor het junglepad naar de plek</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../minca.html" class="back-btn">← Terug naar Minca</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Pozo Azul · Minca</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

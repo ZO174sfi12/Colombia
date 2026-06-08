@@ -19,7 +19,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
 .hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
-.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}a.badge:hover{background:rgba(255,255,255,0.25);opacity:0.9;}
 .section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
 .day-banner{background:linear-gradient(135deg,#0C1A2E,#0369A1);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
 .day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
@@ -103,10 +103,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <p class="sub">Dag 17–18 · Nationaal Park · Jungle & Paradijselijk Strand</p>
   <div class="badges">
     <span class="badge">⚠️ Check opening vóór vertrek!</span>
-    <span class="badge">🌴 Jungle wandelingen</span>
+    <a class="badge" href="info/tayrona-park.html" style="text-decoration:none;cursor:pointer;">🌴 Tayrona Nationaal Park</a>
     <span class="badge">🏝️ Afgelegen stranden</span>
     <span class="badge">🎒 Paspoort meenemen!</span>
-    <span class="badge">🏨 Quetzal Dorado Eco-Lodge</span>
   </div>
 </div>
 
@@ -143,6 +142,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
         <div class="meta">
           <span class="chip warn">📞 Check met Quetzal Dorado voor beste route</span>
         </div>
+        <a href="info/tayrona-park.html" class="lees-meer-btn">📖 Lees meer: 🌴 Tayrona Park →</a>
       </div>
     </div>
 
@@ -195,7 +195,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 </div>
 
-<div class="nav-buttons">
+<div class="section" style="padding-top:0;">
+  <div style="background:#EFF6FF;border:1px solid #93C5FD;border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.83rem;color:#1E40AF;">
+    🏨 <strong>Hotel:</strong> Quetzal Dorado Eco-Lodge · Verblijf in het nationaal park
+  </div>
+</div><div class="nav-buttons">
   <span></span>
   <a href="palomino.html" class="nav-btn next" style="background:#0F172A;">Volgende: 🏖️ Palomino →</a>
 </div>

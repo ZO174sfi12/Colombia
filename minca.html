@@ -19,7 +19,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
 .hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
-.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}a.badge:hover{background:rgba(255,255,255,0.25);opacity:0.9;}
 .section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
 .day-banner{background:linear-gradient(135deg,#022C22,#065F46);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
 .day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
@@ -101,10 +101,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <p class="sub">Dag 14–16 · Jungle Bergdorpje · Watervallen · Sierra Nevada</p>
   <div class="badges">
     <span class="badge">🚌 Via Santa Marta</span>
-    <span class="badge">💧 Pozo Azul & Cascade de Marinka</span>
-    <span class="badge">⛰️ Minca Sierra dagtrip</span>
+    <a class="badge" href="info/minca-pozo-azul.html" style="text-decoration:none;cursor:pointer;">💧 Pozo Azul</a>
+    <a class="badge" href="info/minca-marinka.html" style="text-decoration:none;cursor:pointer;">🌊 Cascade de Marinka</a>
+    <a class="badge" href="info/minca-sierra.html" style="text-decoration:none;cursor:pointer;">⛰️ Minca Sierra</a>
     <span class="badge">🦜 Vogelparadijs</span>
-    <span class="badge">🏨 Costeño River Minca</span>
   </div>
 </div>
 
@@ -139,6 +139,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
           <span class="chip">bookaway.com · Cartagena → SM</span>
           <span class="chip dist">📍 <a href="https://goo.gl/maps/Hct46k9MLzDeih5z9" target="_blank" style="color:#1E40AF;">Bushalte Santa Marta</a></span>
         </div>
+        <a href="info/minca-pozo-azul.html" class="lees-meer-btn">📖 Lees meer: 💧 Pozo Azul →</a>
+        <a href="info/minca-marinka.html" class="lees-meer-btn">📖 Lees meer: 🌊 Marinka →</a>
+        <a href="info/minca-sierra.html" class="lees-meer-btn">📖 Lees meer: ⛰️ Sierra Nevada →</a>
       </div>
     </div>
   </div>
@@ -227,7 +230,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 </div>
 
-<div class="nav-buttons">
+<div class="section" style="padding-top:0;">
+  <div style="background:#ECFDF5;border:1px solid #6EE7B7;border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.83rem;color:#065F46;">
+    🏨 <strong>Hotel:</strong> Costeño River Minca · Verblijf langs de rivier
+  </div>
+</div><div class="nav-buttons">
   <span></span>
   <a href="tayrona.html" class="nav-btn next" style="background:#065F46;">Volgende: 🌴 Tayrona →</a>
 </div>

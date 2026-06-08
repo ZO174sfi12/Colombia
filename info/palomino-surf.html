@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🏄 Bodyboarden & Surfen · Palomino · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#065F46;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#064E3B,#065F46,#0D9488);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#064E3B,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../palomino.html">← Palomino</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../palomino.html">Palomino</a> › Bodyboarden & Surfen</div>
+  <h1>🏄 Bodyboarden & Surfen</h1>
+  <p class="sub">Palomino · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>De golven van Palomino zijn consistent en krachtig — perfect voor beginnerssurfers en enthousiaste bodyboarders. Het strand heeft brekende golven die dichtbij het strand grote schuimende branders vormen, ideaal om op te surfen zonder een lange paddle. De surfcultuur in Palomino is ontspannen en vriendelijk.</p>
+    <p>Verschillende strandlodges en lokale operators verhuren bodyboards, surfplanken en bieden lessen aan. De beste golven zijn 's ochtends vroeg en in de late namiddag. Het surfgedeelte van het strand is duidelijk afgebakend — zwem niet in de surfzone als je geen ervaring hebt.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Golven</div><div class="fact-value">Beginner tot gemiddeld</div></div><div class="fact"><div class="fact-label">Materiaalverhuur</div><div class="fact-value">Meerdere operators op het strand</div></div><div class="fact"><div class="fact-label">Lessen</div><div class="fact-value">Beschikbaar voor beginners</div></div><div class="fact"><div class="fact-label">Beste tijd</div><div class="fact-value">Vroege ochtend of late namiddag</div></div><div class="fact"><div class="fact-label">Seizoen</div><div class="fact-value">Het hele jaar door golven</div></div><div class="fact"><div class="fact-label">Tip</div><div class="fact-value">Bodyboarden is makkelijker voor beginners</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">Surfing conditions in Palomino change all year long, but the smoothest and largest 2m to 3m waves occur during the windy season from December to February. October and May are the calmest. Palomino has several surf schools with instructors certified by the Federación Colombiana de Surf (Fecolsurf). Among them are Palomino Surf &amp;amp; Bodyboard School , Tide Escuela de Surf and Surf by José .</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">The burgeoning backpacker hangout of PALOMINO , some 63km from El Zaíno, makes for a refreshing pit-stop between Tayrona and La Guajira, with an alluring beach and plenty of budget accommodation.</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• Beginners: start met bodyboarden — makkelijker te leren en even leuk</p><p>• Respecteer de surfers — geef ze ruimte in de golven</p><p>• Zonnecrème opnieuw aanbrengen na elke sessie — de Caribische zon is intens</p><p>• De strandlodges hebben de beste surfplanken — goedkoper dan geïmporteerd materiaal</p><p>• Combineer surfen in de ochtend met tubing op de rivier in de namiddag voor een perfecte dag</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../palomino.html" class="back-btn">← Terug naar Palomino</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Bodyboarden & Surfen · Palomino</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

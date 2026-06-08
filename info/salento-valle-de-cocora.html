@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🌿 Valle de Cocora · Salento · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#78350F;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#451A03,#78350F,#92400E);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#451A03,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../salento.html">← Salento</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../salento.html">Salento</a> › Valle de Cocora</div>
+  <h1>🌿 Valle de Cocora</h1>
+  <p class="sub">Salento · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>Het Valle de Cocora is een van de meest spectaculaire en iconische landschappen van Colombia — een groene vallei gedomineerd door de slanke, imposante waspalmen (Ceroxylon quindiuense), de nationale boom van Colombia en de hoogste palmbomen ter wereld (tot 60 m hoog).</p>
+    <p>De klassieke route is een lus van 13 km door mistig junglelandschap: je begint met een afdaling in de jungle langs beken en hängbrücken, passeert een kolibrie-reservaat (een hoogtepunt!), en eindigt op de open groene weide met de torenhoge waspalmen. Een van de mooiste wandelingen van Zuid-Amerika.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Entree</div><div class="fact-value">€4,25 p.p.</div></div><div class="fact"><div class="fact-label">Afstand</div><div class="fact-value">13 km (lus)</div></div><div class="fact"><div class="fact-label">Duur</div><div class="fact-value">5-6 uur</div></div><div class="fact"><div class="fact-label">Niveau</div><div class="fact-value">Gemiddeld (glibberig bij regen)</div></div><div class="fact"><div class="fact-label">Jeep</div><div class="fact-value">€2 p.p. van Salento centraal plein</div></div><div class="fact"><div class="fact-label">Beste tijd</div><div class="fact-value">Vroeg vertrek (voor 8u)</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">Valle de Cocora . If You Have Time to Explore • Begin in Medellín . Spend three or four days getting to know the city before taking day trips to Guatapé and Santa Fe de Antioquia to check out the classic architecture. • Next, pack your bags and head southwest to Jardín for an introduction to coffee country and some countryside walks. Visit the Cueva del Esplendor before taking the less-traveled unpaved road over the mountains via Río Sucio to Manizales . • End your trip with a multi-day trek through the Parque Nacional Natural Los Nevados to Salento via the stunning Laguna de Otún . Seasonal Highlights Medellín has a spring-like climate. The Zona Cafetera gets chilly during heavy rains in March to April and October to November. JANUARY Let loose at the Zona Cafetera’s biggest festival, the Feria de Manizales, with concerts, parades and traditional dance in Manizales . Jorge Ivan Vasquez C/shutterstock © FEBRUARY Fewer crowds and lower prices make this the perfect time for exploring the towns of the Zona Cafetera . Kris Davidson/LONELY PLANET © MARCH The mitaca or secondary coffee harvest gives visitors the chance to try their hand picking beans alongside seasoned collectors. Nadège Mazars/LONELY PLANET © JUNE The Feria de las Flores takes over the streets of Medellín with floral-themed fanfare and plenty of partying. Guillermo Ossa/shutterstock © AUGUST Generally fine weather means dry trails, comfortable hiking and clear views of the summits on treks into the PNN Los Nevados . Christian Kober/GETTY IMAGES © SEPTEMBER A wave of activity sweeps across plantations and towns throughout the region as the main coffee harvest gets into full swing. Nadège Mazars/LONELY planet © OCTOBER Scores of modified classic Willys jeeps pull stunts on the streets of Armenia near Salento in the rollicking yipao procession. Fabs Psn/shutterstock © MEDELLíN Sprawling along the floor of a narrow valley, enclosed by magnificent mountains on both sides, Medellín has grown from an isolated town to one of the continent’s most fashionable cities. A place once synonymous with violence, the capital of Antioquia has gone all in on urban renewal and now seduces travelers with its sleek modern architecture, fascinating museums, public artwork, international cuisine and great nightlife.</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">See page 214 7 Salento A popular weekend getaway, this lovely little town is a perfect base to visit the wax palm cloudforest of Valle de Cocora, eat fresh local trout, and dance to classic Colombian sounds in the main square. See page 215 Valle de Cocora, Salento Copyright (c) 2018 Exequiel Schvartz/Shutterstock. No use without permission. Medellín and the Zona Cafetera The metropolis of Medellín has made a remarkable turnaround since its days as Colombia’s murder capital in the early 1990s, and is now an attractive, cosmopolitan city. It sits in the middle of the huge, mountainous departamento of Antioquia (see page 191 ), whose capital it has been since 1826. Within striking distance is the previous capital, Santa Fe de Antioquia, which remains a lovely old colonial town and competes with lakeside Guatapé to attract day-trippers from the city. To the south of Antioquia, the compact departamentos of Caldas, Risaralda and Quindío form the Zona Cafetera, Colombia’s main coffee-growing region. Plaza Botero, Medellín Copyright (c) 2015 unmillonedeelefantes/Shutterstock. No use without permission. Medellín is at the heart of Tierra Paisa – Paisa country. Although strictly speaking it means someone from Antioquia, the term “Paisa” can also by extension refer to people from the departamentos of Caldas, Risaralda and Quindío, which were largely created by immigrants from Antioquia. Paisas are alternately the butt of jokes and the object of envy for many Colombians. Their rugged individualism and reputation for industriousness dates back to the early nineteenth century, when they cleared Colombia’s hinterland for farming in exchange for the government’s carrot of free land. One of the Paisas’ biggest contributions to Colombia has been their role in the spread of coffee . The Zona Cafetera is based around the three modern cities of Manizales , Pereira and Armenia , all victims of earthquakes that have devastated them in modern times, yet each with its own charms in the way of scenery, innovation and entertainment. Easily accessible from Armenia or Pereira, the photogenic village of Salento is the gateway to some great hiking in the misty Valle de Cocoro . Along with Pereira and Manizales, Salento also makes a good base for exploring one of Colombia’s most postcard-perfect national parks, Parque Nacional Natural Los Nevados , with its snow-capped peaks and ominously rumbling volcanoes.</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• BELANGRIJK: Neem bij de jeepstop NIET de hoofdweg maar ga RECHTS het veld in — dat is het begin van de jungleroute. Vraag een kaartje bij het hotel!</p><p>• Vertrek zo vroeg mogelijk: voor 8u als je kan — minder drukte en betere lichtomstandigheden</p><p>• Minimaal 1,5L water per persoon meenemen + snacks</p><p>• Goede wandelschoenen zijn essentieel — het pad is steil en bij regen heel glibberig</p><p>• De kolibrie-tuin (Acaime) is een hoogtepunt — tientallen soorten kolibries</p><p>• Wacht op de terugweg aan het startpunt van de jeeps — kan zijn dat je even wacht tot de jeep vol is</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../salento.html" class="back-btn">← Terug naar Salento</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Valle de Cocora · Salento</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

@@ -19,7 +19,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
 .hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
-.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}a.badge:hover{background:rgba(255,255,255,0.25);opacity:0.9;}
 .section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
 .day-banner{background:linear-gradient(135deg,#042F2E,#0F766E);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
 .day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
@@ -101,10 +101,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <p class="sub">Dag 19–21 · Rustig Caribisch Strandleven · Tubing · Surfen</p>
   <div class="badges">
     <span class="badge">🚌 45 min van Tayrona</span>
-    <span class="badge">🛶 Tubing op de rivier</span>
-    <span class="badge">🏄 Bodyboarden & surfen</span>
+    <a class="badge" href="info/palomino-tubing.html" style="text-decoration:none;cursor:pointer;">🛶 Tubing op de rivier</a>
+    <a class="badge" href="info/palomino-strand.html" style="text-decoration:none;cursor:pointer;">🏖️ Strandwandeling</a>
+    <a class="badge" href="info/palomino-surf.html" style="text-decoration:none;cursor:pointer;">🏄 Bodyboarden & surfen</a>
     <span class="badge">😴 Totale rust</span>
-    <span class="badge">🏨 Casa del Pavo Real</span>
   </div>
 </div>
 
@@ -131,6 +131,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
           <span class="chip">🚌 ±45 min reistijd</span>
           <span class="chip warn">📞 Check met lodge voor transport</span>
         </div>
+        <a href="info/palomino-tubing.html" class="lees-meer-btn">📖 Lees meer: 🛶 Tubing →</a>
+        <a href="info/palomino-strand.html" class="lees-meer-btn">📖 Lees meer: 🏖️ Strand →</a>
+        <a href="info/palomino-surf.html" class="lees-meer-btn">📖 Lees meer: 🏄 Surfen →</a>
       </div>
     </div>
   </div>
@@ -227,7 +230,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 </div>
 
-<div class="nav-buttons">
+<div class="section" style="padding-top:0;">
+  <div style="background:#ECFDF5;border:1px solid #6EE7B7;border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.83rem;color:#065F46;">
+    🏨 <strong>Hotel:</strong> Casa del Pavo Real · Strandlodge Palomino
+  </div>
+</div><div class="nav-buttons">
   <span></span>
   <a href="praktisch.html" class="nav-btn next" style="background:#0F766E;">Volgende: 📌 Praktisch →</a>
 </div>

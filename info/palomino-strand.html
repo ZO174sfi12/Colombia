@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🏖️ Strand & Rio San Salvador · Palomino · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#065F46;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#064E3B,#065F46,#0D9488);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#064E3B,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../palomino.html">← Palomino</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../palomino.html">Palomino</a> › Strand & Rio San Salvador</div>
+  <h1>🏖️ Strand & Rio San Salvador</h1>
+  <p class="sub">Palomino · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>Palomino heeft een van de mooiste wilde stranden van Colombia — 6 km ongerept caribisch strand, omgeven door de Sierra Nevada de Santa Marta aan de ene kant en de Caribische zee aan de andere. Het strand is praktisch onbewoond, de golven zijn groot en krachtig en de sfeer is totale rust.</p>
+    <p>Een populaire wandeling leidt langs het strand naar de Rio San Salvador — een kleine rivier die uitmondt in de zee. Je can er zwemmen in de monding (zoet én zout water tegelijk) en genieten van de absolute stilte. De wandeling heen en terug duurt ±2-3 uur langs de branding.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Strand</div><div class="fact-value">6 km ongerepte wilde kust</div></div><div class="fact"><div class="fact-label">Wandeling tot Rio San Salvador</div><div class="fact-value">±3-4 km van dorp</div></div><div class="fact"><div class="fact-label">Zwemmen</div><div class="fact-value">Gevaarlijk in zee (grote golven) — beter in rivier</div></div><div class="fact"><div class="fact-label">Sfeer</div><div class="fact-value">Totale rust, weinig toeristen</div></div><div class="fact"><div class="fact-label">Accommodaties</div><div class="fact-value">Eco-lodges en hostels direct aan het strand</div></div><div class="fact"><div class="fact-label">Sierra Nevada</div><div class="fact-value">Zichtbaar achter het dorp</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">About 90 minutes northeast of Santa Marta, the Río Palomino flows from the mountains to the sea, dividing the departments of Magdalena and La Guajira. Here, you’ll find Palomino, the laid-back beach town that has become the unofficial backpacker capital of the Caribbean coast. Following years of armed conflict with paramilitaries, this enclave of barely 5000 people now bursts with 100 top-notch hostels and hotels, plus surf schools, yoga classes and a variety of restaurants, cafes and beach bars.</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">The burgeoning backpacker hangout of PALOMINO , some 63km from El Zaíno, makes for a refreshing pit-stop between Tayrona and La Guajira, with an alluring beach and plenty of budget accommodation. The main part of the village lies along the highway between Santa Marta and Riohacha, with the beach a short 1.5km downhill walk to the north (you can also take a mototaxi for a small fee ).</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• Zwem NIET in de zee tenzij een bewoner/gids aangeeft dat het veilig is — de golven en stroom zijn gevaarlijk</p><p>• De strandwandeling naar de Rio San Salvador is vrij in de schaduw — vroeg gaan voor de hitte</p><p>• Neem cash mee voor eten en activiteiten in Palomino — weinig of geen betaalautomaten</p><p>• Palomino is het ideale afsluiteinde van je Colombia-reis: rust, strand, natuur</p><p>• Bus terug naar Cartagena: vroeg in de ochtend boeken — lang maar comfortabele rit</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../palomino.html" class="back-btn">← Terug naar Palomino</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Strand & Rio San Salvador · Palomino</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

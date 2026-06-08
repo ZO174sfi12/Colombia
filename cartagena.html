@@ -19,7 +19,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
 .hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
-.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}a.badge:hover{background:rgba(255,255,255,0.25);opacity:0.9;}
 .section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
 .day-banner{background:linear-gradient(135deg,#451A03,#92400E);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
 .day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
@@ -104,10 +104,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <p class="sub">Dag 11–13 · Koloniale Parels · Getsemane · Caribisch Strand</p>
   <div class="badges">
     <span class="badge">✈️ Vlucht Medellín 20:20 · 3C8F4V</span>
-    <span class="badge">🏰 Historisch centrum</span>
-    <span class="badge">🏝️ Rosario eilanden</span>
-    <span class="badge">🌋 El Totumo vulkaan</span>
-    <span class="badge">🏨 Hotel 3 Banderas</span>
+    <a class="badge" href="info/cartagena-getsemani.html" style="text-decoration:none;cursor:pointer;">🏘️ Getsemani</a>
+    <a class="badge" href="info/cartagena-castillo-san-felipe.html" style="text-decoration:none;cursor:pointer;">🏰 Castillo San Felipe</a>
+    <a class="badge" href="info/cartagena-islas-rosario.html" style="text-decoration:none;cursor:pointer;">🏝️ Islas del Rosario</a>
+    <a class="badge" href="info/cartagena-el-totumo.html" style="text-decoration:none;cursor:pointer;">🌋 El Totumo</a>
   </div>
 </div>
 
@@ -143,6 +143,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
           <dl class="info-cell"><dt>Na aankomst</dt><dd>Uber naar Hotel 3 Banderas Getsemane</dd></dl>
           <dl class="info-cell"><dt>Van bushalte MDE</dt><dd>±1u met Uber</dd></dl>
         </div>
+        <a href="info/cartagena-getsemani.html" class="lees-meer-btn">📖 Lees meer: 🚶 Getsemaní →</a>
       </div>
     </div>
   </div>
@@ -198,6 +199,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
           <span class="chip dist">📍 Cra. 17 #36-49</span>
           <span class="chip">🏰 17e eeuw</span>
         </div>
+        <a href="info/cartagena-castillo-san-felipe.html" class="lees-meer-btn">📖 Lees meer: 🏰 Castillo San Felipe →</a>
       </div>
     </div>
 
@@ -237,6 +239,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
             </div>
           </div>
         </details>
+        <a href="info/cartagena-islas-rosario.html" class="lees-meer-btn">📖 Lees meer: 🏝️ Islas Rosario →</a>
+        <a href="info/cartagena-el-totumo.html" class="lees-meer-btn">📖 Lees meer: 🌋 El Totumo →</a>
       </div>
     </div>
 
@@ -253,7 +257,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 </div>
 
-<div class="nav-buttons">
+<div class="section" style="padding-top:0;">
+  <div style="background:#FFF7ED;border:1px solid #FDB97D;border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.83rem;color:#92400E;">
+    🏨 <strong>Hotel:</strong> Hotel 3 Banderas Getsemane · €243 incl. ontbijt · Zwembad · Airco · 3 nachten
+  </div>
+</div><div class="nav-buttons">
   <span></span>
   <a href="minca.html" class="nav-btn next" style="background:#92400E;">Volgende: 🌿 Minca →</a>
 </div>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>⛰️ Minca Sierra & Koffieplantages · Minca · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#065F46;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#064E3B,#065F46,#047857);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#064E3B,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../minca.html">← Minca</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../kaart.html">🗺️ Kaart</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../minca.html">Minca</a> › Minca Sierra & Koffieplantages</div>
+  <h1>⛰️ Minca Sierra & Koffieplantages</h1>
+  <p class="sub">Minca · Colombia</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>Minca is niet alleen watervallen — het is ook een uitvalsbasis voor diepere verkenning van de Sierra Nevada de Santa Marta, het hoogste kustgebergte ter wereld. Een tocht omhoog door de cloud forests onthult koffieplantages, cacao-fincas, adembenemende uitzichten over de Caribische kust en een ongelooflijk rijke vogelwereld.</p>
+    <p>Minca staat bekend als een van de beste vogelobservatie-bestemmingen van Colombia — met meer dan 150 vogelsoorten in een klein gebied, waaronder kleurrijke kolibries, toekan-soorten en zelfs de Santa Marta endemische soorten die nergens anders voorkomen. Een gecertificeerde gids maakt het verschil.</p>
+  </div>
+
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Type</div><div class="fact-value">Jungle-dagtrip / vogelobservatie</div></div><div class="fact"><div class="fact-label">Koffie</div><div class="fact-value">Werkende finca's te bezoeken</div></div><div class="fact"><div class="fact-label">Vogels</div><div class="fact-value">150+ soorten, zeldzame endemics</div></div><div class="fact"><div class="fact-label">Gidsen</div><div class="fact-value">Beschikbaar in Minca dorp</div></div><div class="fact"><div class="fact-label">Hoogte</div><div class="fact-value">Tot 2000+ m (Sierra Nevada)</div></div><div class="fact"><div class="fact-label">Tip</div><div class="fact-value">Start voor zonsopgang voor vogels</div></div></div>
+
+  <div class="source-block lp">
+      <div class="source-label">📗 Lonely Planet Colombia 2023</div>
+      <div class="source-body">Minca, PNN Tayrona and La Guajira. Most of the cultural institutions, historic sites, lodgings and restaurants can be found here. La Quinta de San Pedro Alejandrino | mehdi33300/SHUTTERSTOCK © Bolívar Was Here EL LIBERTADOR’S SANTA MARTA FAREWELL TOUR Some of Santa Marta’s top historic sites are linked to Simón Bolívar, the military leader who helped South American nations gain independence. In December 1830, a gravely ill Bolívar arrived at a friend’s sugarcane plantation – La Quinta de San Pedro Alejandrino – in a carriage now enclosed in plexiglass in the stable. A few days later, he died of tuberculosis. A Colombian flag drapes over the room’s four-poster bed, although the actual bed in which he died was burned to prevent contagion from spreading. The original octagonal clock stopped minutes after his December 17 death, and still hangs on the wall today. In addition to the hacienda, sugar mill and distillery, Santa Marta’s only Jardín Botanico and several Bolívar monuments are also on the grounds. The white-marble Altar de la Patria stands at the far side of the Plaza de las Banderas. Next to it, the Museo Bolivariano de Arte Contemporáneo displays permanent works by Colombian artists, plus rotating exhibitions. Following his death, his body lay in state for several days on the 2nd floor of the Casa de la Aduana, the oldest European building in the Americas. Today, the free Museo del Oro Tairona occupies the historic building on the Parque Bolívar. The museum’s collection of impressive pre-Columbian gold artifacts and pottery downstairs gets most attention. Upstairs, the story of South America’s decolonization plays out in the room where people paid their last respects to Bolívar. His body was interred at the Catedral Basílica de Santa Marta , a few blocks away. The continent’s first church was established here in 1765 and, over the centuries, it endured pirate attacks, fires, floods and earthquakes. Now, it is a peaceful place to visit and escape the daytime heat; however, you won’t find Bolívar’s body in the crypt. Bolívar’s body was repatriated to his native Venezuela in 1842. WHERE TO STAY IN SANTA MARTA Masaya Santa Marta Good value semi-private dorms and privates with rooftop terrace and plunge pool with a cathedral view. $$ Dreamer Hostel Far from the historic center, this traveler favorite has spacious rooms around a garden oasis with pool.</div>
+    </div>
+
+  <div class="source-block rg">
+      <div class="source-label">📘 Rough Guide to Colombia 2024</div>
+      <div class="source-body">Santa Marta and around Colombia’s oldest city and the capital of Magdalena, SANTA MARTA lies at the heart of a region rich in attractions, from white Caribbean beaches and the backpacker resort of Taganga to the coffee plantations and refreshing mountain air of Minca , not to mention Aracataca , the birthplace of Gabriel García Márquez and the inspiration for the fictional Macondo. Santa Marta itself is in the midst of a major transformation, though the development of tourism sits uneasily with its continued role as major coal and oil exporter. The Centro Histórico is certainly no Cartagena, but the narrow colonial streets and buildings that remain after years of neglect are gradually being restored, and the government is pouring millions into much needed regeneration. While parts of the old town remain run down, the blend of ramshackle mansions and unfiltered, salsa-soaked costeño street life oozes character, and the growing number of sensitively converted boutique hotels, hostels, restaurants and bars – not to mention the friendliness of the local samarios – makes this an enticing base for exploring the surrounding area. Safety in Santa Marta Santa Marta – and even Taganga – has had a reputation for street crime , though in recent years a major police presence in both places had improved security. Nonetheless it pays to take care: the long-running, on-again, off-again conflict here between drug gangs rarely affects tourists, but Santa Marta is a city with a large indigent population, some of whom struggle to make a living and who resent the gentrification of the old centre; there’s also a noticeable homeless problem. The streets are generally safe during the day, but take extra care at night; muggings by desperate individuals (or gangs) do occur. Stick to well-lit and busy streets, and do not wander around with tablets, smartphones or anything valuable – ask at your hostel or hotel about the latest situation. Official taxis are safe for trips in the city. Brief history The Bahía de Santa Marta was discovered by Spanish Conquistador Rodrigo de Bastidas in 1501, but it wasn’t until 1525 that he returned to establish a Spanish colony as governor, the first in Colombia. Things didn’t go well for Santa Marta, however.</div>
+    </div>
+
+  <div class="tip-box">
+      <div class="tip-title">💡 Tips</div>
+      <p>• Voor vogelkijken: start voor zonsopgang — het eerste uur na zonsopgang is het actiefst</p><p>• Huur een lokale gids — ze kennen de beste plekken en de namen van alle vogels</p><p>• De koffie-finca bezoeken rondt het Minca-verhaal af (koffie + zee-uitzicht + jungle)</p><p>• Breng een lichte regenjas mee — in de hogere lagen van de Sierra is het bewolkter</p><p>• Minca heeft goede guesthouses voor een rustige nacht in de natuur — een aanrader</p>
+    </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../minca.html" class="back-btn">← Terug naar Minca</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Minca Sierra & Koffieplantages · Minca</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

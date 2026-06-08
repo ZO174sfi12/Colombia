@@ -24,7 +24,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
 .hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
-.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}a.badge:hover{background:rgba(255,255,255,0.25);opacity:0.9;}
 .section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
 .day-banner{background:linear-gradient(135deg,#0D2E18,#1A4A2E);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
 .day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;min-width:2.2rem;}
@@ -125,9 +125,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="badges">
     <span class="badge">✈️ Aankomstvlucht Brussel</span>
     <span class="badge">🏔️ 2640 m hoogte</span>
-    <span class="badge">🏛️ Historisch centrum</span>
-    <span class="badge">🚡 Monserrate kabelbaan</span>
-    <span class="badge">🏨 Masaya Bogotá</span>
+    <a class="badge" href="info/bogota-monserrate.html" style="text-decoration:none;cursor:pointer;">🚡 Monserrate</a>
+    <a class="badge" href="info/bogota-la-candelaria.html" style="text-decoration:none;cursor:pointer;">🎨 La Candelaria</a>
+    <a class="badge" href="info/bogota-museo-del-oro.html" style="text-decoration:none;cursor:pointer;">🏺 Museo del Oro</a>
+    <a class="badge" href="info/bogota-plaza-bolivar.html" style="text-decoration:none;cursor:pointer;">🏛️ Plaza de Bolívar</a>
   </div>
 </div>
 
@@ -171,6 +172,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
           <span class="chip">Geen commissie</span>
           <span class="chip price">Ook $300 USD meenemen</span>
         </div>
+        <a href="info/bogota-monserrate.html" class="lees-meer-btn">📖 Lees meer: 🚡 Monserrate →</a>
+        <a href="info/bogota-la-candelaria.html" class="lees-meer-btn">📖 Lees meer: 🎨 La Candelaria →</a>
       </div>
     </div>
 
@@ -282,13 +285,17 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     <div class="prac-item"><span class="pi">🚌</span><span><strong>Dag 4:</strong> Vroeg vertrek! Taxi om 6u30, 7u30 op het busstation, bus 8u richting Armenia.</span></div>
   </div>
 
-  <div style="background:#DCFCE7;border:1px solid #86EFAC;border-radius:10px;padding:0.85rem 1rem;margin-bottom:1.4rem;font-size:0.83rem;color:#14532D;">
-    🏨 <strong>Hotel:</strong> Masaya Bogotá · Vlak in het historisch centrum · €171 voor 3 nachten (incl. ontbijt) · Vragen om lunchpakket voor dag 4
-  </div>
+
 
 </div>
 
 
+
+<div class="section" style="padding-top:0;">
+  <div style="background:#DCFCE7;border:1px solid #86EFAC;border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.83rem;color:#14532D;">
+    🏨 <strong>Hotel:</strong> Masaya Bogotá · Vlak in het historisch centrum · €171 voor 3 nachten (incl. ontbijt) · Vragen om lunchpakket voor dag 4
+  </div>
+</div>
 <div class="nav-buttons">
   <span></span>
   <a href="salento.html" class="nav-btn next" style="background:var(--navy);">Volgende: ☕ Salento →</a>
