@@ -667,4 +667,12 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
     });
     var total = cards.length;
     count.textContent = (q||activeCat!=='all') ? (visible+' van '+total+' gerechten') : '';
-    noRes.style.display = visible===0 ? 'block' : 
+    noRes.style.display = visible===0 ? 'block' : 'none';
+    if(noResQ) noResQ.textContent = q||activeCat;
+  }
+})();
+</script>
+
+<script src="feedback.js"></script>
+</body>
+</html>
