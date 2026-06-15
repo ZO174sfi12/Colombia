@@ -41,15 +41,14 @@ const Dagboek = (() => {
   });
 
   // ─── GIST LEZEN ────────────────────────────────────────────────────────────
+  // Gist is publiek: lezen via raw URL, geen token nodig
+  const PUBLIEKE_RAW_URL = 'https://gist.githubusercontent.com/ZO174sfi12/a16b9d5e6c73ff7e3921a8a413d44437/raw/colombia_reis.json';
+
   async function gistLees() {
-    const { gistId, gistToken } = cfg();
-    if (!gistId || !gistToken) return lokaleLees();
     try {
-      const r = await fetch(`https://api.github.com/gists/${gistId}`, {
-        headers: { Authorization: `token ${gistToken}` }
-      });
-      const data = await r.json();
-      const inhoud = data.files?.['colombia_reis.json']?.content || '{}';
+      const r = await fetch(PUBLIEKE_RAW_URL + '?t=' + Date.now());
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const inhoud = await r.text();
       localStorage.setItem('reis_data', inhoud);
       return JSON.parse(inhoud);
     } catch (e) {
