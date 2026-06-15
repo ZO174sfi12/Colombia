@@ -97,22 +97,30 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
 .footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1.5rem;}
 
-/* ── RATING UI ───────────────────────────────────────────── */
+/* ── CARD FOOTER ──────────────────────────────────────────── */
 .dish-card{cursor:default;}
 .dish-card .card-img{cursor:pointer;}
-.card-rating{padding:0.6rem 0.9rem 0.75rem;border-top:1px solid var(--border);background:#FAFAF8;}
-.card-rating-rij{display:flex;gap:0.75rem;}
-.card-rating-user{flex:1;min-width:0;}
-.card-rating-label{font-size:0.68rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.4px;display:block;margin-bottom:0.25rem;}
-.card-chk{display:flex;align-items:center;gap:0.3rem;font-size:0.75rem;margin-bottom:0.25rem;cursor:pointer;}
-.card-chk input{width:14px;height:14px;accent-color:var(--navy);cursor:pointer;}
-.card-sterren{display:flex;gap:0.02rem;margin-bottom:0.3rem;}
-.card-ster{font-size:1.15rem;color:#D1D5DB;cursor:pointer;line-height:1;transition:color 0.1s;-webkit-tap-highlight-color:transparent;}
-.card-ster.aan{color:#F59E0B;}
-.card-ster:hover{color:#FCD34D;}
-.card-opmerking{width:100%;border:1px solid var(--border);border-radius:6px;padding:0.3rem 0.5rem;font-size:0.72rem;font-family:'Nunito',system-ui,sans-serif;resize:none;color:var(--text);background:white;line-height:1.4;}
-.card-opmerking:focus{outline:none;border-color:var(--navy);}
-.card-save-ind{font-size:0.65rem;color:var(--muted);min-height:0.9rem;margin-top:0.2rem;font-style:italic;text-align:right;}
+.card-footer{display:flex;gap:0.5rem;padding:0.55rem 0.9rem;border-top:1px solid var(--border);background:#FAFAF8;}
+.gb{flex:1;border:1px solid var(--border);background:white;border-radius:8px;padding:0.4rem 0.5rem;font-size:0.78rem;cursor:pointer;color:var(--muted);font-family:'Nunito',system-ui,sans-serif;transition:all 0.15s;text-align:center;}
+.gb:hover{border-color:#aaa;background:#f5f5f5;}
+.gb.gegeten{background:#DCFCE7;border-color:#6EE7B7;color:#14532D;font-weight:700;}
+
+/* ── RATING MODAL ──────────────────────────────────────────── */
+.rm-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.rm-box{background:white;border-radius:16px;padding:1.5rem;width:100%;max-width:340px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.rm-close{position:absolute;top:0.75rem;right:0.75rem;border:none;background:none;font-size:1.3rem;cursor:pointer;color:var(--muted);line-height:1;padding:0;}
+.rm-dish{font-size:1rem;font-weight:800;margin-bottom:0.2rem;font-family:'Playfair Display',serif;}
+.rm-who{font-size:0.82rem;color:var(--muted);margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+.rm-lbl{font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:0.5rem;}
+.rm-sterren{display:flex;gap:0.25rem;margin-bottom:1.1rem;}
+.rm-ster{font-size:2.2rem;color:#D1D5DB;cursor:pointer;line-height:1;transition:color 0.1s;-webkit-tap-highlight-color:transparent;}
+.rm-ster.aan{color:#F59E0B;}
+.rm-ster:hover,.rm-ster:hover~.rm-ster{color:#FCD34D;}
+.rm-opm{width:100%;border:1px solid var(--border);border-radius:8px;padding:0.65rem 0.75rem;font-size:0.83rem;font-family:'Nunito',system-ui,sans-serif;resize:vertical;margin-bottom:1rem;min-height:70px;color:var(--text);background:var(--cream);}
+.rm-opm:focus{outline:none;border-color:var(--navy);}
+.rm-save{width:100%;background:var(--navy);color:white;border:none;border-radius:8px;padding:0.7rem;font-size:0.88rem;font-weight:700;cursor:pointer;transition:opacity 0.15s;}
+.rm-save:hover{opacity:0.9;}
+.rm-del{display:block;text-align:center;font-size:0.77rem;color:var(--muted);margin-top:0.65rem;cursor:pointer;background:none;border:none;font-family:inherit;text-decoration:underline;width:100%;}
 
 @media(min-width:580px){.hero h1{font-size:2.3rem;}}
 @media(max-width:440px){.cards-grid{grid-template-columns:repeat(2,1fr);} .dish-card .card-img{height:155px;}}
@@ -189,26 +197,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Bandeja Paisa</div>
       <div class="dish-desc">Colombia's meest iconische bord: bonen, rijst, gehakt, chorizo, chicharrón, gebakken ei en avocado. Eén bord = één maaltijd voor twee.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -224,26 +215,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Ajiaco</div>
       <div class="dish-desc">Bogotá's handtekening: romige kippensoep met drie soorten aardappelen, guasca-kruid en kappertjes. Troostend en uniek.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -258,26 +232,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Sancocho</div>
       <div class="dish-desc">Colombia's comfort food: stevige stoofsoep met vlees, yuca, maïs en plantain. Elke regio maakt een eigen versie. Onvermijdelijk.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -293,26 +250,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Asado Huilense</div>
       <div class="dish-desc">Varkensfilet gemarineerd in sinaasappelsap, laurier en tijm, traag gegrild. Typisch uit Huila — een van de beste grillgerechten van het land.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -328,26 +268,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Lechona</div>
       <div class="dish-desc">Heel spit-geroosterd varken gevuld met gekruide gele erwten. Klassiek bij feesten — een spektakel om te zien én te eten.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -362,26 +285,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Tamales</div>
       <div class="dish-desc">Maïsmeel met kip of varken, gegaard in bananenblaad. Elk deel van Colombia heeft z'n eigen versie. Het klassieke ochtendgerecht.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -407,26 +313,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Carib. Lunch</div>
       <div class="dish-desc">Rijst met kokos, gebakken vis, patacones, salade en ají. De standaard middag-combo van Cartagena tot Palomino — vers en overvloedig.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -442,26 +331,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Pargo Sudado</div>
       <div class="dish-desc">Hele rode snapper gestoofd in kokos, tomaat en ui. Een van de beste visgerechten van de Caribische kust — verplicht in Cartagena.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -476,26 +348,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Viudo de Bocachico</div>
       <div class="dish-desc">Hele gestoomde zoetwatervis op plantain. Typisch langs de grote rivieren — simpel, puur en smaakvoller dan het klinkt.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -520,26 +375,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Arepa</div>
       <div class="dish-desc">Colombia's iconische maïsbrood — gegrild, gebakken of gestoomd. Bij elk maaltijd. Gevuld met kaas, ei, vlees of chicharrón.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -554,26 +392,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Empanadas</div>
       <div class="dish-desc">Gefrituurd maïsdeeg gevuld met vlees en aardappel. Overal voor een paar peso's. Het perfecte tussendoortje op elk uur van de dag.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -588,26 +409,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Patacones</div>
       <div class="dish-desc">Plat gebakken groene plantain — geplet en tweemaal gefrituurd. Knapperig buiten, zacht binnen. Bijgerecht of met guacamole.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -622,26 +426,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Arequipe</div>
       <div class="dish-desc">Colombia's dulce de leche — gekaramelliseerde gecondenseerde melk. Met kaas, brood of gewoon zo. Bocadillo (guave-gelei) is z'n zoete broertje.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -657,26 +444,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Pan de Bono</div>
       <div class="dish-desc">Zacht broodje van maïsmeel en cassave met kaas. Warm uit de oven met tinto — één van de beste ontbijtcombos van Colombia.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -691,26 +461,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Buñuelos</div>
       <div class="dish-desc">Zoet-hartige bolletjes van gefrituurd maïsmeel en kaas. Traditioneel met kerst, maar het hele jaar door verkrijgbaar. Altijd warm bestellen.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -735,26 +488,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Tinto</div>
       <div class="dish-desc">Colombia's alomtegenwoordige zwarte koffie. Klein kopje, sterk, altijd vers. Stedelijke koffiecultuur groeit explosief — Bogotá heeft wereldklasse cafés.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -769,26 +505,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Aguardiente</div>
       <div class="dish-desc">"El Guaro" — Colombia's nationale anijsdrank op basis van suikerriet. Geen feest zonder. Shots, koud, met gember. Sterk (29–30%).</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -804,26 +523,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Lulada</div>
       <div class="dish-desc">Verfrissende drank van lulo — kruising tussen sinaasappel en passievrucht. Typisch uit Cali, maar overal aan de kust verkrijgbaar.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -839,26 +541,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Cholado</div>
       <div class="dish-desc">Crushed ice met lagen vers fruit, gecondenseerde melk en siroop. Verplicht bij 35°C in Cartagena — te koop bij straatkarren.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -873,26 +558,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Uchuva</div>
       <div class="dish-desc">Colombiaanse goudbes (physalis) — fris-zuur, oranje, in een papieren hulsje. Op elke markt. Probeer ook: maracuyá, lulo, guanábana, tomate de árbol.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -917,26 +585,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Natilla</div>
       <div class="dish-desc">Zoete maïspudding van panela en kaneel — Colombia's kerstdessert. Stevige, goudgele plak die ook het hele jaar door op markten te vinden is.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -952,26 +603,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Helado de Paila</div>
       <div class="dish-desc">Met de hand gemaakt ijs in een bronzen kom boven ijs. Fruit en suiker traag geroerd tot romig roomijs. In Salento en op marktsteden.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -987,26 +621,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Cocadas</div>
       <div class="dish-desc">Klontjes geraspte kokos met panela — hard of kleverig zacht. Populair snoep langs de hele Caribische kust. Niet te missen in Cartagena.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -1021,26 +638,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Salpicón</div>
       <div class="dish-desc">Fijngesneden verse fruitsalade in zoet sinaasappelsap, soms met een scheut aguardiente. Fris, kleurrijk, perfecte lunch-afsluiter bij warmte.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -1066,26 +666,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Hormigas Culonas</div>
       <div class="dish-desc">"Dikbillige mieren" — gefrituurd met zout. Eeuwenoude delicatesse uit Santander. Knapperig en nootachtig. Meer durvers dan verwacht.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -1101,26 +684,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Cuy</div>
       <div class="dish-desc">Gegrild cavia — pre-Colombiaans gerecht uit de Andesregio bij de Ecuadoriaanse grens. Mager vlees, pittig gemarineerd. Niet voor iedereen.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -1136,26 +702,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Chiguiro</div>
       <div class="dish-desc">Capibara gegrild boven open vuur — het grootste knaagdier ter wereld. Typisch in de Llanos. Licht vlees, vergelijkbaar met lam.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -1170,26 +719,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
       <div class="dish-name">Chunchullo</div>
       <div class="dish-desc">Gegrilde koedarm — knapperig buiten, mals van binnen. Op weekend-grillmarkten in Bogotá en Medellín. Met empanadas en ají erbij.</div>
     </div>
-    <div class="card-rating" onclick="event.stopPropagation()">
-      <div class="card-rating-rij">
-        <div class="card-rating-user">
-          <span class="card-rating-label">🧔 Bert</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Bert"> geprobeerd</label>
-          <div class="card-sterren" data-user="Bert">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Bert" rows="2" placeholder="Bert's opmerking…"></textarea>
-        </div>
-        <div class="card-rating-user">
-          <span class="card-rating-label">👩 Ellen</span>
-          <label class="card-chk"><input type="checkbox" class="cr-geprobeerd" data-user="Ellen"> geprobeerd</label>
-          <div class="card-sterren" data-user="Ellen">
-            <span class="card-ster" data-r="1">★</span><span class="card-ster" data-r="2">★</span><span class="card-ster" data-r="3">★</span><span class="card-ster" data-r="4">★</span><span class="card-ster" data-r="5">★</span>
-          </div>
-          <textarea class="card-opmerking" data-user="Ellen" rows="2" placeholder="Ellen's opmerking…"></textarea>
-        </div>
-      </div>
-      <div class="card-save-ind"></div>
+    <div class="card-footer">
+      <button class="gb" data-user="Bert">🧔 Bert</button>
+      <button class="gb" data-user="Ellen">👩 Ellen</button>
     </div>
   </div>
 
@@ -1197,8 +729,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
 </div><!-- /section -->
 
-<div class="footer">🇨🇴 Colombia · Culinaire gids · Foto's via Wikimedia Commons (CC) & Lonely Planet Colombia 2023</div>
+<div class="footer">🇨🇴 Colombia · Culinaire gids · Foto's via Wikimedia Commons (CC) & Lonely Planet Colombia 2023<br><small style="margin-top:0.4rem;display:block;opacity:0.7;">Ratings worden gesynchroniseerd via GitHub Gist · <a href="setup.html" style="color:inherit;">⚙️ Setup / API keys</a></small></div>
 
+<script src="dagboek.js"></script>
 <script>
 // ── FILTER LOGICA (origineel) ─────────────────────────────
 (function(){
@@ -1260,118 +793,121 @@ document.querySelectorAll('.dish-card').forEach(function(card){
   card.querySelector('.card-img').style.cursor = 'pointer';
 });
 
-// ── GIST CONFIG ───────────────────────────────────────────
-function cfg(){
-  return {
-    gistId:    localStorage.getItem('cfg_gist_id') || '',
-    gistToken: localStorage.getItem('cfg_gist_token') || '',
-  };
+// ── GIST: gebruik dezelfde functies als dagboek.js ───────
+var gistLees    = Dagboek._gistLees;
+var gistSchrijf = Dagboek._gistSchrijf;
+
+// ── MODAL ────────────────────────────────────────────────
+document.body.insertAdjacentHTML('beforeend',
+  '<div id="rm" class="rm-overlay" style="display:none">' +
+  '<div class="rm-box">' +
+  '<button class="rm-close" onclick="sluitModal()">✕</button>' +
+  '<div class="rm-dish"></div>' +
+  '<div class="rm-who"></div>' +
+  '<div class="rm-lbl">Beoordeling</div>' +
+  '<div class="rm-sterren">' +
+  '<span class="rm-ster" data-r="1">★</span>' +
+  '<span class="rm-ster" data-r="2">★</span>' +
+  '<span class="rm-ster" data-r="3">★</span>' +
+  '<span class="rm-ster" data-r="4">★</span>' +
+  '<span class="rm-ster" data-r="5">★</span>' +
+  '</div>' +
+  '<div class="rm-lbl">Opmerking</div>' +
+  '<textarea class="rm-opm" placeholder="Wat vond je ervan?"></textarea>' +
+  '<button class="rm-save" onclick="slaOp()">✓ Opslaan</button>' +
+  '<button class="rm-del" onclick="verwijder()">Markeer als niet gegeten</button>' +
+  '</div></div>');
+
+document.getElementById('rm').addEventListener('click', function(e){
+  if(e.target === this) sluitModal();
+});
+
+var reisData = {};
+var hCard = null, hUser = null, hGid = null;
+
+function maakId(card){
+  var n = card.querySelector('.dish-name');
+  return (n ? n.textContent : '').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 }
 
-async function gistLees(){
-  var c = cfg();
-  if(!c.gistId || !c.gistToken) return lokaleLees();
-  try{
-    var r = await fetch('https://api.github.com/gists/' + c.gistId,
-      {headers:{Authorization:'token '+c.gistToken}});
-    var data = await r.json();
-    var inhoud = (data.files && data.files['colombia_reis.json'] && data.files['colombia_reis.json'].content) || '{}';
-    localStorage.setItem('reis_data', inhoud);
-    return JSON.parse(inhoud);
-  }catch(e){ return lokaleLees(); }
-}
-
-async function gistSchrijf(data){
-  var c = cfg();
-  var json = JSON.stringify(data, null, 2);
-  localStorage.setItem('reis_data', json);
-  if(!c.gistId || !c.gistToken) return;
-  try{
-    await fetch('https://api.github.com/gists/' + c.gistId, {
-      method:'PATCH',
-      headers:{Authorization:'token '+c.gistToken,'Content-Type':'application/json'},
-      body: JSON.stringify({files:{'colombia_reis.json':{content:json}}})
-    });
-  }catch(e){ console.warn('Gist schrijven mislukt', e); }
-}
-
-function lokaleLees(){
-  try{ return JSON.parse(localStorage.getItem('reis_data')||'{}'); }catch{ return {}; }
-}
-
-// ── RATING LOGICA ─────────────────────────────────────────
-(async function(){
-  var reisData = await gistLees();
-  if(!reisData.gerechten) reisData.gerechten = {};
-
-  // Bouw een ID per kaart op basis van gerechtnaam
-  function maakId(card){
-    var naam = card.querySelector('.dish-name');
-    return (naam ? naam.textContent : '').toLowerCase()
-      .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+function updateKnop(card, user, data){
+  var gid = maakId(card);
+  var s = (data.gerechten && data.gerechten[gid] && data.gerechten[gid][user]) || {};
+  var knop = card.querySelector('.gb[data-user="'+user+'"]');
+  if(!knop) return;
+  var icon = user==='Bert' ? '🧔' : '👩';
+  if(s.geprobeerd){
+    knop.textContent = icon + (s.rating > 0 ? ' ★ '+s.rating+'/5' : ' ✓');
+    knop.classList.add('gegeten');
+  } else {
+    knop.textContent = icon + ' ' + user;
+    knop.classList.remove('gegeten');
   }
+}
 
+function openModal(card, user){
+  hCard = card; hUser = user; hGid = maakId(card);
+  var naam = card.querySelector('.dish-name').textContent;
+  var icon = user==='Bert' ? '🧔' : '👩';
+  document.querySelector('.rm-dish').textContent = naam;
+  document.querySelector('.rm-who').textContent = icon + ' ' + user;
+  var s = (reisData.gerechten && reisData.gerechten[hGid] && reisData.gerechten[hGid][user]) || {};
+  var r = s.rating || 0;
+  document.querySelectorAll('.rm-ster').forEach(function(st,i){ st.classList.toggle('aan', i < r); });
+  document.querySelector('.rm-opm').value = s.opmerking || '';
+  document.getElementById('rm').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function sluitModal(){
+  document.getElementById('rm').style.display = 'none';
+  document.body.style.overflow = '';
+  hCard = null; hUser = null; hGid = null;
+}
+
+async function slaOp(){
+  if(!hGid || !hUser) return;
+  if(!reisData.gerechten) reisData.gerechten = {};
+  if(!reisData.gerechten[hGid]) reisData.gerechten[hGid] = {};
+  var r = document.querySelectorAll('.rm-ster.aan').length;
+  var opm = document.querySelector('.rm-opm').value;
+  reisData.gerechten[hGid][hUser] = { geprobeerd:true, rating:r, opmerking:opm };
+  updateKnop(hCard, hUser, reisData);
+  sluitModal();
+  await gistSchrijf(reisData);
+}
+
+async function verwijder(){
+  if(!hGid || !hUser) return;
+  if(!reisData.gerechten) reisData.gerechten = {};
+  if(!reisData.gerechten[hGid]) reisData.gerechten[hGid] = {};
+  reisData.gerechten[hGid][hUser] = { geprobeerd:false, rating:0, opmerking:'' };
+  updateKnop(hCard, hUser, reisData);
+  sluitModal();
+  await gistSchrijf(reisData);
+}
+
+document.querySelectorAll('.rm-ster').forEach(function(ster){
+  ster.addEventListener('click', function(){
+    var r = parseInt(this.dataset.r);
+    document.querySelectorAll('.rm-ster').forEach(function(s,i){ s.classList.toggle('aan', i < r); });
+  });
+});
+
+(async function(){
+  reisData = await gistLees();
+  if(!reisData.gerechten) reisData.gerechten = {};
   document.querySelectorAll('.dish-card').forEach(function(card){
-    var gid = maakId(card);
-    if(!gid) return;
-    var s = reisData.gerechten[gid] || {};
-
-    // Vul opgeslagen waarden in
     ['Bert','Ellen'].forEach(function(u){
-      var d = s[u] || {};
-      var chk = card.querySelector('.cr-geprobeerd[data-user="'+u+'"]');
-      if(chk && d.geprobeerd) chk.checked = true;
-      var sterren = card.querySelectorAll('.card-sterren[data-user="'+u+'"] .card-ster');
-      sterren.forEach(function(st, i){ if(i < (d.rating||0)) st.classList.add('aan'); });
-      var ta = card.querySelector('.card-opmerking[data-user="'+u+'"]');
-      if(ta && d.opmerking) ta.value = d.opmerking;
-    });
-
-    // Events
-    var saveTimer;
-    function scheduleOpslaan(){
-      clearTimeout(saveTimer);
-      var ind = card.querySelector('.card-save-ind');
-      if(ind) ind.textContent = '…';
-      saveTimer = setTimeout(function(){ slaOp(gid, card, reisData); }, 1200);
-    }
-
-    card.querySelectorAll('.cr-geprobeerd').forEach(function(chk){
-      chk.addEventListener('change', scheduleOpslaan);
-    });
-    card.querySelectorAll('.card-ster').forEach(function(ster){
-      ster.addEventListener('click', function(){
-        var blok = this.closest('.card-sterren');
-        var r = parseInt(this.dataset.r);
-        blok.querySelectorAll('.card-ster').forEach(function(s,i){ s.classList.toggle('aan', i < r); });
-        scheduleOpslaan();
-      });
-    });
-    card.querySelectorAll('.card-opmerking').forEach(function(ta){
-      ta.addEventListener('input', scheduleOpslaan);
+      updateKnop(card, u, reisData);
+      var knop = card.querySelector('.gb[data-user="'+u+'"]');
+      if(knop) knop.addEventListener('click', function(){ openModal(card, u); });
     });
   });
-
-  async function slaOp(gid, card, data){
-    if(!data.gerechten) data.gerechten = {};
-    if(!data.gerechten[gid]) data.gerechten[gid] = {};
-    ['Bert','Ellen'].forEach(function(u){
-      var chk     = card.querySelector('.cr-geprobeerd[data-user="'+u+'"]');
-      var sterren = card.querySelectorAll('.card-sterren[data-user="'+u+'"] .card-ster.aan');
-      var ta      = card.querySelector('.card-opmerking[data-user="'+u+'"]');
-      data.gerechten[gid][u] = {
-        geprobeerd: chk ? chk.checked : false,
-        rating:     sterren.length,
-        opmerking:  ta ? ta.value : ''
-      };
-    });
-    await gistSchrijf(data);
-    var ind = card.querySelector('.card-save-ind');
-    if(ind){ ind.textContent = '✓ opgeslagen'; setTimeout(function(){ ind.textContent=''; }, 2000); }
-  }
 })();
 </script>
 
 <script src="feedback.js"></script>
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
