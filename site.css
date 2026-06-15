@@ -1,0 +1,163 @@
+/* ══════════════════════════════════════════════════════════
+   site.css · Colombia Reisapp · Gedeelde responsieve stijlen
+   ══════════════════════════════════════════════════════════ */
+
+/* ── LEES MEER BUTTON ─────────────────────────────────────
+   Ontbreekt in per-pagina CSS — hier centraal gedefinieerd  */
+.lees-meer-btn {
+  display:inline-block;
+  margin-top:0.7rem;
+  margin-right:0.4rem;
+  padding:0.45rem 0.85rem;
+  background:#DCFCE7;
+  border:1px solid #86EFAC;
+  border-radius:8px;
+  color:#14532D;
+  font-size:0.8rem;
+  font-weight:600;
+  text-decoration:none;
+  line-height:1.4;
+  transition:background 0.15s;
+}
+.lees-meer-btn:hover { background:#BBF7D0; }
+
+/* ── NAVIGATIE KNOPPEN (vorige/volgende stad) ─────────────
+   Stacked + full-width op mobiel                            */
+@media(max-width:520px) {
+  .nav-buttons {
+    flex-direction:column;
+    gap:0.6rem;
+    padding:0 1rem 1.5rem;
+  }
+  .nav-btn {
+    width:100%;
+    justify-content:center;
+  }
+}
+
+/* ── HERO ─────────────────────────────────────────────────
+   Compacter op kleine schermen                              */
+@media(max-width:420px) {
+  .hero { padding:1.8rem 1rem 1.4rem; }
+  .hero h1 { font-size:1.55rem; }
+  .hero .sub { font-size:0.82rem; }
+  .hero .badges { gap:0.4rem; }
+  .badge { font-size:0.74rem; padding:0.25rem 0.65rem; }
+}
+
+/* ── DAY BANNER ───────────────────────────────────────────
+   Wrap op heel kleine schermen                              */
+@media(max-width:360px) {
+  .day-banner { flex-wrap:wrap; gap:0.5rem; }
+  .day-banner .dn { font-size:1.5rem; min-width:auto; }
+  .day-banner h2 { font-size:1rem; }
+}
+
+/* ── SECTIE PADDING ───────────────────────────────────────
+   Minder zij-ruimte op mobiel                              */
+@media(max-width:420px) {
+  .section { padding:1.2rem 0.85rem 1.5rem; }
+  .db-wrap  { padding:0 0.85rem 1.5rem; }
+}
+
+/* ── ROUTE BLOCKS ─────────────────────────────────────────
+   Leesbaar houden op kleine schermen                        */
+@media(max-width:420px) {
+  .route-label { font-size:0.8rem; }
+  .route-sub   { font-size:0.68rem; }
+  .route-block { padding:0.9rem 0.95rem; }
+}
+
+/* ── TIMELINE CARDS ───────────────────────────────────────
+   Compacter op mobiel                                        */
+@media(max-width:420px) {
+  .timeline { padding-left:2rem; }
+  .card { padding:0.8rem 0.9rem; }
+  .card h3 { font-size:0.92rem; }
+  .card .desc { font-size:0.82rem; }
+}
+
+/* ── CHIPS ─────────────────────────────────────────────────
+   Grotere touch targets                                      */
+.chip {
+  font-size:0.73rem;
+  padding:0.25rem 0.6rem;
+  min-height:1.8rem;
+  display:inline-flex;
+  align-items:center;
+}
+
+/* ── SUBNAV ───────────────────────────────────────────────
+   Iets compacter op mobiel, links blijven klikbaar          */
+@media(max-width:580px) {
+  .subnav a { padding:0.75rem 0.7rem; font-size:0.76rem; }
+}
+
+/* ── PRAKTISCHE BLOKKEN ───────────────────────────────────
+   Leesbaarder op mobiel                                     */
+@media(max-width:420px) {
+  .prac-item { font-size:0.82rem; line-height:1.55; }
+  .prac-block { padding:1rem 1.1rem; }
+}
+
+/* ── KAART: volledig scherm op mobiel ─────────────────── */
+@media(max-width:600px) {
+  #kaart-wrap, #map { height:calc(100dvh - 88px) !important; }
+}
+
+/* ── CULINAIR: modal scrollbaar op kleine schermen ───────
+   Popup past ook op kleine iPhones                          */
+@media(max-width:420px) {
+  .rm-box {
+    max-height:88dvh;
+    overflow-y:auto;
+    padding:1.2rem;
+  }
+  .rm-ster { font-size:1.9rem; }
+  .rm-sterren { gap:0.2rem; }
+}
+
+/* ── CULINAIR: cards-grid kolom op zeer smalle schermen ─ */
+@media(max-width:340px) {
+  .cards-grid { grid-template-columns:1fr; }
+}
+
+/* ── INFO PAGINA'S: facts-grid ────────────────────────── */
+/* Default: 1 kolom → 2 kolommen → 3 kolommen            */
+.facts-grid { display:grid; gap:0.6rem; margin-bottom:1.4rem; }
+@media(min-width:380px) { .facts-grid { grid-template-columns:1fr 1fr; } }
+@media(min-width:580px) { .facts-grid { grid-template-columns:repeat(3,1fr); } }
+
+/* ── INDEX: ov-row compacter ─────────────────────────── */
+@media(max-width:420px) {
+  .ov-content strong { font-size:0.83rem; }
+  .ov-day { min-width:3rem; }
+}
+
+/* ── TOPBAR: compacter op zeer kleine schermen ─────────── */
+@media(max-width:360px) {
+  .topbar .logo { font-size:0.85rem; }
+  .topbar .home-link { font-size:0.73rem; padding:0.25rem 0.5rem; }
+}
+
+/* ── SEC DIVIDER ─────────────────────────────────────────
+   Dagkopjes wat meer lucht op mobiel                        */
+@media(max-width:420px) {
+  .sec-divider { font-size:0.8rem; margin:1.2rem 0 0.65rem; }
+}
+
+/* ── WALK PILL ───────────────────────────────────────────
+   Wrap op kleine schermen                                   */
+.walk-pill { flex-wrap:wrap; }
+
+/* ── CARD DETAILS (accordion) ────────────────────────── */
+@media(max-width:420px) {
+  .card-details summary { font-size:0.79rem; padding:0.55rem 0.8rem; }
+  .details-body { padding:0.8rem 0.9rem; font-size:0.8rem; }
+}
+
+/* ── PC: max breedte bewaken ─────────────────────────── */
+@media(min-width:1200px) {
+  .section { max-width:900px; }
+  .db-wrap  { max-width:900px; }
+}
