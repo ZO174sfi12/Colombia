@@ -115,7 +115,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 .rm-sterren{display:flex;gap:0.25rem;margin-bottom:1.1rem;}
 .rm-ster{font-size:2.2rem;color:#D1D5DB;cursor:pointer;line-height:1;transition:color 0.1s;-webkit-tap-highlight-color:transparent;}
 .rm-ster.aan{color:#F59E0B;}
-.rm-ster:hover,.rm-ster:hover~.rm-ster{color:#FCD34D;}
+/* hover via JS afgehandeld */
 .rm-opm{width:100%;border:1px solid var(--border);border-radius:8px;padding:0.65rem 0.75rem;font-size:0.83rem;font-family:'Nunito',system-ui,sans-serif;resize:vertical;margin-bottom:1rem;min-height:70px;color:var(--text);background:var(--cream);}
 .rm-opm:focus{outline:none;border-color:var(--navy);}
 .rm-save{width:100%;background:var(--navy);color:white;border:none;border-radius:8px;padding:0.7rem;font-size:0.88rem;font-weight:700;cursor:pointer;transition:opacity 0.15s;}
@@ -888,10 +888,18 @@ async function verwijder(){
   await gistSchrijf(reisData);
 }
 
-document.querySelectorAll('.rm-ster').forEach(function(ster){
+var rmSterren = document.querySelectorAll('.rm-ster');
+rmSterren.forEach(function(ster){
+  ster.addEventListener('mouseover', function(){
+    var r = parseInt(this.dataset.r);
+    rmSterren.forEach(function(s,i){ s.style.color = i < r ? '#FCD34D' : '#D1D5DB'; });
+  });
+  ster.addEventListener('mouseout', function(){
+    rmSterren.forEach(function(s){ s.style.color = ''; });
+  });
   ster.addEventListener('click', function(){
     var r = parseInt(this.dataset.r);
-    document.querySelectorAll('.rm-ster').forEach(function(s,i){ s.classList.toggle('aan', i < r); });
+    rmSterren.forEach(function(s,i){ s.classList.toggle('aan', i < r); });
   });
 });
 
