@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🗺️ Routes · Colombia 24 Dagen</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{--navy:#1A4A2E;--gold:#C9962A;--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
+.hero{background:linear-gradient(135deg,#0F2027,#203A43,#2C5364);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+#map{width:100%;height:420px;border-radius:0;z-index:1;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.sec-title{font-size:1rem;font-weight:800;margin-bottom:0.9rem;color:var(--text);text-transform:uppercase;letter-spacing:0.4px;}
+/* Timeline */
+.route-timeline{position:relative;padding-left:0;}
+.leg{display:flex;gap:0;margin-bottom:0;border-bottom:1px solid var(--border);}
+.leg:last-child{border-bottom:none;}
+.leg-left{min-width:90px;padding:0.9rem 0.8rem;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0.3rem;border-right:1px solid var(--border);background:#FAFAFA;}
+.leg-icon{font-size:1.4rem;}
+.leg-dag{font-size:0.68rem;font-weight:700;color:var(--muted);text-align:center;}
+.leg-body{flex:1;padding:0.9rem 1rem;}
+.leg-title{font-size:0.92rem;font-weight:700;margin-bottom:0.2rem;}
+.leg-sub{font-size:0.78rem;color:var(--muted);line-height:1.5;}
+.chips{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.5rem;}
+.chip{font-size:0.7rem;padding:0.2rem 0.5rem;border-radius:12px;background:var(--cream);border:1px solid var(--border);}
+.chip.green{background:#DCFCE7;border-color:#86EFAC;color:#14532D;}
+.chip.blue{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.chip.amber{background:#FEF3C7;border-color:#FCD34D;color:#78350F;}
+.chip.red{background:#FEF2F2;border-color:#FCA5A5;color:#991B1B;}
+.chip.purple{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6;}
+.stop-badge{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.68rem;font-weight:700;color:white;border-radius:12px;padding:0.15rem 0.55rem;}
+.route-table{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.6rem;}
+.ov-row{display:flex;border-bottom:1px solid var(--border);align-items:stretch;}
+.ov-row:last-child{border-bottom:none;}
+.ov-day{min-width:72px;padding:0.65rem 0.5rem;font-weight:700;font-size:0.75rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.15rem;}
+.ov-content{padding:0.65rem 0.9rem;flex:1;border-left:1px solid var(--border);}
+.ov-content strong{font-size:0.84rem;display:block;}
+.ov-content span{font-size:0.74rem;color:var(--muted);}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.hero h1{font-size:2.3rem;}}
+</style>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="kaart.html">🗺️ Kaart</a>
+  <a href="culinair.html">🍽️ Culinair</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+  <a href="routes.html" class="active">✈️ Routes</a>
+  <a href="setup.html">⚙️ Setup</a>
+</div>
+
+<div class="hero">
+  <h1>✈️ Routes & Verplaatsingen</h1>
+  <p class="sub">24 dagen · 8 stops · Bogotá → Palomino en terug</p>
+  <div class="badges">
+    <span class="badge">✈️ 3 vluchten</span>
+    <span class="badge">🚌 7 busritten</span>
+    <span class="badge">📍 8 stops</span>
+    <span class="badge">~4.800 km</span>
+  </div>
+</div>
+
+<!-- MAP -->
+<div id="map"></div>
+
+<div class="section">
+
+  <!-- ROUTE OVERZICHT TABEL -->
+  <div class="sec-title">📋 Chronologisch Overzicht</div>
+  <div class="route-table">
+
+    <div class="ov-row" style="border-left:4px solid #6366F1;">
+      <div class="ov-day" style="background:#EEF2FF;color:#4338CA;">✈️<br><small>Dag 1</small></div>
+      <div class="ov-content"><strong>Brussel → Bogotá</strong><span>Vlucht ±11u · Uber/Cabify van luchthaven El Dorado naar hotel — NOOIT gewone taxi!</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #78350F;">
+      <div class="ov-day" style="background:#FEF3C7;color:#78350F;">🚌<br><small>Dag 4</small></div>
+      <div class="ov-content"><strong>Bogotá → Salento</strong><span>Bus via Armenia · ±8u · bolivariano.com.co · 6u30 vertrek hotel → 7u30 op station → 8u bus. In Armenia: collectivo naar Salento (20 min)</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #92400E;">
+      <div class="ov-day" style="background:#FFF7ED;color:#92400E;">🚌<br><small>Dag 7</small></div>
+      <div class="ov-content"><strong>Salento → Medellín</strong><span>Bus direct · ±3u30 · flotaoccidental.co · 9u00 aanwezig, 9u30 vertrek · Terminal del Sur</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #7C3AED;">
+      <div class="ov-day" style="background:#F5F3FF;color:#6D28D9;">🚌<br><small>Dag 10</small></div>
+      <div class="ov-content"><strong>Medellín → Guatapé (dagtrip)</strong><span>Bus v/d bushalte · ±2u · Max 15u00 terug vertrekken! Geen overnachting.</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #C9962A;">
+      <div class="ov-day" style="background:#FFFBEB;color:#92400E;">✈️<br><small>Dag 11</small></div>
+      <div class="ov-content"><strong>Medellín → Cartagena</strong><span>Vlucht Olaya Herrera (MDE) 20:20 → Rafael Núñez (CTG) 21:25 · Boekingsnr: 3C8F4V · Van bushalte tot MDE: ±1u Uber</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #065F46;">
+      <div class="ov-day" style="background:#ECFDF5;color:#065F46;">🚌<br><small>Dag 14</small></div>
+      <div class="ov-content"><strong>Cartagena → Minca</strong><span>Bus naar Santa Marta (elk uur, bookaway.com, ±4u) → Taxi in SM naar bushalte Minca → Collectivo/jeep naar Minca (45 min)</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #0369A1;">
+      <div class="ov-day" style="background:#EFF6FF;color:#1E40AF;">🚌<br><small>Dag 17</small></div>
+      <div class="ov-content"><strong>Minca → Tayrona NP</strong><span>Collectivo/jeep naar Santa Marta → Bus richting Palomino afstappen bij Tayrona ingang → 1,5 km wandelen tot lodge · ⚠️ Check parkoverstatus!</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #0F766E;">
+      <div class="ov-day" style="background:#F0FDFA;color:#134E4A;">🚌<br><small>Dag 19</small></div>
+      <div class="ov-content"><strong>Tayrona → Palomino</strong><span>Bus langs de kust · ±45 min · Na ontbijt vertrekken · Check met lodge voor beste route</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #B91C1C;">
+      <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">🚌<br><small>Dag 22</small></div>
+      <div class="ov-content"><strong>Palomino → Cartagena</strong><span>Bus langs de kust · ±4–5u · Direct of via Santa Marta · Vertrekopties 's ochtends checken</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #B91C1C;">
+      <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">✈️<br><small>Dag 23</small></div>
+      <div class="ov-content"><strong>Cartagena → Bogotá</strong><span>Vlucht CTG → BOG · Uber vanuit luchthaven El Dorado naar hotel — NOOIT een bus!</span></div>
+    </div>
+
+    <div class="ov-row" style="border-left:4px solid #6366F1;">
+      <div class="ov-day" style="background:#EEF2FF;color:#4338CA;">✈️<br><small>Dag 24</small></div>
+      <div class="ov-content"><strong>Bogotá → Brussel</strong><span>Vlucht 21:35 · Zoutmijnen Zipaquirá tour overdag · Terug Bogotá ~16u · Luchthaven ±1u rijden · Check-in 19u35</span></div>
+    </div>
+
+  </div>
+
+  <!-- ETAPPES DETAIL -->
+  <div class="sec-title">🛣️ Etappes Detail</div>
+  <div class="route-table">
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">✈️</div>
+        <div class="leg-dag">Dag 1</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Brussel (BRU) → Bogotá (BOG)</div>
+        <div class="leg-sub">Internationale vlucht · ±11u direct of met overstap · Aankomst luchthaven El Dorado</div>
+        <div class="chips">
+          <span class="chip purple">✈️ Vlucht</span>
+          <span class="chip">±11u</span>
+          <span class="chip amber">⚠️ Uber vóór het vliegveld oppakken</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">🚌</div>
+        <div class="leg-dag">Dag 4</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Bogotá → Salento (via Armenia)</div>
+        <div class="leg-sub">bolivariano.com.co · Vertrek Bogotá 08:00 · Aankomst Armenia ±12:00 → Collectivo naar Salento (20 min, elk kwartier). Totaal ±8u.</div>
+        <div class="chips">
+          <span class="chip blue">🚌 Bus</span>
+          <span class="chip">±8u totaal</span>
+          <span class="chip green">COP 60.000–80.000 (±€16)</span>
+          <span class="chip amber">⏰ 06:30 hotel verlaten</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">🚌</div>
+        <div class="leg-dag">Dag 7</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Salento → Medellín (Terminal del Sur)</div>
+        <div class="leg-sub">flotaoccidental.co · Vertrek 09:30 · Direct · Aankomst Medellín ±13:00. Uber vanuit busstation naar hotel.</div>
+        <div class="chips">
+          <span class="chip blue">🚌 Bus</span>
+          <span class="chip">±3u30</span>
+          <span class="chip green">COP 40.000–55.000 (±€11)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">🚌</div>
+        <div class="leg-dag">Dag 10</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Medellín ↔ Guatapé (dagtrip)</div>
+        <div class="leg-sub">Bus vanuit Medellín bushalte Noord · ±2u · De Peñol/Guatapé dagtrip. VERPLICHT max 15:00 terug vertrekken — anders te laat terug.</div>
+        <div class="chips">
+          <span class="chip blue">🚌 Bus</span>
+          <span class="chip">±2u (elk uur bus)</span>
+          <span class="chip green">COP 20.000 (±€4.50)</span>
+          <span class="chip red">⚠️ Max 15:00 terug!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">✈️</div>
+        <div class="leg-dag">Dag 11</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Medellín (MDE) → Cartagena (CTG)</div>
+        <div class="leg-sub">Vlucht 20:20–21:25 · Boekingsnummer 3C8F4V · Van bushalte in Guatapé/Medellín: ±1u Uber naar luchthaven Olaya Herrera.</div>
+        <div class="chips">
+          <span class="chip purple">✈️ Vlucht · 1u05</span>
+          <span class="chip">Boekingsnr: 3C8F4V</span>
+          <span class="chip amber">⏰ Vroeg vertrekken v/d bushalte!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">🚌</div>
+        <div class="leg-dag">Dag 14</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Cartagena → Minca (via Santa Marta)</div>
+        <div class="leg-sub">Bus Cartagena → Santa Marta (elk uur, bookaway.com, ±4u) · Taxi in Santa Marta naar bushalte Minca · Collectivo/jeep naar Minca (±45 min bergop).</div>
+        <div class="chips">
+          <span class="chip blue">🚌 Bus + taxi + collectivo</span>
+          <span class="chip">±5u totaal</span>
+          <span class="chip green">COP 45.000–60.000 (±€12)</span>
+          <span class="chip amber">⏰ Na ontbijt vertrekken</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">🚌</div>
+        <div class="leg-dag">Dag 17</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Minca → Tayrona NP</div>
+        <div class="leg-sub">Collectivo Minca → Santa Marta · Bus richting Barranquilla/Riohacha afstappen bij Tayrona ingang (El Zaino) · 1,5 km wandelen tot Quetzal Dorado Eco-Lodge.</div>
+        <div class="chips">
+          <span class="chip blue">🚌 Collectivo + bus</span>
+          <span class="chip">±2u</span>
+          <span class="chip red">⚠️ Check park openingsstatus!</span>
+          <span class="chip amber">🎒 Paspoort meenemen</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">🚌</div>
+        <div class="leg-dag">Dag 19</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Tayrona NP → Palomino</div>
+        <div class="leg-sub">Bus langs de kust · ±45 min · Rechtstreeks vanuit El Zaino richting Riohacha, afstappen in Palomino. Check met lodge voor de beste route.</div>
+        <div class="chips">
+          <span class="chip blue">🚌 Bus</span>
+          <span class="chip">±45 min</span>
+          <span class="chip green">COP 5.000–8.000 (±€1.50)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">🚌</div>
+        <div class="leg-dag">Dag 22</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Palomino → Cartagena</div>
+        <div class="leg-sub">Bus langs de kust terug · ±4–5u · Direct Palomino → Cartagena of via Santa Marta overstap. Vertrekopties 's ochtends vroeg.</div>
+        <div class="chips">
+          <span class="chip blue">🚌 Bus</span>
+          <span class="chip">±4–5u</span>
+          <span class="chip green">COP 40.000–60.000 (±€11)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">✈️</div>
+        <div class="leg-dag">Dag 23</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Cartagena (CTG) → Bogotá (BOG)</div>
+        <div class="leg-sub">Vlucht · Uber vanuit El Dorado naar hotel — NOOIT een bus! Laatste nacht Bogotá.</div>
+        <div class="chips">
+          <span class="chip purple">✈️ Vlucht · ±1u</span>
+          <span class="chip amber">⚠️ Uber vanuit BOG!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-left">
+        <div class="leg-icon">✈️</div>
+        <div class="leg-dag">Dag 24</div>
+      </div>
+      <div class="leg-body">
+        <div class="leg-title">Bogotá (BOG) → Brussel (BRU)</div>
+        <div class="leg-sub">Vlucht 21:35 · Zoutmijnen Zipaquirá overdag (terug ±16u) · Luchthaven ±1u rijden · Check-in open ±19:35.</div>
+        <div class="chips">
+          <span class="chip purple">✈️ Vlucht 21:35</span>
+          <span class="chip amber">⏰ Op luchthaven om 19:35</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">🇨🇴 Colombia · 24 dagen · 2 personen · Alle tijden lokaal</div>
+<script src="feedback.js"></script>
+<script>
+// Leaflet map initialiseren
+var map = L.map('map', {scrollWheelZoom: false}).setView([7.5, -74.5], 6);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 18
+}).addTo(map);
+
+// Stops in volgorde
+var stops = [
+  {name: 'Bogotá', dag: 'Dag 1–3', lat: 4.711, lng: -74.0721, color: '#4338CA', emoji: '🏙️', url: 'bogota.html'},
+  {name: 'Salento', dag: 'Dag 4–6', lat: 4.6377, lng: -75.5717, color: '#78350F', emoji: '☕', url: 'salento.html'},
+  {name: 'Medellín', dag: 'Dag 7–10', lat: 6.2476, lng: -75.5748, color: '#065F46', emoji: '🌆', url: 'medellin.html'},
+  {name: 'Guatapé', dag: 'Dag 10 (dagtrip)', lat: 6.2324, lng: -75.1548, color: '#5B21B6', emoji: '🪨', url: 'guatape.html'},
+  {name: 'Cartagena', dag: 'Dag 11–13 + 22', lat: 10.3997, lng: -75.5144, color: '#92400E', emoji: '🌊', url: 'cartagena.html'},
+  {name: 'Minca', dag: 'Dag 14–16', lat: 11.1368, lng: -73.9886, color: '#14532D', emoji: '🌿', url: 'minca.html'},
+  {name: 'Tayrona NP', dag: 'Dag 17–18', lat: 11.3171, lng: -73.9059, color: '#0369A1', emoji: '🌴', url: 'tayrona.html'},
+  {name: 'Palomino', dag: 'Dag 19–21', lat: 11.2484, lng: -73.5723, color: '#0F766E', emoji: '🏖️', url: 'palomino.html'},
+];
+
+// Aangepaste markers
+stops.forEach(function(s, i) {
+  var num = i + 1;
+  var icon = L.divIcon({
+    html: '<div style="background:' + s.color + ';color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);">' + num + '</div>',
+    className: '',
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
+  });
+  L.marker([s.lat, s.lng], {icon: icon})
+    .addTo(map)
+    .bindPopup('<strong>' + s.emoji + ' ' + s.name + '</strong><br><small>' + s.dag + '</small><br><a href="' + s.url + '" style="color:' + s.color + ';font-size:0.8rem;">Naar pagina →</a>');
+});
+
+// Route lijn — volg de werkelijke routevolgorde
+var mainRoute = [
+  [4.711, -74.0721],   // Bogotá
+  [4.6377, -75.5717],  // Salento
+  [6.2476, -75.5748],  // Medellín
+  [6.2476, -75.5748],  // Guatapé (dagtrip vanuit Medellín)
+  [10.3997, -75.5144], // Cartagena (vlucht)
+  [11.1368, -73.9886], // Minca
+  [11.3171, -73.9059], // Tayrona
+  [11.2484, -73.5723], // Palomino
+  [10.3997, -75.5144], // Cartagena (terugkeer)
+  [4.711, -74.0721],   // Bogotá (vlucht)
+];
+
+L.polyline(mainRoute, {
+  color: '#1A4A2E',
+  weight: 2.5,
+  dashArray: '6, 8',
+  opacity: 0.8
+}).addTo(map);
+
+// Guatapé dagtrip (stippellijn terug)
+L.polyline([[6.2476, -75.5748],[6.2324, -75.1548]], {
+  color: '#5B21B6', weight: 2, dashArray: '4,6', opacity: 0.6
+}).addTo(map);
+</script>
+</body>
+</html>
