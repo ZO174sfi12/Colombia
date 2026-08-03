@@ -12,6 +12,7 @@
  */
 
 (function () {
+  return; // TIJDELIJK UITGESCHAKELD — verwijder deze regel om te heractiveren
   const REPO  = 'ZO174sfi12/Colombia';
   const FILE  = 'notes.txt';
   const ROLES = ['Bert 🧳', 'Ellen 🌺'];

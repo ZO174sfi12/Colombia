@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🎯 Activiteiten Colombia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1A4A2E;--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+
+.topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;font-family:'Nunito',sans-serif;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
+
+.hero{background:linear-gradient(135deg,#1A4A2E,#2D6A4F,#40916C);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;font-family:'Playfair Display',serif;letter-spacing:-0.01em;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+
+.section{max-width:1040px;margin:0 auto;padding:1.5rem 1rem 0.5rem;}
+
+.cat-header{display:flex;align-items:baseline;gap:0.75rem;margin:2rem 0 0.35rem;}
+.cat-header h2{font-size:1.1rem;font-weight:700;font-family:'Playfair Display',serif;}
+.cat-sub{font-size:0.8rem;color:var(--muted);}
+.cat-line{height:2px;background:var(--border);margin-bottom:1.1rem;}
+
+/* GRID */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:0.5rem;}
+
+/* ACTIVITEIT CARD */
+.act-card{
+  border-radius:14px;overflow:hidden;background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.09);
+  text-decoration:none;color:var(--text);display:block;
+  transition:transform 0.15s,box-shadow 0.15s;
+  cursor:pointer;
+}
+.act-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.14);}
+.act-card .card-img{position:relative;height:185px;overflow:hidden;background:#1a1a1a;}
+.act-card .card-img img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.25s;
+}
+.act-card:hover .card-img img{transform:scale(1.04);}
+.act-card .card-img .cat-tag{
+  position:absolute;top:0.55rem;left:0.65rem;
+  font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;
+  background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);color:white;
+  border-radius:20px;padding:0.18rem 0.55rem;
+}
+.act-card .card-img .city-tag{
+  position:absolute;top:0.55rem;right:0.65rem;
+  font-size:0.6rem;font-weight:700;
+  background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);color:white;
+  border-radius:20px;padding:0.18rem 0.5rem;
+}
+.no-img{
+  width:100%;height:100%;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;background:#2a2a2a;color:#777;font-size:0.78rem;gap:0.4rem;
+}
+.no-img span{font-size:2rem;opacity:0.35;}
+.act-card .card-body{padding:0.7rem 0.9rem 0.85rem;}
+.act-card .act-name{
+  font-size:0.95rem;font-weight:800;line-height:1.25;margin-bottom:0.28rem;
+  font-family:'Playfair Display',serif;
+}
+.act-card .act-desc{font-size:0.73rem;line-height:1.55;color:var(--muted);margin-bottom:0.55rem;}
+.act-card .meta{display:flex;gap:0.35rem;flex-wrap:wrap;}
+.chip{font-size:0.68rem;padding:0.18rem 0.5rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
+.chip.price{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
+.chip.dur{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.chip.loc{background:#FFF7ED;border-color:#FCD9A0;color:#92400E;}
+
+/* ZOEKBALK */
+.search-bar{max-width:1040px;margin:1.2rem auto 0;padding:0 1rem;display:flex;flex-direction:column;gap:0.65rem;}
+.search-input-wrap{position:relative;}
+.search-input{width:100%;padding:0.65rem 1rem 0.65rem 2.6rem;font-size:0.9rem;border:2px solid var(--border);border-radius:12px;background:white;color:var(--text);font-family:inherit;transition:border-color 0.15s;}
+.search-input:focus{outline:none;border-color:var(--navy);}
+.search-icon{position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);font-size:1rem;opacity:0.4;pointer-events:none;}
+.filter-pills{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.pill{font-size:0.75rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:20px;border:2px solid var(--border);background:white;color:var(--muted);cursor:pointer;transition:all 0.12s;}
+.pill.active{background:var(--navy);color:white;border-color:var(--navy);}
+.pill:hover:not(.active){background:#F5F2EE;color:var(--text);}
+.search-count{font-size:0.75rem;color:var(--muted);text-align:right;padding:0 0.2rem;}
+.no-results{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:0.88rem;display:none;}
+.cat-section.all-hidden .cat-header,.cat-section.all-hidden .cat-line,.cat-section.all-hidden .cards-grid{display:none;}
+
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1.5rem;}
+
+@media(min-width:580px){.hero h1{font-size:2.3rem;}}
+@media(max-width:440px){.cards-grid{grid-template-columns:repeat(2,1fr);} .act-card .card-img{height:155px;}}
+</style>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="kaart.html">🗺️ Kaart</a>
+  <a href="culinair.html">🍽️ Culinair</a>
+  <a href="activiteiten.html" class="active">🎯 Activiteiten</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+  <a href="routes.html">✈️ Routes</a>
+  <a href="setup.html">⚙️ Setup</a>
+</div>
+
+<div class="hero">
+  <h1>🎯 Activiteiten</h1>
+  <p class="sub">Alles wat je kunt doen langs de route — klik een kaart voor meer info</p>
+  <div class="badges">
+    <span class="badge">🏛️ Cultuur</span>
+    <span class="badge">🎨 Street Art</span>
+    <span class="badge">🌿 Natuur</span>
+    <span class="badge">🏄 Water</span>
+    <span class="badge">🪂 Avontuur</span>
+    <span class="badge">☕ Koffie</span>
+    <span class="badge">🌙 Avond</span>
+  </div>
+</div>
+
+<div class="section">
+<div class="search-bar">
+  <div class="search-input-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="search" id="act-search" placeholder="Zoek een activiteit of stad…" autocomplete="off">
+  </div>
+  <div class="filter-pills">
+    <button class="pill active" data-filter="all">Alles</button>
+    <button class="pill" data-filter="cultuur">🏛️ Cultuur</button>
+    <button class="pill" data-filter="streetart">🎨 Street Art</button>
+    <button class="pill" data-filter="natuur">🌿 Natuur</button>
+    <button class="pill" data-filter="water">🏄 Water</button>
+    <button class="pill" data-filter="avontuur">🪂 Avontuur</button>
+    <button class="pill" data-filter="koffie">☕ Koffie</button>
+    <button class="pill" data-filter="avond">🌙 Avond</button>
+  </div>
+  <div class="search-count" id="search-count"></div>
+</div>
+<div class="no-results" id="no-results">😕 Geen activiteiten gevonden voor "<span id="no-results-q"></span>"</div>
+
+
+<!-- ══════════════ CULTUUR & ERFGOED -->
+<div class="cat-section">
+<div class="cat-header"><h2>🏛️ Cultuur & Erfgoed</h2><span class="cat-sub">Musea, kastelen, koloniale plekken</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <a class="act-card" href="info/cartagena-castillo-san-felipe.html" data-name="castillo san felipe cartagena kasteel fort" data-cat="cultuur">
+    <div class="card-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Castillo_San_Felipe_de_Barajas%2C_Cartagena%2C_Colombia.jpg/640px-Castillo_San_Felipe_de_Barajas%2C_Cartagena%2C_Colombia.jpg" alt="Castillo San Felipe" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏰</span>Castillo San Felipe</div>'">
+      <span class="cat-tag">Cartagena · Fort</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Castillo San Felipe de Barajas</div>
+      <div class="act-desc">Spaans koloniaal fort uit 1657. Grootste en sterkste vesting van heel Zuid-Amerika.</div>
+      <div class="meta">
+        <span class="chip price">💶 €5</span>
+        <span class="chip dur">⏰ 1–2u</span>
+        <span class="chip loc">📍 Cartagena</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/bogota-museo-del-oro.html" data-name="museo del oro goud museum bogota" data-cat="cultuur">
+    <div class="card-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Muisca_Raft_Legend_of_El_Dorado_Offerings_Gold_Museum_Bogota.jpg/640px-Muisca_Raft_Legend_of_El_Dorado_Offerings_Gold_Museum_Bogota.jpg" alt="Museo del Oro Bogotá" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🥇</span>Museo del Oro</div>'">
+      <span class="cat-tag">Bogotá · Museum</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Museo del Oro</div>
+      <div class="act-desc">55.000 pre-Colombiaanse gouden voorwerpen. Een van de beste musea van Zuid-Amerika.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis zo</span>
+        <span class="chip dur">⏰ 1–2u</span>
+        <span class="chip loc">📍 Bogotá</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/bogota-la-candelaria.html" data-name="la candelaria bogota koloniale wijk wandelen" data-cat="cultuur">
+    <div class="card-img">
+      <img src="img/bogota_candelaria.jpg" alt="La Candelaria Bogotá" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏛️</span>La Candelaria</div>'">
+      <span class="cat-tag">Bogotá · Wijk</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">La Candelaria</div>
+      <div class="act-desc">Historische kern van Bogotá. Koloniale architectuur, Plaza de Bolívar, straatkunst en markten.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis</span>
+        <span class="chip dur">⏰ Halve dag</span>
+        <span class="chip loc">📍 Bogotá</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/bogota-monserrate.html" data-name="monserrate bogota berg uitzicht kerk" data-cat="cultuur">
+    <div class="card-img">
+      <img src="img/bogota_monserrate.jpg" alt="Monserrate Bogotá" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>⛰️</span>Monserrate</div>'">
+      <span class="cat-tag">Bogotá · Berg</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Monserrate</div>
+      <div class="act-desc">Heilige berg boven Bogotá op 3.152m. Panorama over de stad, kerk en bedevaartsoord.</div>
+      <div class="meta">
+        <span class="chip price">💶 €7 kabelbaan</span>
+        <span class="chip dur">⏰ Halve dag</span>
+        <span class="chip loc">📍 Bogotá</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="bogota.html" data-name="catedral de sal zipaquira zoutmijn kerk zout" data-cat="cultuur">
+    <div class="card-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Catedral_de_sal_de_Zipaquir%C3%A1.jpg/640px-Catedral_de_sal_de_Zipaquir%C3%A1.jpg" alt="Catedral de Sal Zipaquirá" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>⛪</span>Catedral de Sal</div>'">
+      <span class="cat-tag">Bogotá · Dagtrip</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Catedral de Sal</div>
+      <div class="act-desc">Kerk gebouwd in een actieve zoutmijn in Zipaquirá. 200m onder de grond, imposante gewelven en kruisweg.</div>
+      <div class="meta">
+        <span class="chip price">💶 €12</span>
+        <span class="chip dur">⏰ Halve dag</span>
+        <span class="chip loc">📍 Zipaquirá (1u van Bogotá)</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/bogota-plaza-bolivar.html" data-name="plaza bolivar bogota plein paleis" data-cat="cultuur">
+    <div class="card-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Plaza_de_Bolivar_Bogota_2.JPG/640px-Plaza_de_Bolivar_Bogota_2.JPG" alt="Plaza de Bolívar Bogotá" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏛️</span>Plaza Bolívar</div>'">
+      <span class="cat-tag">Bogotá · Plein</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Plaza de Bolívar</div>
+      <div class="act-desc">Historisch hart van Bogotá. Omringd door het Capitolio, de Catedral Primada en het Palacio de Justicia.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis</span>
+        <span class="chip dur">⏰ 30–45min</span>
+        <span class="chip loc">📍 Bogotá</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="cartagena.html" data-name="palacio inquisicion cartagena museum" data-cat="cultuur">
+    <div class="card-img">
+      <img src="img/cartagena_plaza.jpg" alt="Cartagena historisch centrum" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏛️</span>Palacio Inquisición</div>'">
+      <span class="cat-tag">Cartagena · Museum</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Palacio de la Inquisición</div>
+      <div class="act-desc">Barokke gevel, museum over de Spaanse Inquisitie in Cartagena. Aan Plaza de Bolívar.</div>
+      <div class="meta">
+        <span class="chip price">💶 €4</span>
+        <span class="chip dur">⏰ 1u</span>
+        <span class="chip loc">📍 Cartagena</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+</div>
+
+
+<!-- ══════════════ STREET ART & BUURTEN -->
+<div class="cat-section">
+<div class="cat-header"><h2>🎨 Street Art & Buurten</h2><span class="cat-sub">Muurschilderingen, graffiti en kleurrijke wijken</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <a class="act-card" href="info/medellin-comuna-13.html" data-name="comuna 13 medellin graffiti street art escalator" data-cat="streetart">
+    <div class="card-img">
+      <img src="img/medellin_comuna13.jpg" alt="Comuna 13 Medellín" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Comuna 13</div>'">
+      <span class="cat-tag">Medellín · Street Art</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Comuna 13</div>
+      <div class="act-desc">Van gevaarlijkste wijk naar kleurrijkste buurt van Medellín. Roltrappen, muurschilderingen en hip-hop.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis/fooi tour</span>
+        <span class="chip dur">⏰ 2–3u</span>
+        <span class="chip loc">📍 Medellín</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/cartagena-getsemani.html" data-name="getsemani cartagena graffiti kleurrijke wijk muurschildering" data-cat="streetart">
+    <div class="card-img">
+      <img src="img/cartagena_street.jpg" alt="Getsemaní Cartagena" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Getsemaní</div>'">
+      <span class="cat-tag">Cartagena · Wijk</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Getsemaní</div>
+      <div class="act-desc">Artistieke buurt buiten de stadsmuren. Kleurrijke muurschilderingen, Plaza Trinidad en beste bars van Cartagena.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis</span>
+        <span class="chip dur">⏰ 1–2u + avond</span>
+        <span class="chip loc">📍 Cartagena</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="bogota.html" data-name="bogota street art graffiti la candelaria muurschildering" data-cat="streetart">
+    <div class="card-img">
+      <img src="img/act_streetart.jpg" alt="Street art Bogotá" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Street Art Bogotá</div>'">
+      <span class="cat-tag">Bogotá · Street Art</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Street Art Bogotá</div>
+      <div class="act-desc">Bogotá heeft de grootste concentratie legale muurschilderingen ter wereld. La Candelaria en La Macarena zijn hoogtepunten.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis/fooi tour</span>
+        <span class="chip dur">⏰ 2u</span>
+        <span class="chip loc">📍 Bogotá</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+</div>
+
+
+<!-- ══════════════ NATUUR & WANDELEN -->
+<div class="cat-section">
+<div class="cat-header"><h2>🌿 Natuur & Wandelen</h2><span class="cat-sub">Jungle, palmen, bergen en parken</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <a class="act-card" href="info/salento-valle-de-cocora.html" data-name="valle de cocora salento waspalmen wandeling" data-cat="natuur">
+    <div class="card-img">
+      <img src="img/salento_cocora.jpg" alt="Valle de Cocora waspalmen" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🌴</span>Valle de Cocora</div>'">
+      <span class="cat-tag">Salento · Wandeling</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Valle de Cocora</div>
+      <div class="act-desc">Indrukwekkend dal vol waspalmen, Colombia's nationale boom. 8–12km lus door mistwoud en open grasland.</div>
+      <div class="meta">
+        <span class="chip price">💶 €3 entree + jeep</span>
+        <span class="chip dur">⏰ Hele dag</span>
+        <span class="chip loc">📍 Salento</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/tayrona-park.html" data-name="tayrona nationaal park cabo san juan strand hike" data-cat="natuur">
+    <div class="card-img">
+      <img src="img/tayrona_beach.jpg" alt="Tayrona Nationaal Park" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🌴</span>Tayrona</div>'">
+      <span class="cat-tag">Tayrona · Park</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Tayrona Nationaal Park</div>
+      <div class="act-desc">Hike door jungle naar afgelegen stranden. Cabo San Juan is het mooiste eindpunt — turquoise water, rotsen en hangmatten.</div>
+      <div class="meta">
+        <span class="chip price">💶 €17 entree</span>
+        <span class="chip dur">⏰ Hele dag</span>
+        <span class="chip loc">📍 Tayrona / Santa Marta</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/minca-sierra.html" data-name="minca sierra nevada vogelspotten natuur wandeling" data-cat="natuur">
+    <div class="card-img">
+      <img src="img/minca_sierra.jpg" alt="Sierra Nevada Minca" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🌿</span>Sierra Nevada</div>'">
+      <span class="cat-tag">Minca · Berg</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Sierra Nevada — Minca</div>
+      <div class="act-desc">Jungle wandelingen, vogelspotten (600+ soorten) en spectaculair uitzicht op de Caraïbische kust. Met lokale gids.</div>
+      <div class="meta">
+        <span class="chip price">💶 €25–40 gids</span>
+        <span class="chip dur">⏰ Halve–hele dag</span>
+        <span class="chip loc">📍 Minca</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/medellin-parque-arvi.html" data-name="parque arvi medellin metrocable natuur bos" data-cat="natuur">
+    <div class="card-img">
+      <img src="img/medellin_arvi.jpg" alt="Parque Arví Medellín metrocable" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🌳</span>Parque Arví</div>'">
+      <span class="cat-tag">Medellín · Park</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Parque Arví</div>
+      <div class="act-desc">Bereikbaar via metrocable en gondel. 1700 ha woud boven Medellín. Wandelpaden, marktjes en spectaculaire kabelbaanrit.</div>
+      <div class="meta">
+        <span class="chip price">💶 €6 kabel + entree</span>
+        <span class="chip dur">⏰ Halve dag</span>
+        <span class="chip loc">📍 Medellín</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/salento-mirador.html" data-name="mirador salento uitzicht koffievallei alto de la cruz" data-cat="natuur">
+    <div class="card-img">
+      <img src="img/salento_town.jpg" alt="Mirador Alto de la Cruz Salento" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>⛰️</span>Mirador Salento</div>'">
+      <span class="cat-tag">Salento · Uitzicht</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Mirador Alto de la Cruz</div>
+      <div class="act-desc">Korte klim boven Salento met panorama over de Cocora-vallei en koffieplantages. Best bij zonsopkomst of -ondergang.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis</span>
+        <span class="chip dur">⏰ 1u</span>
+        <span class="chip loc">📍 Salento</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/minca-marinka.html" data-name="marinka waterval minca zwemmen natuur" data-cat="natuur">
+    <div class="card-img">
+      <img src="img/act_minca_water.jpg" alt="Waterval Minca" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>💧</span>Marinka Waterval</div>'">
+      <span class="cat-tag">Minca · Waterval</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Waterval Marinka</div>
+      <div class="act-desc">Populaire waterval 45 min wandelen van Minca. Zwemmen in natuurlijk bassin, omringd door tropisch bos.</div>
+      <div class="meta">
+        <span class="chip price">💶 €2 entree</span>
+        <span class="chip dur">⏰ 2u</span>
+        <span class="chip loc">📍 Minca</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+</div>
+
+
+<!-- ══════════════ WATER & STRAND -->
+<div class="cat-section">
+<div class="cat-header"><h2>🏄 Water & Strand</h2><span class="cat-sub">Caraïbische zee, rivieren en tropisch strand</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <a class="act-card" href="info/cartagena-islas-rosario.html" data-name="islas rosario cartagena eilanden snorkelen boot" data-cat="water">
+    <div class="card-img">
+      <img src="img/cartagena_islas.jpg" alt="Islas del Rosario Cartagena" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏝️</span>Islas del Rosario</div>'">
+      <span class="cat-tag">Cartagena · Eilanden</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Islas del Rosario</div>
+      <div class="act-desc">Archipel van 27 koraaleilandjes. Snorkelen, wit zand, turquoise water. Dagtour per speedboot.</div>
+      <div class="meta">
+        <span class="chip price">💶 €52 p.p.</span>
+        <span class="chip dur">⏰ Hele dag</span>
+        <span class="chip loc">📍 Cartagena</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/palomino-tubing.html" data-name="palomino tubing rivier zwembanden drijven" data-cat="water">
+    <div class="card-img">
+      <img src="img/palomino_beach.jpg" alt="Palomino tubing rivier" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🛟</span>Palomino Tubing</div>'">
+      <span class="cat-tag">Palomino · Rivier</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Palomino Tubing</div>
+      <div class="act-desc">Drijven op banden door de Palomino-rivier, uitlopend in de Caraïbische zee. Meest ontspannen activiteit van de reis.</div>
+      <div class="meta">
+        <span class="chip price">💶 €10–15</span>
+        <span class="chip dur">⏰ 2–3u</span>
+        <span class="chip loc">📍 Palomino</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/palomino-surf.html" data-name="palomino surfen surfles strand golf" data-cat="water">
+    <div class="card-img">
+      <img src="img/act_surf.jpg" alt="Surfen Palomino" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏄</span>Surfen Palomino</div>'">
+      <span class="cat-tag">Palomino · Surf</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Surfen — Palomino</div>
+      <div class="act-desc">Beginner-vriendelijke golven aan de Caribische kust. Surfscholen aan het strand geven les voor alle niveaus.</div>
+      <div class="meta">
+        <span class="chip price">💶 €25 les + board</span>
+        <span class="chip dur">⏰ 2u</span>
+        <span class="chip loc">📍 Palomino</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/palomino-strand.html" data-name="palomino strand caribbean beach relaxen" data-cat="water">
+    <div class="card-img">
+      <img src="img/palomino_beach.jpg" alt="Palomino strand" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏖️</span>Palomino Strand</div>'">
+      <span class="cat-tag">Palomino · Strand</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Palomino Strand</div>
+      <div class="act-desc">Rustig Caribisch strand omgeven door palmen en de Sierra Nevada. Minder toeristisch dan Cartagena. Hangmatten en coconut water.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis</span>
+        <span class="chip dur">⏰ Hele dag</span>
+        <span class="chip loc">📍 Palomino</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/minca-pozo-azul.html" data-name="pozo azul minca zwemmen blauw gat waterpoel" data-cat="water">
+    <div class="card-img">
+      <img src="img/minca_sierra.jpg" alt="Pozo Azul Minca" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>💧</span>Pozo Azul</div>'">
+      <span class="cat-tag">Minca · Zwemgat</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Pozo Azul</div>
+      <div class="act-desc">Verborgen zwemgat met helder blauw bergwater in de jungle vlak bij Minca. Perfect om af te koelen na een wandeling.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis</span>
+        <span class="chip dur">⏰ 1–2u</span>
+        <span class="chip loc">📍 Minca</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+</div>
+
+
+<!-- ══════════════ AVONTUUR -->
+<div class="cat-section">
+<div class="cat-header"><h2>🪂 Avontuur</h2><span class="cat-sub">Hoogte, modder en adrenaline</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <a class="act-card" href="info/medellin-paragliden.html" data-name="paragliden medellin tandem vliegen paragliding" data-cat="avontuur">
+    <div class="card-img">
+      <img src="img/act_paragliding.jpg" alt="Paragliden Medellín" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🪂</span>Paragliden</div>'">
+      <span class="cat-tag">Medellín · Paragliding</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Paragliden — Medellín</div>
+      <div class="act-desc">Tandem paragliding boven de vallei van Medellín. Vanuit San Félix, 30 min vlucht boven de stad. Spectaculair uitzicht.</div>
+      <div class="meta">
+        <span class="chip price">💶 €80–120</span>
+        <span class="chip dur">⏰ 30min vlucht</span>
+        <span class="chip loc">📍 Medellín</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/guatape-piedra-del-penon.html" data-name="la piedra penol guatape rots beklimmen trappen" data-cat="avontuur">
+    <div class="card-img">
+      <img src="img/guatape_piedra.jpg" alt="La Piedra del Peñol Guatapé" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🪨</span>La Piedra</div>'">
+      <span class="cat-tag">Guatapé · Rots</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">La Piedra del Peñol</div>
+      <div class="act-desc">740 treden omhoog langs een reusachtige granieten monoliet. Boven: 360° panorama over het merengebied van Guatapé.</div>
+      <div class="meta">
+        <span class="chip price">💶 €3</span>
+        <span class="chip dur">⏰ 1u beklimming</span>
+        <span class="chip loc">📍 Guatapé</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/cartagena-el-totumo.html" data-name="el totumo vulkaan modderbad cartagena dagtrip" data-cat="avontuur">
+    <div class="card-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/El_Totumo_Volcano_Colombia.jpg/640px-El_Totumo_Volcano_Colombia.jpg" alt="El Totumo vulkaan modderbad" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🌋</span>El Totumo</div>'">
+      <span class="cat-tag">Cartagena · Dagtrip</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">El Totumo — Modderbad</div>
+      <div class="act-desc">Zwemmen in een 15m hoge mini-vulkaan gevuld met mineraalrijke modder. De modder is zo dik dat je er bijna op drijft.</div>
+      <div class="meta">
+        <span class="chip price">💶 €15 dagtrip</span>
+        <span class="chip dur">⏰ Halve dag</span>
+        <span class="chip loc">📍 45min van Cartagena</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="bogota.html" data-name="tejo spelen bogota nationaal sport dynamiet ringen gooien" data-cat="avontuur">
+    <div class="card-img">
+      <img src="img/act_tejo.jpg" alt="Tejo nationaal sport Colombia" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>💥</span>Tejo</div>'">
+      <span class="cat-tag">Bogotá · Sport</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Tejo spelen</div>
+      <div class="act-desc">Colombia's nationale sport: metalen schijf gooien naar buisjes buskruit. Bij treffer = explosie. Met bier en picada erbij.</div>
+      <div class="meta">
+        <span class="chip price">💶 €5–8 incl. bier</span>
+        <span class="chip dur">⏰ 2–3u</span>
+        <span class="chip loc">📍 Bogotá</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+</div>
+
+
+<!-- ══════════════ KOFFIE & BOERENBEZOEK -->
+<div class="cat-section">
+<div class="cat-header"><h2>☕ Koffie & Boerenbezoek</h2><span class="cat-sub">Derde grootste koffieproducent ter wereld — dat proef je</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <a class="act-card" href="info/salento-koffieboerderij.html" data-name="koffieboerderij finca salento tour koffie oogsten" data-cat="koffie">
+    <div class="card-img">
+      <img src="img/salento_coffee.jpg" alt="Koffieboerderij Salento" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>☕</span>Koffieboerderij</div>'">
+      <span class="cat-tag">Salento · Finca</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Koffieboerderij Tour</div>
+      <div class="act-desc">Van plant tot kopje: oogsten, schillen, drogen en proeven. De beste tour voor koffieliefhebbers. Verschillende fincas rond Salento.</div>
+      <div class="meta">
+        <span class="chip price">💶 €8–15</span>
+        <span class="chip dur">⏰ 2u</span>
+        <span class="chip loc">📍 Salento / Filandia</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="bogota.html" data-name="mercado paloquemao bogota markt fruit bloemen" data-cat="koffie">
+    <div class="card-img">
+      <img src="img/bogota_food.jpg" alt="Mercado de Paloquemao Bogotá" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🌸</span>Paloquemao</div>'">
+      <span class="cat-tag">Bogotá · Markt</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Mercado de Paloquemao</div>
+      <div class="act-desc">Colombia's mooiste markt: bloemen, exotisch fruit, groenten en lokale producten. Beste tijd: ochtend vroeg.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis (instap)</span>
+        <span class="chip dur">⏰ 1–2u</span>
+        <span class="chip loc">📍 Bogotá</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="salento.html" data-name="salento koffie specialty cafe proeverij specialty coffee" data-cat="koffie">
+    <div class="card-img">
+      <img src="img/salento_town.jpg" alt="Salento specialty coffee" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>☕</span>Specialty Koffie</div>'">
+      <span class="cat-tag">Salento · Café</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Specialty Coffee Proeverij</div>
+      <div class="act-desc">Salento heeft een handvol uitstekende specialty cafés. Proef verschillende micro-lots en verwerkingsmethoden met kenner-uitleg.</div>
+      <div class="meta">
+        <span class="chip price">💶 €5–10</span>
+        <span class="chip dur">⏰ 1u</span>
+        <span class="chip loc">📍 Salento</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+</div>
+
+
+<!-- ══════════════ AVOND & UITGAAN -->
+<div class="cat-section">
+<div class="cat-header"><h2>🌙 Avond & Uitgaan</h2><span class="cat-sub">Feesten, dansen en zonsondergang</span></div>
+<div class="cat-line"></div>
+<div class="cards-grid">
+
+  <a class="act-card" href="cartagena.html" data-name="chiva rumbera feestbus cartagena avond party bus" data-cat="avond">
+    <div class="card-img">
+      <img src="img/act_chiva.jpg" alt="Chiva Rumbera feestbus Cartagena" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🚌</span>Chiva Rumbera</div>'">
+      <span class="cat-tag">Cartagena · Nightlife</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Chiva Rumbera</div>
+      <div class="act-desc">Open feestbus door de stad: liveband, aguardiente, dansen op de bus. Het meest Colombiaanse feest mogelijk. ±3u.</div>
+      <div class="meta">
+        <span class="chip price">💶 €18–25</span>
+        <span class="chip dur">⏰ 21u–middernacht</span>
+        <span class="chip loc">📍 Cartagena</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="medellin.html" data-name="salsa dansen medellin les dansles avond" data-cat="avond">
+    <div class="card-img">
+      <img src="img/act_salsa.jpg" alt="Salsa dansen Colombia" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>💃</span>Salsa</div>'">
+      <span class="cat-tag">Medellín · Dans</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Salsa Dansen</div>
+      <div class="act-desc">Salsa les in Medellín of Cali, gevolgd door een avond uitgaan. Colombia's tweede nationale sport na voetbal.</div>
+      <div class="meta">
+        <span class="chip price">💶 €10–15 les</span>
+        <span class="chip dur">⏰ Avond</span>
+        <span class="chip loc">📍 Medellín · Cali</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="cartagena.html" data-name="cafe del mar cartagena zonsondergang cocktail stadsmuur rooftop" data-cat="avond">
+    <div class="card-img">
+      <img src="img/cartagena_portal.jpg" alt="Café del Mar stadsmuren zonsondergang Cartagena" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🌅</span>Café del Mar</div>'">
+      <span class="cat-tag">Cartagena · Rooftop</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Zonsondergang op de Stadsmuren</div>
+      <div class="act-desc">Cocktail drinken op de oude stadsmuren bij zonsondergang. Café del Mar is de klassieke plek — kijk ook naar de minder drukke alternatieven.</div>
+      <div class="meta">
+        <span class="chip price">💶 €6–12 cocktail</span>
+        <span class="chip dur">⏰ 17–19u</span>
+        <span class="chip loc">📍 Cartagena</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="act-card" href="info/guatape-zocalos.html" data-name="guatape zocalos kleurrijke gevels avond sfeer village" data-cat="avond">
+    <div class="card-img">
+      <img src="img/act_zocalos.jpg" alt="Guatapé Zocalos" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Guatapé Zocalos</div>'">
+      <span class="cat-tag">Guatapé · Sfeer</span>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Guatapé Zocalos & Avond</div>
+      <div class="act-desc">Kleurrijke gebeeldhouwde gevels (zocalos) en gezellige pleintjes. Overnacht voor een rustige avond na de drukte van La Piedra.</div>
+      <div class="meta">
+        <span class="chip price">💶 Gratis</span>
+        <span class="chip dur">⏰ Avond</span>
+        <span class="chip loc">📍 Guatapé</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+</div>
+
+</div><!-- /section -->
+
+<div class="footer">🇨🇴 Colombia · Activiteitenwijzer · Klik een kaart voor dag­planning en boekingsinfo</div>
+
+<script src="feedback.js"></script>
+<script>
+(function(){
+  var input    = document.getElementById('act-search');
+  var count    = document.getElementById('search-count');
+  var noRes    = document.getElementById('no-results');
+  var noResQ   = document.getElementById('no-results-q');
+  var cards    = Array.from(document.querySelectorAll('.act-card[data-name]'));
+  var sections = Array.from(document.querySelectorAll('.cat-section'));
+  var activeCat = 'all';
+
+  document.querySelectorAll('.pill').forEach(function(pill){
+    pill.addEventListener('click', function(){
+      document.querySelectorAll('.pill').forEach(function(p){p.classList.remove('active');});
+      pill.classList.add('active');
+      activeCat = pill.dataset.filter;
+      if(activeCat !== 'all') input.value = '';
+      applyFilter();
+    });
+  });
+
+  input.addEventListener('input', function(){
+    if(input.value){
+      document.querySelectorAll('.pill').forEach(function(p){p.classList.remove('active');});
+      document.querySelector('.pill[data-filter="all"]').classList.add('active');
+      activeCat = 'all';
+    }
+    applyFilter();
+  });
+
+  function applyFilter(){
+    var q = input.value.trim().toLowerCase();
+    var visible = 0;
+    cards.forEach(function(card){
+      var name = (card.dataset.name||'').toLowerCase();
+      var cat  = card.dataset.cat||'';
+      var show = (activeCat==='all'||cat===activeCat) && (!q||name.includes(q));
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    sections.forEach(function(sec){
+      var any = Array.from(sec.querySelectorAll('.act-card')).some(function(c){return c.style.display!=='none';});
+      sec.classList.toggle('all-hidden',!any);
+    });
+    var total = cards.length;
+    count.textContent = (q||activeCat!=='all') ? (visible+' van '+total+' activiteiten') : '';
+    noRes.style.display = visible===0 ? 'block' : 'none';
+    if(noResQ) noResQ.textContent = q||activeCat;
+  }
+})();
+</script>
+
+</body>
+</html>

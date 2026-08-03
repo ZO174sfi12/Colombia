@@ -124,6 +124,40 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
 @media(min-width:580px){.hero h1{font-size:2.3rem;}}
 @media(max-width:440px){.cards-grid{grid-template-columns:repeat(2,1fr);} .dish-card .card-img{height:155px;}}
+
+/* ── CRAFT BEER SECTIE ────────────────────────────────────── */
+.beer-section{max-width:1040px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.beer-section-header{display:flex;align-items:baseline;gap:0.75rem;margin:2.5rem 0 0.35rem;}
+.beer-section-header h2{font-size:1.1rem;font-weight:700;font-family:'Playfair Display',serif;}
+.beer-section-header .cat-sub{font-size:0.8rem;color:var(--muted);}
+.beer-line{height:2px;margin-bottom:0.6rem;background:linear-gradient(90deg,#92400E,#D97706,#FDE68A,transparent);}
+.beer-intro{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:2rem;max-width:640px;background:#FFFBEB;border-left:3px solid #D97706;padding:0.7rem 0.9rem;border-radius:0 8px 8px 0;}
+
+.beer-city{margin-bottom:2.2rem;}
+.beer-city-hdr{display:flex;align-items:center;gap:0.55rem;margin-bottom:0.9rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+.beer-city-hdr h3{font-size:1rem;font-weight:800;font-family:'Playfair Display',serif;margin:0;}
+.beer-city-hdr .city-badge{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;border-radius:20px;padding:0.18rem 0.6rem;}
+.beer-city-hdr .city-note{font-size:0.75rem;color:var(--muted);margin-left:auto;}
+
+.brewery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;}
+
+.brewery-card{background:white;border-radius:14px;border:1px solid var(--border);padding:1rem 1.1rem 0.9rem;box-shadow:0 2px 8px rgba(0,0,0,0.07);position:relative;}
+.brewery-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.12);transform:translateY(-1px);transition:all 0.15s;}
+.brewery-name{font-size:0.97rem;font-weight:800;font-family:'Playfair Display',serif;margin-bottom:0.25rem;}
+.brewery-name a{color:var(--text);text-decoration:none;border-bottom:1px dotted #D97706;}
+.brewery-name a:hover{color:#92400E;border-bottom-color:#92400E;}
+.brewery-meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.6rem;}
+.brewery-tag{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:0.15rem 0.5rem;border-radius:20px;border:1px solid;}
+.bt-loc{background:#F0FDF4;color:#14532D;border-color:#BBF7D0;}
+.bt-style{background:#EFF6FF;color:#1E40AF;border-color:#BFDBFE;}
+.bt-tip{background:#FFF7ED;color:#9A3412;border-color:#FED7AA;}
+.brewery-desc{font-size:0.76rem;line-height:1.6;color:var(--muted);margin-bottom:0.7rem;}
+.brewery-beers{font-size:0.72rem;color:var(--text);}
+.brewery-beers strong{color:#92400E;display:block;margin-bottom:0.2rem;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.4px;}
+.beer-pill{display:inline-block;background:#FEF3C7;border:1px solid #FDE68A;color:#78350F;border-radius:20px;padding:0.12rem 0.5rem;margin:0.1rem 0.15rem 0 0;font-size:0.68rem;font-weight:600;}
+.brewery-footer{margin-top:0.75rem;padding-top:0.65rem;border-top:1px solid var(--border);font-size:0.72rem;color:var(--muted);}
+.brewery-scene-note{background:#F9FAFB;border:1px solid var(--border);border-radius:10px;padding:0.8rem 1rem;font-size:0.78rem;color:var(--muted);line-height:1.6;}
+.brewery-scene-note strong{color:var(--text);}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
@@ -145,6 +179,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   <a href="palomino.html">🏖️ Palomino</a>
   <a href="kaart.html">🗺️ Kaart</a>
   <a href="culinair.html" class="active">🍽️ Culinair</a>
+  <a href="activiteiten.html">🎯 Activiteiten</a>
   <a href="praktisch.html">📌 Praktisch</a>
   <a href="routes.html">✈️ Routes</a>
   <a href="setup.html">⚙️ Setup</a>
@@ -177,6 +212,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
     <button class="pill" data-filter="drank">☕ Dranken</button>
     <button class="pill" data-filter="dessert">🍮 Desserts</button>
     <button class="pill" data-filter="avontuur">🐜 Avontuurlijk</button>
+    <button class="pill" data-filter="craftbeer">🍺 Craft Beer</button>
   </div>
   <div class="search-count" id="search-count"></div>
 </div>
@@ -208,7 +244,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="ajiaco bogotá soep" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Ajiaco+Bogot%C3%A1+Colombia">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ajiaco_in_Bogot%C3%A1.jpg" alt="Ajiaco Bogotá" loading="lazy"
+      <img src="img/food/ajiaco.jpg" alt="Ajiaco Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍲</span>Ajiaco</div>'">
       <span class="cat-tag">Bogotá · Soep</span>
       <span class="region-tag">📍 Bogotá</span>
@@ -226,7 +262,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="sancocho nationaal soep" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Sancocho+Colombia">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Sancocho_cruzado_de_gallina%2C_rabo_y_costilla_con_arepa.jpg" alt="Sancocho" loading="lazy"
+      <img src="img/food/sancocho.jpg" alt="Sancocho" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍲</span>Sancocho</div>'">
       <span class="cat-tag">Nationaal · Soep</span>
       <span class="google-hint">🔍 zoek</span>
@@ -243,7 +279,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="asado huilense huila grill" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Asado+Huilense+Colombia">
     <div class="card-img">
-      <img src="https://www.mycolombianrecipes.com/wp-content/uploads/2014/08/Como-hacer-el-asado-huilense.jpg" alt="Asado Huilense" loading="lazy"
+      <img src="img/food/asado_huilense.jpg" alt="Asado Huilense" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🥩</span>Asado Huilense</div>'">
       <span class="cat-tag">Huila · Grill</span>
       <span class="region-tag">📍 Huila</span>
@@ -279,7 +315,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="tamales ontbijt overal" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Tamales+Colombia+bananenblaad">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/080924_tamal_de_viaje.JPG" alt="Tamal in bananenblaad" loading="lazy"
+      <img src="img/food/tamales.jpg" alt="Tamal in bananenblaad" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🫔</span>Tamales</div>'">
       <span class="cat-tag">Ontbijt · Overal</span>
       <span class="google-hint">🔍 zoek</span>
@@ -297,7 +333,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="caldo de costilla soep bogota ontbijt" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Caldo+de+Costilla+Colombia">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Caldo_de_costilla.jpg/640px-Caldo_de_costilla.jpg" alt="Caldo de Costilla" loading="lazy"
+      <img src="img/food/caldo_costilla.jpg" alt="Caldo de Costilla" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍽️</span>Caldo de Costilla</div>'">
       <span class="cat-tag">Bogotá · Ontbijt</span>
       <span class="cat-tag" style="right:auto;left:0.5rem;background:rgba(80,80,80,0.85);">👨‍🦳 Tony</span>
@@ -314,7 +350,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   </div>
   <div class="dish-card" data-name="tamales bogotanos kip varken bogota" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Tamales+Bogotanos+Colombia">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Tamale_de_Colombia.jpg/640px-Tamale_de_Colombia.jpg" alt="Tamales Bogotanos" loading="lazy"
+      <img src="img/food/tamales.jpg" alt="Tamales Bogotanos" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍽️</span>Tamales Bogotanos</div>'">
       <span class="cat-tag">Bogotá · Ontbijt</span>
       <span class="cat-tag" style="right:auto;left:0.5rem;background:rgba(80,80,80,0.85);">👨‍🦳 Tony</span>
@@ -331,7 +367,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   </div>
   <div class="dish-card" data-name="colombiaanse picada gefrituurd vlees tejo" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Colombiaanse+Picada">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bandeja_de_fritanga.jpg/640px-Bandeja_de_fritanga.jpg" alt="Colombiaanse Picada" loading="lazy"
+      <img src="img/food/picada.jpg" alt="Colombiaanse Picada" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍽️</span>Colombiaanse Picada</div>'">
       <span class="cat-tag">Colombia · Tejo</span>
       <span class="cat-tag" style="right:auto;left:0.5rem;background:rgba(80,80,80,0.85);">👨‍🦳 Tony</span>
@@ -358,7 +394,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="carib. lunch caribbean coast" data-cat="vis" data-google-href="https://www.google.com/search?tbm=isch&q=Caribbean+lunch+Colombia+coast+fish">
     <div class="card-img">
-      <img src="img/food/caribbean_lunch.jpg" alt="Caribbean lunch" loading="lazy"
+      <img src="img/food/typicalcaribbeanlunch.jpg" alt="Caribbean lunch" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🐟</span>Carib. Lunch</div>'">
       <span class="cat-tag">Caribbean · Lunch</span>
       <span class="region-tag">📍 Cartagena · Palomino</span>
@@ -394,7 +430,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="viudo de bocachico rivier vis" data-cat="vis" data-google-href="https://www.google.com/search?tbm=isch&q=Viudo+de+Bocachico+Colombia+river">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Bocachicos_en_cabrito.jpg" alt="Bocachico vis" loading="lazy"
+      <img src="img/food/viudo_bocachico.jpg" alt="Viudo de Bocachico" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🐟</span>Viudo Bocachico</div>'">
       <span class="cat-tag">Rivier · Vis</span>
       <span class="google-hint">🔍 zoek</span>
@@ -412,7 +448,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="cazuela de mariscos caribische kust stoofpot" data-cat="vis" data-google-href="https://www.google.com/search?tbm=isch&q=Cazuela+de+Mariscos+Colombia">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Cazuela_de_mariscos.jpg/640px-Cazuela_de_mariscos.jpg" alt="Cazuela de Mariscos" loading="lazy"
+      <img src="img/food/cazuela_mariscos.jpg" alt="Cazuela de Mariscos" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍽️</span>Cazuela de Mariscos</div>'">
       <span class="cat-tag">Caraïben · Kust</span>
       <span class="cat-tag" style="right:auto;left:0.5rem;background:rgba(80,80,80,0.85);">👨‍🦳 Tony</span>
@@ -490,7 +526,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="arequipe zoet street dulce de leche" data-cat="streetfood" data-google-href="https://www.google.com/search?tbm=isch&q=Arequipe+Colombia+dulce+de+leche">
     <div class="card-img">
-      <img src="img/food/street_food.jpg" alt="Arequipe street food" loading="lazy"
+      <img src="img/food/arequipe.jpg" alt="Arequipe Colombia dulce de leche" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍯</span>Arequipe</div>'">
       <span class="cat-tag">Zoet · Street</span>
       <span class="google-hint">🔍 zoek</span>
@@ -622,7 +658,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="uchuva fruit markten physalis goudbes" data-cat="drank" data-google-href="https://www.google.com/search?tbm=isch&q=Uchuva+Colombia+golden+berry+markt">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Physalis_peruviana_calix_open_close-up.jpg/600px-Physalis_peruviana_calix_open_close-up.jpg" alt="Uchuva goudbes Colombia" loading="lazy"
+      <img src="img/food/fruits.jpg" alt="Uchuva goudbes Colombia" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🫐</span>Uchuva</div>'">
       <span class="cat-tag">Fruit · Markten</span>
       <span class="google-hint">🔍 zoek</span>
@@ -649,7 +685,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="natilla kerst nationaal pudding panela" data-cat="dessert" data-google-href="https://www.google.com/search?tbm=isch&q=Natilla+Colombia+dessert+kerst">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/A_plate_of_Colombian_Natilla.JPG" alt="Natilla Colombia" loading="lazy"
+      <img src="img/food/natilla.jpg" alt="Natilla Colombia" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍮</span>Natilla</div>'">
       <span class="cat-tag">Kerst · Nationaal</span>
       <span class="google-hint">🔍 zoek</span>
@@ -802,6 +838,195 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
 </div><!-- /section -->
 
+<!-- ══════════════════════════════════ CRAFT BEER -->
+<div class="beer-section">
+<div class="beer-section-header"><h2>🍺 Craft Beer langs de Route</h2><span class="cat-sub">Serieus ambachtelijk bier — per stad</span></div>
+<div class="beer-line"></div>
+<p class="beer-intro">Colombia heeft een kleine maar serieuze craft scene, geconcentreerd in Bogotá en Medellín. Niet de toeristische taprooms, maar de plekken waar de locals met kennis van zaken naartoe gaan.</p>
+
+<!-- ── BOGOTÁ ──────────────────────────────────────── -->
+<div class="beer-city">
+  <div class="beer-city-hdr">
+    <span>🏙️</span><h3>Bogotá</h3>
+    <span class="city-badge">Sterkste scene</span>
+    <span class="city-note">Chapinero · La Macarena · Usaquén</span>
+  </div>
+  <div class="brewery-grid">
+
+    <div class="brewery-card">
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Ap%C3%B3stol+Brewing+Bogot%C3%A1" target="_blank">Apostól Brewing Co.</a></div>
+      <div class="brewery-meta">
+        <span class="brewery-tag bt-loc">📍 La Macarena</span>
+        <span class="brewery-tag bt-style">🇩🇪 Duits-Belgisch</span>
+        <span class="brewery-tag bt-tip">⭐ Uitgelicht</span>
+      </div>
+      <div class="brewery-desc">Het meest gerespecteerde kleine brouwhuis van Bogotá. Oprichter Juan Pablo Valderrama studeerde brouwen in Duitsland en combineert klassieke Europese technieken met Colombiaanse ingrediënten. Klein taproom, rotating taps, geen concessies aan de massa.</div>
+      <div class="brewery-beers">
+        <strong>🍺 Bestellen</strong>
+        <span class="beer-pill">Kölsch Andino</span>
+        <span class="beer-pill">Saison de los Andes</span>
+        <span class="beer-pill">Seasonals</span>
+      </div>
+      <div class="brewery-footer">📌 Cra. 4A #26-60, La Macarena · di–zo vanaf 16u<br>💰 COP 15.000–22.000 · €3,30–4,90 p. bier</div>
+    </div>
+
+    <div class="brewery-card">
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Mad+Brewing+Bogot%C3%A1" target="_blank">Mad Brewing</a></div>
+      <div class="brewery-meta">
+        <span class="brewery-tag bt-loc">📍 Chapinero</span>
+        <span class="brewery-tag bt-style">🇺🇸 Amerikaans-Experimenteel</span>
+      </div>
+      <div class="brewery-desc">IPA-forward met een experimentele inslag — rotating hazies, barrel-aged stouts en fruit sours. Populair bij de jongere Bogotaanse craft beer gemeenschap. Taproom heeft goede sfeer en wisselt maandelijks van assortiment.</div>
+      <div class="brewery-beers">
+        <strong>🍺 Bestellen</strong>
+        <span class="beer-pill">Hazy IPA</span>
+        <span class="beer-pill">Barrel Stout</span>
+        <span class="beer-pill">Rotating Sour</span>
+      </div>
+      <div class="brewery-footer">📌 Cra. 7 area, Chapinero · check IG voor actuele taps<br>💰 COP 15.000–20.000 · €3,30–4,40 p. bier</div>
+    </div>
+
+    <div class="brewery-card">
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/El+Birrero+Bogot%C3%A1" target="_blank">El Birrero</a></div>
+      <div class="brewery-meta">
+        <span class="brewery-tag bt-loc">📍 Usaquén</span>
+        <span class="brewery-tag bt-style">🍺 Multi-tap Bar</span>
+      </div>
+      <div class="brewery-desc">Curated craft beer bar — geen eigen brouwerij, maar de beste selectie Colombiaanse en geïmporteerde craft bieren in de stad. Ideaal om in één avond de lokale scene te proeven. Knowledgeable bar staff, rustig genoeg voor een gesprek.</div>
+      <div class="brewery-beers">
+        <strong>🍺 Bestellen</strong>
+        <span class="beer-pill">Lokale rotatie</span>
+        <span class="beer-pill">3 Cordilleras on tap</span>
+        <span class="beer-pill">Import specials</span>
+      </div>
+      <div class="brewery-footer">📌 Usaquén · ideaal na Mercado de Usaquén op zondag<br>💰 COP 14.000–20.000 · €3,10–4,40 p. bier</div>
+    </div>
+
+    <div class="brewery-card">
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Bogota+Beer+Company" target="_blank">BBC (Bogotá Beer Company)</a></div>
+      <div class="brewery-meta">
+        <span class="brewery-tag bt-loc">📍 Meerdere vestigingen</span>
+        <span class="brewery-tag bt-style">🏛️ Pionier · Nu mainstream</span>
+      </div>
+      <div class="brewery-desc">De pionier van Colombian craft (est. 2002), nu op het scheidsvlak van craft en mainstream. Niet meer het meest avontuurlijk, maar solide kwaliteit en alomtegenwoordig. Goede gateway voor wie net begint — Roja en Cajicá zijn de klassiekers.</div>
+      <div class="brewery-beers">
+        <strong>🍺 Bestellen</strong>
+        <span class="beer-pill">Roja</span>
+        <span class="beer-pill">Cajicá (wheat)</span>
+        <span class="beer-pill">Monserrate Roja</span>
+      </div>
+      <div class="brewery-footer">📌 Zona Rosa, Candelaria, Usaquén · makkelijkst te vinden<br>💰 COP 10.000–15.000 · €2,20–3,30 p. bier</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MEDELLÍN ────────────────────────────────────── -->
+<div class="beer-city">
+  <div class="beer-city-hdr">
+    <span>🌆</span><h3>Medellín</h3>
+    <span class="city-badge">Nationale trots</span>
+    <span class="city-note">El Poblado · Laureles · Centro</span>
+  </div>
+  <div class="brewery-grid">
+
+    <div class="brewery-card">
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Tres+Cordilleras+Medell%C3%ADn" target="_blank">Tres Cordilleras (3 Cordilleras)</a></div>
+      <div class="brewery-meta">
+        <span class="brewery-tag bt-loc">📍 Laureles</span>
+        <span class="brewery-tag bt-style">🏆 Goudstandaard Colombia</span>
+        <span class="brewery-tag bt-tip">⭐ Uitgelicht</span>
+      </div>
+      <div class="brewery-desc">Dít is de Colombiaanse craft brouwerij. Opgericht in 2008 door Sylvia Calderón na brouwstudies in de VS — de eerste serieuze craft operatie van het land. Meervoudig bekroond, eigen taproom in Laureles met tours. Het dichtstbijzijnde equivalent van Hophemel of Gravity in Colombia.</div>
+      <div class="brewery-beers">
+        <strong>🍺 Bestellen</strong>
+        <span class="beer-pill">Mestiza (amber)</span>
+        <span class="beer-pill">Multigrain IPA</span>
+        <span class="beer-pill">Negra (stout)</span>
+        <span class="beer-pill">Weizen</span>
+      </div>
+      <div class="brewery-footer">📌 Cra. 73A #30A Sur-15, Laureles · brouwerij + taproom, tours beschikbaar<br>💰 COP 12.000–18.000 · €2,70–4,00 p. bier</div>
+    </div>
+
+    <div class="brewery-card">
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Libre+Brewing+Medell%C3%ADn" target="_blank">Libre Brewing</a></div>
+      <div class="brewery-meta">
+        <span class="brewery-tag bt-loc">📍 El Poblado / Centro</span>
+        <span class="brewery-tag bt-style">🔬 Modern · Innovatief</span>
+      </div>
+      <div class="brewery-desc">Een van de meest veelbelovende jongere brouwerijen van Medellín. Speelt met lokale ingrediënten — panela, lulo, guanábana — in herkenbare stijlen. Klein team, hoge ambities. De beers die hier uitkomen weten altijd te verrassen.</div>
+      <div class="brewery-beers">
+        <strong>🍺 Bestellen</strong>
+        <span class="beer-pill">Panela Ale</span>
+        <span class="beer-pill">Lulo Sour</span>
+        <span class="beer-pill">Tropical IPA</span>
+      </div>
+      <div class="brewery-footer">📌 El Poblado / check locatie via IG @librebrewing<br>💰 COP 14.000–20.000 · €3,10–4,40 p. bier</div>
+    </div>
+
+    <div class="brewery-card">
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Crazy+Brewing+Medell%C3%ADn" target="_blank">Crazy Brewing Co.</a></div>
+      <div class="brewery-meta">
+        <span class="brewery-tag bt-loc">📍 El Poblado</span>
+        <span class="brewery-tag bt-style">🍋 Hop-Forward · Sours</span>
+      </div>
+      <div class="brewery-desc">Betrouwbaar voor hop-georiënteerde stijlen en frisse zure bieren. Populair bij expats én locals in El Poblado. Meer ontspannen dan 3 Cordilleras, ideaal voor een doordeweekse avond met meerdere taps. Probeer wat er op de board staat.</div>
+      <div class="brewery-beers">
+        <strong>🍺 Bestellen</strong>
+        <span class="beer-pill">West Coast IPA</span>
+        <span class="beer-pill">Gose</span>
+        <span class="beer-pill">Seasonal rotatie</span>
+      </div>
+      <div class="brewery-footer">📌 El Poblado · sfeer vergelijkbaar met een goede Europese craft bar<br>💰 COP 13.000–18.000 · €2,90–4,00 p. bier</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── CARTAGENA ───────────────────────────────────── -->
+<div class="beer-city">
+  <div class="beer-city-hdr">
+    <span>🌊</span><h3>Cartagena</h3>
+    <span class="city-badge">Beperkte scene</span>
+    <span class="city-note">Getsemaní · Old Town</span>
+  </div>
+  <div class="brewery-scene-note" style="margin-bottom:1rem;">
+    <strong>Eerlijk advies:</strong> Cartagena heeft geen serieuze craft beer scene op het niveau van Bogotá of Medellín. In de tropische warmte drinkt iedereen — ook locals — água de panela, cholado, rum en de alomtegenwoordige Águila lager. Craft beer bestaat hier, maar de kwaliteit en ambitie zijn een stuk lager. Ga voor de rum cocktails en de sfeer van Getsemaní.
+  </div>
+  <div class="brewery-grid">
+
+    <div class="brewery-card">
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/craft+beer+Getseman%C3%AD+Cartagena" target="_blank">Cerveza Voladora / ABC Beer</a></div>
+      <div class="brewery-meta">
+        <span class="brewery-tag bt-loc">📍 Getsemaní · Old Town</span>
+        <span class="brewery-tag bt-style">🍺 Lokale craft</span>
+      </div>
+      <div class="brewery-desc">De meest aanwezige Colombiaanse craft labels in Cartagena's bars. Geen dedicated taproom van formaat, maar in de hippe bars van Getsemaní en Plaza Trinidad te vinden. Verwacht eerder een stadsbiertje dan een craft experience — maar prima na een dag in de zon.</div>
+      <div class="brewery-beers">
+        <strong>🍺 Zoek naar</strong>
+        <span class="beer-pill">Cerveza Voladora Roja</span>
+        <span class="beer-pill">ABC Rubia</span>
+        <span class="beer-pill">3 Cordilleras (import)</span>
+      </div>
+      <div class="brewery-footer">📍 Vraag in de hippe bars rondom Plaza Trinidad (Getsemaní) — zij hebben de beste selectie<br>💰 COP 12.000–16.000 · €2,70–3,60 p. bier</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MINCA / PALOMINO / TAYRONA ─────────────────── -->
+<div class="beer-city">
+  <div class="beer-city-hdr">
+    <span>🌿</span><h3>Minca · Palomino · Tayrona</h3>
+    <span class="city-badge">Geen craft scene</span>
+  </div>
+  <div class="brewery-scene-note">
+    <strong>Skip de bierzoekerij hier.</strong> In Minca, Palomino en rond Tayrona draait het culinair om andere dingen: verse fruitsappen, kokosmelk, lokale rum en de Colombiaanse Águila of Club Colombia lager die letterlijk overal te vinden is. De jungle en het strand zijn de bestemming — niet het bier. Geniet er gewoon van.
+  </div>
+</div>
+
+</div><!-- /beer-section -->
+
 <div class="footer">🇨🇴 Colombia · Culinaire gids · Foto's via Wikimedia Commons (CC) & Lonely Planet Colombia 2023<br><small style="margin-top:0.4rem;display:block;opacity:0.7;">Ratings worden gesynchroniseerd via GitHub Gist · <a href="setup.html" style="color:inherit;">⚙️ Setup / API keys</a></small></div>
 
 <script src="dagboek.js"></script>
@@ -814,6 +1039,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   var noResQ   = document.getElementById('no-results-q');
   var cards    = Array.from(document.querySelectorAll('.dish-card[data-name]'));
   var sections = Array.from(document.querySelectorAll('.cat-section'));
+  var beerSection = document.querySelector('.beer-section');
   var activeCat = 'all';
 
   document.querySelectorAll('.pill').forEach(function(pill){
@@ -838,6 +1064,18 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   function applyFilter(){
     var q = input.value.trim().toLowerCase();
     var visible = 0;
+
+    if(activeCat === 'craftbeer'){
+      // Toon alleen de craft beer sectie
+      sections.forEach(function(sec){ sec.classList.add('all-hidden'); });
+      if(beerSection) beerSection.style.display = '';
+      count.textContent = '';
+      noRes.style.display = 'none';
+      return;
+    }
+
+    // Normale gerechten filter
+    if(beerSection) beerSection.style.display = (activeCat === 'all' && !q) ? '' : 'none';
     cards.forEach(function(card){
       var name = (card.dataset.name||'').toLowerCase();
       var cat  = card.dataset.cat||'';
