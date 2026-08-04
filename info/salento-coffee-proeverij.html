@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>☕ Specialty Coffee Proeverij · Salento · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#7C3AED;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#7C3AED99,#7C3AED);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);}
+.intro-block p{font-size:0.9rem;line-height:1.7;margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;border-top:3px solid #16A34A;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F0FDF4;color:#15803D;border-bottom:1px solid var(--border);}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:var(--accent);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.4rem;}
+.tip-box p:last-child{margin-bottom:0;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.7rem;flex-wrap:wrap;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">&#127464;&#127476; Colombia 2025</a>
+  <a class="back-link" href="../salento.html">← Salento</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../activiteiten.html" class="active">🎯 Activiteiten</a>
+</div>
+<div class="hero">
+  <div class="breadcrumb"><a href="../salento.html">Salento</a> &rsaquo; Specialty Coffee Proeverij</div>
+  <h1>☕ Specialty Coffee Proeverij</h1>
+  <p class="sub">Salento &middot; Colombia</p>
+</div>
+<div class="section">
+  <img src="../img/salento_coffee.jpg" alt="Specialty coffee Salento" style="width:100%;height:220px;object-fit:cover;display:block;border-radius:12px;margin-bottom:1.4rem;" onerror="this.style.display='none'">
+  
+  <div class="intro-block"><p>Salento ligt in het hart van de Zona Cafetera. Hier kan je de volledige koffiereis beleven: van boon tot kopje. Specialty coffee cafés bieden cupping-sessies aan waarbij je leert te proeven op zuurgraad, body en aroma.</p></div>
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Locatie</div><div class="fact-value">Salento, Zona Cafetera</div></div><div class="fact"><div class="fact-label">Prijs</div><div class="fact-value">COP 20.000–50.000 (€ 4–11)</div></div><div class="fact"><div class="fact-label">Duur</div><div class="fact-value">45 min – 1,5 uur</div></div><div class="fact"><div class="fact-label">Cafés</div><div class="fact-value">Café Jesús Martín, Café de Origen</div></div></div>
+  <div class="source-block">
+    <div class="source-label">&#128214; Lonely Planet</div>
+    <div class="source-body">Colombia produceerde traditioneel koffie voor export, maar de derde golf specialty coffee heeft ook de lokale cafécultuur veranderd. In Salento serveren micro-roasters single-origin koffie van nabijgelegen finca's. Een cupping laat je het verschil proeven tussen washed, natural en honey-process.</div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-title">&#128161; Tips</div>
+    <p>Café Jesús Martín (Calle Real) is de bekendste specialty zaak in Salento.</p><p>Vraag naar "tinto" — de lokale zwarte filterkoffie.</p><p>Combineer met een koffiefinca tour voor de volledige beleving.</p>
+  </div>
+</div>
+<div class="nav-wrap">
+  <a class="back-btn" href="../salento.html">← Terug naar Salento</a>
+  <a class="back-btn" href="../activiteiten.html">🎯 Alle activiteiten</a>
+</div>
+<div class="footer">Colombia Dagboek 2025 &middot; Bert &amp; Ellen</div>
+</body>
+</html>

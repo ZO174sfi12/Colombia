@@ -100,6 +100,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
 @media(min-width:580px){.hero h1{font-size:2.3rem;}}
 @media(max-width:440px){.cards-grid{grid-template-columns:repeat(2,1fr);} .act-card .card-img{height:155px;}}
+
+a.loc-link.cat-tag{color:white;cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.4);text-decoration:none;}
+a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:white;}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
@@ -168,11 +171,11 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <a class="act-card" href="info/cartagena-castillo-san-felipe.html" data-name="castillo san felipe cartagena kasteel fort" data-cat="cultuur">
+  <div class="act-card" data-href="info/cartagena-castillo-san-felipe.html" data-name="castillo san felipe cartagena kasteel fort" data-cat="cultuur">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Castillo_San_Felipe_de_Barajas%2C_Cartagena%2C_Colombia.jpg/640px-Castillo_San_Felipe_de_Barajas%2C_Cartagena%2C_Colombia.jpg" alt="Castillo San Felipe" loading="lazy"
+      <img src="img/act_castillo.jpg" alt="Castillo San Felipe" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏰</span>Castillo San Felipe</div>'">
-      <span class="cat-tag">Cartagena · Fort</span>
+      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Fort</a>
     </div>
     <div class="card-body">
       <div class="act-name">Castillo San Felipe de Barajas</div>
@@ -183,13 +186,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Cartagena</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/bogota-museo-del-oro.html" data-name="museo del oro goud museum bogota" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-museo-del-oro.html" data-name="museo del oro goud museum bogota" data-cat="cultuur">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Muisca_Raft_Legend_of_El_Dorado_Offerings_Gold_Museum_Bogota.jpg/640px-Muisca_Raft_Legend_of_El_Dorado_Offerings_Gold_Museum_Bogota.jpg" alt="Museo del Oro Bogotá" loading="lazy"
+      <img src="img/act_museo_oro.jpg" alt="Museo del Oro Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🥇</span>Museo del Oro</div>'">
-      <span class="cat-tag">Bogotá · Museum</span>
+      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Museum</a>
     </div>
     <div class="card-body">
       <div class="act-name">Museo del Oro</div>
@@ -200,13 +203,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Bogotá</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/bogota-la-candelaria.html" data-name="la candelaria bogota koloniale wijk wandelen" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-la-candelaria.html" data-name="la candelaria bogota koloniale wijk wandelen" data-cat="cultuur">
     <div class="card-img">
       <img src="img/bogota_candelaria.jpg" alt="La Candelaria Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏛️</span>La Candelaria</div>'">
-      <span class="cat-tag">Bogotá · Wijk</span>
+      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Wijk</a>
     </div>
     <div class="card-body">
       <div class="act-name">La Candelaria</div>
@@ -217,13 +220,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Bogotá</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/bogota-monserrate.html" data-name="monserrate bogota berg uitzicht kerk" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-monserrate.html" data-name="monserrate bogota berg uitzicht kerk" data-cat="cultuur">
     <div class="card-img">
       <img src="img/bogota_monserrate.jpg" alt="Monserrate Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>⛰️</span>Monserrate</div>'">
-      <span class="cat-tag">Bogotá · Berg</span>
+      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Berg</a>
     </div>
     <div class="card-body">
       <div class="act-name">Monserrate</div>
@@ -234,13 +237,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Bogotá</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="bogota.html" data-name="catedral de sal zipaquira zoutmijn kerk zout" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-catedral-sal.html" data-name="catedral de sal zipaquira zoutmijn kerk zout" data-cat="cultuur">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Catedral_de_sal_de_Zipaquir%C3%A1.jpg/640px-Catedral_de_sal_de_Zipaquir%C3%A1.jpg" alt="Catedral de Sal Zipaquirá" loading="lazy"
+      <img src="img/act_catedral_sal.jpg" alt="Catedral de Sal Zipaquirá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>⛪</span>Catedral de Sal</div>'">
-      <span class="cat-tag">Bogotá · Dagtrip</span>
+      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Dagtrip</a>
     </div>
     <div class="card-body">
       <div class="act-name">Catedral de Sal</div>
@@ -251,13 +254,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Zipaquirá (1u van Bogotá)</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/bogota-plaza-bolivar.html" data-name="plaza bolivar bogota plein paleis" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-plaza-bolivar.html" data-name="plaza bolivar bogota plein paleis" data-cat="cultuur">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Plaza_de_Bolivar_Bogota_2.JPG/640px-Plaza_de_Bolivar_Bogota_2.JPG" alt="Plaza de Bolívar Bogotá" loading="lazy"
+      <img src="img/act_plaza_bolivar.jpg" alt="Plaza de Bolívar Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏛️</span>Plaza Bolívar</div>'">
-      <span class="cat-tag">Bogotá · Plein</span>
+      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Plein</a>
     </div>
     <div class="card-body">
       <div class="act-name">Plaza de Bolívar</div>
@@ -268,13 +271,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Bogotá</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="cartagena.html" data-name="palacio inquisicion cartagena museum" data-cat="cultuur">
+  <div class="act-card" data-href="info/cartagena-palacio-inquisicion.html" data-name="palacio inquisicion cartagena museum" data-cat="cultuur">
     <div class="card-img">
       <img src="img/cartagena_plaza.jpg" alt="Cartagena historisch centrum" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏛️</span>Palacio Inquisición</div>'">
-      <span class="cat-tag">Cartagena · Museum</span>
+      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Museum</a>
     </div>
     <div class="card-body">
       <div class="act-name">Palacio de la Inquisición</div>
@@ -285,7 +288,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Cartagena</span>
       </div>
     </div>
-  </a>
+  </div>
 
 </div>
 </div>
@@ -297,11 +300,11 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <a class="act-card" href="info/medellin-comuna-13.html" data-name="comuna 13 medellin graffiti street art escalator" data-cat="streetart">
+  <div class="act-card" data-href="info/medellin-comuna-13.html" data-name="comuna 13 medellin graffiti street art escalator" data-cat="streetart">
     <div class="card-img">
       <img src="img/medellin_comuna13.jpg" alt="Comuna 13 Medellín" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Comuna 13</div>'">
-      <span class="cat-tag">Medellín · Street Art</span>
+      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()" title="Naar Medellín">Medellín · Street Art</a>
     </div>
     <div class="card-body">
       <div class="act-name">Comuna 13</div>
@@ -312,13 +315,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Medellín</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/cartagena-getsemani.html" data-name="getsemani cartagena graffiti kleurrijke wijk muurschildering" data-cat="streetart">
+  <div class="act-card" data-href="info/cartagena-getsemani.html" data-name="getsemani cartagena graffiti kleurrijke wijk muurschildering" data-cat="streetart">
     <div class="card-img">
       <img src="img/cartagena_street.jpg" alt="Getsemaní Cartagena" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Getsemaní</div>'">
-      <span class="cat-tag">Cartagena · Wijk</span>
+      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Wijk</a>
     </div>
     <div class="card-body">
       <div class="act-name">Getsemaní</div>
@@ -329,13 +332,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Cartagena</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="bogota.html" data-name="bogota street art graffiti la candelaria muurschildering" data-cat="streetart">
+  <div class="act-card" data-href="info/bogota-street-art.html" data-name="bogota street art graffiti la candelaria muurschildering" data-cat="streetart">
     <div class="card-img">
       <img src="img/act_streetart.jpg" alt="Street art Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Street Art Bogotá</div>'">
-      <span class="cat-tag">Bogotá · Street Art</span>
+      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Street Art</a>
     </div>
     <div class="card-body">
       <div class="act-name">Street Art Bogotá</div>
@@ -346,7 +349,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Bogotá</span>
       </div>
     </div>
-  </a>
+  </div>
 
 </div>
 </div>
@@ -358,11 +361,11 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <a class="act-card" href="info/salento-valle-de-cocora.html" data-name="valle de cocora salento waspalmen wandeling" data-cat="natuur">
+  <div class="act-card" data-href="info/salento-valle-de-cocora.html" data-name="valle de cocora salento waspalmen wandeling" data-cat="natuur">
     <div class="card-img">
       <img src="img/salento_cocora.jpg" alt="Valle de Cocora waspalmen" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌴</span>Valle de Cocora</div>'">
-      <span class="cat-tag">Salento · Wandeling</span>
+      <a class="cat-tag loc-link" href="salento.html" onclick="event.stopPropagation()" title="Naar Salento">Salento · Wandeling</a>
     </div>
     <div class="card-body">
       <div class="act-name">Valle de Cocora</div>
@@ -373,13 +376,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Salento</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/tayrona-park.html" data-name="tayrona nationaal park cabo san juan strand hike" data-cat="natuur">
+  <div class="act-card" data-href="info/tayrona-park.html" data-name="tayrona nationaal park cabo san juan strand hike" data-cat="natuur">
     <div class="card-img">
       <img src="img/tayrona_beach.jpg" alt="Tayrona Nationaal Park" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌴</span>Tayrona</div>'">
-      <span class="cat-tag">Tayrona · Park</span>
+      <a class="cat-tag loc-link" href="tayrona.html" onclick="event.stopPropagation()" title="Naar Tayrona">Tayrona · Park</a>
     </div>
     <div class="card-body">
       <div class="act-name">Tayrona Nationaal Park</div>
@@ -390,13 +393,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Tayrona / Santa Marta</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/minca-sierra.html" data-name="minca sierra nevada vogelspotten natuur wandeling" data-cat="natuur">
+  <div class="act-card" data-href="info/minca-sierra.html" data-name="minca sierra nevada vogelspotten natuur wandeling" data-cat="natuur">
     <div class="card-img">
       <img src="img/minca_sierra.jpg" alt="Sierra Nevada Minca" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌿</span>Sierra Nevada</div>'">
-      <span class="cat-tag">Minca · Berg</span>
+      <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()" title="Naar Minca">Minca · Berg</a>
     </div>
     <div class="card-body">
       <div class="act-name">Sierra Nevada — Minca</div>
@@ -407,13 +410,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Minca</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/medellin-parque-arvi.html" data-name="parque arvi medellin metrocable natuur bos" data-cat="natuur">
+  <div class="act-card" data-href="info/medellin-parque-arvi.html" data-name="parque arvi medellin metrocable natuur bos" data-cat="natuur">
     <div class="card-img">
       <img src="img/medellin_arvi.jpg" alt="Parque Arví Medellín metrocable" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌳</span>Parque Arví</div>'">
-      <span class="cat-tag">Medellín · Park</span>
+      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()" title="Naar Medellín">Medellín · Park</a>
     </div>
     <div class="card-body">
       <div class="act-name">Parque Arví</div>
@@ -424,13 +427,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Medellín</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/salento-mirador.html" data-name="mirador salento uitzicht koffievallei alto de la cruz" data-cat="natuur">
+  <div class="act-card" data-href="info/salento-mirador.html" data-name="mirador salento uitzicht koffievallei alto de la cruz" data-cat="natuur">
     <div class="card-img">
       <img src="img/salento_town.jpg" alt="Mirador Alto de la Cruz Salento" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>⛰️</span>Mirador Salento</div>'">
-      <span class="cat-tag">Salento · Uitzicht</span>
+      <a class="cat-tag loc-link" href="salento.html" onclick="event.stopPropagation()" title="Naar Salento">Salento · Uitzicht</a>
     </div>
     <div class="card-body">
       <div class="act-name">Mirador Alto de la Cruz</div>
@@ -441,13 +444,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Salento</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/minca-marinka.html" data-name="marinka waterval minca zwemmen natuur" data-cat="natuur">
+  <div class="act-card" data-href="info/minca-marinka.html" data-name="marinka waterval minca zwemmen natuur" data-cat="natuur">
     <div class="card-img">
       <img src="img/act_minca_water.jpg" alt="Waterval Minca" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>💧</span>Marinka Waterval</div>'">
-      <span class="cat-tag">Minca · Waterval</span>
+      <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()" title="Naar Minca">Minca · Waterval</a>
     </div>
     <div class="card-body">
       <div class="act-name">Waterval Marinka</div>
@@ -458,7 +461,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Minca</span>
       </div>
     </div>
-  </a>
+  </div>
 
 </div>
 </div>
@@ -470,11 +473,11 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <a class="act-card" href="info/cartagena-islas-rosario.html" data-name="islas rosario cartagena eilanden snorkelen boot" data-cat="water">
+  <div class="act-card" data-href="info/cartagena-islas-rosario.html" data-name="islas rosario cartagena eilanden snorkelen boot" data-cat="water">
     <div class="card-img">
       <img src="img/cartagena_islas.jpg" alt="Islas del Rosario Cartagena" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏝️</span>Islas del Rosario</div>'">
-      <span class="cat-tag">Cartagena · Eilanden</span>
+      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Eilanden</a>
     </div>
     <div class="card-body">
       <div class="act-name">Islas del Rosario</div>
@@ -485,13 +488,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Cartagena</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/palomino-tubing.html" data-name="palomino tubing rivier zwembanden drijven" data-cat="water">
+  <div class="act-card" data-href="info/palomino-tubing.html" data-name="palomino tubing rivier zwembanden drijven" data-cat="water">
     <div class="card-img">
       <img src="img/palomino_beach.jpg" alt="Palomino tubing rivier" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🛟</span>Palomino Tubing</div>'">
-      <span class="cat-tag">Palomino · Rivier</span>
+      <a class="cat-tag loc-link" href="palomino.html" onclick="event.stopPropagation()" title="Naar Palomino">Palomino · Rivier</a>
     </div>
     <div class="card-body">
       <div class="act-name">Palomino Tubing</div>
@@ -502,13 +505,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Palomino</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/palomino-surf.html" data-name="palomino surfen surfles strand golf" data-cat="water">
+  <div class="act-card" data-href="info/palomino-surf.html" data-name="palomino surfen surfles strand golf" data-cat="water">
     <div class="card-img">
       <img src="img/act_surf.jpg" alt="Surfen Palomino" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏄</span>Surfen Palomino</div>'">
-      <span class="cat-tag">Palomino · Surf</span>
+      <a class="cat-tag loc-link" href="palomino.html" onclick="event.stopPropagation()" title="Naar Palomino">Palomino · Surf</a>
     </div>
     <div class="card-body">
       <div class="act-name">Surfen — Palomino</div>
@@ -519,13 +522,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Palomino</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/palomino-strand.html" data-name="palomino strand caribbean beach relaxen" data-cat="water">
+  <div class="act-card" data-href="info/palomino-strand.html" data-name="palomino strand caribbean beach relaxen" data-cat="water">
     <div class="card-img">
       <img src="img/palomino_beach.jpg" alt="Palomino strand" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏖️</span>Palomino Strand</div>'">
-      <span class="cat-tag">Palomino · Strand</span>
+      <a class="cat-tag loc-link" href="palomino.html" onclick="event.stopPropagation()" title="Naar Palomino">Palomino · Strand</a>
     </div>
     <div class="card-body">
       <div class="act-name">Palomino Strand</div>
@@ -536,13 +539,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Palomino</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/minca-pozo-azul.html" data-name="pozo azul minca zwemmen blauw gat waterpoel" data-cat="water">
+  <div class="act-card" data-href="info/minca-pozo-azul.html" data-name="pozo azul minca zwemmen blauw gat waterpoel" data-cat="water">
     <div class="card-img">
       <img src="img/minca_sierra.jpg" alt="Pozo Azul Minca" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>💧</span>Pozo Azul</div>'">
-      <span class="cat-tag">Minca · Zwemgat</span>
+      <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()" title="Naar Minca">Minca · Zwemgat</a>
     </div>
     <div class="card-body">
       <div class="act-name">Pozo Azul</div>
@@ -553,7 +556,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Minca</span>
       </div>
     </div>
-  </a>
+  </div>
 
 </div>
 </div>
@@ -565,11 +568,11 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <a class="act-card" href="info/medellin-paragliden.html" data-name="paragliden medellin tandem vliegen paragliding" data-cat="avontuur">
+  <div class="act-card" data-href="info/medellin-paragliden.html" data-name="paragliden medellin tandem vliegen paragliding" data-cat="avontuur">
     <div class="card-img">
       <img src="img/act_paragliding.jpg" alt="Paragliden Medellín" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🪂</span>Paragliden</div>'">
-      <span class="cat-tag">Medellín · Paragliding</span>
+      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()" title="Naar Medellín">Medellín · Paragliding</a>
     </div>
     <div class="card-body">
       <div class="act-name">Paragliden — Medellín</div>
@@ -580,13 +583,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Medellín</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/guatape-piedra-del-penon.html" data-name="la piedra penol guatape rots beklimmen trappen" data-cat="avontuur">
+  <div class="act-card" data-href="info/guatape-piedra-del-penon.html" data-name="la piedra penol guatape rots beklimmen trappen" data-cat="avontuur">
     <div class="card-img">
       <img src="img/guatape_piedra.jpg" alt="La Piedra del Peñol Guatapé" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🪨</span>La Piedra</div>'">
-      <span class="cat-tag">Guatapé · Rots</span>
+      <a class="cat-tag loc-link" href="guatape.html" onclick="event.stopPropagation()" title="Naar Guatapé">Guatapé · Rots</a>
     </div>
     <div class="card-body">
       <div class="act-name">La Piedra del Peñol</div>
@@ -597,13 +600,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Guatapé</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/cartagena-el-totumo.html" data-name="el totumo vulkaan modderbad cartagena dagtrip" data-cat="avontuur">
+  <div class="act-card" data-href="info/cartagena-el-totumo.html" data-name="el totumo vulkaan modderbad cartagena dagtrip" data-cat="avontuur">
     <div class="card-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/El_Totumo_Volcano_Colombia.jpg/640px-El_Totumo_Volcano_Colombia.jpg" alt="El Totumo vulkaan modderbad" loading="lazy"
+      <img src="img/act_totumo.jpg" alt="El Totumo vulkaan modderbad" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌋</span>El Totumo</div>'">
-      <span class="cat-tag">Cartagena · Dagtrip</span>
+      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Dagtrip</a>
     </div>
     <div class="card-body">
       <div class="act-name">El Totumo — Modderbad</div>
@@ -614,13 +617,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 45min van Cartagena</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="bogota.html" data-name="tejo spelen bogota nationaal sport dynamiet ringen gooien" data-cat="avontuur">
+  <div class="act-card" data-href="info/bogota-tejo.html" data-name="tejo spelen bogota nationaal sport dynamiet ringen gooien" data-cat="avontuur">
     <div class="card-img">
       <img src="img/act_tejo.jpg" alt="Tejo nationaal sport Colombia" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>💥</span>Tejo</div>'">
-      <span class="cat-tag">Bogotá · Sport</span>
+      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Sport</a>
     </div>
     <div class="card-body">
       <div class="act-name">Tejo spelen</div>
@@ -631,7 +634,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Bogotá</span>
       </div>
     </div>
-  </a>
+  </div>
 
 </div>
 </div>
@@ -643,11 +646,11 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <a class="act-card" href="info/salento-koffieboerderij.html" data-name="koffieboerderij finca salento tour koffie oogsten" data-cat="koffie">
+  <div class="act-card" data-href="info/salento-koffieboerderij.html" data-name="koffieboerderij finca salento tour koffie oogsten" data-cat="koffie">
     <div class="card-img">
       <img src="img/salento_coffee.jpg" alt="Koffieboerderij Salento" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>☕</span>Koffieboerderij</div>'">
-      <span class="cat-tag">Salento · Finca</span>
+      <a class="cat-tag loc-link" href="salento.html" onclick="event.stopPropagation()" title="Naar Salento">Salento · Finca</a>
     </div>
     <div class="card-body">
       <div class="act-name">Koffieboerderij Tour</div>
@@ -658,13 +661,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Salento / Filandia</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="bogota.html" data-name="mercado paloquemao bogota markt fruit bloemen" data-cat="koffie">
+  <div class="act-card" data-href="info/bogota-paloquemao.html" data-name="mercado paloquemao bogota markt fruit bloemen" data-cat="koffie">
     <div class="card-img">
       <img src="img/bogota_food.jpg" alt="Mercado de Paloquemao Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌸</span>Paloquemao</div>'">
-      <span class="cat-tag">Bogotá · Markt</span>
+      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Markt</a>
     </div>
     <div class="card-body">
       <div class="act-name">Mercado de Paloquemao</div>
@@ -675,13 +678,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Bogotá</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="salento.html" data-name="salento koffie specialty cafe proeverij specialty coffee" data-cat="koffie">
+  <div class="act-card" data-href="info/salento-coffee-proeverij.html" data-name="salento koffie specialty cafe proeverij specialty coffee" data-cat="koffie">
     <div class="card-img">
       <img src="img/salento_town.jpg" alt="Salento specialty coffee" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>☕</span>Specialty Koffie</div>'">
-      <span class="cat-tag">Salento · Café</span>
+      <a class="cat-tag loc-link" href="salento.html" onclick="event.stopPropagation()" title="Naar Salento">Salento · Café</a>
     </div>
     <div class="card-body">
       <div class="act-name">Specialty Coffee Proeverij</div>
@@ -692,7 +695,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Salento</span>
       </div>
     </div>
-  </a>
+  </div>
 
 </div>
 </div>
@@ -704,11 +707,11 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <a class="act-card" href="cartagena.html" data-name="chiva rumbera feestbus cartagena avond party bus" data-cat="avond">
+  <div class="act-card" data-href="info/cartagena-chiva.html" data-name="chiva rumbera feestbus cartagena avond party bus" data-cat="avond">
     <div class="card-img">
       <img src="img/act_chiva.jpg" alt="Chiva Rumbera feestbus Cartagena" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🚌</span>Chiva Rumbera</div>'">
-      <span class="cat-tag">Cartagena · Nightlife</span>
+      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Nightlife</a>
     </div>
     <div class="card-body">
       <div class="act-name">Chiva Rumbera</div>
@@ -719,13 +722,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Cartagena</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="medellin.html" data-name="salsa dansen medellin les dansles avond" data-cat="avond">
+  <div class="act-card" data-href="info/medellin-salsa.html" data-name="salsa dansen medellin les dansles avond" data-cat="avond">
     <div class="card-img">
       <img src="img/act_salsa.jpg" alt="Salsa dansen Colombia" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>💃</span>Salsa</div>'">
-      <span class="cat-tag">Medellín · Dans</span>
+      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()" title="Naar Medellín">Medellín · Dans</a>
     </div>
     <div class="card-body">
       <div class="act-name">Salsa Dansen</div>
@@ -736,13 +739,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Medellín · Cali</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="cartagena.html" data-name="cafe del mar cartagena zonsondergang cocktail stadsmuur rooftop" data-cat="avond">
+  <div class="act-card" data-href="info/cartagena-stadsmuren.html" data-name="cafe del mar cartagena zonsondergang cocktail stadsmuur rooftop" data-cat="avond">
     <div class="card-img">
       <img src="img/cartagena_portal.jpg" alt="Café del Mar stadsmuren zonsondergang Cartagena" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌅</span>Café del Mar</div>'">
-      <span class="cat-tag">Cartagena · Rooftop</span>
+      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Rooftop</a>
     </div>
     <div class="card-body">
       <div class="act-name">Zonsondergang op de Stadsmuren</div>
@@ -753,13 +756,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Cartagena</span>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a class="act-card" href="info/guatape-zocalos.html" data-name="guatape zocalos kleurrijke gevels avond sfeer village" data-cat="avond">
+  <div class="act-card" data-href="info/guatape-zocalos.html" data-name="guatape zocalos kleurrijke gevels avond sfeer village" data-cat="avond">
     <div class="card-img">
       <img src="img/act_zocalos.jpg" alt="Guatapé Zocalos" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Guatapé Zocalos</div>'">
-      <span class="cat-tag">Guatapé · Sfeer</span>
+      <a class="cat-tag loc-link" href="guatape.html" onclick="event.stopPropagation()" title="Naar Guatapé">Guatapé · Sfeer</a>
     </div>
     <div class="card-body">
       <div class="act-name">Guatapé Zocalos & Avond</div>
@@ -770,7 +773,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <span class="chip loc">📍 Guatapé</span>
       </div>
     </div>
-  </a>
+  </div>
 
 </div>
 </div>
@@ -780,6 +783,16 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 <div class="footer">🇨🇴 Colombia · Activiteitenwijzer · Klik een kaart voor dag­planning en boekingsinfo</div>
 
 <script src="feedback.js"></script>
+<script>
+// ── ACT-CARD KLIK ───────────────────────────────────────────
+document.querySelectorAll('.act-card[data-href]').forEach(function(card){
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', function(e){
+    if(e.target.closest('a')) return; // let links handle themselves
+    window.location.href = card.dataset.href;
+  });
+});
+</script>
 <script>
 (function(){
   var input    = document.getElementById('act-search');

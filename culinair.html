@@ -146,6 +146,8 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 .brewery-name{font-size:0.97rem;font-weight:800;font-family:'Playfair Display',serif;margin-bottom:0.25rem;}
 .brewery-name a{color:var(--text);text-decoration:none;border-bottom:1px dotted #D97706;}
 .brewery-name a:hover{color:#92400E;border-bottom-color:#92400E;}
+.gmaps-pin { text-decoration:none; display:inline-flex; align-items:center; opacity:0.75; transition:opacity 0.15s; }
+.gmaps-pin:hover { opacity:1; }
 .brewery-meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.6rem;}
 .brewery-tag{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:0.15rem 0.5rem;border-radius:20px;border:1px solid;}
 .bt-loc{background:#F0FDF4;color:#14532D;border-color:#BBF7D0;}
@@ -854,7 +856,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   <div class="brewery-grid">
 
     <div class="brewery-card">
-      <div class="brewery-name"><a href="https://www.google.com/maps/search/Ap%C3%B3stol+Brewing+Bogot%C3%A1" target="_blank">Apostól Brewing Co.</a></div>
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Ap%C3%B3stol+Brewing+Bogot%C3%A1" target="_blank">Apostól Brewing Co.</a><a href="https://www.google.com/maps/search/Ap%C3%B3stol+Brewing+Bogot%C3%A1" target="_blank" class="gmaps-pin" title="Google Maps" aria-label="Open in Google Maps"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="vertical-align:-2px;margin-left:5px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/></svg></a></div>
       <div class="brewery-meta">
         <span class="brewery-tag bt-loc">📍 La Macarena</span>
         <span class="brewery-tag bt-style">🇩🇪 Duits-Belgisch</span>
@@ -871,7 +873,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
     </div>
 
     <div class="brewery-card">
-      <div class="brewery-name"><a href="https://www.google.com/maps/search/Mad+Brewing+Bogot%C3%A1" target="_blank">Mad Brewing</a></div>
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Mad+Brewing+Bogot%C3%A1" target="_blank">Mad Brewing</a><a href="https://www.google.com/maps/search/Mad+Brewing+Bogot%C3%A1" target="_blank" class="gmaps-pin" title="Google Maps" aria-label="Open in Google Maps"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="vertical-align:-2px;margin-left:5px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/></svg></a></div>
       <div class="brewery-meta">
         <span class="brewery-tag bt-loc">📍 Chapinero</span>
         <span class="brewery-tag bt-style">🇺🇸 Amerikaans-Experimenteel</span>
@@ -887,7 +889,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
     </div>
 
     <div class="brewery-card">
-      <div class="brewery-name"><a href="https://www.google.com/maps/search/El+Birrero+Bogot%C3%A1" target="_blank">El Birrero</a></div>
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/El+Birrero+Bogot%C3%A1" target="_blank">El Birrero</a><a href="https://www.google.com/maps/search/El+Birrero+Bogot%C3%A1" target="_blank" class="gmaps-pin" title="Google Maps" aria-label="Open in Google Maps"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="vertical-align:-2px;margin-left:5px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/></svg></a></div>
       <div class="brewery-meta">
         <span class="brewery-tag bt-loc">📍 Usaquén</span>
         <span class="brewery-tag bt-style">🍺 Multi-tap Bar</span>
@@ -903,7 +905,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
     </div>
 
     <div class="brewery-card">
-      <div class="brewery-name"><a href="https://www.google.com/maps/search/Bogota+Beer+Company" target="_blank">BBC (Bogotá Beer Company)</a></div>
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Bogota+Beer+Company" target="_blank">BBC (Bogotá Beer Company)</a><a href="https://www.google.com/maps/search/Bogota+Beer+Company" target="_blank" class="gmaps-pin" title="Google Maps" aria-label="Open in Google Maps"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="vertical-align:-2px;margin-left:5px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/></svg></a></div>
       <div class="brewery-meta">
         <span class="brewery-tag bt-loc">📍 Meerdere vestigingen</span>
         <span class="brewery-tag bt-style">🏛️ Pionier · Nu mainstream</span>
@@ -931,7 +933,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   <div class="brewery-grid">
 
     <div class="brewery-card">
-      <div class="brewery-name"><a href="https://www.google.com/maps/search/Tres+Cordilleras+Medell%C3%ADn" target="_blank">Tres Cordilleras (3 Cordilleras)</a></div>
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Tres+Cordilleras+Medell%C3%ADn" target="_blank">Tres Cordilleras (3 Cordilleras)</a><a href="https://www.google.com/maps/search/Tres+Cordilleras+Medell%C3%ADn" target="_blank" class="gmaps-pin" title="Google Maps" aria-label="Open in Google Maps"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="vertical-align:-2px;margin-left:5px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/></svg></a></div>
       <div class="brewery-meta">
         <span class="brewery-tag bt-loc">📍 Laureles</span>
         <span class="brewery-tag bt-style">🏆 Goudstandaard Colombia</span>
@@ -949,7 +951,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
     </div>
 
     <div class="brewery-card">
-      <div class="brewery-name"><a href="https://www.google.com/maps/search/Libre+Brewing+Medell%C3%ADn" target="_blank">Libre Brewing</a></div>
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Libre+Brewing+Medell%C3%ADn" target="_blank">Libre Brewing</a><a href="https://www.google.com/maps/search/Libre+Brewing+Medell%C3%ADn" target="_blank" class="gmaps-pin" title="Google Maps" aria-label="Open in Google Maps"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="vertical-align:-2px;margin-left:5px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/></svg></a></div>
       <div class="brewery-meta">
         <span class="brewery-tag bt-loc">📍 El Poblado / Centro</span>
         <span class="brewery-tag bt-style">🔬 Modern · Innovatief</span>
@@ -965,19 +967,19 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
     </div>
 
     <div class="brewery-card">
-      <div class="brewery-name"><a href="https://www.google.com/maps/search/Crazy+Brewing+Medell%C3%ADn" target="_blank">Crazy Brewing Co.</a></div>
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/Bipolar+Brewing+Co+Medell%C3%ADn" target="_blank">Bipolar Brewing Co.</a><a href="https://www.google.com/maps/search/Bipolar+Brewing+Co+Medell%C3%ADn" target="_blank" class="gmaps-pin" title="Google Maps" aria-label="Open in Google Maps"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="vertical-align:-2px;margin-left:5px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/></svg></a></div>
       <div class="brewery-meta">
-        <span class="brewery-tag bt-loc">📍 El Poblado</span>
-        <span class="brewery-tag bt-style">🍋 Hop-Forward · Sours</span>
+        <span class="brewery-tag bt-loc">📍 Manila (rand El Poblado)</span>
+        <span class="brewery-tag bt-style">🍺 15 Taps · Pub Food</span>
       </div>
-      <div class="brewery-desc">Betrouwbaar voor hop-georiënteerde stijlen en frisse zure bieren. Populair bij expats én locals in El Poblado. Meer ontspannen dan 3 Cordilleras, ideaal voor een doordeweekse avond met meerdere taps. Probeer wat er op de board staat.</div>
+      <div class="brewery-desc">Gezellige brewpub met 15 taps — 7 vaste bieren en 8 seizoensrotaties. Rustiger dan de grote namen, met heerlijk pub-eten erbij. Pet-friendly, ook overdag open. Triple IPA is een must-try. Carrera 43f #16a-8, Manila.</div>
       <div class="brewery-beers">
         <strong>🍺 Bestellen</strong>
-        <span class="beer-pill">West Coast IPA</span>
-        <span class="beer-pill">Gose</span>
-        <span class="beer-pill">Seasonal rotatie</span>
+        <span class="beer-pill">Triple IPA</span>
+        <span class="beer-pill">Seasonal taps</span>
+        <span class="beer-pill">Klassieke stijlen</span>
       </div>
-      <div class="brewery-footer">📌 El Poblado · sfeer vergelijkbaar met een goede Europese craft bar<br>💰 COP 13.000–18.000 · €2,90–4,00 p. bier</div>
+      <div class="brewery-footer">📌 Carrera 43f #16a-8 · Manila (El Poblado-rand) · do-za open vanaf 14u<br>💰 COP 13.000–18.000 · €2,90–4,00 p. bier</div>
     </div>
 
   </div>
@@ -996,7 +998,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   <div class="brewery-grid">
 
     <div class="brewery-card">
-      <div class="brewery-name"><a href="https://www.google.com/maps/search/craft+beer+Getseman%C3%AD+Cartagena" target="_blank">Cerveza Voladora / ABC Beer</a></div>
+      <div class="brewery-name"><a href="https://www.google.com/maps/search/craft+beer+Getseman%C3%AD+Cartagena" target="_blank">Cerveza Voladora / ABC Beer</a><a href="https://www.google.com/maps/search/craft+beer+Getseman%C3%AD+Cartagena" target="_blank" class="gmaps-pin" title="Google Maps" aria-label="Open in Google Maps"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="vertical-align:-2px;margin-left:5px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/></svg></a></div>
       <div class="brewery-meta">
         <span class="brewery-tag bt-loc">📍 Getsemaní · Old Town</span>
         <span class="brewery-tag bt-style">🍺 Lokale craft</span>
