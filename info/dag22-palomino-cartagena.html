@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🚌 Bus Palomino → Santa Marta · ✈️ SMR → BOG · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#92400E;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#451A03,#92400E,#B45309);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.step-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+.step-header{display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;}
+.step-num{background:var(--accent);color:white;font-weight:800;font-size:0.8rem;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-title{font-size:1rem;font-weight:700;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.8rem;}
+.fact{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.warn-box{background:#FEF2F2;border:1px solid #FCA5A5;border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;}
+.warn-title{font-weight:700;font-size:1rem;margin-bottom:0.5rem;color:#991B1B;}
+.warn-box p{font-size:0.85rem;line-height:1.6;color:#7F1D1D;margin-bottom:0.3rem;}
+.tip-box{background:linear-gradient(135deg,#451A03,#92400E,#B45309);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.airlines-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.8rem;}
+.airline{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;font-size:0.85rem;font-weight:600;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.75rem;flex-wrap:wrap;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.airlines-grid{grid-template-columns:repeat(4,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">🇨🇴 Colombia 2025</a>
+  <a class="back-link" href="../palomino.html">← Palomino</a>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../bogota2.html">🏙️ Bogotá 2</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../activiteiten.html">🎯 Activiteiten</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+  <a href="../routes.html">🗺️ Kaart &amp; Routes</a>
+  <a href="../setup.html">⚙️ Setup</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../palomino.html">Palomino</a> › Dag 22 · Terugreis</div>
+  <h1>🚌 Palomino → Santa Marta · ✈️ SMR → BOG</h1>
+  <p class="sub">Dag 22 · 1u bus + 1u45 vlucht · aankomst Bogotá avond</p>
+</div>
+<div class="section">
+  <div class="intro-block">
+    <p>Dag 22 is de reisdag terug naar Bogotá — en die valt enorm mee. Santa Marta is slechts <strong>1 uur van Palomino</strong>, en vanuit Simón Bolívar airport (SMR) zijn er dagelijks zo'n 16 directe vluchten naar El Dorado (BOG). Je bent al die avond in Bogotá — dag 23 heb je volledig vrij!</p>
+    <p>Dit is veel comfortabeler dan de vroegere route via Cartagena (5u bus + extra overnachting).</p>
+  </div>
+
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-title">🚌 Bus of collectivo naar Santa Marta (1u)</div>
+    </div>
+    <p style="font-size:0.87rem;line-height:1.6;color:var(--muted);">Vertrek na ontbijt vanuit Palomino. Er rijden regelmatig bussen en collectivos langs de kustweg naar Santa Marta. Stap aan de hoofdweg — geen vooraf boeken nodig.</p>
+    <div class="facts-grid">
+      <div class="fact"><div class="fact-label">Vertrek</div><div class="fact-value">Na ontbijt</div></div>
+      <div class="fact"><div class="fact-label">Reistijd</div><div class="fact-value">~1 uur</div></div>
+      <div class="fact"><div class="fact-label">Prijs</div><div class="fact-value">COP 5.000–10.000</div></div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div class="step-title">✈️ Vlucht SMR → BOG vanuit Simón Bolívar airport</div>
+    </div>
+    <p style="font-size:0.87rem;line-height:1.6;color:var(--muted);">Vanuit Santa Marta vlieg je rechtstreeks naar Bogotá El Dorado. 4 maatschappijen, ~16 vluchten per dag — er is altijd een optie die past. Boek dit op voorhand via Avianca.com, LATAM.com of een vergelijkingssite.</p>
+    <div class="facts-grid">
+      <div class="fact"><div class="fact-label">Vertrekhaven</div><div class="fact-value">SMR · Simón Bolívar</div></div>
+      <div class="fact"><div class="fact-label">Bestemming</div><div class="fact-value">BOG · El Dorado</div></div>
+      <div class="fact"><div class="fact-label">Vluchtduur</div><div class="fact-value">~1u25–1u45</div></div>
+      <div class="fact"><div class="fact-label">Check-in</div><div class="fact-value">1u30 voor vertrek</div></div>
+      <div class="fact"><div class="fact-label">Vluchten/dag</div><div class="fact-value">~16 directe vluchten</div></div>
+      <div class="fact"><div class="fact-label">Prijs (ca.)</div><div class="fact-value">$44–$91 USD</div></div>
+    </div>
+    <div class="airlines-grid" style="margin-top:0.8rem;">
+      <div class="airline">✈️ Avianca</div>
+      <div class="airline">✈️ LATAM</div>
+      <div class="airline">✈️ Wingo</div>
+      <div class="airline">✈️ JetSMART</div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">⚠️ Aankomst BOG — ALTIJD Uber, NOOIT taxi</div>
+    <p>Bij El Dorado in Bogotá zijn er taxichauffeurs die toeristen actief benaderen. Neem deze <strong>nooit</strong> — prijzen worden willekeurig bepaald en kunnen 3–5× te hoog zijn.</p>
+    <p>Open de Uber-app zodra je het aankomstgebouw uit loopt. Er is een aangewezen Uber-zone buiten de terminal. Rijtijd naar het hotel: 20–45 min afhankelijk van file.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-title">💡 Tips voor dag 22</div>
+    <p>• Boek de vlucht SMR→BOG vooraf — goedkoper en zekerder (Avianca, LATAM, Wingo, JetSMART)</p>
+    <p>• Kies een vlucht rond de middag zodat je comfortabel aan boord gaat na de busrit</p>
+    <p>• In Santa Marta: Uber naar het vliegveld (~15 min, COP 15.000–20.000)</p>
+    <p>• Bagage goed beveiligd in het bagageruim van de bus</p>
+    <p>• Dag 23 is volledig vrij in Bogotá — geniet ervan! 🏙️</p>
+  </div>
+</div>
+<div class="nav-wrap">
+  <a href="../palomino.html" class="back-btn">← Terug naar Palomino</a>
+  <a href="dag23-vlucht-bogota.html" class="back-btn" style="margin-left:0.75rem">Dag 23 →</a>
+</div>
+<div class="footer">🇨🇴 Colombia · Dag 22 · Bus Palomino → SMR · Vlucht → BOG</div>
+
+<script src="../feedback.js"></script>
+</body>
+</html>

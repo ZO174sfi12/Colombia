@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🏙️ Bogotá 2 · Colombia 24 Dagen</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:#1A4A2E;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:#1A4A2E;border-bottom-color:#1A4A2E;}
+.hero{background:linear-gradient(135deg,#0D2318,#1A4A2E,#2D6A4F);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.day-banner{border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
+.day-banner.bus{background:linear-gradient(135deg,#451A03,#92400E,#B45309);}
+.day-banner.fly{background:linear-gradient(135deg,#0F172A,#1E3A5F,#1D4ED8);}
+.day-banner.home{background:linear-gradient(135deg,#0D2318,#1A4A2E,#2D6A4F);}
+.day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
+.day-banner h2{font-size:1.1rem;font-weight:700;}
+.day-banner p{font-size:0.82rem;opacity:0.78;margin-top:0.2rem;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.95rem 1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);margin-bottom:1.2rem;}
+.card h3{font-size:0.97rem;font-weight:700;margin-bottom:0.45rem;}
+.card .desc{font-size:0.85rem;color:var(--muted);line-height:1.6;}
+.card .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.55rem;}
+.chip{font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
+.chip.warn{background:#FFF7ED;border-color:#FDB97D;color:#92400E;}
+.chip.green{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
+.chip.blue{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:0.7rem 0;}
+.info-cell{padding:0.55rem 0.75rem;background:#FAFAFA;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+.info-cell:nth-child(2n){border-right:none;}.info-cell:nth-last-child(-n+2){border-bottom:none;}
+.info-cell.full{grid-column:1/-1;border-right:none;}
+.info-cell dt{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:0.15rem;}
+.info-cell dd{font-size:0.82rem;}
+.warn-box{background:#FEF2F2;border:1px solid #FCA5A5;border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;}
+.warn-box h3{font-weight:700;font-size:1rem;margin-bottom:0.5rem;color:#991B1B;}
+.warn-box p{font-size:0.85rem;line-height:1.6;color:#7F1D1D;margin-bottom:0.4rem;}
+.warn-box p:last-child{margin-bottom:0;}
+.tip-card{background:linear-gradient(135deg,#0D2318,#1A4A2E);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-card h3{font-weight:700;font-size:1rem;margin-bottom:0.7rem;}
+.tip-card p{font-size:0.84rem;line-height:1.65;opacity:0.92;margin-bottom:0.35rem;}
+.tip-card p:last-child{margin-bottom:0;}
+.sec-divider{font-size:0.85rem;font-weight:800;color:#1A4A2E;margin:1.8rem 0 0.8rem;text-transform:uppercase;border-top:2px solid var(--border);padding-top:1rem;letter-spacing:0.5px;}
+.nav-buttons{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.75rem;justify-content:space-between;}
+.nav-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;transition:opacity 0.15s;}
+.nav-btn:hover{opacity:0.85;}
+.nav-btn.prev{background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;}
+.nav-btn.next{color:white;background:#1A4A2E;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.info-grid{grid-template-columns:repeat(3,1fr);}.info-cell:nth-child(2n){border-right:1px solid var(--border);}.info-cell:nth-child(3n){border-right:none;}}
+</style>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
+  <a class="home-link" href="index.html">← Home</a>
+</div>
+<div class="subnav">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="cartagena.html">🌊 Cartagena</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="bogota2.html" class="active">🏙️ Bogotá 2</a>
+  <a href="culinair.html">🍽️ Culinair</a>
+  <a href="activiteiten.html">🎯 Activiteiten</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+  <a href="routes.html">🗺️ Kaart \& Routes</a>
+  <a href="setup.html">⚙️ Setup</a>
+</div>
+
+<div class="hero">
+  <h1>🏙️ Bogotá 2</h1>
+  <p class="sub">Dag 22–24 · Palomino → Santa Marta → Bogotá → Brussel</p>
+  <div class="badges">
+    <span class="badge">🚌 Bus ~5u</span>
+    <span class="badge">✈️ SMR → BOG</span>
+    <span class="badge">⛏️ Zoutmijnen Zipaquirá</span>
+    <span class="badge">✈️ BOG → BRU 23:15</span>
+  </div>
+</div>
+
+<div class="section">
+
+  <!-- DAG 22 -->
+  <div class="day-banner bus">
+    <div class="dn">22</div>
+    <div>
+      <h2>🚌 Bus Palomino → Santa Marta · ✈️ SMR → BOG</h2>
+      <p>Vertrek na ontbijt · 1u bus + 1u vlucht · avond in Bogotá</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🚌 Bus naar Santa Marta (1 uur)</h3>
+    <p class="desc">Santa Marta is maar 1 uur van Palomino — veel korter dan de vroegere route via Cartagena (5u). Bus of collectivo langs de kust. Je kan na ontbijt vertrekken en bent voor de middag al in Santa Marta.</p>
+    <div class="info-grid">
+      <dl class="info-cell"><dt>Vertrek</dt><dd>Na ontbijt</dd></dl>
+      <dl class="info-cell"><dt>Duur bus</dt><dd>~1 uur</dd></dl>
+      <dl class="info-cell"><dt>Aankomst SMR</dt><dd>Voormiddag</dd></dl>
+    </div>
+    <div class="meta">
+      <span class="chip">Collectivo of stadsbus</span>
+      <span class="chip">COP 5.000–10.000</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>✈️ Vlucht Santa Marta → Bogotá (SMR → BOG)</h3>
+    <p class="desc">Avianca en LATAM vliegen dagelijks vanuit Santa Marta naar El Dorado. De vlucht duurt ~1 uur. Boek een vlucht rond het middaguur zodat je comfortabel 's avonds in Bogotá aankomt.</p>
+    <div class="info-grid">
+      <dl class="info-cell"><dt>Luchthaven</dt><dd>SMR · Simón Bolívar</dd></dl>
+      <dl class="info-cell"><dt>Bestemming</dt><dd>BOG · El Dorado</dd></dl>
+      <dl class="info-cell"><dt>Vluchtduur</dt><dd>~1 uur</dd></dl>
+    </div>
+    <div class="meta">
+      <span class="chip warn">⚠️ Uber vanuit BOG — nooit taxi!</span>
+      <span class="chip green">✓ Check-in 1u30 voor vertrek</span>
+    </div>
+  </div>
+
+  <!-- DAG 23 -->
+  <div class="sec-divider">Dag 23 · Vrije dag Bogotá</div>
+
+  <div class="day-banner fly">
+    <div class="dn">23</div>
+    <div>
+      <h2>🏙️ Vrije dag Bogotá</h2>
+      <p>Geen verplaatsing · uitrusten · laatste plekjes bezoeken</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🏙️ Dag 23 — rustig aan</h3>
+    <p class="desc">Dankzij de kortere route via Santa Marta heb je dag 23 volledig vrij in Bogotá. Slaap uit, ga rustig eten, bezoek nog een laatste plek — of gewoon chillen voor het grote vertrek morgen.</p>
+    <div class="info-grid">
+      <dl class="info-cell"><dt>Plan</dt><dd>Vrij — geen agenda</dd></dl>
+      <dl class="info-cell"><dt>Suggestie</dt><dd>Usaquén markt (zo) of Paloquemao</dd></dl>
+      <dl class="info-cell"><dt>Avond</dt><dd>Laatste diner in Bogotá</dd></dl>
+    </div>
+    <div class="meta">
+      <span class="chip green">✓ Koffers al klaar voor dag 24</span>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <h3>⚠️ Aankomst BOG (dag 22): ALTIJD Uber, NOOIT taxi</h3>
+    <p>Bij El Dorado in Bogotá zijn er taxichauffeurs die toeristen actief benaderen buiten de aankomsthal. Stap hier <strong>nooit</strong> in — prijzen worden willekeurig bepaald en zijn vaak 3–5× te hoog.</p>
+    <p>Open de <strong>Uber-app zodra je buiten staat</strong> bij de aangewezen pickupzone. Zorg dat Uber al geïnstalleerd en betaalklaar is voor landing.</p>
+    <p>Rijtijd naar hotel: 20–45 min afhankelijk van verkeersfile. Bogotá heeft vaak file — plan wat extra tijd.</p>
+  </div>
+
+  <div class="card">
+    <h3>🏨 Hotel Bogotá · laatste nacht</h3>
+    <p class="desc">Inchecken in het hotel in Bogotá. Bogotá ligt op 2.600m hoogte — neem het rustig de eerste avond. Geniet van een laatste dinner. Zorg dat morgen alles klaarstaat.</p>
+    <div class="meta">
+      <span class="chip blue">🧳 Koffers al klaar voor dag 24</span>
+      <span class="chip">Vroeg vertrek ochtend</span>
+    </div>
+  </div>
+
+  <!-- DAG 24 -->
+  <div class="sec-divider">Dag 24 · Zoutmijnen + vlucht naar huis</div>
+
+  <div class="day-banner home">
+    <div class="dn">24</div>
+    <div>
+      <h2>⛏️ Zoutmijnen + BOG → BRU</h2>
+      <p>Catedral de Sal Zipaquirá · Lufthansa LH543 · vertrek 23:15</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>⛏️ Ochtend: Catedral de Sal · Zipaquirá</h3>
+    <p class="desc">Georganiseerde dagtrip (GetYourGuide of lokale agency) naar de Catedral de Sal in Zipaquirá, 1 uur ten noorden van Bogotá. Een ondergrondse kathedraal uitgehouwen in een zoutmijn — indrukwekkend en uniek. Kies een tour die <strong>vóór 16u terugkeert</strong> in Bogotá.</p>
+    <div class="info-grid">
+      <dl class="info-cell"><dt>Vertrek</dt><dd>~9u van hotel</dd></dl>
+      <dl class="info-cell"><dt>Afstand</dt><dd>~1 uur van Bogotá</dd></dl>
+      <dl class="info-cell"><dt>Terug in Bogotá</dt><dd>Uiterlijk 16u</dd></dl>
+    </div>
+    <div class="meta">
+      <span class="chip warn">⚠️ Boek tour die voor 16u terugkeert</span>
+      <span class="chip">GetYourGuide of lokale agency</span>
+    </div>
+  </div>
+
+  <div class="tip-card">
+    <h3>⏰ Timing dag 24 — strak maar haalbaar</h3>
+    <p>• <strong>~9u</strong> — vertrek met tour naar Zipaquirá</p>
+    <p>• <strong>~13u–15u</strong> — terug in Bogotá</p>
+    <p>• <strong>16u–17u</strong> — douchen, eten, laatste zaken regelen</p>
+    <p>• <strong>20u30 uiterlijk</strong> — Uber nemen naar El Dorado (plan 45–60 min voor file)</p>
+    <p>• <strong>21u00</strong> — aanwezig op luchthaven voor check-in</p>
+    <p>• <strong>23:15</strong> — ✈️ BOG → BRU (LH543) · tot ziens Colombia!</p>
+  </div>
+
+  <div class="warn-box">
+    <h3>⚠️ Luchthaven El Dorado · internationale vlucht</h3>
+    <p>Internationale vluchten sluiten de gate doorgaans 45 min voor vertrek — wees <strong>voor 22u30</strong> aan de gate. Check-in sluit vroeger.</p>
+    <p>Vertrek <strong>uiterlijk 20u30</strong> met Uber naar El Dorado. Bij twijfel over file, vertrek om 20u. Laatste Colombiaanse pesos uitgeven in de luchthaven of wisselen bij aankomst in Brussel.</p>
+  </div>
+
+</div>
+
+<div class="nav-buttons">
+  <a href="palomino.html" class="nav-btn prev">← Palomino</a>
+  <a href="kaart.html" class="nav-btn next" style="background:#1A4A2E;">🗺️ Kaart →</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Terugreis · Dag 22–24<br><small style="font-weight:400;opacity:0.85">Bus Palomino → Santa Marta · vlucht SMR→BOG · Zoutmijnen · vlucht BOG→BRU</small></div>
+<script src="dagboek.js"></script>
+<script src="feedback.js"></script>
+</body>
+</html>
