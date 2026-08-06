@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🚵 Downhill Mountainbiken · Medellín · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#A0450D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#4A1A03,#A0450D,#C2570F);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
+.source-block.lp{border-top:3px solid #16A34A;}
+.source-block.rg{border-top:3px solid #2563EB;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
+.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:linear-gradient(135deg,#4A1A03,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.back-btn:hover{opacity:0.85;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">Colombia 2026</a>
+  <div class="topbar-right">
+    <a class="home-link icon-btn" href="../setup.html" title="Setup">🔧</a>
+    <a class="home-link" href="../index.html">← Home</a>
+  </div>
+</div>
+<div class="subnav subnav-locs">
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../cartagena.html">🌊 Cartagena</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../bogota2.html">🏙️ Bogotá 2</a>
+</div>
+<div class="subnav subnav-info">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../activiteiten.html">🎯 Activiteiten</a>
+  <a href="../hotels.html">🏨 Hotels</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+  <a href="../routes.html">🗺️ Kaart &amp; Routes</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../medellin.html">Medellín</a> › Downhill Mountainbiken</div>
+  <h1>🚵 Downhill Mountainbiken</h1>
+  <p class="sub">Medellín · Colombia — van bergpas naar stad</p>
+</div>
+
+<div class="section">
+  <img src="../img/act_mountainbike.jpg" alt="Downhill mountainbiken Medellín" style="width:100%;height:220px;object-fit:cover;display:block;border-radius:12px;margin-bottom:1.4rem;" onerror="this.style.display='none'">
+
+  <div class="intro-block">
+    <p>Medellín biedt een van de meest spectaculaire downhill mountainbike-routes van Zuid-Amerika. Je start hoog in de Andesheuvels boven de stad — op soms 2.400–2.600 m hoogte — en rijdt via smalle bergwegen en landelijke paden helemaal naar beneden richting de stadsvallei. De combinatie van Andeslandschap, kleine dorpjes, koffieakkers en af en toe een stuk jungle maakt dit tot een onvergetelijke ervaring.</p>
+    <p>De populairste route vertrekt vanuit San Félix (ook het vertrekpunt voor paragliden) of vanuit de omgeving van Santa Elena. Je hoeft geen ervaren mountainbiker te zijn: gidsen passen het tempo aan op de groep. Het is echter wel een actieve dag met veel zit-endurance. Combineer het met paragliden voor een complete avontuursdag.</p>
+  </div>
+
+  <div class="facts-grid">
+    <div class="fact"><div class="fact-label">Prijs</div><div class="fact-value">€30–60 p.p. (incl. gids)</div></div>
+    <div class="fact"><div class="fact-label">Duur</div><div class="fact-value">3–5 uur (incl. transfer)</div></div>
+    <div class="fact"><div class="fact-label">Niveau</div><div class="fact-value">Beginner tot gevorderd</div></div>
+    <div class="fact"><div class="fact-label">Hoogteverschil</div><div class="fact-value">±1.000–1.400 m afdaling</div></div>
+    <div class="fact"><div class="fact-label">Boeken</div><div class="fact-value">Via hotel, tour operator of GetYourGuide</div></div>
+    <div class="fact"><div class="fact-label">Uitrusting</div><div class="fact-value">Fiets, helm + handschoenen inbegrepen</div></div>
+  </div>
+
+  <div class="source-block lp">
+    <div class="source-label">📗 Lonely Planet Colombia</div>
+    <div class="source-body">
+      <p>Medellín heeft een bloeiend avontuurlijk toerisme. Buiten de stad liggen meerdere routes voor downhill fietsen door het Andeslandschap. Lokale operators bieden georganiseerde tochten aan vanuit populaire vertrekpunten zoals San Félix en Santa Elena. De fietsen, veiligheidsuitrusting en een ervaren gids zijn inbegrepen. Sommige tours combineren de rit met een bezoek aan een lokale boerderij of koffieplantage langs de route. Tip van Lonely Planet: vraag de operator naar de staat van de fietsen vóór vertrek.</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-title">💡 Tips</div>
+    <p>• Combineer met paragliden op dezelfde dag — vertrek 's ochtends vroeg</p>
+    <p>• Draag gelaagde kleding: het is fris op hoogte, warm beneden</p>
+    <p>• Neem handschoenen mee voor extra grip bij lange afdalingen</p>
+    <p>• Boek via je hotel of een betrouwbare lokale operator — vermijd onbekende aanbieders</p>
+    <p>• Ideaal voor wie wil paragliden maar dat toch net te spannend vindt als startpunt</p>
+  </div>
+</div>
+
+<div class="nav-wrap">
+  <a href="../medellin.html" class="back-btn">← Terug naar Medellín</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Downhill Mountainbiken · Medellín</div>
+<script src="../feedback.js"></script>
+</body>
+</html>

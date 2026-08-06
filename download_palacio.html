@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head><meta charset="UTF-8"><title>Download palacio foto</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:600px;margin:3rem auto;padding:1rem;background:#f5f5f5;}
+  button{padding:0.7rem 1.4rem;font-size:1rem;cursor:pointer;background:#1A4A2E;color:white;border:none;border-radius:8px;margin-top:1rem;}
+  button:hover{background:#2a6a3e;}
+  .status{margin-top:1rem;font-size:0.9rem;color:#333;}
+  img{max-width:100%;border-radius:8px;margin-top:1rem;}
+</style>
+</head>
+<body>
+<h2>📥 Palacio de la Inquisición foto</h2>
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Vista_frontal_del_Palacio_de_La_Inquisici%C3%B3n._Cartagena._Colombia.JPG" alt="preview">
+<br>
+<button onclick="download()">Opslaan als cartagena_palacio.jpg in img/ map</button>
+<div class="status" id="status"></div>
+<script>
+async function download() {
+  const status = document.getElementById('status');
+  try {
+    status.textContent = '📂 Kies de img/ map van je Colombia project...';
+    const dir = await window.showDirectoryPicker();
+    status.textContent = '⬇️ Bezig met downloaden...';
+    const res = await fetch('https://upload.wikimedia.org/wikipedia/commons/f/fe/Vista_frontal_del_Palacio_de_La_Inquisici%C3%B3n._Cartagena._Colombia.JPG');
+    const blob = await res.blob();
+    const file = await dir.getFileHandle('cartagena_palacio.jpg', { create: true });
+    const writable = await file.createWritable();
+    await writable.write(blob);
+    await writable.close();
+    status.textContent = '✅ Opgeslagen als cartagena_palacio.jpg!';
+  } catch(e) {
+    status.textContent = '❌ Fout: ' + e.message;
+  }
+}
+</script>
+</body>
+</html>

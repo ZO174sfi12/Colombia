@@ -122,14 +122,16 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <h1>Colombia<br>24 Dagen</h1>
   <p class="sub">✈️ BRU 18 nov 10:05 → BOG 19:25<br>✈️ BOG 11 dec 23:15 → BRU 12 dec 20:15</p>
   <div class="badges">
-    <span class="badge">🎨 Kleurrijke streetart</span>
-    <span class="badge">☕ Koffie</span>
     <span class="badge">🥾 Cocora Hike (13 km)</span>
     <span class="badge">🥾 Tayrona Hike (4–9 km)</span>
-    <span class="badge">🏝️ Eiland hoppen</span>
     <span class="badge">🛶 River tubing</span>
     <span class="badge">🏄 Surfing</span>
     <span class="badge">💦 Waterval zwemmen</span>
+    <span class="badge">🪂 Paragliden?</span>
+    <span class="badge">🚵 Mountainbiken?</span>
+    <span class="badge">🏝️ Eiland hoppen</span>
+    <span class="badge">🎨 Kleurrijke streetart</span>
+    <span class="badge">☕ Koffie</span>
   </div>
 </div>
 
@@ -141,140 +143,146 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="sec-title">🗺️ Reisoverzicht</div>
   <div class="ov-table">
 
-    <a href="bogota.html" class="ov-row" style="border-left:4px solid #1A4A2E;">
-      <div class="ov-day" style="background:#DCFCE7;color:#14532D;">
+    <div class="ov-row" onclick="location='bogota.html'" role="link" tabindex="0" style="border-left:4px solid #1A4A2E;">
+      <div class="ov-day" style="background:#DCFCE7;color:#1A4A2E;">
         🏙️<div class="od-date">Dag 1–3<br><small style="font-weight:400;opacity:0.85">18–20 nov</small></div>
       </div>
       <div class="ov-content">
         <strong>Bogotá — Hoofdstad, Goudmuseum, Monserrate</strong>
-        <span>Aankomst · Acclimatiseren (hoogte!) · Historisch centrum · Walking tours · La Candelaria</span>
+        <span>Acclimatiseren (hoogte!) · Historisch centrum · Walking tours · La Candelaria · Goudmuseum</span>
         <div class="ov-tags">
-          <span class="ov-tag">🏔️ 2640 m hoogte</span>
-          <span class="ov-tag">🚶 Walking tour</span>
+          <span class="ov-tag">🏔️ 2640 m</span>
+          <a class="ov-tag ov-tag-link" href="info/bogota-museo-del-oro.html" onclick="event.stopPropagation()">🏺 Goudmuseum</a>
+          <a class="ov-tag ov-tag-link" href="info/bogota-la-candelaria.html" onclick="event.stopPropagation()">🚶 La Candelaria</a>
         </div>
       </div>
       <div class="ov-arrow">›</div>
-    </a>
+    </div>
 
-    <a href="salento.html" class="ov-row" style="border-left:4px solid #78350F;">
+    <div class="ov-row" onclick="location='salento.html'" role="link" tabindex="0" style="border-left:4px solid #78350F;">
       <div class="ov-day" style="background:#FEF3C7;color:#78350F;">
         ☕<div class="od-date">Dag 4–6<br><small style="font-weight:400;opacity:0.85">21–23 nov</small></div>
       </div>
       <div class="ov-content">
         <strong>Salento — Koffiestreek &amp; Valle de Cocora</strong>
-        <span>Bus Bogotá → Armenia → Salento · Hike Valle de Cocora (13 km) · Koffieboerderij · Mirador</span>
+        <span>Hike Valle de Cocora (13 km) · Koffieboerderij · Mirador Alto de la Cruz</span>
         <div class="ov-tags">
-          <span class="ov-tag">🚌 Bus 9u</span>
-          <span class="ov-tag">🌿 Hike 13 km</span>
+          <a class="ov-tag ov-tag-link" href="info/salento-valle-de-cocora.html" onclick="event.stopPropagation()">🥾 Cocora Hike</a>
+          <a class="ov-tag ov-tag-link" href="info/salento-koffieboerderij.html" onclick="event.stopPropagation()">☕ Koffieboerderij</a>
+          <a class="ov-tag ov-tag-link" href="info/salento-mirador.html" onclick="event.stopPropagation()">🌅 Mirador</a>
         </div>
       </div>
       <div class="ov-arrow">›</div>
-    </a>
+    </div>
 
-    <a href="medellin.html" class="ov-row" style="border-left:4px solid #A0450D;">
+    <div class="ov-row" onclick="location='medellin.html'" role="link" tabindex="0" style="border-left:4px solid #A0450D;">
       <div class="ov-day" style="background:#FFF7ED;color:#9A3412;">
         🌆<div class="od-date">Dag 7–9<br><small style="font-weight:400;opacity:0.85">24–26 nov</small></div>
       </div>
       <div class="ov-content">
         <strong>Medellín — Eeuwige lente, Comuna 13, Parque Arvi</strong>
-        <span>Bus Salento → Terminal del Sur · Free tour Comuna 13 · Downhill biken · Kabelbaan → Parque Arvi</span>
+        <span>Free tour Comuna 13 · Downhill biken · Kabelbaan Parque Arvi · Pablo Escobar tour</span>
         <div class="ov-tags">
-          <span class="ov-tag">🚌 Bus 9u30</span>
-          <span class="ov-tag">🎨 Straatkunst</span>
+          <a class="ov-tag ov-tag-link" href="info/medellin-comuna-13.html" onclick="event.stopPropagation()">🎨 Comuna 13</a>
+          <a class="ov-tag ov-tag-link" href="info/medellin-parque-arvi.html" onclick="event.stopPropagation()">🚡 Parque Arvi</a>
+          <a class="ov-tag ov-tag-link" href="info/medellin-paragliden.html" onclick="event.stopPropagation()">🪂 Paragliden</a>
         </div>
       </div>
       <div class="ov-arrow">›</div>
-    </a>
+    </div>
 
-    <a href="guatape.html" class="ov-row" style="border-left:4px solid #4A1A6E;">
+    <div class="ov-row" onclick="location='guatape.html'" role="link" tabindex="0" style="border-left:4px solid #4A1A6E;">
       <div class="ov-day" style="background:#F5F3FF;color:#4A1A6E;">
         🪨<div class="od-date">Dag 10<br><small style="font-weight:400;opacity:0.85">vr 27 nov</small></div>
       </div>
       <div class="ov-content">
         <strong>Guatapé — La Piedra del Peñón, Kleurrijke stad</strong>
-        <span>Bus Medellín → Guatapé · Tuktuk → La Piedra · 740 treden beklimmen · Kleurrijke zocalo's bewonderen</span>
+        <span>La Piedra del Peñón beklimmen (740 treden) · Kleurrijke zócalo's · Meer-panorama</span>
         <div class="ov-tags">
-          <span class="ov-tag">🚌 Bus 2u</span>
-          <span class="ov-tag">740 treden</span>
+          <a class="ov-tag ov-tag-link" href="info/guatape-piedra-del-penon.html" onclick="event.stopPropagation()">🪨 La Piedra</a>
+          <a class="ov-tag ov-tag-link" href="info/guatape-zocalos.html" onclick="event.stopPropagation()">🎨 Zócalo's</a>
         </div>
       </div>
       <div class="ov-arrow">›</div>
-    </a>
+    </div>
 
-    <a href="cartagena.html" class="ov-row" style="border-left:4px solid #C9962A;">
+    <div class="ov-row" onclick="location='cartagena.html'" role="link" tabindex="0" style="border-left:4px solid #C9962A;">
       <div class="ov-day" style="background:#FFFBEB;color:#92400E;">
         🌊<div class="od-date">Dag 11–13<br><small style="font-weight:400;opacity:0.85">28–30 nov</small></div>
       </div>
       <div class="ov-content">
         <strong>Cartagena — Koloniale parels, Eilanden, Kasteel</strong>
-        <span>Vlucht Medellín → Cartagena · Historisch centrum · Castillo San Felipe · Rosario eilanden · El Totumo</span>
+        <span>Historisch centrum · Castillo San Felipe · Rosario eilanden · El Totumo moddervulkaan</span>
         <div class="ov-tags">
-          <span class="ov-tag">✈️ Inlandse vlucht</span>
-          <span class="ov-tag">🏰 Kasteel San Felipe</span>
+          <a class="ov-tag ov-tag-link" href="info/cartagena-castillo-san-felipe.html" onclick="event.stopPropagation()">🏰 Castillo San Felipe</a>
+          <a class="ov-tag ov-tag-link" href="info/cartagena-islas-rosario.html" onclick="event.stopPropagation()">🏝️ Rosario eilanden</a>
+          <a class="ov-tag ov-tag-link" href="info/cartagena-el-totumo.html" onclick="event.stopPropagation()">🌋 El Totumo</a>
         </div>
       </div>
       <div class="ov-arrow">›</div>
-    </a>
+    </div>
 
-    <a href="minca.html" class="ov-row" style="border-left:4px solid #0F5B5B;">
+    <div class="ov-row" onclick="location='minca.html'" role="link" tabindex="0" style="border-left:4px solid #0F5B5B;">
       <div class="ov-day" style="background:#ECFDF5;color:#065F46;">
         🌿<div class="od-date">Dag 14–16<br><small style="font-weight:400;opacity:0.85">1–3 dec</small></div>
       </div>
       <div class="ov-content">
         <strong>Minca — Jungle, Watervallen, Sierra Nevada</strong>
-        <span>Bus Cartagena → Santa Marta → Minca · Pozo Azul · Cascade de Marinka · Minca Sierra</span>
+        <span>Pozo Azul · Cascade de Marinka · Sierra Nevada uitzicht · Koffie in de jungle</span>
         <div class="ov-tags">
-          <span class="ov-tag">💧 Watervallen</span>
-          <span class="ov-tag">☕ Jungle lodge</span>
+          <a class="ov-tag ov-tag-link" href="info/minca-pozo-azul.html" onclick="event.stopPropagation()">💧 Pozo Azul</a>
+          <a class="ov-tag ov-tag-link" href="info/minca-marinka.html" onclick="event.stopPropagation()">🌊 Cascade Marinka</a>
+          <a class="ov-tag ov-tag-link" href="info/minca-sierra.html" onclick="event.stopPropagation()">🏔️ Sierra Nevada</a>
         </div>
       </div>
       <div class="ov-arrow">›</div>
-    </a>
+    </div>
 
-    <a href="tayrona.html" class="ov-row" style="border-left:4px solid #0369A1;">
+    <div class="ov-row" onclick="location='tayrona.html'" role="link" tabindex="0" style="border-left:4px solid #0369A1;">
       <div class="ov-day" style="background:#EFF6FF;color:#1E40AF;">
         🌴<div class="od-date">Dag 17–18<br><small style="font-weight:400;opacity:0.85">4–5 dec</small></div>
       </div>
       <div class="ov-content">
         <strong>Tayrona National Park — Paradijselijke stranden, Jungle wandelingen</strong>
-        <span>Bus Minca → Santa Marta → Tayrona · Jungle hikes · Zwemmen op afgelegen stranden · Eco-lodge</span>
+        <span>Jungle hikes · Cabo San Juan · Pueblito ruïnes · Zwemmen op afgelegen stranden</span>
         <div class="ov-tags">
-          <span class="ov-tag">🏝️ Cabo San Juan</span>
-          <span class="ov-tag">🌿 Jungle hike</span>
+          <a class="ov-tag ov-tag-link" href="info/tayrona-park.html" onclick="event.stopPropagation()">🏝️ Cabo San Juan</a>
+          <a class="ov-tag ov-tag-link" href="info/tayrona-park.html" onclick="event.stopPropagation()">🥾 Jungle hike</a>
         </div>
       </div>
       <div class="ov-arrow">›</div>
-    </a>
+    </div>
 
-    <a href="palomino.html" class="ov-row" style="border-left:4px solid #0F766E;">
+    <div class="ov-row" onclick="location='palomino.html'" role="link" tabindex="0" style="border-left:4px solid #0F766E;">
       <div class="ov-day" style="background:#F0FDFA;color:#134E4A;">
         🏖️<div class="od-date">Dag 19–21<br><small style="font-weight:400;opacity:0.85">6–8 dec</small></div>
       </div>
       <div class="ov-content">
         <strong>Palomino — Tubing, Surfen, Relaxen</strong>
-        <span>Tayrona → Palomino (45 min) · Tubing op de rivier · Strandwandeling · Bodyboarden · Totale rust</span>
+        <span>Tubing op de rivier · Surfen · Strandwandeling · Bodyboarden · Totale rust</span>
         <div class="ov-tags">
-          <span class="ov-tag">🚌 45 min</span>
-          <span class="ov-tag">🏄 Surfen</span>
+          <a class="ov-tag ov-tag-link" href="info/palomino-tubing.html" onclick="event.stopPropagation()">🛶 River tubing</a>
+          <a class="ov-tag ov-tag-link" href="info/palomino-surf.html" onclick="event.stopPropagation()">🏄 Surfen</a>
+          <a class="ov-tag ov-tag-link" href="info/palomino-strand.html" onclick="event.stopPropagation()">🏖️ Strand</a>
         </div>
       </div>
       <div class="ov-arrow">›</div>
-    </a>
+    </div>
 
-    <a href="bogota.html" class="ov-row" style="border-left:4px solid #B91C1C;">
+    <div class="ov-row" onclick="location='bogota.html'" role="link" tabindex="0" style="border-left:4px solid #B91C1C;">
       <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">
         ✈️<div class="od-date">Dag 22–24<br><small style="font-weight:400;opacity:0.85">9–11 dec</small></div>
       </div>
       <div class="ov-content">
         <strong>Terugkeer — Cartagena · Bogotá · Zoutmijnen · Brussel</strong>
-        <span>Bus Palomino → Cartagena · Vlucht Cartagena → Bogotá · Zoutmijnen Zipaquirá · Vlucht Bogotá → Brussel 21:35</span>
+        <span>Zoutmijnen Zipaquirá · Laatste nacht Bogotá · Vlucht naar huis</span>
         <div class="ov-tags">
-          <span class="ov-tag">✈️ Dag 23: vluchten</span>
-          <span class="ov-tag">⛏️ Zoutmijnen</span>
+          <a class="ov-tag ov-tag-link" href="info/dag24-zoutmijnen-vertrek.html" onclick="event.stopPropagation()">⛏️ Zoutmijnen</a>
+          <a class="ov-tag ov-tag-link" href="info/dag23-vlucht-bogota.html" onclick="event.stopPropagation()">✈️ Vluchten dag 23</a>
         </div>
       </div>
       <div class="ov-arrow">›</div>
-    </a>
+    </div>
 
   </div>
 

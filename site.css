@@ -151,6 +151,18 @@
 @media(min-width:380px) { .facts-grid { grid-template-columns:1fr 1fr; } }
 @media(min-width:580px) { .facts-grid { grid-template-columns:repeat(3,1fr); } }
 
+/* ── INDEX: ov-tag links ─────────────────────────────── */
+.ov-tag-link {
+  text-decoration:none;
+  color:var(--navy,#1A4A2E);
+  background:#DCFCE7;
+  border-color:#86EFAC;
+  transition:background 0.15s;
+}
+.ov-tag-link:hover {
+  background:#BBF7D0;
+}
+
 /* ── INDEX: ov-row compacter ─────────────────────────── */
 @media(max-width:420px) {
   .ov-content strong { font-size:0.83rem; }
