@@ -81,11 +81,14 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 </head>
 <body>
 <div class="topbar">
-  <a class="logo" href="index.html">🇨🇴 Colombia 2025</a>
-  <a class="home-link" href="index.html">← Home</a>
+  <a class="logo" href="index.html">Colombia 2026</a>
+  <div class="topbar-right">
+    <a class="home-link icon-btn" href="setup.html" title="Setup">🔧</a>
+    <a class="home-link" href="index.html">← Home</a>
+  </div>
 </div>
-<div class="subnav">
-  <a href="index.html">🏠 Overzicht</a>
+</div>
+<div class="subnav subnav-locs">
   <a href="bogota.html">🏙️ Bogotá</a>
   <a href="salento.html">☕ Salento</a>
   <a href="medellin.html" class="active">🌆 Medellín</a>
@@ -95,11 +98,14 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="tayrona.html">🌴 Tayrona</a>
   <a href="palomino.html">🏖️ Palomino</a>
   <a href="bogota2.html">🏙️ Bogotá 2</a>
+</div>
+<div class="subnav subnav-info">
+  <a href="index.html">🏠 Overzicht</a>
   <a href="culinair.html">🍽️ Culinair</a>
   <a href="activiteiten.html">🎯 Activiteiten</a>
+  <a href="hotels.html">🏨 Hotels</a>
   <a href="praktisch.html">📌 Praktisch</a>
-  <a href="routes.html">🗺️ Kaart \& Routes</a>
-  <a href="setup.html">⚙️ Setup</a>
+  <a href="routes.html">🗺️ Kaart &amp; Routes</a>
 </div>
 
 <div class="hero">
@@ -118,6 +124,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <!-- DAG 7 -->
   <div class="sec-divider">📅 Dag 7 · di 24 nov — Aankomst via Bus</div>
   <div class="timeline">
+    <div class="dagdeel dagdeel-ochtend">🌅 Ochtend · Vertrek</div>
+
     <div class="event transit">
       <div class="card transit">
         <div class="time">9u00 · Bus Salento</div>
@@ -141,9 +149,29 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
             </div>
           </div>
         </details>
-        <a href="info/medellin-comuna-13.html" class="lees-meer-btn">📖 Lees meer: 🎨 Comuna 13 →</a>
-        <a href="info/medellin-paragliden.html" class="lees-meer-btn">📖 Lees meer: 🚵 Paragliden →</a>
-        <a href="info/medellin-parque-arvi.html" class="lees-meer-btn">📖 Lees meer: 🌿 Parque Arvi →</a>
+      </div>
+    </div>
+
+    <div class="dagdeel dagdeel-namiddag">☀️ Namiddag</div>
+
+    <div class="event green">
+      <div class="card green">
+        <div class="time">~14u30 · Dag 7 namiddag</div>
+        <h3>🌆 Eerste verkenning — El Poblado</h3>
+        <p class="desc">Inchecken in hotel 574 en El Poblado verkennen. De wijk is levendig en aangenaam — terrassen, koffiezaken, markten. Vanavond geen agenda. Eat, drink, relax na 5 uur bus.</p>
+        <div class="meta">
+          <span class="chip dist">📍 El Poblado · Medellín</span>
+          <span class="chip">🌳 Parque El Poblado · Parque Lleras</span>
+        </div>
+        <details class="card-details">
+          <summary>Namiddag &amp; avondtips El Poblado</summary>
+          <div class="details-body">
+            <p><strong>Parque El Poblado:</strong> Centrale plaza in de wijk — rustig, omringd door terrassen. Ideaal voor een eerste koffie of frisse afrondingsdrank.</p>
+            <p><strong>Parque Lleras:</strong> 10 min te voet — levendiger plein met restaurants en bars. Populair bij locals en expats. Heel aangenaam voor een eerste avonddiner.</p>
+            <p><strong>Eten dag 7:</strong> El Cielo (fine dining in Medellín, reserveer vroeg), Carmen (modern Colombiaans), of gewoon tapas + bier op het plein. Geen grote plannen nodig vandaag.</p>
+            <p><strong>Laat de telefoon opladen:</strong> Dag 8 start vroeg met de free walking tour Comuna 13 om 13u30 — maar verken eventueel al 's ochtends het centrum met de metro.</p>
+          </div>
+        </details>
       </div>
     </div>
   </div>
@@ -151,6 +179,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <!-- DAG 8 -->
   <div class="sec-divider">📅 Dag 8 · wo 25 nov — Free Walking Tour Comuna 13</div>
   <div class="timeline">
+    <div class="dagdeel dagdeel-namiddag">☀️ Namiddag</div>
+
     <div class="event purple">
       <div class="card purple">
         <div class="time">13u30 · Free tour</div>
@@ -183,6 +213,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <!-- DAG 9 -->
   <div class="sec-divider">📅 Dag 9 · do 26 nov — Avontuur & Parque Arvi</div>
   <div class="timeline">
+
+    <div class="dagdeel dagdeel-ochtend">🌅 Ochtend / Dag</div>
 
     <div class="event orange">
       <div class="card orange">

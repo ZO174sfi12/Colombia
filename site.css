@@ -87,10 +87,33 @@
   align-items:center;
 }
 
+/* ── TOPBAR RIGHT (wrench + home) ────────────────────────── */
+.topbar-right { display:flex; align-items:center; gap:0.4rem; }
+.icon-btn { font-size:1rem; padding:0.25rem 0.45rem !important; }
+
+/* ── DUBBELE SUBNAV ──────────────────────────────────────── */
+/* Locatiebalk — prominenter */
+.subnav-locs {
+  background:white;
+  border-bottom:2px solid var(--border,#E5E0D8);
+}
+/* Infobalk — iets stiller, lichtgrijze achtergrond */
+.subnav-info {
+  background:#F5F2EE;
+  border-bottom:1px solid var(--border,#E5E0D8);
+}
+.subnav-info a {
+  font-size:0.74rem;
+  padding:0.55rem 0.75rem;
+  color:#5A6E5D;
+}
+.subnav-info a.active { color:var(--navy,#1A4A2E); border-bottom-color:var(--navy,#1A4A2E); }
+
 /* ── SUBNAV ───────────────────────────────────────────────
    Iets compacter op mobiel, links blijven klikbaar          */
 @media(max-width:580px) {
-  .subnav a { padding:0.75rem 0.7rem; font-size:0.76rem; }
+  .subnav-locs a { padding:0.7rem 0.6rem; font-size:0.74rem; }
+  .subnav-info a { padding:0.45rem 0.55rem; font-size:0.7rem; }
 }
 
 /* ── PRAKTISCHE BLOKKEN ───────────────────────────────────
@@ -161,3 +184,106 @@
   .section { max-width:900px; }
   .db-wrap  { max-width:900px; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   DAGDEEL-DIVIDERS — kleurcodering per tijdstip
+   Gebruik: <div class="dagdeel dagdeel-ochtend">🌅 Ochtend</div>
+   ══════════════════════════════════════════════════════════ */
+.dagdeel {
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  font-size:0.72rem;
+  font-weight:800;
+  letter-spacing:0.6px;
+  text-transform:uppercase;
+  margin:0.6rem 0 0.4rem -2.5rem;   /* trek terug om lijn te overlappen */
+  padding:0.3rem 0.8rem 0.3rem 0.6rem;
+  border-radius:0 20px 20px 0;
+  width:fit-content;
+  position:relative;
+  z-index:1;
+}
+.dagdeel-ochtend {
+  background:#FEF3C7;
+  color:#92400E;
+  border:1px solid #FDE68A;
+}
+.dagdeel-namiddag {
+  background:#E0F2FE;
+  color:#0C4A6E;
+  border:1px solid #BAE6FD;
+}
+.dagdeel-avond {
+  background:#EDE9FE;
+  color:#4C1D95;
+  border:1px solid #C4B5FD;
+}
+
+/* ── VERBETERDE DAG-HEADER (sec-divider upgrade) ─────── */
+.dag-header {
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  margin:1.8rem 0 0.9rem;
+  padding:0.85rem 1.1rem;
+  background:white;
+  border:1px solid var(--border,#E5E0D8);
+  border-left:4px solid currentColor;
+  border-radius:10px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.05);
+}
+.dag-header .dag-nr {
+  font-size:1.5rem;
+  font-weight:900;
+  opacity:0.25;
+  min-width:2rem;
+  line-height:1;
+}
+.dag-header .dag-info h4 {
+  font-size:0.92rem;
+  font-weight:800;
+  margin:0;
+}
+.dag-header .dag-info p {
+  font-size:0.75rem;
+  opacity:0.65;
+  margin:0.1rem 0 0;
+}
+.dag-header .dag-badges {
+  margin-left:auto;
+  display:flex;
+  gap:0.3rem;
+  flex-wrap:wrap;
+}
+.dag-badge {
+  font-size:0.68rem;
+  padding:0.18rem 0.5rem;
+  border-radius:20px;
+  background:currentColor;
+  opacity:0.12;
+  color:inherit;
+}
+/* kleur per dag-type */
+.dag-header.transit { color:#9CA3AF; border-left-color:#9CA3AF; }
+.dag-header.culture { color:#8B5CF6; border-left-color:#8B5CF6; }
+.dag-header.nature  { color:#16A34A; border-left-color:#16A34A; }
+.dag-header.beach   { color:#0EA5E9; border-left-color:#0EA5E9; }
+.dag-header.city    { color:#1A4A2E; border-left-color:#1A4A2E; }
+.dag-header.food    { color:#EF4444; border-left-color:#EF4444; }
+
+/* ── DAGPLAN LABEL op timeline kaarten ──────────────── */
+.card .dagdeel-tag {
+  display:inline-flex;
+  align-items:center;
+  gap:0.3rem;
+  font-size:0.66rem;
+  font-weight:700;
+  padding:0.12rem 0.45rem;
+  border-radius:20px;
+  margin-right:0.3rem;
+  vertical-align:middle;
+}
+.tag-ochtend { background:#FEF3C7; color:#92400E; }
+.tag-namiddag{ background:#E0F2FE; color:#0C4A6E; }
+.tag-avond   { background:#EDE9FE; color:#4C1D95; }
