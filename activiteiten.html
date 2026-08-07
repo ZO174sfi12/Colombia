@@ -47,9 +47,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   cursor:pointer;
 }
 .act-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.14);}
-.act-card .card-img{position:relative;height:185px;overflow:hidden;background:#1a1a1a;}
+.act-card .card-img{position:relative;aspect-ratio:3/2;overflow:hidden;background:#1a1a1a;}
 .act-card .card-img img{
-  width:100%;height:100%;object-fit:cover;display:block;
+  width:100%;height:100%;object-fit:cover;object-position:center;display:block;
   transition:transform 0.25s;
 }
 .act-card:hover .card-img img{transform:scale(1.04);}
@@ -99,7 +99,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 .footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1.5rem;}
 
 @media(min-width:580px){.hero h1{font-size:2.3rem;}}
-@media(max-width:440px){.cards-grid{grid-template-columns:repeat(2,1fr);} .act-card .card-img{height:155px;}}
+@media(max-width:440px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
 
 a.loc-link.cat-tag{color:white;cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.4);text-decoration:none;}
 a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:white;}
@@ -169,7 +169,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 
   <div class="act-card" data-href="info/medellin-paragliden.html" data-name="paragliden medellin tandem vliegen paragliding" data-cat="avontuur">
     <div class="card-img">
-      <img src="img/act_paragliding.jpg" alt="Paragliden Medellín" loading="lazy"
+      <img src="img/paragliding.jpg" alt="Paragliden Medellín" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🪂</span>Paragliden</div>'">
       <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()" title="Naar Medellín">Medellín · Paragliding</a>
     </div>
@@ -184,26 +184,9 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/guatape-piedra-del-penon.html" data-name="la piedra penol guatape rots beklimmen trappen" data-cat="avontuur">
-    <div class="card-img">
-      <img src="img/guatape_piedra.jpg" alt="La Piedra del Peñol Guatapé" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🪨</span>La Piedra</div>'">
-      <a class="cat-tag loc-link" href="guatape.html" onclick="event.stopPropagation()" title="Naar Guatapé">Guatapé · Rots</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">La Piedra del Peñol</div>
-      <div class="act-desc">740 treden omhoog langs een reusachtige granieten monoliet. Boven: 360° panorama over het merengebied van Guatapé.</div>
-      <div class="meta">
-        <span class="chip price">💶 €3</span>
-        <span class="chip dur">⏰ 1u beklimming</span>
-        <span class="chip loc">📍 Guatapé</span>
-      </div>
-    </div>
-  </div>
-
   <div class="act-card" data-href="info/cartagena-el-totumo.html" data-name="el totumo vulkaan modderbad cartagena dagtrip" data-cat="avontuur">
     <div class="card-img">
-      <img src="img/act_totumo.jpg" alt="El Totumo vulkaan modderbad" loading="lazy"
+      <img src="img/modderbad.jpg" alt="El Totumo vulkaan modderbad" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌋</span>El Totumo</div>'">
       <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Dagtrip</a>
     </div>
@@ -218,26 +201,11 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/bogota-tejo.html" data-name="tejo spelen bogota nationaal sport dynamiet ringen gooien" data-cat="avontuur">
-    <div class="card-img">
-      <img src="img/act_tejo.jpg" alt="Tejo nationaal sport Colombia" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>💥</span>Tejo</div>'">
-      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Sport</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Tejo spelen</div>
-      <div class="act-desc">Colombia's nationale sport: metalen schijf gooien naar buisjes buskruit. Bij treffer = explosie. Met bier en picada erbij.</div>
-      <div class="meta">
-        <span class="chip price">💶 €5–8 incl. bier</span>
-        <span class="chip dur">⏰ 2–3u</span>
-        <span class="chip loc">📍 Bogotá</span>
-      </div>
-    </div>
-  </div>
+
 
   <div class="act-card" data-href="info/medellin-mountainbiken.html" data-name="mountainbiken downhill fietsen medellin berg afdaling san felix" data-cat="avontuur">
     <div class="card-img">
-      <img src="img/act_mountainbike.jpg" alt="Downhill mountainbiken Medellín" loading="lazy"
+      <img src="img/downhill.jpg" alt="Downhill mountainbiken Medellín" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🚵</span>Mountainbiken</div>'">
       <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()" title="Naar Medellín">Medellín · Avontuur</a>
     </div>
@@ -248,6 +216,40 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
         <span class="chip price">💶 €30–60</span>
         <span class="chip dur">⏰ 3–5u</span>
         <span class="chip loc">📍 Medellín</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-href="info/palomino-tubing.html" data-name="palomino tubing rivier zwembanden drijven" data-cat="avontuur">
+    <div class="card-img">
+      <img src="img/tubing.jpg" alt="Palomino tubing rivier" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🛟</span>Palomino Tubing</div>'">
+      <a class="cat-tag loc-link" href="palomino.html" onclick="event.stopPropagation()" title="Naar Palomino">Palomino · Rivier</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Palomino Tubing</div>
+      <div class="act-desc">Drijven op banden door de Palomino-rivier, uitlopend in de Caraïbische zee. Meest ontspannen activiteit van de reis.</div>
+      <div class="meta">
+        <span class="chip price">💶 €10–15</span>
+        <span class="chip dur">⏰ 2–3u</span>
+        <span class="chip loc">📍 Palomino</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-href="info/palomino-surf.html" data-name="palomino surfen surfles strand golf" data-cat="avontuur">
+    <div class="card-img">
+      <img src="img/surfing.jpg" alt="Surfen Palomino" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏄</span>Surfen Palomino</div>'">
+      <a class="cat-tag loc-link" href="palomino.html" onclick="event.stopPropagation()" title="Naar Palomino">Palomino · Surf</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Surfen — Palomino</div>
+      <div class="act-desc">Beginner-vriendelijke golven aan de Caribische kust. Surfscholen aan het strand geven les voor alle niveaus.</div>
+      <div class="meta">
+        <span class="chip price">💶 €25 les + board</span>
+        <span class="chip dur">⏰ 2u</span>
+        <span class="chip loc">📍 Palomino</span>
       </div>
     </div>
   </div>
@@ -279,40 +281,6 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/palomino-tubing.html" data-name="palomino tubing rivier zwembanden drijven" data-cat="water">
-    <div class="card-img">
-      <img src="img/palomino_beach.jpg" alt="Palomino tubing rivier" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🛟</span>Palomino Tubing</div>'">
-      <a class="cat-tag loc-link" href="palomino.html" onclick="event.stopPropagation()" title="Naar Palomino">Palomino · Rivier</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Palomino Tubing</div>
-      <div class="act-desc">Drijven op banden door de Palomino-rivier, uitlopend in de Caraïbische zee. Meest ontspannen activiteit van de reis.</div>
-      <div class="meta">
-        <span class="chip price">💶 €10–15</span>
-        <span class="chip dur">⏰ 2–3u</span>
-        <span class="chip loc">📍 Palomino</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="act-card" data-href="info/palomino-surf.html" data-name="palomino surfen surfles strand golf" data-cat="water">
-    <div class="card-img">
-      <img src="img/act_surf.jpg" alt="Surfen Palomino" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏄</span>Surfen Palomino</div>'">
-      <a class="cat-tag loc-link" href="palomino.html" onclick="event.stopPropagation()" title="Naar Palomino">Palomino · Surf</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Surfen — Palomino</div>
-      <div class="act-desc">Beginner-vriendelijke golven aan de Caribische kust. Surfscholen aan het strand geven les voor alle niveaus.</div>
-      <div class="meta">
-        <span class="chip price">💶 €25 les + board</span>
-        <span class="chip dur">⏰ 2u</span>
-        <span class="chip loc">📍 Palomino</span>
-      </div>
-    </div>
-  </div>
-
   <div class="act-card" data-href="info/palomino-strand.html" data-name="palomino strand caribbean beach relaxen" data-cat="water">
     <div class="card-img">
       <img src="img/palomino_beach.jpg" alt="Palomino strand" loading="lazy"
@@ -330,15 +298,15 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/minca-pozo-azul.html" data-name="pozo azul minca zwemmen blauw gat waterpoel" data-cat="water">
+  <div class="act-card" data-href="info/minca-pozo-azul.html" data-name="pozo azul minca waterval zwemmen blauw bergwater" data-cat="natuur">
     <div class="card-img">
-      <img src="img/minca_sierra.jpg" alt="Pozo Azul Minca" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>💧</span>Pozo Azul</div>'">
-      <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()" title="Naar Minca">Minca · Zwemgat</a>
+      <img src="img/pozoazul.jpg" alt="Pozo Azul waterval Minca" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>💦</span>Pozo Azul</div>'">
+      <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()" title="Naar Minca">Minca · Waterval</a>
     </div>
     <div class="card-body">
       <div class="act-name">Pozo Azul</div>
-      <div class="act-desc">Verborgen zwemgat met helder blauw bergwater in de jungle vlak bij Minca. Perfect om af te koelen na een wandeling.</div>
+      <div class="act-desc">Waterval met helder blauw bergwater diep in de jungle bij Minca. Zwem in de natuurlijke pool aan de voet van de val.</div>
       <div class="meta">
         <span class="chip price">💶 Gratis</span>
         <span class="chip dur">⏰ 1–2u</span>
@@ -357,9 +325,26 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 <div class="cat-line"></div>
 <div class="cards-grid">
 
+  <div class="act-card" data-href="info/guatape-piedra-del-penon.html" data-name="la piedra penol guatape rots beklimmen trappen" data-cat="natuur">
+    <div class="card-img">
+      <img src="img/guatape_piedra.jpg" alt="La Piedra del Peñol Guatapé" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>🪨</span>La Piedra</div>'">
+      <a class="cat-tag loc-link" href="guatape.html" onclick="event.stopPropagation()" title="Naar Guatapé">Guatapé · Rots</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">La Piedra del Peñol</div>
+      <div class="act-desc">740 treden omhoog langs een reusachtige granieten monoliet. Boven: 360° panorama over het merengebied van Guatapé.</div>
+      <div class="meta">
+        <span class="chip price">💶 €3</span>
+        <span class="chip dur">⏰ 1u beklimming</span>
+        <span class="chip loc">📍 Guatapé</span>
+      </div>
+    </div>
+  </div>
+
   <div class="act-card" data-href="info/salento-valle-de-cocora.html" data-name="valle de cocora salento waspalmen wandeling" data-cat="natuur">
     <div class="card-img">
-      <img src="img/salento_cocora.jpg" alt="Valle de Cocora waspalmen" loading="lazy"
+      <img src="img/cocora.webp" alt="Valle de Cocora waspalmen" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌴</span>Valle de Cocora</div>'">
       <a class="cat-tag loc-link" href="salento.html" onclick="event.stopPropagation()" title="Naar Salento">Salento · Wandeling</a>
     </div>
@@ -427,7 +412,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 
   <div class="act-card" data-href="info/salento-mirador.html" data-name="mirador salento uitzicht koffievallei alto de la cruz" data-cat="natuur">
     <div class="card-img">
-      <img src="img/salento_town.jpg" alt="Mirador Alto de la Cruz Salento" loading="lazy"
+      <img src="img/mirador.webp" alt="Mirador Alto de la Cruz Salento" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>⛰️</span>Mirador Salento</div>'">
       <a class="cat-tag loc-link" href="salento.html" onclick="event.stopPropagation()" title="Naar Salento">Salento · Uitzicht</a>
     </div>
@@ -444,7 +429,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 
   <div class="act-card" data-href="info/minca-marinka.html" data-name="marinka waterval minca zwemmen natuur" data-cat="natuur">
     <div class="card-img">
-      <img src="img/act_minca_water.jpg" alt="Waterval Minca" loading="lazy"
+      <img src="img/marinka.webp" alt="Waterval Minca" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>💧</span>Marinka Waterval</div>'">
       <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()" title="Naar Minca">Minca · Waterval</a>
     </div>
@@ -591,9 +576,26 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 <div class="cat-line"></div>
 <div class="cards-grid">
 
+  <div class="act-card" data-href="info/bogota-tejo.html" data-name="tejo spelen bogota nationaal sport dynamiet ringen gooien" data-cat="avond">
+    <div class="card-img">
+      <img src="img/tejo.jpg" alt="Tejo nationaal sport Colombia" loading="lazy"
+           onerror="this.parentElement.innerHTML='<div class=no-img><span>💥</span>Tejo</div>'">
+      <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Sport</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Tejo spelen</div>
+      <div class="act-desc">Colombia's nationale sport: metalen schijf gooien naar buisjes buskruit. Bij treffer = explosie. Met bier en picada erbij.</div>
+      <div class="meta">
+        <span class="chip price">💶 €5–8 incl. bier</span>
+        <span class="chip dur">⏰ 2–3u</span>
+        <span class="chip loc">📍 Bogotá</span>
+      </div>
+    </div>
+  </div>
+
   <div class="act-card" data-href="info/cartagena-chiva.html" data-name="chiva rumbera feestbus cartagena avond party bus" data-cat="avond">
     <div class="card-img">
-      <img src="img/act_chiva.jpg" alt="Chiva Rumbera feestbus Cartagena" loading="lazy"
+      <img src="img/chiva.webp" alt="Chiva Rumbera feestbus Cartagena" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🚌</span>Chiva Rumbera</div>'">
       <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Nightlife</a>
     </div>
@@ -644,7 +646,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 
   <div class="act-card" data-href="info/guatape-zocalos.html" data-name="guatape zocalos kleurrijke gevels avond sfeer village" data-cat="avond">
     <div class="card-img">
-      <img src="img/act_zocalos.jpg" alt="Guatapé Zocalos" loading="lazy"
+      <img src="img/Zocalos.jpg" alt="Guatapé Zocalos" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Guatapé Zocalos</div>'">
       <a class="cat-tag loc-link" href="guatape.html" onclick="event.stopPropagation()" title="Naar Guatapé">Guatapé · Sfeer</a>
     </div>
