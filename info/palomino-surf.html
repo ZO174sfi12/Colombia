@@ -51,7 +51,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a class="logo" href="../index.html">Colombia 2026</a>
   <div class="topbar-right">
     <a class="home-link icon-btn" href="../setup.html" title="Setup">🔧</a>
-    <a class="home-link" href="../index.html">← Home</a>
+    <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
 </div>
 <div class="subnav subnav-locs">
@@ -113,5 +113,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 <div class="footer">🇨🇴 Colombia · Bodyboarden & Surfen · Palomino</div>
 <script src="../feedback.js"></script>
+<script>
+function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
+</script>
 </body>
 </html>
