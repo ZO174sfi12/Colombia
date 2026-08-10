@@ -19,6 +19,9 @@
 
 const Dagboek = (() => {
 
+  // ─── FOTO REGISTRY (voor lightbox) ─────────────────────────────────────────
+  const _fotoSets = {};
+
   // ─── CONFIG ────────────────────────────────────────────────────────────────
   const DEFAULT_SHEETS_URL   = 'https://script.google.com/macros/s/AKfycbwXFju7-qe4FIdB6LTTCosacBqxi-r2-dThPAyatCsneaGCnWlSxL5C7C17Fp_7iBUaag/exec';
   const DEFAULT_SHEETS_TOKEN = 'd-Vs_5afzPjCjSgppSCMAmGocAlMqj-XUa-L5QPKny4';
@@ -121,8 +124,53 @@ const Dagboek = (() => {
   // ═══════════════════════════════════════════════════════════════════════════
   // FUNCTIE 1: DAGBOEK PER LOCATIE
   // ═══════════════════════════════════════════════════════════════════════════
+  // ─── LIGHTBOX ──────────────────────────────────────────────────────────────
+  function ensureLightbox() {
+    if (document.getElementById('db-lichtbak')) return;
+    const div = document.createElement('div');
+    div.id = 'db-lichtbak';
+    div.className = 'db-lichtbak';
+    div.innerHTML = `
+      <button class="db-lb-sluit" id="db-lb-sluit">✕</button>
+      <button class="db-lb-pijl db-lb-links" id="db-lb-links">‹</button>
+      <img id="db-lb-img" class="db-lb-img" src="" alt="">
+      <button class="db-lb-pijl db-lb-rechts" id="db-lb-rechts">›</button>
+      <div class="db-lb-teller" id="db-lb-teller"></div>`;
+    document.body.appendChild(div);
+
+    let _fotos = [], _huidig = 0;
+
+    function toon(i) {
+      _huidig = (i + _fotos.length) % _fotos.length;
+      document.getElementById('db-lb-img').src = _fotos[_huidig].url;
+      const meerdere = _fotos.length > 1;
+      document.getElementById('db-lb-teller').textContent = meerdere ? `${_huidig + 1} / ${_fotos.length}` : '';
+      document.getElementById('db-lb-links').style.display  = meerdere ? '' : 'none';
+      document.getElementById('db-lb-rechts').style.display = meerdere ? '' : 'none';
+    }
+
+    window._dbLichtbakOpen = (fotos, startIdx) => { _fotos = fotos; toon(startIdx); div.classList.add('open'); };
+
+    document.getElementById('db-lb-sluit').addEventListener('click',  () => div.classList.remove('open'));
+    document.getElementById('db-lb-links').addEventListener('click',   () => toon(_huidig - 1));
+    document.getElementById('db-lb-rechts').addEventListener('click',  () => toon(_huidig + 1));
+    div.addEventListener('click', e => { if (e.target === div) div.classList.remove('open'); });
+    document.addEventListener('keydown', e => {
+      if (!div.classList.contains('open')) return;
+      if (e.key === 'Escape')      div.classList.remove('open');
+      if (e.key === 'ArrowLeft')   toon(_huidig - 1);
+      if (e.key === 'ArrowRight')  toon(_huidig + 1);
+    });
+  }
+
+  function lichtbakOpen(fotos, idx) {
+    if (window._dbLichtbakOpen) window._dbLichtbakOpen(fotos, idx);
+  }
+
+  // ───────────────────────────────────────────────────────────────────────────
   async function render(locatieId, locatieNaam) {
     injectCSS();
+    ensureLightbox();
 
     const container = document.createElement('div');
     container.id = 'dagboek-module';
@@ -168,6 +216,13 @@ const Dagboek = (() => {
     </div>`;
   }
 
+  function albumKlasse(n) {
+    if (n === 1) return '1';
+    if (n === 2) return '2';
+    if (n === 3) return '3';
+    return '4plus';
+  }
+
   function renderEntries(locatieId, data) {
     const el = document.getElementById('db-entries');
     if (!el) return;
@@ -176,6 +231,12 @@ const Dagboek = (() => {
       el.innerHTML = '<p class="db-leeg">Nog geen dagboekentries voor deze locatie.</p>';
       return;
     }
+
+    // Registreer foto sets voor lightbox
+    entries.forEach(e => {
+      if (e.fotos?.length) _fotoSets[`entry_${e.id}`] = e.fotos;
+    });
+
     el.innerHTML = [...entries].reverse().map(e => `
       <div class="db-entry">
         <div class="db-entry-meta">
@@ -184,15 +245,24 @@ const Dagboek = (() => {
         </div>
         <p class="db-entry-tekst">${e.tekst.replace(/\n/g, '<br>')}</p>
         ${e.fotos?.length ? `
-          <div class="db-entry-fotos">
-            ${e.fotos.map(f =>
-              `<a href="${f.url}" target="_blank">
-                <img src="${f.thumb || f.url}" class="db-thumb" loading="lazy">
-              </a>`
+          <div class="db-album db-album-${albumKlasse(e.fotos.length)}">
+            ${e.fotos.map((f, i) =>
+              `<div class="db-album-item" data-set="entry_${e.id}" data-idx="${i}">
+                <img src="${f.thumb || f.url}" class="db-album-img" loading="lazy">
+              </div>`
             ).join('')}
           </div>` : ''}
       </div>
     `).join('');
+
+    // Bind lightbox click op alle album items
+    el.querySelectorAll('.db-album-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const fotos = _fotoSets[item.dataset.set];
+        const idx   = parseInt(item.dataset.idx);
+        if (fotos) lichtbakOpen(fotos, idx);
+      });
+    });
   }
 
   function bindDagboekEvents(locatieId, data) {
@@ -383,8 +453,35 @@ const Dagboek = (() => {
       .db-entry-user { font-size:0.75rem; font-weight:700; background:var(--navy,#1A4A2E); color:white; border-radius:20px; padding:0.15rem 0.6rem; }
       .db-entry-datum { font-size:0.75rem; color:var(--muted,#4A5E4D); }
       .db-entry-tekst { font-size:0.85rem; line-height:1.6; }
-      .db-entry-fotos { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.7rem; }
-      .db-thumb { width:84px; height:84px; object-fit:cover; border-radius:8px; border:1px solid var(--border,#E5E0D8); }
+      /* ── Album grid ── */
+      .db-album { margin-top:0.8rem; display:grid; gap:3px; border-radius:10px; overflow:hidden; }
+      .db-album-item { overflow:hidden; cursor:pointer; }
+      .db-album-img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.2s; }
+      .db-album-item:hover .db-album-img { transform:scale(1.04); }
+
+      .db-album-1 { grid-template-columns:1fr; }
+      .db-album-1 .db-album-img { height:220px; }
+
+      .db-album-2 { grid-template-columns:1fr 1fr; }
+      .db-album-2 .db-album-img { height:180px; }
+
+      .db-album-3 { grid-template-columns:2fr 1fr; grid-template-rows:95px 95px; }
+      .db-album-3 .db-album-item:first-child { grid-row:1/3; }
+      .db-album-3 .db-album-img { height:95px; }
+      .db-album-3 .db-album-item:first-child .db-album-img { height:193px; }
+
+      .db-album-4plus { grid-template-columns:repeat(3,1fr); }
+      .db-album-4plus .db-album-img { height:110px; }
+
+      /* ── Lightbox ── */
+      .db-lichtbak { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.93); z-index:9999; align-items:center; justify-content:center; }
+      .db-lichtbak.open { display:flex; }
+      .db-lb-img { max-width:90vw; max-height:85vh; object-fit:contain; border-radius:4px; }
+      .db-lb-sluit { position:absolute; top:1rem; right:1.2rem; color:white; font-size:2rem; line-height:1; background:none; border:none; cursor:pointer; padding:0.2rem 0.5rem; }
+      .db-lb-pijl { position:absolute; top:50%; transform:translateY(-50%); color:white; font-size:2.5rem; background:rgba(255,255,255,0.12); border:none; cursor:pointer; padding:0.3rem 0.8rem; border-radius:6px; }
+      .db-lb-links { left:0.5rem; }
+      .db-lb-rechts { right:0.5rem; }
+      .db-lb-teller { position:absolute; bottom:1rem; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.65); font-size:0.82rem; }
 
       .db-wrap .sec-title { font-size:0.9rem; font-weight:800; color:var(--navy,#1A4A2E); border-top:2px solid var(--border,#E5E0D8); padding-top:1rem; margin:1.5rem 0 0.8rem; text-transform:uppercase; letter-spacing:0.5px; }
 
