@@ -15,7 +15,8 @@
 body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
 
 .topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;border:1.5px solid rgba(255,255,255,0.45);border-radius:20px;padding:0.28rem 0.75rem;transition:background 0.15s;}
+.topbar .logo:hover{background:rgba(255,255,255,0.12);}
 .topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
 .topbar .home-link:hover{background:rgba(255,255,255,0.1);}
 
@@ -81,9 +82,16 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 .footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
 
+/* Kaart preview */
+.kaart-preview-link{display:block;text-decoration:none;margin-bottom:1.6rem;border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,0.07);transition:box-shadow 0.15s;}
+.kaart-preview-link:hover{box-shadow:0 4px 16px rgba(0,0,0,0.13);}
+.kaart-preview-img{width:100%;display:block;aspect-ratio:840/500;object-fit:contain;background:#FAF8F4;}
+.kaart-preview-label{text-align:center;font-size:0.78rem;font-weight:700;color:var(--navy,#1A4A2E);padding:0.5rem;background:white;border-top:1px solid var(--border);}
+
 @media(min-width:580px){
   .prac-grid{grid-template-columns:1fr 1fr;}
   .hero h1{font-size:2.3rem;}
+  .kaart-preview-img{aspect-ratio:840/500;}
 }
 </style>
 <link rel="stylesheet" href="site.css">
@@ -300,8 +308,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 
   <!-- KAART PREVIEW -->
-  <a href="routes.html" style="display:block;text-decoration:none;margin-bottom:1.6rem;border-radius:12px;overflow:hidden;border:1px solid var(--border);">
-    <img src="img/kaart_route.jpg" alt="Reisroute Colombia" style="width:100%;display:block;object-fit:cover;">
+  <a href="routes.html" class="kaart-preview-link">
+    <img src="img/route_kaart.svg" alt="Reisroute Colombia" class="kaart-preview-img">
+    <div class="kaart-preview-label">🗺️ Bekijk volledige kaart & routes →</div>
   </a>
 
   <!-- BUDGET -->
