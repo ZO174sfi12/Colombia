@@ -24,6 +24,8 @@ h1{font-size:1.3rem;font-weight:800;margin-bottom:0.3rem;}
 .stap h3{font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;}
 .stap p{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:0.7rem;}
 .stap a{color:var(--navy);font-weight:600;}
+.stap code{background:#F1F5F9;border:1px solid #CBD5E1;border-radius:4px;padding:0.1rem 0.35rem;font-size:0.78rem;font-family:monospace;color:#1E3A8A;}
+.stap pre{background:#0F172A;color:#E2E8F0;border-radius:8px;padding:0.9rem 1rem;font-size:0.72rem;line-height:1.6;overflow-x:auto;margin:0.5rem 0;white-space:pre;}
 
 label{display:block;font-size:0.8rem;font-weight:700;margin-bottom:0.3rem;color:var(--text);}
 input[type=text], input[type=password]{
@@ -53,6 +55,8 @@ input:focus{outline:none;border-color:var(--navy);}
 .test-result{font-size:0.78rem;padding:0.5rem;border-radius:6px;margin-top:0.3rem;}
 .test-ok{background:#DCFCE7;color:#14532D;}
 .test-err{background:#FEE2E2;color:#7F1D1D;}
+
+.badge-stap{display:inline-block;background:#7C3AED;color:white;font-size:0.68rem;font-weight:700;border-radius:4px;padding:0.1rem 0.4rem;margin-right:0.3rem;vertical-align:middle;}
 </style>
 </head>
 <body>
@@ -66,7 +70,7 @@ input:focus{outline:none;border-color:var(--navy);}
 </div>
 
 <h1>⚙️ Setup</h1>
-<p class="intro">Eenmalige configuratie. De sleutels worden opgeslagen in je browser (localStorage). Doe dit op elke telefoon die je gebruikt (Bert & Ellen apart).</p>
+<p class="intro">Eenmalige configuratie. De sleutels worden opgeslagen in je browser (localStorage). Doe dit op elke telefoon die je gebruikt (Bert &amp; Ellen apart).</p>
 
 <!-- STAP 1: ImgBB -->
 <div class="stap">
@@ -80,21 +84,81 @@ input:focus{outline:none;border-color:var(--navy);}
   <div class="huidig" id="huidig-imgbb"></div>
 </div>
 
-<!-- STAP 2: GitHub Gist -->
+<!-- STAP 2: Google Sheets Web App -->
 <div class="stap">
-  <h3><span class="stap-nr">2</span>GitHub Gist — voor dagboekdata</h3>
+  <h3><span class="stap-nr">2</span>Google Sheets — voor dagboekdata</h3>
+
+  <p><strong>Eénmalig door Bert in te stellen (alleen via PC/laptop):</strong></p>
+
   <p>
-    <strong>Token:</strong> ga naar <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a><br>
-    → "Generate new token (classic)" → vink <strong>alleen "gist"</strong> aan → kopieer<br><br>
-    <strong>Gist ID:</strong> ga naar <a href="https://gist.github.com" target="_blank">gist.github.com</a><br>
-    → Maak nieuwe private Gist aan → bestand noem je <strong>colombia_reis.json</strong> → inhoud: <code>{}</code><br>
-    → De Gist ID is de lange hash in de URL: gist.github.com/jouwNaam/<strong>abc123...</strong>
+    <span class="badge-stap">A</span> Ga naar <a href="https://sheets.google.com" target="_blank">sheets.google.com</a> → maak een nieuw spreadsheet aan → noem het <strong>Colombia Dagboek</strong>.<br>
+    Hernoem het eerste tabblad naar <strong>Data</strong>.
   </p>
-  <label>GitHub Personal Access Token</label>
-  <input type="password" id="inp-token" placeholder="ghp_xxxxxxxxxxxxxxxx">
-  <label>Gist ID</label>
-  <input type="text" id="inp-gist" placeholder="abc123def456...">
-  <div class="huidig" id="huidig-gist"></div>
+
+  <p>
+    <span class="badge-stap">B</span> In het spreadsheet: <strong>Uitbreidingen → Apps Script</strong> → verwijder alle bestaande code → plak dit:
+  </p>
+
+  <pre>const SECRET = 'd-Vs_5afzPjCjSgppSCMAmGocAlMqj-XUa-L5QPKny4';
+
+function doPost(e) {
+  try {
+    const body = JSON.parse(e.postData.contents);
+    if (body.token !== SECRET)
+      return maakAntwoord('403 Forbidden');
+
+    const ss  = SpreadsheetApp.getActiveSpreadsheet();
+    const blad = ss.getSheets()[0];
+
+    if (body.actie === 'lees') {
+      const data = blad.getRange('A1').getValue() || '{}';
+      return ContentService
+        .createTextOutput(data)
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    if (body.actie === 'schrijf') {
+      blad.getRange('A1').setValue(body.data);
+      const backup = ss.getSheetByName('Backup')
+                  || ss.insertSheet('Backup');
+      backup.appendRow([new Date(), body.data]);
+      return maakAntwoord('OK');
+    }
+
+    return maakAntwoord('Onbekende actie');
+
+  } catch(err) {
+    return maakAntwoord('Fout: ' + err.toString());
+  }
+}
+
+function doGet(e) {
+  return maakAntwoord('403 Forbidden');
+}
+
+function maakAntwoord(tekst) {
+  return ContentService.createTextOutput(tekst);
+}</pre>
+
+  <p>
+    <span class="badge-stap">C</span> Klik <strong>Implementeren → Nieuwe implementatie</strong>:<br>
+    • Type: <strong>Web-app</strong><br>
+    • Uitvoeren als: <strong>Ik (jouw Google account)</strong><br>
+    • Toegang: <strong>Iedereen</strong> (geen Google login nodig voor de app zelf — de token zorgt voor de beveiliging)<br>
+    → Klik <strong>Implementeren</strong> → kopieer de Web App URL (begint met <code>https://script.google.com/macros/s/...</code>)
+  </p>
+
+  <p>
+    <span class="badge-stap">D</span> Plak de URL hieronder. Het token staat al ingebakken in de code — je hoeft dat niet apart in te voeren als je de code hierboven ongewijzigd gebruikt.
+  </p>
+
+  <label>Google Sheets Web App URL</label>
+  <input type="text" id="inp-sheets-url" placeholder="https://script.google.com/macros/s/AKfyc.../exec">
+
+  <label style="margin-top:0.4rem;">Token (laat leeg als je de standaard token gebruikt)</label>
+  <input type="password" id="inp-sheets-token" placeholder="d-Vs_5afzPjCjSgppSCMAmGocAlMqj-UUa-L5QPKny4">
+
+  <div class="huidig" id="huidig-sheets"></div>
 </div>
 
 <!-- STAP 3: Gebruiker -->
@@ -107,38 +171,41 @@ input:focus{outline:none;border-color:var(--navy);}
   </div>
 </div>
 
-<button class="opslaan-btn" onclick="opslaan()">✅ Opslaan & testen</button>
+<button class="opslaan-btn" onclick="opslaan()">✅ Opslaan</button>
 <div class="status" id="status"></div>
 
 <!-- TEST -->
 <div class="test-sectie">
   <h3>🔧 Verbinding testen</h3>
-  <button class="test-btn" onclick="testGist()">📡 Test GitHub Gist verbinding</button>
-  <div id="test-gist-result"></div>
+  <button class="test-btn" onclick="testSheets()">📡 Test Google Sheets verbinding</button>
+  <div id="test-sheets-result"></div>
   <button class="test-btn" onclick="testImgBB()">🖼️ Test ImgBB (dummy upload)</button>
   <div id="test-imgbb-result"></div>
 </div>
 
 <script>
-// Huidige waarden tonen
+const DEFAULT_TOKEN = 'd-Vs_5afzPjCjSgppSCMAmGocAlMqj-XUa-L5QPKny4';
+
 function toonHuidige() {
-  const imgbb = localStorage.getItem('cfg_imgbb');
-  const gistId = localStorage.getItem('cfg_gist_id');
-  const token = localStorage.getItem('cfg_gist_token');
-  const user = localStorage.getItem('cfg_user') || 'Bert';
+  const imgbb     = localStorage.getItem('cfg_imgbb');
+  const sheetsUrl = localStorage.getItem('cfg_sheets_url');
+  const token     = localStorage.getItem('cfg_sheets_token');
+  const user      = localStorage.getItem('cfg_user') || 'Bert';
 
   const h1 = document.getElementById('huidig-imgbb');
   h1.innerHTML = imgbb
     ? `<strong>Huidig:</strong> ${imgbb.substring(0,8)}...${imgbb.substring(imgbb.length-4)}`
     : '<strong>Nog niet ingesteld</strong>';
 
-  const h2 = document.getElementById('huidig-gist');
-  h2.innerHTML = gistId
-    ? `<strong>Gist ID:</strong> ${gistId}<br><strong>Token:</strong> ${token ? token.substring(0,8)+'...' : 'niet ingesteld'}`
-    : '<strong>Nog niet ingesteld</strong>';
+  const h2 = document.getElementById('huidig-sheets');
+  if (sheetsUrl) {
+    const kort = sheetsUrl.length > 60 ? sheetsUrl.substring(0,50)+'...' : sheetsUrl;
+    h2.innerHTML = `<strong>URL:</strong> ${kort}<br><strong>Token:</strong> ${token ? '••••••••' : 'standaard (ingebakken)'}`;
+  } else {
+    h2.innerHTML = '<strong>Nog niet ingesteld</strong>';
+  }
 
-  // Gebruiker knop
-  document.getElementById('btn-bert').className = 'user-btn' + (user === 'Bert' ? ' active' : '');
+  document.getElementById('btn-bert').className  = 'user-btn' + (user === 'Bert'  ? ' active' : '');
   document.getElementById('btn-ellen').className = 'user-btn' + (user === 'Ellen' ? ' active' : '');
 }
 
@@ -148,59 +215,69 @@ function kiesUser(naam) {
 }
 
 function opslaan() {
-  const imgbb = document.getElementById('inp-imgbb').value.trim();
-  const token = document.getElementById('inp-token').value.trim();
-  const gist = document.getElementById('inp-gist').value.trim();
-  const status = document.getElementById('status');
+  const imgbb    = document.getElementById('inp-imgbb').value.trim();
+  const url      = document.getElementById('inp-sheets-url').value.trim();
+  const tokenInp = document.getElementById('inp-sheets-token').value.trim();
+  const status   = document.getElementById('status');
 
   if (imgbb) localStorage.setItem('cfg_imgbb', imgbb);
-  if (token) localStorage.setItem('cfg_gist_token', token);
-  if (gist) localStorage.setItem('cfg_gist_id', gist);
+  if (url)   localStorage.setItem('cfg_sheets_url', url);
 
-  // Inputs leegmaken (veiligheid)
-  document.getElementById('inp-imgbb').value = '';
-  document.getElementById('inp-token').value = '';
-  document.getElementById('inp-gist').value = '';
+  // Sla token op: ofwel wat ingevoerd is, ofwel de standaard
+  const tokenOpslaan = tokenInp || DEFAULT_TOKEN;
+  localStorage.setItem('cfg_sheets_token', tokenOpslaan);
+
+  // Inputs leegmaken
+  document.getElementById('inp-imgbb').value        = '';
+  document.getElementById('inp-sheets-url').value   = '';
+  document.getElementById('inp-sheets-token').value = '';
 
   status.textContent = '✅ Opgeslagen! Je kan nu de dagboekpagina\'s gebruiken.';
-  status.className = 'status ok';
+  status.className   = 'status ok';
   toonHuidige();
 }
 
-async function testGist() {
-  const el = document.getElementById('test-gist-result');
-  const id = localStorage.getItem('cfg_gist_id');
-  const token = localStorage.getItem('cfg_gist_token');
-  if (!id || !token) { el.innerHTML = '<div class="test-result test-err">❌ Gist ID of token niet ingesteld</div>'; return; }
-  el.innerHTML = '<div class="test-result" style="background:#EFF6FF;color:#1E3A8A">⏳ Testen...</div>';
+async function testSheets() {
+  const el    = document.getElementById('test-sheets-result');
+  const url   = localStorage.getItem('cfg_sheets_url');
+  const token = localStorage.getItem('cfg_sheets_token') || DEFAULT_TOKEN;
+
+  if (!url) {
+    el.innerHTML = '<div class="test-result test-err">❌ Sheets URL niet ingesteld</div>';
+    return;
+  }
+
+  el.innerHTML = '<div class="test-result" style="background:#EFF6FF;color:#1E3A8A">⏳ Verbinding testen...</div>';
+
   try {
-    const r = await fetch(`https://api.github.com/gists/${id}`, {
-      headers: { Authorization: `token ${token}` }
+    const r = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ token, actie: 'lees' })
     });
-    if (r.ok) {
-      const data = await r.json();
-      el.innerHTML = `<div class="test-result test-ok">✅ Verbinding OK — Gist: "${data.description || 'geen beschrijving'}"</div>`;
+    const tekst = await r.text();
+    if (tekst === '403 Forbidden') {
+      el.innerHTML = '<div class="test-result test-err">❌ Verkeerd token — controleer de Apps Script code</div>';
     } else {
-      el.innerHTML = `<div class="test-result test-err">❌ Fout ${r.status}: controleer je token en Gist ID</div>`;
+      JSON.parse(tekst); // gooit fout als geen geldige JSON
+      el.innerHTML = '<div class="test-result test-ok">✅ Verbinding OK — Google Sheets bereikbaar en token correct</div>';
     }
   } catch(e) {
-    el.innerHTML = `<div class="test-result test-err">❌ Netwerkfout: ${e.message}</div>`;
+    el.innerHTML = `<div class="test-result test-err">❌ Fout: ${e.message}</div>`;
   }
 }
 
 async function testImgBB() {
-  const el = document.getElementById('test-imgbb-result');
+  const el  = document.getElementById('test-imgbb-result');
   const key = localStorage.getItem('cfg_imgbb');
   if (!key) { el.innerHTML = '<div class="test-result test-err">❌ ImgBB key niet ingesteld</div>'; return; }
   el.innerHTML = '<div class="test-result" style="background:#EFF6FF;color:#1E3A8A">⏳ Test 1x1px upload...</div>';
   try {
-    // Upload een 1x1 pixel PNG als test
     const fd = new FormData();
     fd.append('image', 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==');
-    const r = await fetch(`https://api.imgbb.com/1/upload?key=${key}`, { method:'POST', body:fd });
+    const r    = await fetch(`https://api.imgbb.com/1/upload?key=${key}`, { method:'POST', body:fd });
     const data = await r.json();
     if (data.success) {
-      el.innerHTML = `<div class="test-result test-ok">✅ ImgBB OK — test URL: <a href="${data.data.url}" target="_blank">bekijk</a></div>`;
+      el.innerHTML = `<div class="test-result test-ok">✅ ImgBB OK — <a href="${data.data.url}" target="_blank">testfoto bekijken</a></div>`;
     } else {
       el.innerHTML = `<div class="test-result test-err">❌ ImgBB fout: ${JSON.stringify(data.error)}</div>`;
     }

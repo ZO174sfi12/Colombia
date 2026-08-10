@@ -1,9 +1,9 @@
 /**
- * Colombia Dagboek Module v2
+ * Colombia Dagboek Module v3
  *
  * ARCHITECTUUR:
  *   Foto's   → ImgBB API (gratis, permanent, upload vanuit browser)
- *   Data     → GitHub Gist (privé JSON, sync Bert & Ellen)
+ *   Data     → Google Sheets via Apps Script Web App
  *   Lokaal   → localStorage als offline buffer
  *
  * TWEE FUNCTIES:
@@ -18,8 +18,7 @@
  *
  * SETUP (eenmalig via setup.html):
  *   - ImgBB API key    → imgbb.com → API
- *   - GitHub Token     → github.com/settings/tokens → scope: gist
- *   - Gist ID          → gist.github.com → nieuw bestand colombia_reis.json inhoud: {}
+ *   - Sheets Web App URL + token → zie setup.html stap 2
  *
  * INTEGRATIE LOCATIEPAGINA (2 regels):
  *   <script src="dagboek.js"></script>
@@ -34,48 +33,50 @@ const Dagboek = (() => {
 
   // ─── CONFIG ────────────────────────────────────────────────────────────────
   const cfg = () => ({
-    imgbbKey:  localStorage.getItem('cfg_imgbb') || '',
-    gistId:    localStorage.getItem('cfg_gist_id') || '',
-    gistToken: localStorage.getItem('cfg_gist_token') || '',
-    user:      localStorage.getItem('cfg_user') || 'Bert',
+    imgbbKey:   localStorage.getItem('cfg_imgbb') || '',
+    sheetsUrl:  localStorage.getItem('cfg_sheets_url') || '',
+    sheetsToken:localStorage.getItem('cfg_sheets_token') || '',
+    user:       localStorage.getItem('cfg_user') || 'Bert',
   });
 
-  // ─── GIST LEZEN ────────────────────────────────────────────────────────────
-  // Gist is publiek: lezen via raw URL, geen token nodig
-  const PUBLIEKE_RAW_URL = 'https://gist.githubusercontent.com/ZO174sfi12/a16b9d5e6c73ff7e3921a8a413d44437/raw/colombia_reis.json';
-
-  async function gistLees() {
+  // ─── SHEETS LEZEN ──────────────────────────────────────────────────────────
+  // Opmerking: Apps Script Web Apps kunnen GEEN request headers lezen.
+  // Daarom: token zit altijd in de POST body — nooit in de URL.
+  async function sheetsLees() {
+    const { sheetsUrl, sheetsToken } = cfg();
+    if (!sheetsUrl || !sheetsToken) {
+      console.warn('Sheets niet geconfigureerd, gebruik lokale cache');
+      return lokaleLees();
+    }
     try {
-      const r = await fetch(PUBLIEKE_RAW_URL + '?t=' + Date.now());
+      const r = await fetch(sheetsUrl, {
+        method: 'POST',
+        body: JSON.stringify({ token: sheetsToken, actie: 'lees' })
+      });
       if (!r.ok) throw new Error('HTTP ' + r.status);
       const inhoud = await r.text();
+      if (inhoud === '403') throw new Error('Verkeerd token');
       localStorage.setItem('reis_data', inhoud);
       return JSON.parse(inhoud);
     } catch (e) {
-      console.warn('Gist lezen mislukt, gebruik lokale cache:', e);
+      console.warn('Sheets lezen mislukt, gebruik lokale cache:', e);
       return lokaleLees();
     }
   }
 
-  // ─── GIST SCHRIJVEN ────────────────────────────────────────────────────────
-  async function gistSchrijf(data) {
-    const { gistId, gistToken } = cfg();
+  // ─── SHEETS SCHRIJVEN ──────────────────────────────────────────────────────
+  async function sheetsSchrijf(data) {
+    const { sheetsUrl, sheetsToken } = cfg();
     const json = JSON.stringify(data, null, 2);
     localStorage.setItem('reis_data', json);
-    if (!gistId || !gistToken) return;
+    if (!sheetsUrl || !sheetsToken) return;
     try {
-      await fetch(`https://api.github.com/gists/${gistId}`, {
-        method: 'PATCH',
-        headers: {
-          Authorization: `token ${gistToken}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          files: { 'colombia_reis.json': { content: json } }
-        })
+      await fetch(sheetsUrl, {
+        method: 'POST',
+        body: JSON.stringify({ token: sheetsToken, actie: 'schrijf', data: json })
       });
     } catch (e) {
-      console.warn('Gist schrijven mislukt, alleen lokaal opgeslagen:', e);
+      console.warn('Sheets schrijven mislukt, alleen lokaal opgeslagen:', e);
     }
   }
 
@@ -138,7 +139,7 @@ const Dagboek = (() => {
     if (footer) document.body.insertBefore(container, footer);
     else document.body.appendChild(container);
 
-    const data = await gistLees();
+    const data = await sheetsLees();
     zekereLocatie(data, locatieId);
     renderEntries(locatieId, data);
     bindDagboekEvents(locatieId, data);
@@ -202,7 +203,6 @@ const Dagboek = (() => {
   }
 
   function bindDagboekEvents(locatieId, data) {
-    // Gebruikersknoppen
     const actieveUser = () => localStorage.getItem('cfg_user') || 'Bert';
     document.querySelectorAll('.db-user-btn').forEach(btn => {
       if (btn.dataset.user === actieveUser()) btn.classList.add('active');
@@ -213,7 +213,6 @@ const Dagboek = (() => {
       });
     });
 
-    // Foto preview
     let geselecteerdeFotos = [];
     const fotoInput = document.getElementById('db-foto-input');
     const preview = document.getElementById('db-foto-preview');
@@ -227,7 +226,6 @@ const Dagboek = (() => {
         </div>`).join('');
     });
 
-    // Opslaan
     document.getElementById('db-opslaan')?.addEventListener('click', async () => {
       const tekst = document.getElementById('db-tekst').value.trim();
       const status = document.getElementById('db-status');
@@ -255,7 +253,7 @@ const Dagboek = (() => {
           fotos: fotoUrls,
         });
 
-        await gistSchrijf(data);
+        await sheetsSchrijf(data);
 
         document.getElementById('db-tekst').value = '';
         fotoInput.value = '';
@@ -273,29 +271,19 @@ const Dagboek = (() => {
 
   // ═══════════════════════════════════════════════════════════════════════════
   // FUNCTIE 2: GERECHTEN RATINGS (voor culinair.html)
-  // Gebruik: Dagboek.renderGerechten(gerechten)
-  // gerechten = array van strings of {id, naam} objecten
-  // De functie voegt een rating-knop toe aan elk .db-gerecht-card element
   // ═══════════════════════════════════════════════════════════════════════════
   async function renderGerechten(gerechten) {
     injectCSS();
 
-    const data = await gistLees();
+    const data = await sheetsLees();
     zekereSleutel(data, 'gerechten');
 
-    // Voeg rating UI toe aan elke gerechtenkaart op de pagina
-    // Elke kaart moet data-gerecht="id" hebben, of we matchen op index
     gerechten.forEach((g, i) => {
       const id = g.id || `g_${i}`;
       const naam = g.naam || g;
 
-      // Zoek de kaart op naam of data-attribuut
       let kaart = document.querySelector(`[data-gerecht="${id}"]`);
-
-      if (!kaart) {
-        // Fallback: maak een standalone sectie aan als er geen kaart is
-        return;
-      }
+      if (!kaart) return;
 
       const s = data.gerechten[id] || {};
       const ratingHTML = `
@@ -320,14 +308,11 @@ const Dagboek = (() => {
       kaart.insertAdjacentHTML('beforeend', ratingHTML);
     });
 
-    // Events binden
     document.querySelectorAll('.db-rating-blok').forEach(blok => {
       const gid = blok.dataset.gerechtId;
-
       blok.querySelectorAll('.db-geprobeerd').forEach(chk => {
         chk.addEventListener('change', () => slaRatingOp(data, gid, blok));
       });
-
       blok.querySelectorAll('.db-ster').forEach(ster => {
         ster.addEventListener('click', function () {
           const sterrenBlok = this.closest('.db-sterren');
@@ -353,7 +338,7 @@ const Dagboek = (() => {
       };
     });
 
-    await gistSchrijf(data);
+    await sheetsSchrijf(data);
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -367,12 +352,10 @@ const Dagboek = (() => {
       .db-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 2rem; }
       .db-section { margin-bottom: 2rem; }
 
-      /* Gebruiker toggle */
       .db-gebruiker { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.8rem; font-size:0.83rem; color:var(--muted,#4A5E4D); flex-wrap:wrap; }
       .db-user-btn { border:1px solid var(--border,#E5E0D8); background:white; border-radius:20px; padding:0.3rem 0.9rem; font-size:0.8rem; cursor:pointer; transition:all 0.15s; }
       .db-user-btn.active { background:var(--navy,#1A4A2E); color:white; border-color:var(--navy,#1A4A2E); }
 
-      /* Invoer */
       .db-invoer { background:white; border:1px solid var(--border,#E5E0D8); border-radius:12px; padding:1rem; margin-bottom:1rem; }
       .db-invoer textarea { width:100%; border:1px solid var(--border,#E5E0D8); border-radius:8px; padding:0.7rem; font-size:0.85rem; font-family:inherit; resize:vertical; color:var(--text,#1C2A1E); background:var(--cream,#FAF8F4); }
       .db-invoer textarea:focus { outline:none; border-color:var(--navy,#1A4A2E); }
@@ -381,20 +364,17 @@ const Dagboek = (() => {
       .db-sla-op { background:var(--navy,#1A4A2E); color:white; border:none; border-radius:8px; padding:0.45rem 1.1rem; font-size:0.82rem; font-weight:700; cursor:pointer; margin-left:auto; }
       .db-sla-op:active { opacity:0.8; }
 
-      /* Foto preview */
       .db-foto-preview { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.6rem; }
       .db-prev-item { display:flex; flex-direction:column; align-items:center; gap:0.2rem; }
       .db-prev-img { width:64px; height:64px; object-fit:cover; border-radius:6px; border:1px solid var(--border,#E5E0D8); }
       .db-prev-naam { font-size:0.65rem; color:var(--muted,#4A5E4D); max-width:64px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
-      /* Status */
       .db-status { font-size:0.8rem; margin-top:0.5rem; padding:0.35rem 0.65rem; border-radius:6px; min-height:1.4rem; }
       .db-status-ok    { background:#DCFCE7; color:#14532D; }
       .db-status-warn  { background:#FEF3C7; color:#78350F; }
       .db-status-error { background:#FEE2E2; color:#7F1D1D; }
       .db-status-info  { background:#EFF6FF; color:#1E3A8A; }
 
-      /* Entries */
       .db-entries { display:flex; flex-direction:column; gap:0.8rem; }
       .db-leeg { font-size:0.83rem; color:var(--muted,#4A5E4D); font-style:italic; padding:0.4rem 0; }
       .db-entry { background:white; border:1px solid var(--border,#E5E0D8); border-radius:12px; padding:1rem; }
@@ -405,10 +385,8 @@ const Dagboek = (() => {
       .db-entry-fotos { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.7rem; }
       .db-thumb { width:84px; height:84px; object-fit:cover; border-radius:8px; border:1px solid var(--border,#E5E0D8); }
 
-      /* Sectietitel */
       .db-wrap .sec-title { font-size:0.9rem; font-weight:800; color:var(--navy,#1A4A2E); border-top:2px solid var(--border,#E5E0D8); padding-top:1rem; margin:1.5rem 0 0.8rem; text-transform:uppercase; letter-spacing:0.5px; }
 
-      /* Gerechten ratings */
       .db-rating-blok { display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.8rem; padding-top:0.8rem; border-top:1px solid var(--border,#E5E0D8); }
       .db-rating-user { display:flex; flex-direction:column; gap:0.3rem; flex:1; min-width:120px; }
       .db-rating-label { font-size:0.78rem; font-weight:700; color:var(--muted,#4A5E4D); }
@@ -422,8 +400,6 @@ const Dagboek = (() => {
     document.head.appendChild(s);
   }
 
-  // _gistLees en _gistSchrijf worden ook geëxporteerd
-  // zodat culinair.html ze direct kan gebruiken
-  return { render, renderGerechten, _gistLees: gistLees, _gistSchrijf: gistSchrijf };
+  return { render, renderGerechten, _sheetsLees: sheetsLees, _sheetsSchrijf: sheetsSchrijf };
 
 })();
