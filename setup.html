@@ -88,75 +88,18 @@ input:focus{outline:none;border-color:var(--navy);}
 <div class="stap">
   <h3><span class="stap-nr">2</span>Google Sheets — voor dagboekdata</h3>
 
-  <p><strong>Eénmalig door Bert in te stellen (alleen via PC/laptop):</strong></p>
+  <p>✅ <strong>Al klaar!</strong> De koppeling met Google Sheets staat al ingesteld. Druk gewoon op "Opslaan" hieronder — geen verdere stappen nodig.</p>
 
-  <p>
-    <span class="badge-stap">A</span> Ga naar <a href="https://sheets.google.com" target="_blank">sheets.google.com</a> → maak een nieuw spreadsheet aan → noem het <strong>Colombia Dagboek</strong>.<br>
-    Hernoem het eerste tabblad naar <strong>Data</strong>.
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:0.3rem;">
+    Spreadsheet: <strong>Colombia Dagboek</strong> (google.com/spreadsheets)<br>
+    Token: ingebakken · URL: ingebakken
   </p>
 
-  <p>
-    <span class="badge-stap">B</span> In het spreadsheet: <strong>Uitbreidingen → Apps Script</strong> → verwijder alle bestaande code → plak dit:
-  </p>
+  <label style="margin-top:0.5rem;display:none;">Google Sheets Web App URL</label>
+  <input type="text" id="inp-sheets-url" style="display:none">
 
-  <pre>const SECRET = 'd-Vs_5afzPjCjSgppSCMAmGocAlMqj-XUa-L5QPKny4';
-
-function doPost(e) {
-  try {
-    const body = JSON.parse(e.postData.contents);
-    if (body.token !== SECRET)
-      return maakAntwoord('403 Forbidden');
-
-    const ss  = SpreadsheetApp.getActiveSpreadsheet();
-    const blad = ss.getSheets()[0];
-
-    if (body.actie === 'lees') {
-      const data = blad.getRange('A1').getValue() || '{}';
-      return ContentService
-        .createTextOutput(data)
-        .setMimeType(ContentService.MimeType.JSON);
-    }
-
-    if (body.actie === 'schrijf') {
-      blad.getRange('A1').setValue(body.data);
-      const backup = ss.getSheetByName('Backup')
-                  || ss.insertSheet('Backup');
-      backup.appendRow([new Date(), body.data]);
-      return maakAntwoord('OK');
-    }
-
-    return maakAntwoord('Onbekende actie');
-
-  } catch(err) {
-    return maakAntwoord('Fout: ' + err.toString());
-  }
-}
-
-function doGet(e) {
-  return maakAntwoord('403 Forbidden');
-}
-
-function maakAntwoord(tekst) {
-  return ContentService.createTextOutput(tekst);
-}</pre>
-
-  <p>
-    <span class="badge-stap">C</span> Klik <strong>Implementeren → Nieuwe implementatie</strong>:<br>
-    • Type: <strong>Web-app</strong><br>
-    • Uitvoeren als: <strong>Ik (jouw Google account)</strong><br>
-    • Toegang: <strong>Iedereen</strong> (geen Google login nodig voor de app zelf — de token zorgt voor de beveiliging)<br>
-    → Klik <strong>Implementeren</strong> → kopieer de Web App URL (begint met <code>https://script.google.com/macros/s/...</code>)
-  </p>
-
-  <p>
-    <span class="badge-stap">D</span> Plak de URL hieronder. Het token staat al ingebakken in de code — je hoeft dat niet apart in te voeren als je de code hierboven ongewijzigd gebruikt.
-  </p>
-
-  <label>Google Sheets Web App URL</label>
-  <input type="text" id="inp-sheets-url" placeholder="https://script.google.com/macros/s/AKfyc.../exec">
-
-  <label style="margin-top:0.4rem;">Token (laat leeg als je de standaard token gebruikt)</label>
-  <input type="password" id="inp-sheets-token" placeholder="d-Vs_5afzPjCjSgppSCMAmGocAlMqj-UUa-L5QPKny4">
+  <label style="margin-top:0.4rem;display:none;">Token</label>
+  <input type="password" id="inp-sheets-token" style="display:none">
 
   <div class="huidig" id="huidig-sheets"></div>
 </div>
@@ -184,7 +127,8 @@ function maakAntwoord(tekst) {
 </div>
 
 <script>
-const DEFAULT_TOKEN = 'd-Vs_5afzPjCjSgppSCMAmGocAlMqj-XUa-L5QPKny4';
+const DEFAULT_TOKEN     = 'd-Vs_5afzPjCjSgppSCMAmGocAlMqj-XUa-L5QPKny4';
+const DEFAULT_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwXFju7-qe4FIdB6LTTCosacBqxi-r2-dThPAyatCsneaGCnWlSxL5C7C17Fp_7iBUaag/exec';
 
 function toonHuidige() {
   const imgbb     = localStorage.getItem('cfg_imgbb');
@@ -221,10 +165,11 @@ function opslaan() {
   const status   = document.getElementById('status');
 
   if (imgbb) localStorage.setItem('cfg_imgbb', imgbb);
-  if (url)   localStorage.setItem('cfg_sheets_url', url);
 
-  // Sla token op: ofwel wat ingevoerd is, ofwel de standaard
+  // Sla URL op: ofwel wat ingevoerd is, ofwel de standaard
+  const urlOpslaan   = url   || DEFAULT_SHEETS_URL;
   const tokenOpslaan = tokenInp || DEFAULT_TOKEN;
+  localStorage.setItem('cfg_sheets_url',   urlOpslaan);
   localStorage.setItem('cfg_sheets_token', tokenOpslaan);
 
   // Inputs leegmaken

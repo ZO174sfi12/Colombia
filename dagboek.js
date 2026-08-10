@@ -32,10 +32,13 @@
 const Dagboek = (() => {
 
   // ─── CONFIG ────────────────────────────────────────────────────────────────
+  const DEFAULT_SHEETS_URL   = 'https://script.google.com/macros/s/AKfycbwXFju7-qe4FIdB6LTTCosacBqxi-r2-dThPAyatCsneaGCnWlSxL5C7C17Fp_7iBUaag/exec';
+  const DEFAULT_SHEETS_TOKEN = 'd-Vs_5afzPjCjSgppSCMAmGocAlMqj-XUa-L5QPKny4';
+
   const cfg = () => ({
     imgbbKey:   localStorage.getItem('cfg_imgbb') || '',
-    sheetsUrl:  localStorage.getItem('cfg_sheets_url') || '',
-    sheetsToken:localStorage.getItem('cfg_sheets_token') || '',
+    sheetsUrl:  localStorage.getItem('cfg_sheets_url')   || DEFAULT_SHEETS_URL,
+    sheetsToken:localStorage.getItem('cfg_sheets_token') || DEFAULT_SHEETS_TOKEN,
     user:       localStorage.getItem('cfg_user') || 'Bert',
   });
 
