@@ -1,32 +1,20 @@
 /**
- * Colombia Dagboek Module v3
+ * Colombia Dagboek Module v4
  *
  * ARCHITECTUUR:
  *   Foto's   → ImgBB API (gratis, permanent, upload vanuit browser)
  *   Data     → Google Sheets via Apps Script Web App
- *   Lokaal   → localStorage als offline buffer
+ *                 Tab "Data":      id | locatie | user | datum | tekst | fotos
+ *                 Tab "Gerechten": gerecht_id | user | geprobeerd | rating
+ *   Lokaal   → localStorage als offline buffer / fallback
  *
  * TWEE FUNCTIES:
  *
  *   1. Dagboek.render(locatieId, locatieNaam)
  *      → Gebruik in elke locatiepagina (bogota.html, salento.html, ...)
- *      → Voegt dagboek toe: tekst + foto's per entry, per persoon
  *
  *   2. Dagboek.renderGerechten(gerechten)
  *      → Gebruik in culinair.html
- *      → Voegt ratings toe (geprobeerd + sterren) per gerecht, voor Bert & Ellen apart
- *
- * SETUP (eenmalig via setup.html):
- *   - ImgBB API key    → imgbb.com → API
- *   - Sheets Web App URL + token → zie setup.html stap 2
- *
- * INTEGRATIE LOCATIEPAGINA (2 regels):
- *   <script src="dagboek.js"></script>
- *   <script>Dagboek.render('bogota', 'Bogotá');</script>
- *
- * INTEGRATIE CULINAIR.HTML:
- *   <script src="dagboek.js"></script>
- *   <script>Dagboek.renderGerechten(GERECHTEN_ARRAY);</script>
  */
 
 const Dagboek = (() => {
@@ -36,21 +24,16 @@ const Dagboek = (() => {
   const DEFAULT_SHEETS_TOKEN = 'd-Vs_5afzPjCjSgppSCMAmGocAlMqj-XUa-L5QPKny4';
 
   const cfg = () => ({
-    imgbbKey:   localStorage.getItem('cfg_imgbb') || '',
-    sheetsUrl:  localStorage.getItem('cfg_sheets_url')   || DEFAULT_SHEETS_URL,
-    sheetsToken:localStorage.getItem('cfg_sheets_token') || DEFAULT_SHEETS_TOKEN,
-    user:       localStorage.getItem('cfg_user') || 'Bert',
+    imgbbKey:    localStorage.getItem('cfg_imgbb') || '',
+    sheetsUrl:   localStorage.getItem('cfg_sheets_url')   || DEFAULT_SHEETS_URL,
+    sheetsToken: localStorage.getItem('cfg_sheets_token') || DEFAULT_SHEETS_TOKEN,
+    user:        localStorage.getItem('cfg_user') || 'Bert',
   });
 
   // ─── SHEETS LEZEN ──────────────────────────────────────────────────────────
-  // Opmerking: Apps Script Web Apps kunnen GEEN request headers lezen.
-  // Daarom: token zit altijd in de POST body — nooit in de URL.
   async function sheetsLees() {
     const { sheetsUrl, sheetsToken } = cfg();
-    if (!sheetsUrl || !sheetsToken) {
-      console.warn('Sheets niet geconfigureerd, gebruik lokale cache');
-      return lokaleLees();
-    }
+    if (!sheetsUrl || !sheetsToken) return lokaleLees();
     try {
       const r = await fetch(sheetsUrl, {
         method: 'POST',
@@ -58,28 +41,42 @@ const Dagboek = (() => {
       });
       if (!r.ok) throw new Error('HTTP ' + r.status);
       const inhoud = await r.text();
-      if (inhoud === '403') throw new Error('Verkeerd token');
+      if (inhoud === '403 Forbidden') throw new Error('Verkeerd token');
+      const data = JSON.parse(inhoud);
       localStorage.setItem('reis_data', inhoud);
-      return JSON.parse(inhoud);
+      return data;
     } catch (e) {
       console.warn('Sheets lezen mislukt, gebruik lokale cache:', e);
       return lokaleLees();
     }
   }
 
-  // ─── SHEETS SCHRIJVEN ──────────────────────────────────────────────────────
-  // Gooit een Error als Sheets niet bereikbaar of token verkeerd is.
-  async function sheetsSchrijf(data) {
+  // ─── ENTRY TOEVOEGEN ───────────────────────────────────────────────────────
+  // Voegt één rij toe aan de "Data" tab. Gooit Error bij mislukking.
+  async function sheetsVoegEntryToe(locatieId, entry) {
     const { sheetsUrl, sheetsToken } = cfg();
-    const json = JSON.stringify(data, null, 2);
-    localStorage.setItem('reis_data', json);
-    if (!sheetsUrl || !sheetsToken) throw new Error('Google Sheets niet geconfigureerd — ga naar setup.html');
+    if (!sheetsUrl || !sheetsToken) throw new Error('Google Sheets niet geconfigureerd');
     const r = await fetch(sheetsUrl, {
       method: 'POST',
-      body: JSON.stringify({ token: sheetsToken, actie: 'schrijf', data: json })
+      body: JSON.stringify({ token: sheetsToken, actie: 'schrijf-entry', locatie: locatieId, entry })
     });
     const antwoord = await r.text();
     if (antwoord !== 'OK') throw new Error('Sheets fout: ' + antwoord);
+  }
+
+  // ─── RATING OPSLAAN ────────────────────────────────────────────────────────
+  // Update of voegt toe in de "Gerechten" tab.
+  async function sheetsSchrijfRating(gid, user, geprobeerd, rating) {
+    const { sheetsUrl, sheetsToken } = cfg();
+    if (!sheetsUrl || !sheetsToken) return; // ratings zijn niet kritisch
+    try {
+      await fetch(sheetsUrl, {
+        method: 'POST',
+        body: JSON.stringify({ token: sheetsToken, actie: 'schrijf-rating', gid, user, geprobeerd, rating })
+      });
+    } catch (e) {
+      console.warn('Rating opslaan mislukt:', e);
+    }
   }
 
   function lokaleLees() {
@@ -102,11 +99,6 @@ const Dagboek = (() => {
   }
 
   // ─── HELPERS ───────────────────────────────────────────────────────────────
-  function zekereSleutel(data, sleutel) {
-    if (!data[sleutel]) data[sleutel] = {};
-    return data;
-  }
-
   function zekereLocatie(data, locatieId) {
     if (!data[locatieId]) data[locatieId] = {};
     if (!data[locatieId].entries) data[locatieId].entries = [];
@@ -128,7 +120,6 @@ const Dagboek = (() => {
 
   // ═══════════════════════════════════════════════════════════════════════════
   // FUNCTIE 1: DAGBOEK PER LOCATIE
-  // Gebruik: Dagboek.render('bogota', 'Bogotá');
   // ═══════════════════════════════════════════════════════════════════════════
   async function render(locatieId, locatieNaam) {
     injectCSS();
@@ -217,7 +208,7 @@ const Dagboek = (() => {
 
     let geselecteerdeFotos = [];
     const fotoInput = document.getElementById('db-foto-input');
-    const preview = document.getElementById('db-foto-preview');
+    const preview   = document.getElementById('db-foto-preview');
 
     fotoInput?.addEventListener('change', () => {
       geselecteerdeFotos = Array.from(fotoInput.files);
@@ -229,7 +220,7 @@ const Dagboek = (() => {
     });
 
     document.getElementById('db-opslaan')?.addEventListener('click', async () => {
-      const tekst = document.getElementById('db-tekst').value.trim();
+      const tekst  = document.getElementById('db-tekst').value.trim();
       const status = document.getElementById('db-status');
 
       if (!tekst && !geselecteerdeFotos.length) {
@@ -246,17 +237,16 @@ const Dagboek = (() => {
           fotoUrls.push(await fotoUploaden(geselecteerdeFotos[i]));
         }
 
-        zekereLocatie(data, locatieId);
-        data[locatieId].entries.push({
-          id: Date.now(),
+        const entry = {
+          id:    Date.now(),
           datum: new Date().toISOString(),
-          user: actieveUser(),
+          user:  actieveUser(),
           tekst,
           fotos: fotoUrls,
-        });
+        };
 
         toonStatus(status, '⏳ Opslaan naar Google Sheets...', 'info');
-        await sheetsSchrijf(data);
+        await sheetsVoegEntryToe(locatieId, entry);
 
         // Reset invoer
         document.getElementById('db-tekst').value = '';
@@ -264,18 +254,16 @@ const Dagboek = (() => {
         geselecteerdeFotos = [];
         preview.innerHTML = '';
 
-        // Herlaad entries vanuit Sheets (bevestiging dat het er staat)
+        // Herlaad vanuit Sheets (bevestiging)
         toonStatus(status, '⏳ Controleren...', 'info');
         const vernieuwd = await sheetsLees();
         renderEntries(locatieId, vernieuwd);
-        // data object bijwerken zodat volgende saves correct zijn
         Object.assign(data, vernieuwd);
 
         toonStatus(status, '✅ Opgeslagen in Google Sheets!', 'ok');
         setTimeout(() => { if (status) status.textContent = ''; }, 4000);
 
       } catch (e) {
-        // Lokaal al opgeslagen, maar Sheets mislukt → duidelijke waarschuwing
         toonStatus(status, `⚠️ Lokaal opgeslagen, maar Sheets mislukt: ${e.message}`, 'warn');
       }
     });
@@ -288,12 +276,10 @@ const Dagboek = (() => {
     injectCSS();
 
     const data = await sheetsLees();
-    zekereSleutel(data, 'gerechten');
+    if (!data.gerechten) data.gerechten = {};
 
     gerechten.forEach((g, i) => {
-      const id = g.id || `g_${i}`;
-      const naam = g.naam || g;
-
+      const id   = g.id || `g_${i}`;
       let kaart = document.querySelector(`[data-gerecht="${id}"]`);
       if (!kaart) return;
 
@@ -322,8 +308,9 @@ const Dagboek = (() => {
 
     document.querySelectorAll('.db-rating-blok').forEach(blok => {
       const gid = blok.dataset.gerechtId;
+
       blok.querySelectorAll('.db-geprobeerd').forEach(chk => {
-        chk.addEventListener('change', () => slaRatingOp(data, gid, blok));
+        chk.addEventListener('change', () => slaRatingOp(gid, blok));
       });
       blok.querySelectorAll('.db-ster').forEach(ster => {
         ster.addEventListener('click', function () {
@@ -331,26 +318,28 @@ const Dagboek = (() => {
           const r = +this.dataset.r;
           sterrenBlok.querySelectorAll('.db-ster')
             .forEach((s, i) => s.classList.toggle('aan', i < r));
-          slaRatingOp(data, gid, blok);
+          slaRatingOp(gid, blok);
         });
       });
     });
   }
 
-  async function slaRatingOp(data, gid, blok) {
-    zekereSleutel(data, 'gerechten');
-    if (!data.gerechten[gid]) data.gerechten[gid] = {};
-
-    ['Bert', 'Ellen'].forEach(u => {
-      const chk = blok.querySelector(`.db-geprobeerd[data-user="${u}"]`);
+  async function slaRatingOp(gid, blok) {
+    for (const u of ['Bert', 'Ellen']) {
+      const chk    = blok.querySelector(`.db-geprobeerd[data-user="${u}"]`);
       const sterren = blok.querySelectorAll(`.db-sterren[data-user="${u}"] .db-ster.aan`);
-      data.gerechten[gid][u] = {
-        geprobeerd: chk?.checked || false,
-        rating: sterren.length
-      };
-    });
-
-    await sheetsSchrijf(data);
+      await sheetsSchrijfRating(gid, u, chk?.checked || false, sterren.length);
+    }
+    // Update locale cache
+    const data = lokaleLees();
+    if (!data.gerechten) data.gerechten = {};
+    if (!data.gerechten[gid]) data.gerechten[gid] = {};
+    for (const u of ['Bert', 'Ellen']) {
+      const chk    = blok.querySelector(`.db-geprobeerd[data-user="${u}"]`);
+      const sterren = blok.querySelectorAll(`.db-sterren[data-user="${u}"] .db-ster.aan`);
+      data.gerechten[gid][u] = { geprobeerd: chk?.checked || false, rating: sterren.length };
+    }
+    localStorage.setItem('reis_data', JSON.stringify(data));
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -412,6 +401,6 @@ const Dagboek = (() => {
     document.head.appendChild(s);
   }
 
-  return { render, renderGerechten, _sheetsLees: sheetsLees, _sheetsSchrijf: sheetsSchrijf };
+  return { render, renderGerechten, _sheetsLees: sheetsLees, _sheetsVoegEntryToe: sheetsVoegEntryToe };
 
 })();
