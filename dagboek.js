@@ -68,19 +68,18 @@ const Dagboek = (() => {
   }
 
   // ─── SHEETS SCHRIJVEN ──────────────────────────────────────────────────────
+  // Gooit een Error als Sheets niet bereikbaar of token verkeerd is.
   async function sheetsSchrijf(data) {
     const { sheetsUrl, sheetsToken } = cfg();
     const json = JSON.stringify(data, null, 2);
     localStorage.setItem('reis_data', json);
-    if (!sheetsUrl || !sheetsToken) return;
-    try {
-      await fetch(sheetsUrl, {
-        method: 'POST',
-        body: JSON.stringify({ token: sheetsToken, actie: 'schrijf', data: json })
-      });
-    } catch (e) {
-      console.warn('Sheets schrijven mislukt, alleen lokaal opgeslagen:', e);
-    }
+    if (!sheetsUrl || !sheetsToken) throw new Error('Google Sheets niet geconfigureerd — ga naar setup.html');
+    const r = await fetch(sheetsUrl, {
+      method: 'POST',
+      body: JSON.stringify({ token: sheetsToken, actie: 'schrijf', data: json })
+    });
+    const antwoord = await r.text();
+    if (antwoord !== 'OK') throw new Error('Sheets fout: ' + antwoord);
   }
 
   function lokaleLees() {
@@ -256,18 +255,28 @@ const Dagboek = (() => {
           fotos: fotoUrls,
         });
 
+        toonStatus(status, '⏳ Opslaan naar Google Sheets...', 'info');
         await sheetsSchrijf(data);
 
+        // Reset invoer
         document.getElementById('db-tekst').value = '';
         fotoInput.value = '';
         geselecteerdeFotos = [];
         preview.innerHTML = '';
-        renderEntries(locatieId, data);
-        toonStatus(status, '✅ Opgeslagen!', 'ok');
-        setTimeout(() => { if (status) status.textContent = ''; }, 3000);
+
+        // Herlaad entries vanuit Sheets (bevestiging dat het er staat)
+        toonStatus(status, '⏳ Controleren...', 'info');
+        const vernieuwd = await sheetsLees();
+        renderEntries(locatieId, vernieuwd);
+        // data object bijwerken zodat volgende saves correct zijn
+        Object.assign(data, vernieuwd);
+
+        toonStatus(status, '✅ Opgeslagen in Google Sheets!', 'ok');
+        setTimeout(() => { if (status) status.textContent = ''; }, 4000);
 
       } catch (e) {
-        toonStatus(status, `❌ ${e.message}`, 'error');
+        // Lokaal al opgeslagen, maar Sheets mislukt → duidelijke waarschuwing
+        toonStatus(status, `⚠️ Lokaal opgeslagen, maar Sheets mislukt: ${e.message}`, 'warn');
       }
     });
   }
