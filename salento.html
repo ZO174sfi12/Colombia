@@ -80,6 +80,17 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .nav-btn.next{color:white;}
 </style>
 <link rel="stylesheet" href="site.css">
+<style>
+.culi-cta{max-width:860px;margin:0 auto 1.4rem;padding:0 1rem;}
+.culi-box{border:1px solid #E5E0D8;border-radius:12px;padding:1rem 1.2rem;background:#fff;}
+.culi-title{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#4A5E4D;margin-bottom:0.5rem;}
+.culi-top{display:flex;flex-direction:column;gap:0.35rem;font-size:0.83rem;margin-bottom:0.7rem;}
+.culi-top a{color:#1A4A2E;text-decoration:none;}
+.culi-top a:hover{text-decoration:underline;}
+.culi-btn{display:inline-flex;align-items:center;gap:0.45rem;background:#1A4A2E;color:#fff;padding:0.55rem 1rem;border-radius:9px;font-size:0.83rem;font-weight:700;text-decoration:none;}
+.culi-btn:hover{opacity:0.9;}
+.culi-counts{font-size:0.72rem;color:#4A5E4D;margin-top:0.55rem;}
+</style>
 </head>
 <body>
 <div class="topbar">
@@ -330,7 +341,19 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div style="background:#FEF3C7;border:1px solid #FDE68A;border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.83rem;color:#78350F;">
     🏨 <strong>Hotel:</strong> Casa Salento · Centraal plein op loopafstand · €191 voor 3 nachten (incl. ontbijt)
   </div>
-</div><div class="nav-buttons">
+</div><div class="culi-cta">
+  <div class="culi-box">
+    <div class="culi-title">🍽️ Eten &amp; drinken in Salento</div>
+    <div class="culi-top">
+      <a href="https://www.google.com/maps/search/?api=1&query=El+Rinc%C3%B3n+de+Lucy+Cra+6+%234-02+Salento+Colombia" target="_blank" rel="noopener">🍽️ <strong>El Rincón de Lucy</strong> — Menú del día</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Jes%C3%BAs+Mart%C3%ADn+Cra+6+%236-14+Salento+Colombia" target="_blank" rel="noopener">☕ <strong>Jesús Martín</strong> — Single-origin filterkoffie</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Donde+Mi+Ap%C3%A1+Cra+6+%235-24+Salento+Colombia" target="_blank" rel="noopener">🍺 <strong>Donde Mi Apá</strong> — De meest sfeervolle kroeg van het dorp, pal aan het hoofdplein en volgestouwd </a>
+    </div>
+    <a class="culi-btn" href="culinair.html#loc=salento">Alle 8 adressen in Salento →</a>
+    <div class="culi-counts">🍽️ 5 restaurants · ☕ 2 koffie · 🍺 1 bier</div>
+  </div>
+</div>
+<div class="nav-buttons">
   <span></span>
   <a href="medellin.html" class="nav-btn next" style="background:#78350F;">Volgende: 🌆 Medellín →</a>
 </div>

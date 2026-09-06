@@ -160,6 +160,32 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 .brewery-footer{margin-top:0.75rem;padding-top:0.65rem;border-top:1px solid var(--border);font-size:0.72rem;color:var(--muted);}
 .brewery-scene-note{background:#F9FAFB;border:1px solid var(--border);border-radius:10px;padding:0.8rem 1rem;font-size:0.78rem;color:var(--muted);line-height:1.6;}
 .brewery-scene-note strong{color:var(--text);}
+
+/* ── HORECA PER LOCATIE ── */
+.horeca-wrap{margin-top:2.5rem;}
+.loc-filter{display:flex;flex-wrap:wrap;gap:0.4rem;margin:0 0 1.4rem;}
+.loc-filter .pill{font-size:0.75rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:20px;border:2px solid var(--border);background:white;color:var(--muted);cursor:pointer;font-family:inherit;transition:all 0.12s;}
+.loc-filter .pill.active{background:var(--navy,#1A4A2E);color:white;border-color:var(--navy,#1A4A2E);}
+.loc-filter .pill:hover:not(.active){background:#F5F2EE;color:var(--text);}
+.loc-block{margin-bottom:2rem;}
+.loc-block.hidden{display:none;}
+.loc-head{display:flex;align-items:baseline;justify-content:space-between;gap:0.8rem;padding-bottom:0.4rem;border-bottom:2px solid var(--border);margin-bottom:0.9rem;}
+.loc-head h3{font-size:1.05rem;font-weight:700;font-family:'Playfair Display',serif;}
+.loc-count{font-size:0.72rem;color:var(--muted);white-space:nowrap;}
+.hor-cat{display:flex;align-items:center;gap:0.45rem;font-size:0.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin:1.1rem 0 0.55rem;}
+.hor-cat-n{background:var(--border);color:var(--muted);border-radius:20px;padding:0.05rem 0.42rem;font-size:0.68rem;letter-spacing:0;}
+.hor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:0.65rem;}
+.hor-card{display:block;background:white;border:1px solid var(--border);border-radius:11px;padding:0.7rem 0.85rem 0.75rem;text-decoration:none;color:var(--text);transition:transform 0.13s,box-shadow 0.13s,border-color 0.13s;}
+.hor-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,0.11);border-color:#86EFAC;}
+.hor-name{font-size:0.88rem;font-weight:700;font-family:'Playfair Display',serif;line-height:1.25;display:flex;align-items:baseline;justify-content:space-between;gap:0.4rem;}
+.hor-go{font-size:0.7rem;color:var(--muted);opacity:0;transition:opacity 0.15s;}
+.hor-card:hover .hor-go{opacity:1;}
+.hor-info{font-size:0.745rem;line-height:1.55;color:var(--muted);margin-top:0.28rem;}
+.hor-tip{font-size:0.73rem;line-height:1.45;color:#14532D;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:7px;padding:0.28rem 0.5rem;margin-top:0.42rem;}
+.hor-meta{display:flex;gap:0.3rem;flex-wrap:wrap;margin-top:0.45rem;}
+.hor-chip{font-size:0.66rem;padding:0.13rem 0.44rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);color:var(--muted);}
+.hor-chip.price{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;font-weight:700;}
+.hor-chip.adr{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
@@ -1035,6 +1061,886 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
 </div><!-- /beer-section -->
 
+
+<!-- ══════════════ HORECA PER LOCATIE (Lonely Planet + Rough Guide) -->
+<div class="horeca-wrap" id="horeca">
+<div class="cat-header"><h2>📍 Adressen per locatie</h2><span class="cat-sub">Waar je het eet — uit Lonely Planet en de Rough Guide</span></div>
+<div class="cat-line"></div>
+<div class="loc-filter" id="horecaFilter">
+  <button class="pill active" data-loc="all">Alle locaties</button>
+  <button class="pill" data-loc="bogota">🏙️ Bogotá</button>
+  <button class="pill" data-loc="zipaquira">⛪ Zipaquirá</button>
+  <button class="pill" data-loc="salento">☕ Salento</button>
+  <button class="pill" data-loc="medellin">🌆 Medellín</button>
+  <button class="pill" data-loc="guatape">🪨 Guatapé</button>
+  <button class="pill" data-loc="cartagena">🌊 Cartagena</button>
+  <button class="pill" data-loc="minca">🌿 Minca</button>
+  <button class="pill" data-loc="tayrona">🌴 Tayrona</button>
+  <button class="pill" data-loc="palomino">🏖️ Palomino</button>
+</div>
+
+<div class="loc-block" data-loc="bogota">
+  <div class="loc-head"><h3>🏙️ Bogotá</h3><span class="loc-count">44 adressen</span></div>
+  <div class="hor-cat">🍽️ Restaurants<span class="hor-cat-n">30</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Puerta+Falsa+C+11+%236-50+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Puerta Falsa<span class="hor-go">↗</span></div>
+      <div class="hor-info">Sinds 1816 — de oudste en kleinste eetplek van de stad. Beroemd om de chocolate completo: warme chocolademelk met brood, almojábana en Colombiaanse kaas.</div>
+      <div class="hor-tip">👉 Chocolate completo · tamales</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 11 #6-50</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Prudencia+La+Candelaria+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Prudencia<span class="hor-go">↗</span></div>
+      <div class="hor-info">Indrukwekkende setting voor een wisselende viergangenlunch met lokale ingrediënten, bereid op houtvuur.</div>
+      <div class="hor-tip">👉 Viergangenlunch</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 La Candelaria</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Sant+Just+La+Candelaria+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Sant Just<span class="hor-go">↗</span></div>
+      <div class="hor-info">Café-bistro met een roterende kaart: Colombiaans-Franse gerechten met lam, zeevruchten en Andesgroenten.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 La Candelaria</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Gato+Gris+La+Candelaria+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Gato Gris<span class="hor-go">↗</span></div>
+      <div class="hor-info">Labyrintisch restaurant vol donkere, knusse hoekjes waar Colombiaanse klassiekers en Italiaanse keuken samenkomen. Live Latin muziek.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 La Candelaria</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=De+Una+Travel+La+Candelaria+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">De Una Travel<span class="hor-go">↗</span></div>
+      <div class="hor-info">Klein pand met terrastafels. Brunch, Zuid-Amerikaanse hoofdgerechten, stevige taarten en koffie.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 La Candelaria</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Trattoria+Nuraghe+C+12B+%236-58+boven+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Trattoria Nuraghe<span class="hor-go">↗</span></div>
+      <div class="hor-info">De beste pasta van de stad volgens de Rough Guide — echte Italiaanse bereiding.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 12B #6-58 (boven)</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Kutral+C+17+%232-60+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Kutral<span class="hor-go">↗</span></div>
+      <div class="hor-info">Argentijnse chef, dus sla de salades over en ga voor het vlees. Stevige Argentijnse rode wijn erbij.</div>
+      <div class="hor-tip">👉 Baby beef of striploin met knoflookchampignons</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 17 #2-60</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Paella+C+11+%235-13+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Paella<span class="hor-go">↗</span></div>
+      <div class="hor-info">Spaans restaurant met drie paellas: Valenciaanse, alleen zeevruchten, of de huispaella met zeevruchten en chorizo. Ook sangría.</div>
+      <div class="hor-tip">👉 Huispaella</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 11 #5-13</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Rosita+C+12B+bis+%231A-26+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Rosita<span class="hor-go">↗</span></div>
+      <div class="hor-info">Een van de weinige restaurants in La Candelaria die zeven dagen per week laat open zijn. Drie verdiepingen met zicht op Chorro de Quevedo, live muziek boven.</div>
+      <div class="hor-tip">👉 Ajiaco santandereño</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 12B bis #1A-26</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Quinua+y+Amaranto+C+11+%232-95+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Quinua y Amaranto<span class="hor-go">↗</span></div>
+      <div class="hor-info">Piepklein, open keuken, heerlijke vegetarische dagmenus, grotendeels biologisch. Wisselt dagelijks.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 11 #2-95</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Bulevar+S%C3%A9samo+C+13+%234-64+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Bulevar Sésamo<span class="hor-go">↗</span></div>
+      <div class="hor-info">Heldere, drukke vegetarische kantine met een menú ejecutivo van uitstekende prijs-kwaliteit (12–16u). Kom vroeg, het raakt op.</div>
+      <div class="hor-tip">👉 Menú ejecutivo</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 13 #4-64</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=ReverdeSer+C+17+%232-46+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">ReverdeSer<span class="hor-go">↗</span></div>
+      <div class="hor-info">Volkoren, biologisch vegetarisch. Veggieburger in volkorenbroodje is de klassieker; ook brood en gebak om mee te nemen.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 17 #2-46</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Hibiscus+Restaurant+C+12D+bis+%232-21+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Hibiscus Restaurant<span class="hor-go">↗</span></div>
+      <div class="hor-info">Prima plek voor een goedkoop ontbijt, lunch of diner. Niets bijzonders maar degelijk en vullend, met vaste menus.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 12D bis #2-21</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Enchiladas+C+10+%232-12+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Enchiladas<span class="hor-go">↗</span></div>
+      <div class="hor-info">Kleurrijke Mexicaan met zwart-wit filmstills aan de muur. Huisgemaakte salsas met pit.</div>
+      <div class="hor-tip">👉 Pollo en mole poblano</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 10 #2-12</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Crepes+Waffles+C+13+%234-55+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Crepes &amp; Waffles<span class="hor-go">↗</span></div>
+      <div class="hor-info">Enorm populaire keten met een gigantische kaart hartige en zoete crêpes en wafels, prima ijs en een uitgebreide saladebar.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 13 #4-55</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Hamburgueser%C3%ADa+C+11+%232-78+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Hamburguesería<span class="hor-go">↗</span></div>
+      <div class="hor-info">Burgerketen met veel variatie (chili, blauwe kaas, tahini-tabouleh) en een veggie-optie. Filiaal in Zona Rosa is ook livemuziekzaal.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 11 #2-78</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Tapas+Macarena+Cra+4A+%2326B-01+La+Macarena+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Tapas Macarena<span class="hor-go">↗</span></div>
+      <div class="hor-info">Niet de goedkoopste tapasplek in La Macarena, wel de beste. Aanbod staat op een schoolbord.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 Cra 4A #26B-01, La Macarena</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Agave+Azul+La+Macarena+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Agave Azul<span class="hor-go">↗</span></div>
+      <div class="hor-info">Gastronomisch Mexicaans, dagelijks wisselend tastingmenu in een woonhuis. Reserveren verplicht.</div>
+      <div class="hor-tip">👉 Tastingmenu</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 La Macarena</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Jugueter%C3%ADa+C+27+%234A-03+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Juguetería<span class="hor-go">↗</span></div>
+      <div class="hor-info">Stijlvol en speels restaurant met speelgoedthema — speelgoed aan de muren, flipperkast in de zaak.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 27 #4A-03</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Boliche+C+27+%235-66+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Boliche<span class="hor-go">↗</span></div>
+      <div class="hor-info">Onpretentieus zaakje met twee dingen op de kaart: pasta en milanesa. Beide goed.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 27 #5-66</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Beograd+C+26B+%234A-16+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Beograd<span class="hor-go">↗</span></div>
+      <div class="hor-info">Servisch restaurant waarvan de eigenares immens trots is op haar keuken — en vastbesloten dat jij ze ook lekker vindt.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 26B #4A-16</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Romana+Cra+7+%2319-48+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Romana<span class="hor-go">↗</span></div>
+      <div class="hor-info">26 verschillende pastasoorten, lang en kort, met bijpassende sauzen.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 7 #19-48</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Chantonner+Delikatessen+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Chantonner Delikatessen<span class="hor-go">↗</span></div>
+      <div class="hor-info">Populaire lunchplek. Huisspecialiteit: 12 uur gerookte vlees- en kaasplanken. Ook veel broodjes, waaronder pulled pork en gerookte forel.</div>
+      <div class="hor-tip">👉 12-uur gerookte vlees- en kaasplank</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Masa+C+70+%234-63+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Masa<span class="hor-go">↗</span></div>
+      <div class="hor-info">Bogotá-filiaal van een geliefde keten — de meest verwennende plek in de stad voor gebak en brunch.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 70 #4-63</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Central+Cevicher%C3%ADa+Cra+13+%2385-14+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Central Cevichería<span class="hor-go">↗</span></div>
+      <div class="hor-info">Ceviche in alle vormen: vis, garnaal, octopus. Geen verrassing wat bovenaan de kaart staat.</div>
+      <div class="hor-tip">👉 Ceviche</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 13 #85-14</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Cooking+Taichi+Cra+14+%2393-14+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Cooking Taichi<span class="hor-go">↗</span></div>
+      <div class="hor-info">De beste Chinees van de stad. Begin met wontonsoep, daarna Kantonese gebraden eend of Szechuan-stijl gebakken gerechten.</div>
+      <div class="hor-tip">👉 Kantonese gebraden eend</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 14 #93-14</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Di+Lucca+Cra+13+%2385-33+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Di Lucca<span class="hor-go">↗</span></div>
+      <div class="hor-info">Houtoven-pizza, huisgemaakte pasta en degelijk bereide Italiaanse klassiekers.</div>
+      <div class="hor-tip">👉 Linguine alle vongole</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 13 #85-33</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Arrogante+C+82+%239-11+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Arrogante<span class="hor-go">↗</span></div>
+      <div class="hor-info">Chique Italiaan, comfortabel en goed ingericht.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 82 #9-11</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Wok+Cra+13+%2382-74+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Wok<span class="hor-go">↗</span></div>
+      <div class="hor-info">Pan-Aziatische keten met koele, moderne inrichting en een heldere kaart. Tien filialen in de stad.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 13 #82-74</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Bicono+Usaqu%C3%A9n+Cra+6A+%23117-35+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Bicono Usaquén<span class="hor-go">↗</span></div>
+      <div class="hor-info">Trendy fastfood in strak beton. Colombiaanse draai op alle klassiekers.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 6A #117-35</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">☕ Koffie<span class="hor-cat-n">4</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+Florida+Cra+7+%2321-46+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Pastelería Florida<span class="hor-go">↗</span></div>
+      <div class="hor-info">Een Bogotá-instituut sinds 1936. Beneden een uitstekende patisserie en elegante koffielounge.</div>
+      <div class="hor-tip">👉 Chocolate santafereño met almojábana</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 7 #21-46</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Diana+Garc%C3%ADa+Cra+7+%2370-94+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Diana García<span class="hor-go">↗</span></div>
+      <div class="hor-info">Ziet er van buiten uit als een café en is s ochtends prima voor ontbijt, maar het is een volwaardig restaurant.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 7 #70-94</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Dom%C3%A9stica+C+57+%2356-35+Chapinero+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Doméstica<span class="hor-go">↗</span></div>
+      <div class="hor-info">Ontspannen, licht café in Chapinero met gastronomische empanadas.</div>
+      <div class="hor-tip">👉 Empanada andino (kip en maïs)</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 57 #56-35, Chapinero</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Sin+Palabras+Caf%C3%A9+Sordo+Cra+7+%2357-47+Chapinero+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Sin Palabras — Café Sordo<span class="hor-go">↗</span></div>
+      <div class="hor-info">&quot;Woordloos Doof Café&quot; — gerund door en voor dove mensen, maar iedereen is welkom. Het personeel gebruikt Colombiaanse gebarentaal.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 7 #57-47, Chapinero</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🍺 Craft beer & bierbars<span class="hor-cat-n">2</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Cervecer%C3%ADa+Irlandesa+Cra+4A+%2326D-15+La+Macarena+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Cervecería Irlandesa<span class="hor-go">↗</span></div>
+      <div class="hor-info">Geen doorsnee internationale &quot;Irish pub&quot; maar een echte brouwerij-pub.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 4A #26D-15, La Macarena</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Bogot%C3%A1+Beer+Company+meerdere+filialen+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Bogotá Beer Company<span class="hor-go">↗</span></div>
+      <div class="hor-info">De bekendste craft-brouwerij van het land, met vestigingen door de hele stad. Vaste kaart plus seizoensbieren.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 meerdere filialen</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🍸 Cocktailbars<span class="hor-cat-n">4</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=A+Seis+Manos+C+22+%238-60+Centro+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">A Seis Manos<span class="hor-go">↗</span></div>
+      <div class="hor-info">Koele, ruime bar met Franse leiding: minimalistisch, eten, patio, filmvertoningen, bands en events.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 C 22 #8-60, Centro</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Treffen+Cra+7+%2356-17+Chapinero+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Treffen<span class="hor-go">↗</span></div>
+      <div class="hor-info">Kleurrijke ondergrondse bar met kitscherig speelgoed- en bordspellendecor, en ruimte om te spelen.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 7 #56-17, Chapinero</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Jhonny+Cay+Cra+13+%2382-17+Zona+Rosa+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Jhonny Cay<span class="hor-go">↗</span></div>
+      <div class="hor-info">Reggae-, soca- en calypsobar met live bands op vrijdag en zaterdag. Relaxte sfeer.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 13 #82-17, Zona Rosa</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Recreo+de+Ad%C3%A1n+Cra+12A+%2379-45+Zona+Rosa+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Recreo de Adán<span class="hor-go">↗</span></div>
+      <div class="hor-info">Licht, vriendelijk café-bar en een populair LGBTQ+ startpunt van de avond — of gewoon voor een koffie of hapje.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 12A #79-45, Zona Rosa</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">💃 Nachtleven<span class="hor-cat-n">4</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Quiebra+Canto+Cra+5+%2317-76+Centro+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Quiebra Canto<span class="hor-go">↗</span></div>
+      <div class="hor-info">Salsabar die al meer dan dertig jaar draait. Een instituut.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 5 #17-76, Centro</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Rinc%C3%B3n+Cubano+Cra+4+%2318-50+2e+verd+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Rincón Cubano<span class="hor-go">↗</span></div>
+      <div class="hor-info">Cubaanse salsabar in het centrum met uitstekende muziek en scherp dansniveau. In het weekend bomvol.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 4 #18-50 (2e verd.)</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Smoking+Molly+C+29+bis+%235-74+La+Macarena+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Smoking Molly<span class="hor-go">↗</span></div>
+      <div class="hor-info">Rock- en bluesbar met livemuziek en degelijke burgers.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 C 29 bis #5-74, La Macarena</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Andr%C3%A9s+Carne+de+Res+Ch%C3%ADa+25+km+ten+noorden+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Andrés Carne de Res<span class="hor-go">↗</span></div>
+      <div class="hor-info">Gigantisch restaurant met elf eetzalen en een menukaart van 62 paginas, dat s avonds verandert in een extreem feest. Een ervaring op zich.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 Chía, 25 km ten noorden</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="loc-block" data-loc="zipaquira">
+  <div class="loc-head"><h3>⛪ Zipaquirá</h3><span class="loc-count">5 adressen</span></div>
+  <div class="hor-cat">🍽️ Restaurants<span class="hor-cat-n">3</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Brasas+del+Llano+C+1+%238-75+Zipaquir%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Brasas del Llano<span class="hor-go">↗</span></div>
+      <div class="hor-info">De beste van een rij Llanero-restaurants (let op de levensgrote plastic koe). Vlees wordt trots op open vuur gegrild.</div>
+      <div class="hor-tip">👉 Llanero-grillvlees</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 1 #8-75</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Don+Facundo+Cra+5+%234-21+Zipaquir%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Don Facundo<span class="hor-go">↗</span></div>
+      <div class="hor-info">Onpretentieuze eetzaak aan de Plaza de la Independencia met goedkope Colombiaanse ontbijten en almuerzos corridas.</div>
+      <div class="hor-tip">👉 Almuerzo corriente</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 5 #4-21</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Sucursal+Paisa+Cra+8+%233-32+Zipaquir%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Sucursal Paisa<span class="hor-go">↗</span></div>
+      <div class="hor-info">Paisa-restaurant, niets bijzonders maar netjes en aangenaam. Goed gekookte Antioquiaanse gerechten.</div>
+      <div class="hor-tip">👉 Bandeja paisa</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 8 #3-32</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">☕ Koffie<span class="hor-cat-n">2</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Atrio+Cra+9+%2319-48+Plaza+Zipaquir%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Atrio<span class="hor-go">↗</span></div>
+      <div class="hor-info">Cafeetje bij de kathedraal met een ouderwetse theesalon-sfeer. Naast koffie ook fruitsalade.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 9 #19-48, Plaza</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Pussini+Cra+10+%2319-53+Zipaquir%C3%A1+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Pussini<span class="hor-go">↗</span></div>
+      <div class="hor-info">Overdag café, s avonds langzaam veranderend in een bar. Knus.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 10 #19-53</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="loc-block" data-loc="salento">
+  <div class="loc-head"><h3>☕ Salento</h3><span class="loc-count">8 adressen</span></div>
+  <div class="hor-cat">🍽️ Restaurants<span class="hor-cat-n">5</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Rinc%C3%B3n+de+Lucy+Cra+6+%234-02+Salento+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Rincón de Lucy<span class="hor-go">↗</span></div>
+      <div class="hor-info">Favoriet bij locals én bezoekers. Lucy serveert de beste prijs-kwaliteit dagmenus van het dorp.</div>
+      <div class="hor-tip">👉 Menú del día</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 6 #4-02</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Los+Amigos+Cra+6+%236-21+Salento+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Los Amigos<span class="hor-go">↗</span></div>
+      <div class="hor-info">Verse forel uit de kwekerij in Cocora staat overal op de kaart in Salento, maar hier vind je de grootste keuze bereidingen.</div>
+      <div class="hor-tip">👉 Forel uit Cocora</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 6 #6-21</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Eliana+Cra+2+%236-45+Salento+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Eliana<span class="hor-go">↗</span></div>
+      <div class="hor-info">Zin in curry? Chicken tikka masala, jalfrezi of zelfs Thaise groene curry.</div>
+      <div class="hor-tip">👉 Tikka masala</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 2 #6-45</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Brunch+C+6+%233-25+Salento+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Brunch<span class="hor-go">↗</span></div>
+      <div class="hor-info">Amerikaans gerunde burgerbar met eigen saus en echte frieten.</div>
+      <div class="hor-tip">👉 Boquía burger</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 6 #3-25</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Estaci%C3%B3n+del+Food+Truck+Cra+2+bij+C+6+Salento+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Estación del Food Truck<span class="hor-go">↗</span></div>
+      <div class="hor-info">Openlucht food court met een zestal foodtrucks: Midden-Oosters, Mexicaans en Venezolaans.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 2 bij C 6</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">☕ Koffie<span class="hor-cat-n">2</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Jes%C3%BAs+Mart%C3%ADn+Cra+6+%236-14+Salento+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Jesús Martín<span class="hor-go">↗</span></div>
+      <div class="hor-info">Verfijnde koffiebar met versgemalen topbonen. Uitgebreide lijst lattes en espressos.</div>
+      <div class="hor-tip">👉 Single-origin filterkoffie</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 6 #6-14</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Bernab%C3%A9+C+3+%236-03+Salento+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Bernabé<span class="hor-go">↗</span></div>
+      <div class="hor-info">Uitstekend adresje voor één enkele variëteit koffie, bereid zoals jij wil: filter, espresso of anders.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 3 #6-03</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🍺 Craft beer & bierbars<span class="hor-cat-n">1</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Donde+Mi+Ap%C3%A1+Cra+6+%235-24+Salento+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Donde Mi Apá<span class="hor-go">↗</span></div>
+      <div class="hor-info">De meest sfeervolle kroeg van het dorp, pal aan het hoofdplein en volgestouwd met bric-à-brac.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 6 #5-24</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="loc-block" data-loc="medellin">
+  <div class="loc-head"><h3>🌆 Medellín</h3><span class="loc-count">27 adressen</span></div>
+  <div class="hor-cat">🍽️ Restaurants<span class="hor-cat-n">10</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Oci+Mde+Provenza+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Oci.Mde<span class="hor-go">↗</span></div>
+      <div class="hor-info">Hedendaagse keuken geïnspireerd op klassieke Latijns-Amerikaanse en Europese smaken. Volgens Lonely Planet hét adres van Provenza — probeer een tafel te bemachtigen.</div>
+      <div class="hor-tip">👉 Gegrilde octopus</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 Provenza, El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Mondongos+C+10+%2338-38+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Mondongos<span class="hor-go">↗</span></div>
+      <div class="hor-info">De specialiteit laat zich raden: mondongo (pensoep). Een van de bekendste adressen van de stad.</div>
+      <div class="hor-tip">👉 Mondongo · bandeja paisa</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 10 #38-38, El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Hatoviejo+Cra+47+%2352-17+Centro+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Hatoviejo<span class="hor-go">↗</span></div>
+      <div class="hor-info">Korte kaart met goed bereide Paisa-gerechten, op de eerste verdieping.</div>
+      <div class="hor-tip">👉 Bandeja paisa</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 47 #52-17, Centro</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Hacienda+Cra+49+Jun%C3%ADn+%2352-98+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Hacienda<span class="hor-go">↗</span></div>
+      <div class="hor-info">Goede plek voor lokale keuken op niveau in ontspannen sfeer. Ga hier voor iets traditioneels.</div>
+      <div class="hor-tip">👉 Sancocho</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 49 (Junín) #52-98</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Ajiacos+y+Mondongos+C+8+%2342-46+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Ajiacos y Mondongos<span class="hor-go">↗</span></div>
+      <div class="hor-info">Uitgesproken traditioneel. Kleine kaart, groot in smaak.</div>
+      <div class="hor-tip">👉 Ajiaco · mondongo</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 8 #42-46, El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Il+Forno+Cra+37A+%238-09+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Il Forno<span class="hor-go">↗</span></div>
+      <div class="hor-info">Moderne openlucht-Italiaan en een instituut in El Poblado, met veel sfeerverlichting.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 37A #8-09, El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Hummus+C+6+%2343C-12+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Hummus<span class="hor-go">↗</span></div>
+      <div class="hor-info">Stijlvolle Libanees met veel vegetarische opties. Hun limonada de coco is met afstand de beste van de stad.</div>
+      <div class="hor-tip">👉 Mixto platter · limonada de coco</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 6 #43C-12</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Naan+Cra+35+%237-75+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Naan<span class="hor-go">↗</span></div>
+      <div class="hor-info">Je komt niet elke dag een Indiër tegen in Colombia, en deze is goed.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 35 #7-75, El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Se%C3%B1or+Itto+C+9+%2343B-115+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Señor Itto<span class="hor-go">↗</span></div>
+      <div class="hor-info">Bescheiden zaakje met de beste Japanse keuken van de stad. Lunchmenu en losse hoofdgerechten.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 9 #43B-115</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Azai+C+8A+%2337A-78+v%C3%ADa+Primavera+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Azai<span class="hor-go">↗</span></div>
+      <div class="hor-info">Bijna Scandinavisch interieur, authentiek glutenvrij en veganistisch eten.</div>
+      <div class="hor-tip">👉 Zwarte bonen-gerecht</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 8A #37A-78, vía Primavera</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">☕ Koffie<span class="hor-cat-n">5</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Pergamino+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Pergamino<span class="hor-go">↗</span></div>
+      <div class="hor-info">Het trendiest café van El Poblado, en terecht: gastronomische bonen, perfect bereid met de brouwmethode van jouw keuze.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Hijamia+Manila+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Hijamia<span class="hor-go">↗</span></div>
+      <div class="hor-info">Heerlijke all-day brunch en fijne gastronomische koffie op een luchtige hoek in Manila.</div>
+      <div class="hor-tip">👉 Brunch</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Manila</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Urbania+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Urbania<span class="hor-go">↗</span></div>
+      <div class="hor-info">Charmant, intiem café met vriendelijk personeel dat telers in post-conflictgebieden ondersteunt.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Rituales+Medell%C3%ADn+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Rituales<span class="hor-go">↗</span></div>
+      <div class="hor-info">Gastronomische koffie van kleine producenten uit Medellín. Ga naar boven voor uitleg over de boerderijen.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Medellín</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Acontista+C+53+%2343-81+Centro+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Acontista<span class="hor-go">↗</span></div>
+      <div class="hor-info">Verfijnd café, bar en restaurant in het centrum, met een boekhandel op de verdieping.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 C 53 #43-81, Centro</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🍺 Craft beer & bierbars<span class="hor-cat-n">4</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=3+Cordilleras+C+30+%2344-176+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">3 Cordilleras<span class="hor-go">↗</span></div>
+      <div class="hor-info">Medellíns eigen brouwerij. Elke donderdagnamiddag rondleiding met uitleg over het brouwproces (in het Spaans) — vooral een excuus voor een gezellige avond in de bar. Entree inclusief bier.</div>
+      <div class="hor-tip">👉 Donderdagtour met proeverij</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 C 30 #44-176</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Cervecer%C3%ADa+Libre+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Cervecería Libre<span class="hor-go">↗</span></div>
+      <div class="hor-info">Brede selectie craft beers, vriendelijke sfeer en muziek die het gesprek niet overstemt.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Bogot%C3%A1+Beer+Company+Cra+34+%237-165+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Bogotá Beer Company<span class="hor-go">↗</span></div>
+      <div class="hor-info">Medellín-filiaal van de BBC, vlak bij de Zona Rosa. Rustige pubavond met voetbal op tv.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 34 #7-165</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Ni%C3%A1gara+5+Puertas+Cra+38+%238-11+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Niágara 5 Puertas<span class="hor-go">↗</span></div>
+      <div class="hor-info">De oudste bar van El Poblado (1946) en een echt authentiek Medellín-adres, met vaste klanten van jaren her.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 38 #8-11, El Poblado</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🍸 Cocktailbars<span class="hor-cat-n">4</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Bar+Octavia+Parque+Lleras+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Bar Octavia<span class="hor-go">↗</span></div>
+      <div class="hor-info">Relaxte bar met tafels op de veranda en zicht op de drukte van Parque Lleras. Ideaal startpunt van de avond.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Parque Lleras, El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Juniper+Cra+43A+%23130+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Juniper<span class="hor-go">↗</span></div>
+      <div class="hor-info">Een van de meest verzorgde cocktailbars van de stad, met wekelijks live jazz en het best geklede publiek van Medellín.</div>
+      <div class="hor-tip">👉 Craft cocktails</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cra 43A #130</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Mir%C3%B3+C+9+%2340-10+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Miró<span class="hor-go">↗</span></div>
+      <div class="hor-info">Bar op de eerste verdieping bij Parque Lleras met muziek en cocktails.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 C 9 #40-10, El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n+M%C3%A1laga+Cra+51+%2345-80+Centro+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Salón Málaga<span class="hor-go">↗</span></div>
+      <div class="hor-info">Ouderwetse tango- en bolerobar waar ze de klassiekers draaien. Een stuk oud Medellín.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 51 #45-80, Centro</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">💃 Nachtleven<span class="hor-cat-n">4</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Blue+Parque+Lleras+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Blue<span class="hor-go">↗</span></div>
+      <div class="hor-info">Al jaren draaiende rockdisco die een vrolijk gemengd publiek trekt. Dé rockoptie in de zona rosa.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Parque Lleras, El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n+Amador+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Salón Amador<span class="hor-go">↗</span></div>
+      <div class="hor-info">Serieuzere club voor wie na Lleras nog verder wil — elektronische muziek en degelijke line-ups.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Babylon+Cra+41+%239-22+El+Poblado+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Babylon<span class="hor-go">↗</span></div>
+      <div class="hor-info">Enorm populaire club waar alles gedraaid wordt, van hiphop tot house.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 41 #9-22, El Poblado</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Dulce+Jes%C3%BAs+M%C3%ADo+Cra+38+%2319-255+Medell%C3%ADn+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Dulce Jesús Mío<span class="hor-go">↗</span></div>
+      <div class="hor-info">Elke avond is het oudjaar in deze kitscherige club, ingericht met speelgoed en cartoonfiguren — een suikerzoete versie van een Antioquiaans dorp.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Cra 38 #19-255</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="loc-block" data-loc="guatape">
+  <div class="loc-head"><h3>🪨 Guatapé</h3><span class="loc-count">8 adressen</span></div>
+  <div class="hor-cat">🍽️ Restaurants<span class="hor-cat-n">7</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Fogata+aan+het+water+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Fogata<span class="hor-go">↗</span></div>
+      <div class="hor-info">De beste van Guatapés vele restaurants aan het water, met stevige borden paisa-eten.</div>
+      <div class="hor-tip">👉 Biefstuk of forel</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 aan het water</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Pizzeria+De+Luigi+C+31+%2327-10+boven+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Pizzeria De Luigi<span class="hor-go">↗</span></div>
+      <div class="hor-info">Luigi is Italiaan en dat proef je: volgens de Rough Guide een van de beste pizzas van het land.</div>
+      <div class="hor-tip">👉 Pizza</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 31 #27-10 (boven)</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Bret%C3%B3n+rustige+zijstraat+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Bretón<span class="hor-go">↗</span></div>
+      <div class="hor-info">Alles is goed bij deze Fransman, maar de crêpes zijn de ster.</div>
+      <div class="hor-tip">👉 Crêpes</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 rustige zijstraat</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Thai+Terrace+dakterras+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Thai Terrace<span class="hor-go">↗</span></div>
+      <div class="hor-info">Smaakvolle Thaise gerechten en uitzicht over het meer vanaf dit verscholen dakterras.</div>
+      <div class="hor-tip">👉 Uitzicht met curry</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 dakterras</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Koi+Comida+Asi%C3%A1tica+Guatap%C3%A9+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Koi Comida Asiática<span class="hor-go">↗</span></div>
+      <div class="hor-info">Japans gerund, authentieke sushi, ramen en ander Aziatisch lekkers voor een uitstekende prijs.</div>
+      <div class="hor-tip">👉 Sushi</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Guatapé</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Martine+Cra+29+%2330-10+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Martine<span class="hor-go">↗</span></div>
+      <div class="hor-info">Aangenaam schaduwrijk restaurantje net boven de Plazoleta de los Zócalos. Prima voor lunch of weekendmaal, met vega-opties.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 29 #30-10</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Guatacrep+C+31+%2327-58+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Guatacrep<span class="hor-go">↗</span></div>
+      <div class="hor-info">Gezond en grotendeels biologisch, met producten van één boerderij.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 31 #27-58</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🍺 Craft beer & bierbars<span class="hor-cat-n">1</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Lake+View+Hostel+Cra+22+%2329B-29+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Lake View Hostel<span class="hor-go">↗</span></div>
+      <div class="hor-info">Brits-Amerikaans hostel aan het meer met dakterras en bar. Organiseert ook kayak, fietstochten en bezoek aan Escobars oude finca.</div>
+      <div class="hor-tip">👉 Zonsondergang vanaf het dakterras</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 22 #29B-29</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="loc-block" data-loc="cartagena">
+  <div class="loc-head"><h3>🌊 Cartagena</h3><span class="loc-count">34 adressen</span></div>
+  <div class="hor-cat">🍽️ Restaurants<span class="hor-cat-n">10</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Cevicher%C3%ADa+C+Stuart+%237-14+San+Diego+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Cevichería<span class="hor-go">↗</span></div>
+      <div class="hor-info">Kleine zeevruchtenspecialist van chef Jorge Escandón. De faam is groot — kom vroeg of reserveer.</div>
+      <div class="hor-tip">👉 Ceviche</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C Stuart #7-14, San Diego</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Carmen+C+del+Sant%C3%ADsimo+%238-19+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Carmen<span class="hor-go">↗</span></div>
+      <div class="hor-info">Dé plek om uit te pakken: hoogwaardige hedendaagse Colombiaanse keuken met Aziatische toetsen.</div>
+      <div class="hor-tip">👉 Proefmenu</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C del Santísimo #8-19</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Boliche+Cebicher%C3%ADa+C+Cochera+del+Hobo+%2338-17+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Boliche Cebichería<span class="hor-go">↗</span></div>
+      <div class="hor-info">Oscar Colmenares, opgeleid bij Martín Berasategui, maakt hier zijn eigen ceviches.</div>
+      <div class="hor-tip">👉 Three cup ceviche</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 C Cochera del Hobo #38-17</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Vitrola+C+Baloco+%232-01+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Vitrola<span class="hor-go">↗</span></div>
+      <div class="hor-info">Hedendaags Cubaans restaurant, een van de meest besproken adressen van Cartagena. Live muziek.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C Baloco #2-01</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Marea+by+Rausch+Centro+de+Convenciones+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Marea by Rausch<span class="hor-go">↗</span></div>
+      <div class="hor-info">Het beste waterfront-adres van de stad, in het congrescentrum. Laat je niet afschrikken door de bewaking bij de ingang.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 Centro de Convenciones</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Mulata+C+Quero+%239-58+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Mulata<span class="hor-go">↗</span></div>
+      <div class="hor-info">Populaire, ongehaaste lunchplek met grote porties en vriendelijk personeel. Menu wisselt dagelijks.</div>
+      <div class="hor-tip">👉 Almuerzo corriente</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C Quero #9-58</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Balc%C3%B3n+Plaza+de+San+Diego+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Balcón<span class="hor-go">↗</span></div>
+      <div class="hor-info">Van een Colombiaans-Brits koppel. Degelijke betaalbare maaltijden en een goede plek voor een vroege borrel.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Plaza de San Diego</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Estrella+de+la+India+C+de+la+Universidad+%2336+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Estrella de la India<span class="hor-go">↗</span></div>
+      <div class="hor-info">Je beste optie voor een lokale kantine in het oude centrum: open zijkant, geen poespas, goedkope empanadas.</div>
+      <div class="hor-tip">👉 Empanadas</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C de la Universidad #36</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Gelater%C3%ADa+Paradiso+C+de+la+Estrella+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Gelatería Paradiso<span class="hor-go">↗</span></div>
+      <div class="hor-info">De beste van de gelaterias in de buurt. Venezolaanse Maria Nevett gebruikt lokaal fruit voor haar ambachtelijke smaken.</div>
+      <div class="hor-tip">👉 IJs met lokaal fruit</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C de la Estrella</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Josefinas+Playa+La+Caleta+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Josefinas<span class="hor-go">↗</span></div>
+      <div class="hor-info">Strandhut waar Josefina verse vis, krab, inktvis, ceviche en kreeft serveert onder de bomen aan zee.</div>
+      <div class="hor-tip">👉 Verse vis van de dag</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Playa La Caleta</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">☕ Koffie<span class="hor-cat-n">6</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+del+Mural+C+San+Juan+%2325-60+Getseman%C3%AD+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Café del Mural<span class="hor-go">↗</span></div>
+      <div class="hor-info">Verscholen in een rustige hoek van Getsemaní. Brandt zijn eigen Colombiaanse koffie met de hand — volgens de Rough Guide de beste van de stad. Opent om 15u.</div>
+      <div class="hor-tip">👉 Handgebrande koffie</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C San Juan #25-60, Getsemaní</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=%C3%89poca+Espresso+Bar+Centro+hist%C3%B3rico+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Época Espresso Bar<span class="hor-go">↗</span></div>
+      <div class="hor-info">Specialty koffie, met als handtekening de Carajillo Ahumado: espresso met aguardiente.</div>
+      <div class="hor-tip">👉 Carajillo Ahumado</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Centro histórico</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+San+Alberto+Centro+hist%C3%B3rico+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Café San Alberto<span class="hor-go">↗</span></div>
+      <div class="hor-info">Bekroonde koffie van Hacienda San Alberto uit de Colombiaanse koffiedriehoek.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Centro histórico</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Libertario+Coffee+Roasters+Centro+hist%C3%B3rico+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Libertario Coffee Roasters<span class="hor-go">↗</span></div>
+      <div class="hor-info">Voor liefhebbers: verschillende smaakprofielen om te combineren met Frans gebak of een licht ontbijt.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Centro histórico</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=%C3%81baco+Libros+y+Caf%C3%A9+C+de+la+Iglesia+%233-86+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Ábaco Libros y Café<span class="hor-go">↗</span></div>
+      <div class="hor-info">Koffiehuis én boekhandel, tafels tussen de rekken in één bakstenen gewelfruimte. Rustpunt in de ommuurde stad.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C de la Iglesia #3-86</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Caff%C3%A9+Lun%C3%A1tico+C+Esp%C3%ADritu+Santo+%2329-184+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Caffé Lunático<span class="hor-go">↗</span></div>
+      <div class="hor-info">Klein, ontspannen café-restaurant. Open voor brunch met Colombiaans ontbijt, koffie en tapas met een borrel vooraf.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C Espíritu Santo #29-184</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🍺 Craft beer & bierbars<span class="hor-cat-n">2</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Beer+Laundry+C+31+%2310-101+Local+2+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Beer &amp; Laundry<span class="hor-go">↗</span></div>
+      <div class="hor-info">Deze kleine wasserette heeft een cultstatus opgebouwd door koud bier te schenken terwijl je op je was wacht.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C 31 #10-101 Local 2</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Alqu%C3%ADmico+C+del+Colegio+%2334-24+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Alquímico<span class="hor-go">↗</span></div>
+      <div class="hor-info">Uiterst stijlvolle bar over drie verdiepingen van een oud koloniaal herenhuis. Gespecialiseerd in craft beers en infusies.</div>
+      <div class="hor-tip">👉 Huisinfusies</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C del Colegio #34-24</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🍸 Cocktailbars<span class="hor-cat-n">8</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+del+Mar+Baluarte+de+Santo+Domingo+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Café del Mar<span class="hor-go">↗</span></div>
+      <div class="hor-info">Iconisch: cocktails bij zonsondergang bovenop de stadsmuur, met 360° zicht op de Caraïben en de oude stad. Kom vroeg voor een tafel. DJs vanaf 22u.</div>
+      <div class="hor-tip">👉 Sunset martini</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Baluarte de Santo Domingo</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=51+Sky+Bar+Bocagrande+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">51 Sky Bar<span class="hor-go">↗</span></div>
+      <div class="hor-info">Colombias hoogste openluchtbar, met zicht over de moderne skyline van Bocagrande.</div>
+      <div class="hor-tip">👉 Signature drinks</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Bocagrande</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Mirador+Gastro+Bar+Portal+de+los+Dulces+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Mirador Gastro Bar<span class="hor-go">↗</span></div>
+      <div class="hor-info">Klassieke cocktails en onvergetelijk mensen kijken vanaf het dak van de Portal de los Dulces.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 Portal de los Dulces</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Townhouse+Rooftop+Centro+hist%C3%B3rico+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Townhouse Rooftop<span class="hor-go">↗</span></div>
+      <div class="hor-info">Ontspannen dakterras met palmbomen. In het weekend bottomless drinks bij de brunch.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 Centro histórico</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Coro+Lounge+Bar+Sofitel+Santa+Clara+San+Diego+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Coro Lounge Bar<span class="hor-go">↗</span></div>
+      <div class="hor-info">Loungen op witleren banken met een exclusieve cocktail, in een hotel dat ooit een klooster was.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$$</span><span class="hor-chip adr">📍 Sofitel Santa Clara, San Diego</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Burlador+Gastrobar+C+Santo+Domingo+%2333-88+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Burlador Gastrobar<span class="hor-go">↗</span></div>
+      <div class="hor-info">Vooral bekend om de flamenco elke avond. De kaart met Spaanse klassiekers is ook prima.</div>
+      <div class="hor-tip">👉 Flamenco-avond</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C Santo Domingo #33-88</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Demente+Plaza+de+la+Trinidad+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Demente<span class="hor-go">↗</span></div>
+      <div class="hor-info">Schemerige bar uitgehakt uit een ooit vervallen achttiende-eeuws pand, aan het bruisende Plaza de la Trinidad.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Plaza de la Trinidad</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Paletter%C3%ADa+C+Santo+Domingo+%233-88+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Palettería<span class="hor-go">↗</span></div>
+      <div class="hor-info">Verrukkelijke paletas (ijsjes op een stokje) met water, room of yoghurt, in verrassend frisse smaken.</div>
+      <div class="hor-tip">👉 Paleta met lokaal fruit</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C Santo Domingo #3-88</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">💃 Nachtleven<span class="hor-cat-n">7</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Havana+C+de+la+Media+Luna+Getseman%C3%AD+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Café Havana<span class="hor-go">↗</span></div>
+      <div class="hor-info">Je waant je in Havana anno 1950: zwart-witfotos van Cubaanse muzieklegendes en live muziek die vanaf een uur of elf de heupen losmaakt. Deze club bracht de ommekeer van Media Luna op gang.</div>
+      <div class="hor-tip">👉 Live Cubaanse band</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 C de la Media Luna, Getsemaní</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Quiebra-Canto+Camell%C3%B3n+de+los+M%C3%A1rtires+%2325-110+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Quiebra-Canto<span class="hor-go">↗</span></div>
+      <div class="hor-info">Aanbevolen club voor traditionele salsa, vlak bij de Puerta del Reloj.</div>
+      <div class="hor-tip">👉 Salsa</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Camellón de los Mártires #25-110</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Bazurto+Social+Club+Av+del+Centenario+%2330-42+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Bazurto Social Club<span class="hor-go">↗</span></div>
+      <div class="hor-info">Jorge Escandóns clubproject toont het Afro-Colombiaanse muziekerfgoed van de stad met live bands.</div>
+      <div class="hor-tip">👉 Live champeta</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Av del Centenario #30-42</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Tu+Candela+Portal+de+los+Dulces+%2332-25+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Tu Candela<span class="hor-go">↗</span></div>
+      <div class="hor-info">Een van de wildste en populairste clubs van Cartagena, druk bezocht door zowel toeristen als Colombianen.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Portal de los Dulces #32-25</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Mister+Babilla+Av+del+Arsenal+%238B-137+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Mister Babilla<span class="hor-go">↗</span></div>
+      <div class="hor-info">Kitscherig jungledecor terzijde: deze enorme club over meerdere verdiepingen krijgt je aan het dansen op salsa, reggaeton of wat dan ook.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Av del Arsenal #8B-137</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Movida+C+Baloco+%232-14+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Movida<span class="hor-go">↗</span></div>
+      <div class="hor-info">Catalaanse tapasbar en club — de eigenaar leerde het vak in Barcelona.</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 C Baloco #2-14</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Donde+Fidel+Portal+de+los+Dulces+%2332-09+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Donde Fidel<span class="hor-go">↗</span></div>
+      <div class="hor-info">Kleine lokale bar met tafels buiten, tussen de stadsmuur en Plaza de los Coches. De plek voor salsa met de locals.</div>
+      <div class="hor-tip">👉 Salsa met locals</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Portal de los Dulces #32-09</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🌮 Street food<span class="hor-cat-n">1</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Esquina+del+Pan+de+Bono+C+Agust%C3%ADn+Chiquita+%2335+Cartagena+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Esquina del Pan de Bono<span class="hor-go">↗</span></div>
+      <div class="hor-info">Populair bij studenten van de universiteit ertegenover. Zeldzame vondst in het oude centrum: een lokale bakkerij en snackbar.</div>
+      <div class="hor-tip">👉 Pan de bono</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C Agustín Chiquita #35</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="loc-block" data-loc="minca">
+  <div class="loc-head"><h3>🌿 Minca</h3><span class="loc-count">5 adressen</span></div>
+  <div class="hor-cat">🍽️ Restaurants<span class="hor-cat-n">3</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Lazy+Cat+C+Principal+%231-460+Minca+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Lazy Cat<span class="hor-go">↗</span></div>
+      <div class="hor-info">Aantrekkelijk rivierrestaurant met relaxed terras, gratis wifi en vriendelijke Brits-Colombiaanse eigenaars. Uitstekend eten, van steaks tot lichtere gerechten.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 C Principal #1-460</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=El+Patio+M%C3%A1gico+de+Gabo+y+Leo+Matiz+C+7+%234-57+Minca+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">El Patio Mágico de Gabo y Leo Matiz<span class="hor-go">↗</span></div>
+      <div class="hor-info">Het oude huis van de gelauwerde fotograaf Leo Matiz (1917–98) — de sfeervolste eetplek van het dorp, vol memorabilia.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 C 7 #4-57</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Donde+Ney+Cra+5+bij+het+museum+Minca+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Donde Ney<span class="hor-go">↗</span></div>
+      <div class="hor-info">Lokale kantine met stevige snelle gerechten; bakbanaan en gepaneerde kip staan overal op.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 5, bij het museum</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">☕ Koffie<span class="hor-cat-n">1</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=La+Miga+Cra+66+naast+Banco+de+Bogot%C3%A1+Minca+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">La Miga<span class="hor-go">↗</span></div>
+      <div class="hor-info">Verbazingwekkende Franse bakkerij met een van de lekkerste broden van Colombia — van zuurdesem tot verse baguettes. Ook huisgemaakte hummus.</div>
+      <div class="hor-tip">👉 Zuurdesembrood</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Cra 66, naast Banco de Bogotá</span></div>
+    </a>
+  </div>
+  <div class="hor-cat">🍺 Craft beer & bierbars<span class="hor-cat-n">1</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Nevada+Cervecer%C3%ADa+Hacienda+la+Victoria+Minca+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Nevada Cervecería<span class="hor-go">↗</span></div>
+      <div class="hor-info">Ambachtelijke brouwerij in een oude kapel op het Hacienda Victoria-landgoed. Koop en proef de Happy Coca pale ale.</div>
+      <div class="hor-tip">👉 Happy Coca pale ale</div>
+      <div class="hor-meta"><span class="hor-chip adr">📍 Hacienda la Victoria</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="loc-block" data-loc="tayrona">
+  <div class="loc-head"><h3>🌴 Tayrona</h3><span class="loc-count">2 adressen</span></div>
+  <div class="hor-cat">🍽️ Restaurants<span class="hor-cat-n">2</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Ca%C3%B1averal+Ca%C3%B1averal+Tayrona+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Restaurante Cañaveral<span class="hor-go">↗</span></div>
+      <div class="hor-info">Het enige echte restaurant in het park, bij de hoofdingang. Ook de enige plek met wifi. Neem sowieso veel water en cash mee — alles is duur in het park.</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Cañaveral</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Camping+Don+Pedro+Arrecifes+Tayrona+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Camping Don Pedro<span class="hor-go">↗</span></div>
+      <div class="hor-info">No-frills eetplek bij de camping, 10–15 min landinwaarts van het strand. Ontbijt is meestal inbegrepen bij een overnachting.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Arrecifes</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="loc-block" data-loc="palomino">
+  <div class="loc-head"><h3>🏖️ Palomino</h3><span class="loc-count">3 adressen</span></div>
+  <div class="hor-cat">🍽️ Restaurants<span class="hor-cat-n">3</span></div>
+  <div class="hor-grid">
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=SU%C3%81+Palomino+Av+Troncal+Caribe+Km+70+Palomino+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">SUÁ Palomino<span class="hor-go">↗</span></div>
+      <div class="hor-info">Verse, gezonde gerechten met biologische en lokaal ingekochte producten.</div>
+      <div class="hor-tip">👉 Zeebaars in kokossaus</div>
+      <div class="hor-meta"><span class="hor-chip price">$$</span><span class="hor-chip adr">📍 Av Troncal Caribe Km 70</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Tankos+Playa+Donaires+Palomino+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Tankos<span class="hor-go">↗</span></div>
+      <div class="hor-info">Het Australisch-Colombiaanse duo Franko en Natasha maakt heerlijke maaltijden op deze strandplek.</div>
+      <div class="hor-tip">👉 Arrepizza met peer en spek</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Playa Donaires</span></div>
+    </a>
+    <a class="hor-card" href="https://www.google.com/maps/search/?api=1&query=Tiki+Hut+Playa+Donaires+Palomino+Colombia" target="_blank" rel="noopener">
+      <div class="hor-name">Tiki Hut<span class="hor-go">↗</span></div>
+      <div class="hor-info">Rustiger alternatief voor de Dreamer, met uitstekend eten in het eigen restaurant.</div>
+      <div class="hor-meta"><span class="hor-chip price">$</span><span class="hor-chip adr">📍 Playa Donaires</span></div>
+    </a>
+  </div>
+</div>
+</div><!-- /horeca -->
+
 <div class="footer">🇨🇴 Colombia · Culinaire gids · Foto's via Wikimedia Commons (CC) & Lonely Planet Colombia 2023<br><small style="margin-top:0.4rem;display:block;opacity:0.7;">Ratings worden gesynchroniseerd via GitHub Gist · <a href="setup.html" style="color:inherit;">⚙️ Setup / API keys</a></small></div>
 
 <script src="dagboek.js"></script>
@@ -1236,6 +2142,22 @@ rmSterren.forEach(function(ster){
 
 <script src="feedback.js"></script>
 <script>
+document.querySelectorAll('#horecaFilter .pill').forEach(function(p){
+  p.addEventListener('click', function(){
+    document.querySelectorAll('#horecaFilter .pill').forEach(function(x){x.classList.remove('active');});
+    p.classList.add('active');
+    var want=p.dataset.loc;
+    document.querySelectorAll('.horeca-wrap .loc-block').forEach(function(b){
+      b.classList.toggle('hidden', want!=='all' && b.dataset.loc!==want);
+    });
+  });
+});
+(function(){
+  var m=location.hash.match(/^#loc=([a-z]+)/);
+  if(!m) return;
+  var btn=document.querySelector('#horecaFilter .pill[data-loc="'+m[1]+'"]');
+  if(btn){ btn.click(); setTimeout(function(){ var el=document.getElementById('horeca'); if(el) el.scrollIntoView({behavior:'smooth'}); },80); }
+})();
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
 </body>

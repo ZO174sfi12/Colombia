@@ -73,6 +73,17 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .nav-btn.next{color:white;}
 </style>
 <link rel="stylesheet" href="site.css">
+<style>
+.culi-cta{max-width:860px;margin:0 auto 1.4rem;padding:0 1rem;}
+.culi-box{border:1px solid #E5E0D8;border-radius:12px;padding:1rem 1.2rem;background:#fff;}
+.culi-title{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#4A5E4D;margin-bottom:0.5rem;}
+.culi-top{display:flex;flex-direction:column;gap:0.35rem;font-size:0.83rem;margin-bottom:0.7rem;}
+.culi-top a{color:#1A4A2E;text-decoration:none;}
+.culi-top a:hover{text-decoration:underline;}
+.culi-btn{display:inline-flex;align-items:center;gap:0.45rem;background:#1A4A2E;color:#fff;padding:0.55rem 1rem;border-radius:9px;font-size:0.83rem;font-weight:700;text-decoration:none;}
+.culi-btn:hover{opacity:0.9;}
+.culi-counts{font-size:0.72rem;color:#4A5E4D;margin-top:0.55rem;}
+</style>
 </head>
 <body>
 <div class="topbar">
@@ -109,6 +120,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="badges">
     <a class="badge" href="info/guatape-piedra-del-penon.html" style="text-decoration:none;cursor:pointer;">🪨 Piedra del Peñón</a>
     <a class="badge" href="info/guatape-zocalos.html" style="text-decoration:none;cursor:pointer;">🎨 Kleurrijke Zócalo's</a>
+    <span class="badge">⛵ Boottocht op het meer</span>
   </div>
 </div>
 
@@ -119,6 +131,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     <div class="route-row"><div class="route-dot" style="background:#9CA3AF;"></div><div class="route-time">VM</div><div><div class="route-label">🚖 Uber vanuit Medellín naar bushalte</div><div class="route-sub">Naar de bushalte voor Guatapé-bussen</div></div></div>
     <div class="route-row"><div class="route-dot" style="background:#8B5CF6;"></div><div class="route-time">±2u</div><div><div class="route-label">🚌 Bus Medellín → Guatapé</div><div class="route-sub">Reistijd ±2 uur · landschappelijke rit</div></div></div>
     <div class="route-row"><div class="route-dot" style="background:#8B5CF6;"></div><div class="route-time">Dag</div><div><div class="route-label">🛺 Tuktuk → La Piedra del Peñón</div><div class="route-sub">Groot granieten monoliet · 740 treden beklimmen</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#0EA5E9;"></div><div class="route-time">NM</div><div><div class="route-label">⛵ Boottocht op het meer — optioneel</div><div class="route-sub">±3u vanaf de Malecón · langs El Cruz, het museum en de ruïnes van Escobars Hacienda La Manuela · of kayak als rustiger alternatief</div></div></div>
     <div class="route-row"><div class="route-dot" style="background:#8B5CF6;"></div><div class="route-time">Dag</div><div><div class="route-label">🎨 Kleurrijke zocalo's bewonderen</div><div class="route-sub">Elk huis heeft kleurrijke reliëf-decoraties (zocalo's)</div></div></div>
     <div class="route-row"><div class="route-dot" style="background:#EF4444;"></div><div class="route-time">Max 15u</div><div><div class="route-label">🚌 Bus terug naar Medellín!</div><div class="route-sub">VERPLICHT: uiterlijk 15:00 vertrekken voor vlucht dag 11</div></div></div>
   </div>
@@ -198,6 +211,40 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       </div>
     </div>
 
+      <div class="event">
+        <div class="card">
+        <div class="time">Dag 10 · Namiddag — na de klim</div>
+        <h3>⛵ Boottocht op het Embalse del Peñol</h3>
+        <img src="img/boottocht guatape.jpg" alt="Boottocht Embalse del Peñol Guatapé" style="width:100%;max-height:230px;object-fit:cover;border-radius:8px;margin:0.6rem 0 0.2rem;display:block;">
+        <p class="desc">Het meer waar La Piedra uit oprijst is geen natuurlijk meer: in 1972 werd de Río Nare afgedamd voor waterkracht — vandaag goed voor zo'n dertig procent van Colombia's elektriciteit. Het oude dorp Viejo Peñol verdween daarbij onder water. Vanaf de <strong>Malecón</strong> vertrekken boten voor een tocht van ongeveer drie uur over het meer: de perfecte manier om bij te komen na 740 treden.</p>
+        <div class="meta">
+          <span class="chip">⏱️ ±3 uur</span>
+          <span class="chip">🛥️ Vanaf de Malecón</span>
+          <span class="chip warn">⚠️ Doordeweeks pas na de lunch</span>
+        </div>
+
+        <details class="card-details" open>
+          <summary>⛵ Wat je onderweg ziet</summary>
+          <div class="details-body">
+            <p><strong>El Cruz</strong> — een kruis dat het verdronken dorp Viejo Peñol markeert. Bij laag water steken de resten van het oude dorp boven het wateroppervlak uit.</p>
+            <p><strong>Museo del Viejo Peñol</strong> — in een 200 jaar oud huis, het enige gebouw van het oude dorp dat boven de waterlijn bleef. Binnen hangen foto's van hoe het er vroeger uitzag.</p>
+            <p><strong>Hacienda La Manuela</strong> — de ruïnes van Pablo Escobars vakantiehuis aan het meer, uitgebrand en vervallen. De meeste boten varen er langs.</p>
+            <p><strong>Een eiland</strong> in het midden van het meer hoort ook bij de standaardronde.</p>
+          </div>
+        </details>
+
+        <details class="card-details">
+          <summary>🎉 Welke boot? Feestboot of rustig alternatief</summary>
+          <div class="details-body">
+            <p><strong>De grote partyboten</strong> hebben meerdere dekken, een bar, een stevige geluidsinstallatie en soms een dansvloer met live muziek. Ze varen niet ver — meestal blijven ze in het diepere water vlak voor het dorp. Uitstekende manier om Colombiaanse <em>paisas</em> te leren kennen, minder geschikt als je van stilte houdt.</p>
+            <p><strong>Kayak</strong> is het rustige alternatief. <a href="https://www.google.com/maps/search/?api=1&query=Lake+View+Hostel+Guatape+Colombia" target="_blank" rel="noopener">Lake View Hostel</a> (Cra 22 #29B-29) verhuurt kayaks en organiseert daarnaast fietstochten, zwemplekken en een bezoek aan Escobars oude finca.</p>
+            <p><strong>Timing:</strong> doordeweeks vertrekken de boten meestal pas na de lunch. In het weekend, als Guatapé volloopt met dagjesmensen uit Medellín, varen ze de hele dag en zitten ze sneller vol.</p>
+            <p><strong>Combineren met La Piedra:</strong> klim 's ochtends vroeg (minder volk, koeler), lunch in het dorp, boot in de namiddag. Zo heb je de zwaarste inspanning achter de rug voordat je op het water zit.</p>
+          </div>
+        </details>
+        </div>
+      </div>
+
   </div>
 
   <div class="prac-block">
@@ -214,7 +261,18 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div style="background:#F3E8FF;border:1px solid #D8B4FE;border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.83rem;color:#4A1A6E;">
     🏨 <strong>Hotel:</strong> Hotel Guatatur · €26 incl. ontbijt · ⚠️ Uiterlijk 15:00 terug naar Medellín (vlucht dag 11!)
   </div>
-</div><div class="nav-buttons">
+</div><div class="culi-cta">
+  <div class="culi-box">
+    <div class="culi-title">🍽️ Eten &amp; drinken in Guatapé</div>
+    <div class="culi-top">
+      <a href="https://www.google.com/maps/search/?api=1&query=La+Fogata+aan+het+water+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">🍽️ <strong>La Fogata</strong> — Biefstuk of forel</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Lake+View+Hostel+Cra+22+%2329B-29+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">🍺 <strong>Lake View Hostel</strong> — Zonsondergang vanaf het dakterras</a>
+    </div>
+    <a class="culi-btn" href="culinair.html#loc=guatape">Alle 8 adressen in Guatapé →</a>
+    <div class="culi-counts">🍽️ 7 restaurants · 🍺 1 bier</div>
+  </div>
+</div>
+<div class="nav-buttons">
   <span></span>
   <a href="cartagena.html" class="nav-btn next" style="background:#4A1A6E;">Volgende: 🌊 Cartagena →</a>
 </div>

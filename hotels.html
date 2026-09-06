@@ -36,6 +36,21 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .tier-lux{background:#FDF4FF;color:#6B21A8;border:1px solid #D8B4FE;}
 .bk-link{display:inline-flex;align-items:center;margin-top:0.55rem;text-decoration:none;background:#EBF3FF;border:1px solid #BAD4F9;border-radius:8px;padding:0.22rem 0.5rem;transition:background 0.15s;line-height:1;}
 .bk-link:hover{background:#D0E6FF;}
+.hotel.confirmed{border:2px solid #16A34A;background:#F0FDF4;box-shadow:0 2px 10px rgba(22,163,74,0.16);}
+.hotel .confirm-badge{position:absolute;top:0.6rem;right:0.7rem;background:#16A34A;color:white;font-size:0.62rem;font-weight:800;padding:0.18rem 0.5rem;border-radius:10px;letter-spacing:0.3px;}
+.booking-facts{margin-top:0.5rem;padding-top:0.5rem;border-top:1px dashed #86EFAC;font-size:0.73rem;line-height:1.65;color:#14532D;}
+.booking-facts b{font-weight:700;}
+.cancel-note{display:inline-block;margin-top:0.3rem;background:#FEF3C7;border:1px solid #FCD34D;color:#92400E;border-radius:6px;padding:0.1rem 0.4rem;font-size:0.7rem;font-weight:600;}
+.loc-filter{max-width:1040px;margin:1.2rem auto 0;padding:0 1rem;display:flex;flex-wrap:wrap;gap:0.4rem;}
+.loc-filter .pill{font-size:0.75rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:20px;border:2px solid var(--border);background:white;color:var(--muted);cursor:pointer;transition:all 0.12s;font-family:inherit;}
+.loc-filter .pill.active{background:var(--navy,#1A4A2E);color:white;border-color:var(--navy,#1A4A2E);}
+.loc-filter .pill:hover:not(.active){background:#F5F2EE;}
+.loc-block.hidden{display:none;}
+.alts-toggle{background:none;border:none;color:var(--muted);font-size:0.78rem;font-weight:600;cursor:pointer;padding:0.5rem 0;font-family:inherit;display:flex;align-items:center;gap:0.4rem;}
+.alts-toggle:hover{color:var(--text);}
+.alts-toggle .arrow{transition:transform 0.15s;display:inline-block;}
+.alts-toggle[aria-expanded="true"] .arrow{transform:rotate(90deg);}
+.alts.collapsed{display:none;}
 .lisa-badge{position:absolute;top:0.6rem;right:0.7rem;background:#9333EA;color:white;font-size:0.62rem;font-weight:800;padding:0.15rem 0.45rem;border-radius:10px;letter-spacing:0.3px;}
 
 .price{font-size:0.72rem;color:var(--muted);background:#F5F2EE;border:1px solid var(--border);border-radius:10px;padding:0.15rem 0.45rem;white-space:nowrap;}
@@ -79,9 +94,22 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <p class="sub">6 opties per locatie · Budget tot boutique · Prijzen op basis van Lonely Planet + schattingen</p>
 </div>
 
+<div class="loc-filter" id="locFilter">
+  <button class="pill active" data-loc="all">Alle locaties</button>
+  <button class="pill" data-loc="bogota">🏙️ Bogotá</button>
+  <button class="pill" data-loc="salento">☕ Salento</button>
+  <button class="pill" data-loc="medellin">🌆 Medellín</button>
+  <button class="pill" data-loc="guatape">🪨 Guatapé</button>
+  <button class="pill" data-loc="cartagena">🌊 Cartagena</button>
+  <button class="pill" data-loc="minca">🌿 Minca</button>
+  <button class="pill" data-loc="tayrona">🌴 Tayrona</button>
+  <button class="pill" data-loc="palomino">🏖️ Palomino</button>
+</div>
+
 <div class="section">
 
   <!-- BOGOTÁ -->
+  <div class="loc-block" data-loc="bogota">
   <div class="loc-header">
     <div>
       <div class="loc-title">🏙️ Bogotá · Dag 1–3 + Dag 23</div>
@@ -89,7 +117,24 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     </div>
   </div>
   <div class="hotels-grid">
-    <div class="hotel booked">
+    <div class="hotel confirmed">
+      <span class="confirm-badge">✓ GEBOEKT</span>
+      <div class="hotel-name">Botanico Hostel</div>
+      <div class="hotel-desc">Hangmatten, houtbalken, jungle-tuin, ruime privékamers en rooftop yoga.</div>
+      <div class="hotel-meta">
+        <span class="tier tier-budget">$ Budget</span>
+        <span class="price">€225 totaal · 3 nachten</span>
+      </div>
+      <div class="booking-facts">
+        <b>Driepersoonskamer</b> met eigen badkamer, voor 2 personen<br>
+        <b>18–21 nov 2026</b> · 3 nachten · €75/nacht<br>
+        <span class="cancel-note">Gratis annuleren tot 16 nov 2026</span>
+      </div>
+    </div>
+  </div>
+  <button class="alts-toggle" aria-expanded="false" onclick="toggleAlts(this)"><span class="arrow">▶</span><span class="alts-label"> Toon 5 alternatieven die we bekeken hebben</span></button>
+  <div class="hotels-grid alts collapsed">
+    <div class="hotel">
       <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Masaya Bogotá Hostel</div>
       <div class="hotel-desc">Stylish hostel met muurkunst, felblauw design en luxueuze badkamers. Zit midden in La Candelaria.</div>
@@ -107,15 +152,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
         <span class="price">€20–35/nacht · COP 92K–160K</span>
       </div>
       <a href="https://www.booking.com/searchresults.html?ss=Cranky+Croc+Bogota+Colombia&checkin=2026-11-18&checkout=2026-11-21&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
-    </div>
-    <div class="hotel">
-      <div class="hotel-name">Botanico Hostel</div>
-      <div class="hotel-desc">Hangmatten, houtbalken, jungle-tuin, ruime privékamers en rooftop yoga.</div>
-      <div class="hotel-meta">
-        <span class="tier tier-budget">$ Budget</span>
-        <span class="price">€22–38/nacht · COP 100K–175K</span>
-      </div>
-      <a href="https://www.booking.com/searchresults.html?ss=Botanico+Hostel+Bogota+Colombia&checkin=2026-11-18&checkout=2026-11-21&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
     </div>
     <div class="hotel">
       <div class="hotel-name">Hotel Muisca</div>
@@ -145,8 +181,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <a href="https://www.booking.com/searchresults.html?ss=Hotel+de+la+Opera+Bogota+Colombia&checkin=2026-11-18&checkout=2026-11-21&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
     </div>
   </div>
-
-  <!-- SALENTO -->
+  <div class="loc-block" data-loc="salento">
   <div class="loc-header">
     <div>
       <div class="loc-title">☕ Salento · Dag 4–6</div>
@@ -154,7 +189,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     </div>
   </div>
   <div class="hotels-grid">
-    <div class="hotel booked">
+    <div class="hotel">
       <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Casa Salento</div>
       <div class="hotel-desc">Centraal gelegen, vlak bij het plein. €191 voor 3 nachten inclusief ontbijt.</div>
@@ -212,6 +247,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 
   <!-- MEDELLÍN -->
+  </div>
+  <div class="loc-block" data-loc="medellin">
   <div class="loc-header">
     <div>
       <div class="loc-title">🌆 Medellín · Dag 7–9</div>
@@ -219,7 +256,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     </div>
   </div>
   <div class="hotels-grid">
-    <div class="hotel booked">
+    <div class="hotel">
       <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">574 Hotel Poblado</div>
       <div class="hotel-desc">Boutique hotel in El Poblado. Centraal, modern en comfortabel.</div>
@@ -277,6 +314,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 
   <!-- GUATAPÉ -->
+  </div>
+  <div class="loc-block" data-loc="guatape">
   <div class="loc-header">
     <div>
       <div class="loc-title">🪨 Guatapé · Dag 10</div>
@@ -284,7 +323,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     </div>
   </div>
   <div class="hotels-grid">
-    <div class="hotel booked">
+    <div class="hotel">
       <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Hotel Guatatur</div>
       <div class="hotel-desc">Centraal gelegen hotel in het kleurrijke centrum van Guatapé. Comfortabele kamers met ontbijt.</div>
@@ -351,6 +390,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 
   <!-- CARTAGENA -->
+  </div>
+  <div class="loc-block" data-loc="cartagena">
   <div class="loc-header">
     <div>
       <div class="loc-title">🌊 Cartagena · Dag 11–14</div>
@@ -358,7 +399,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     </div>
   </div>
   <div class="hotels-grid">
-    <div class="hotel booked">
+    <div class="hotel">
       <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Hotel 3 Banderas</div>
       <div class="hotel-desc">Charmant hotel in Getsemaní met zwembad en airco. Combinatie van locatie, comfort en prijs.</div>
@@ -425,6 +466,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 
   <!-- MINCA -->
+  </div>
+  <div class="loc-block" data-loc="minca">
   <div class="loc-header">
     <div>
       <div class="loc-title">🌿 Minca · Dag 15–16</div>
@@ -432,7 +475,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     </div>
   </div>
   <div class="hotels-grid">
-    <div class="hotel booked">
+    <div class="hotel">
       <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Costeño River Minca</div>
       <div class="hotel-desc">Aan de rivier, vlakbij het dorpje. Hangmatten, groene omgeving en authentieke jungle-sfeer.</div>
@@ -499,6 +542,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 
   <!-- TAYRONA -->
+  </div>
+  <div class="loc-block" data-loc="tayrona">
   <div class="loc-header">
     <div>
       <div class="loc-title">🌴 Tayrona National Park · Dag 17–19</div>
@@ -506,7 +551,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     </div>
   </div>
   <div class="hotels-grid">
-    <div class="hotel booked">
+    <div class="hotel">
       <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Quetzal Dorado Eco-Lodge</div>
       <div class="hotel-desc">1,5 km wandelen tot parkIngang. Airco, zwembad en rustgevende jungle-setting.</div>
@@ -573,6 +618,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 
   <!-- PALOMINO -->
+  </div>
+  <div class="loc-block" data-loc="palomino">
   <div class="loc-header">
     <div>
       <div class="loc-title">🏖️ Palomino · Dag 20–22</div>
@@ -580,7 +627,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     </div>
   </div>
   <div class="hotels-grid">
-    <div class="hotel booked">
+    <div class="hotel">
       <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Casa del Pavo Real</div>
       <div class="hotel-desc">Sfeervol verblijf met zwembad en airco, op wandelafstand van het strand.</div>
@@ -645,6 +692,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <a href="https://www.booking.com/searchresults.html?ss=El+Matuy+Palomino+Colombia&checkin=2026-12-06&checkout=2026-12-09&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
     </div>
   </div>
+  </div>
+
 
   <p class="src-note">📚 Hotelbeschrijvingen gebaseerd op Lonely Planet Colombia (10e ed., 2023). Prijsschattingen zijn indicatief op basis van de LP-tiers ($/$$/$$$ = budget/midden/boutique) en marktgemiddelden voor 2024–2025. Wisselkoers: 1 EUR ≈ COP 4.600. Prijzen zijn indicatief en per nacht voor 2 personen; controleer actuele tarieven via Booking.com.</p>
 
@@ -654,6 +703,24 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 <script src="feedback.js"></script>
 <script>
+function toggleAlts(btn){
+  var grid = btn.nextElementSibling, open = btn.getAttribute('aria-expanded')==='true';
+  btn.setAttribute('aria-expanded', String(!open));
+  grid.classList.toggle('collapsed', open);
+  btn.querySelector('.alts-label').textContent = open
+    ? ' Toon ' + grid.children.length + ' alternatieven die we bekeken hebben'
+    : ' Verberg alternatieven';
+}
+document.querySelectorAll('#locFilter .pill').forEach(function(p){
+  p.addEventListener('click', function(){
+    document.querySelectorAll('#locFilter .pill').forEach(function(x){x.classList.remove('active');});
+    p.classList.add('active');
+    var want = p.dataset.loc;
+    document.querySelectorAll('.loc-block').forEach(function(b){
+      b.classList.toggle('hidden', want!=='all' && b.dataset.loc!==want);
+    });
+  });
+});
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
 </body>
