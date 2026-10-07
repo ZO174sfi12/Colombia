@@ -115,13 +115,28 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .fl-chip{font-size:0.68rem;padding:0.15rem 0.5rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);color:var(--muted);}
 .fl-chip.nr{font-weight:700;color:var(--navy);}
 @media(max-width:430px){.fl-mid{min-width:60px;}.fl-code{font-size:1rem;}}
+
+
+
+/* ── COUNTDOWN in de topbar ── */
+.topbar{position:relative;}
+.tb-left{display:flex;align-items:center;gap:0.7rem;min-width:0;}
+.cdchip{display:inline-flex;align-items:baseline;gap:0.3rem;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.16rem 0.6rem;white-space:nowrap;}
+.cdchip b{font-family:'Playfair Display',Georgia,serif;font-size:0.95rem;font-weight:800;line-height:1;color:#fff;}
+.cdchip span{font-size:0.68rem;font-weight:600;color:rgba(255,255,255,0.78);}
+.cdline{position:absolute;left:0;bottom:0;height:3px;width:0;background:#86EFAC;transition:width 0.6s ease;}
+@media(max-width:430px){.cdchip span{display:none;}.cdchip{padding:0.16rem 0.5rem;}}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
 <div class="topbar">
-  <a class="logo" href="index.html">Colombia 2026</a>
+  <div class="tb-left">
+    <a class="logo" href="index.html">Colombia 2026</a>
+    <span class="cdchip" id="cdChip" title=""><b id="cdN">—</b><span id="cdL"></span></span>
+  </div>
+  <div class="cdline" id="cdF"></div>
   <div class="topbar-right">
     <a class="home-link icon-btn" href="setup.html" title="Setup">🔧</a>
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
@@ -146,6 +161,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="hotels.html">🏨 Hotels</a>
   <a href="praktisch.html">📌 Praktisch</a>
   <a href="routes.html">🗺️ Kaart &amp; Routes</a>
+  <a href="routes2.html">🔧 v2</a>
+  <a href="routes3.html">✂️ v3</a>
 </div>
 
 <div class="hero">
@@ -387,6 +404,55 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 <script src="feedback.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
+</script>
+<script>
+(function(){
+  // Vaste ankers: vertrek Brussel wo 18 nov 2026 · laatste dag Colombia vr 11 dec · thuis za 12 dec 20:15
+  var VERTREK = new Date(2026,10,18),      // 18 nov 2026 (kalenderdag)
+      LAATSTE = new Date(2026,11,11),      // 11 dec 2026 (kalenderdag)
+      THUIS   = new Date(2026,11,12,20,15);
+  function dag0(d){ return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+  function verschil(a,b){ return Math.round((dag0(b)-dag0(a))/86400000); }
+  var TOTAAL = verschil(VERTREK, LAATSTE) + 1;   // 24 dagen
+
+  function render(){
+    var nu = new Date(), vandaag = dag0(nu),
+        n=document.getElementById('cdN'), l=document.getElementById('cdL'),
+        s=document.getElementById('cdChip'), f=document.getElementById('cdF');
+    if(!n) return;
+    var tot = verschil(vandaag, VERTREK);
+
+    if(tot > 0){                                    // nog niet vertrokken
+      n.textContent = tot;
+      l.textContent = (tot===1 ? 'dag' : 'dagen') + ' tot vertrek';
+      s.title = '18 nov → 11 dec 2026';
+      f.style.width = '0%';
+    } else if(vandaag <= dag0(LAATSTE)){            // onderweg
+      var dag = verschil(VERTREK, vandaag) + 1,
+          resterend = verschil(vandaag, LAATSTE);
+      n.textContent = 'Dag ' + dag;
+      l.textContent = 'van ' + TOTAAL + ' in Colombia';
+      s.title = resterend === 0
+        ? 'laatste dag · 23:15 naar huis'
+        : 'nog ' + resterend + (resterend===1 ? ' dag' : ' dagen');
+      f.style.width = Math.round(dag / TOTAAL * 100) + '%';
+    } else if(nu < THUIS){                          // in de lucht
+      n.textContent = '✈️';
+      l.textContent = 'Onderweg naar huis';
+      s.title = 'landen 12 dec, 20:15';
+      f.style.width = '100%';
+    } else {                                        // terug
+      var terug = verschil(THUIS, vandaag);
+      n.textContent = terug;
+      l.textContent = (terug===1 ? 'dag' : 'dagen') + ' geleden thuisgekomen';
+      s.title = 'Colombia 2026';
+      f.style.width = '100%';
+    }
+  }
+  render();
+  setInterval(render, 60*60*1000);
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden) render(); });
+})();
 </script>
 </body>
 </html>
