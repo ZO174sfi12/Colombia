@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🕯️ Día de las Velitas · 7 december · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#0F766E;--glow:#D97706;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#0B1F2A,#1C3A3A 45%,#7C4A12);color:white;padding:2.6rem 1.5rem 2.2rem;text-align:center;position:relative;overflow:hidden;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;position:relative;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.78);text-decoration:none;}
+.hero h1{font-size:1.85rem;font-weight:800;line-height:1.2;position:relative;}
+.hero .sub{font-size:0.92rem;opacity:0.85;margin-top:0.45rem;position:relative;}
+.flames{display:flex;justify-content:center;gap:0.55rem;margin-top:1rem;font-size:1.35rem;position:relative;}
+.flames span{animation:flick 2.4s ease-in-out infinite;}
+.flames span:nth-child(2){animation-delay:.3s} .flames span:nth-child(3){animation-delay:.7s}
+.flames span:nth-child(4){animation-delay:1.1s} .flames span:nth-child(5){animation-delay:1.5s}
+@keyframes flick{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.55;transform:translateY(-2px)}}
+@media(prefers-reduced-motion:reduce){.flames span{animation:none}}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.lead{background:white;border:1px solid var(--border);border-left:4px solid var(--glow);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;}
+.lead p{font-size:0.92rem;line-height:1.7;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;}
+h2{font-size:1.05rem;font-weight:800;margin:1.6rem 0 0.7rem;color:var(--text);}
+.block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;}
+.block p{font-size:0.87rem;line-height:1.7;color:var(--muted);margin-bottom:0.6rem;}
+.block p:last-child{margin-bottom:0;}
+.block strong{color:var(--text);}
+.tip-box{background:linear-gradient(135deg,#7C4A12,#A8640F);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.85rem;line-height:1.65;opacity:0.95;margin-bottom:0.5rem;}
+.tip-box p:last-child{margin-bottom:0;}
+.warn{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:0.85rem 1.1rem;font-size:0.84rem;color:#92400E;line-height:1.65;margin-bottom:1.4rem;}
+.food{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1rem;}
+.food-item{background:white;border:1px solid var(--border);border-radius:10px;padding:0.75rem 0.9rem;}
+.food-item b{display:block;font-size:0.88rem;margin-bottom:0.15rem;}
+.food-item span{font-size:0.78rem;color:var(--muted);line-height:1.5;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.7rem;flex-wrap:wrap;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+.src{font-size:0.74rem;color:var(--muted);line-height:1.6;margin-top:1.2rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(4,1fr);}.hero h1{font-size:2.2rem;}}
+@media(max-width:460px){.food{grid-template-columns:1fr;}}
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">Colombia 2026</a>
+  <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
+</div>
+<div class="subnav">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../palomino.html" class="active">🏖️ Palomino</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../palomino.html">Palomino</a> &rsaquo; Día de las Velitas</div>
+  <h1>🕯️ Día de las Velitas</h1>
+  <p class="sub">Maandagavond 7 december · dag 20 · Palomino</p>
+  <div class="flames"><span>🕯️</span><span>🕯️</span><span>🕯️</span><span>🕯️</span><span>🕯️</span></div>
+</div>
+
+<div class="section">
+  <div class="lead">
+    <p>Op de avond van 7 december zet heel Colombia kaarsen en papieren lampionnen buiten — op stoepen,
+    balkons, vensterbanken en pleinen. Niet een paar kaarsjes, maar rijen en rijen, duizenden tegelijk.
+    Het is de onofficiële start van de kerstperiode en volgens veel Colombianen de mooiste avond van
+    het jaar. En jullie zijn er precies op tijd voor.</p>
+  </div>
+
+  <div class="facts-grid">
+    <div class="fact"><div class="fact-label">Wanneer</div><div class="fact-value">Avond 7 dec</div></div>
+    <div class="fact"><div class="fact-label">Waar jullie zijn</div><div class="fact-value">Palomino</div></div>
+    <div class="fact"><div class="fact-label">Dag erna</div><div class="fact-value">Feestdag</div></div>
+    <div class="fact"><div class="fact-label">Kosten</div><div class="fact-value">Gratis</div></div>
+  </div>
+
+  <h2>Waar het vandaan komt</h2>
+  <div class="block">
+    <p>Op 8 december 1854 kondigde paus Pius IX in de pauselijke bul <em>Ineffabilis Deus</em> het dogma
+    van de Onbevlekte Ontvangenis van Maria af. Gelovigen staken die avond kaarsen aan om het moment
+    te markeren, en in Colombia is dat uitgegroeid tot een landelijke traditie die de kerstperiode opent.</p>
+    <p>De gewoonte is intussen veel breder dan religie alleen. <strong>Voor elke kaars die je aansteekt
+    denk je aan iemand</strong> — een soort wens of gebed voor die persoon. Families komen samen, buren
+    zetten hun kaarsen naast elkaar op straat, en kinderen lopen rond om te kijken welke straat het
+    mooiste verlicht is.</p>
+  </div>
+
+  <h2>Wat er die avond gebeurt</h2>
+  <div class="block">
+    <p>Zodra het donker wordt — rond zes uur aan de kust — komen de kaarsen naar buiten. Mensen zetten
+    ze in rijen voor hun huis, op muurtjes en op het strand. Daarnaast hangen er <em>faroles</em>:
+    gekleurde papieren lampionnen.</p>
+    <p>Eten en muziek horen erbij. De klassiekers zijn <strong>buñuelos</strong> en <strong>natilla</strong>
+    — die zie je vanaf deze avond overal. In grotere steden zijn er processies en vuurwerk; in Santa Marta
+    beginnen de festiviteiten in de nacht en lopen ze door tot zonsopgang op de 8e.</p>
+  </div>
+
+  <div class="food">
+    <div class="food-item"><b>🧀 Buñuelos</b><span>Gefrituurde balletjes van kaas en maïsmeel. Krokant vanbuiten, zacht vanbinnen. Het bijgerecht van de hele kerstperiode.</span></div>
+    <div class="food-item"><b>🍮 Natilla</b><span>Stevige custardpudding van maïszetmeel, panela en kaneel. Wordt in blokjes gesneden en bij de buñuelos gegeten.</span></div>
+  </div>
+
+  <h2>Wat te verwachten in Palomino</h2>
+  <div class="block">
+    <p>Palomino is een klein kustdorp, dus verwacht geen grootstedelijk spektakel met processies en
+    vuurwerkshows. Wat je er wél krijgt is intiemer en misschien mooier: <strong>kaarsen langs de
+    zandstraten en op het strand</strong>, families voor hun deur, muziek uit de huizen.</p>
+    <p>Vraag bij je accommodatie of ze meedoen — veel hostels en posadas zetten zelf kaarsen buiten en
+    nodigen gasten uit om mee te helpen. Dat is de makkelijkste manier om er echt deel van uit te maken
+    in plaats van toe te kijken.</p>
+    <p>Wil je het grootser zien, dan is <strong>Santa Marta</strong> op een uur rijden. Daar gaat het
+    door tot in de ochtend. Maar dan zit je 's nachts op de weg terug, en dat weegt waarschijnlijk niet op
+    tegen een rustige avond met kaarsen aan zee.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-title">🕯️ Zo haal je er het meeste uit</div>
+    <p><strong>Koop zelf kaarsen.</strong> In elke tienda en supermarkt liggen ze vanaf begin december in
+    stapels, vaak in setjes met gekleurde faroles. Kost bijna niets.</p>
+    <p><strong>Wacht tot het donker is.</strong> Aan de Caribische kust gaat de zon rond kwart over zes
+    onder. Tussen zeven en tien uur is het op zijn mooist.</p>
+    <p><strong>Eet buñuelos en natilla</strong> waar je ze maar tegenkomt — dit is letterlijk de avond
+    waarop het seizoen ervoor begint.</p>
+    <p><strong>Steek er een aan voor iemand thuis.</strong> Dat is de bedoeling van de traditie, en het
+    is een mooi moment om vanaf de andere kant van de wereld aan het thuisfront te denken.</p>
+  </div>
+
+  <h2>Praktische gevolgen voor jullie reis</h2>
+  <div class="warn">
+    <strong>⚠️ 8 december is een officiële feestdag</strong> (Inmaculada Concepción). Dat betekent:
+    <br><br>
+    • Veel Colombianen hebben vrij en trekken naar de kust — <strong>drukker in Palomino en omgeving</strong><br>
+    • Bussen en collectivo's zitten voller dan normaal; plan je verplaatsing op dag 21 of 22 met wat marge<br>
+    • Sommige winkels en kantoren zijn dicht, restaurants en strandtenten juist niet<br>
+    • Op 9 december reis je door naar Santa Marta en vlieg je naar Bogotá — <strong>boek dat vervoer
+    liefst vooraf</strong>, want de dagen rond een feestdag zijn de drukste
+  </div>
+
+  <div class="src">
+    Bronnen: <a href="https://en.wikipedia.org/wiki/Day_of_the_Little_Candles">Day of the Little Candles (Wikipedia)</a> ·
+    <a href="https://medellinguru.com/dia-de-las-velitas/">Medellín Guru — Día de las Velitas</a> ·
+    <a href="https://colombiaone.com/2024/12/07/colombia-velitas/">Colombia One</a>
+  </div>
+</div>
+
+<div class="nav-wrap">
+  <a class="back-btn" href="../palomino.html">← Terug naar Palomino</a>
+  <a class="back-btn" href="../culinair.html#loc=palomino">🍽️ Eten in Palomino</a>
+</div>
+<div class="footer">🇨🇴 Colombia · 7 december 2026 · Palomino</div>
+<script>
+function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
+</script>
+</body>
+</html>

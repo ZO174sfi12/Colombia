@@ -301,3 +301,95 @@
 .tag-ochtend { background:#FEF3C7; color:#92400E; }
 .tag-namiddag{ background:#E0F2FE; color:#0C4A6E; }
 .tag-avond   { background:#EDE9FE; color:#4C1D95; }
+
+
+/* ── UITVOUWBAAR DAGDETAIL ────────────────────────────── */
+details.dagdetail{margin:0 0 1.4rem;border:1px solid var(--border,#E5E0D8);border-radius:12px;overflow:hidden;background:#fff;}
+details.dagdetail > summary{
+  list-style:none;cursor:pointer;padding:0.75rem 1rem;display:flex;align-items:center;gap:0.6rem;
+  font-size:0.84rem;font-weight:700;color:var(--muted,#4A5E4D);background:#FAFAFA;
+  border-left:4px solid var(--border,#E5E0D8);transition:background 0.15s,border-color 0.15s,color 0.15s;
+}
+details.dagdetail > summary::-webkit-details-marker{display:none;}
+details.dagdetail > summary:hover{background:#F3F1EC;color:var(--text,#1C2A1E);}
+details.dagdetail .dd-chev{
+  display:inline-block;transition:transform 0.18s ease;font-size:0.7rem;opacity:0.65;flex-shrink:0;
+}
+details.dagdetail[open] > summary{background:#F0F4F1;border-left-color:#86EFAC;color:var(--text,#1C2A1E);}
+details.dagdetail[open] .dd-chev{transform:rotate(90deg);}
+details.dagdetail .dd-n{
+  margin-left:auto;font-size:0.7rem;font-weight:600;opacity:0.7;background:#fff;
+  border:1px solid var(--border,#E5E0D8);border-radius:20px;padding:0.1rem 0.5rem;white-space:nowrap;
+}
+details.dagdetail > .timeline{padding:1rem 1rem 0.3rem;margin:0;}
+@media(prefers-reduced-motion:reduce){details.dagdetail .dd-chev{transition:none;}}
+
+/* ===== Statuschips & grootboek — gevoed door reservaties.js =============
+   Palet: alleen de kleuren van de site zelf.
+   bosgroen #1A4A2E = vastgelegd · goud #C9962A = actie nodig · gedempt #4A5E4D = ter plaatse
+   ======================================================================== */
+.res-chip{display:inline-flex;align-items:center;gap:0.32rem;font-size:0.68rem;font-weight:700;
+  padding:0.2rem 0.55rem;border-radius:4px;letter-spacing:0.2px;white-space:nowrap;
+  border:1px solid transparent;}
+.res-geboekt{background:#EEF3EE;color:#1A4A2E;border-color:#CBDAC9;}
+.res-te-boeken{background:#FBF3E2;color:#8A6410;border-color:#E8D49B;}
+.res-ter-plaatse{background:transparent;color:#7C8A7E;border-color:#E5E0D8;}
+
+/* statusregel in de hero (donkere achtergrond) */
+.res-tellers{display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;margin-top:0.6rem;}
+.res-teller{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);
+  border-radius:4px;padding:0.26rem 0.65rem;font-size:0.75rem;font-weight:600;color:#fff;}
+.res-teller b{font-weight:800;}
+.res-teller.warn{background:rgba(201,150,42,0.26);border-color:rgba(201,150,42,0.55);}
+a.res-teller{text-decoration:none;cursor:pointer;transition:background 0.15s,border-color 0.15s;}
+a.res-teller:hover{background:rgba(255,255,255,0.24);border-color:rgba(255,255,255,0.45);}
+a.res-teller:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+
+/* samenvattingsregel + filterknop */
+.gb-link{color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;}
+.gb-link:hover{border-bottom-style:solid;}
+.gb-filter{font:inherit;font-size:0.82rem;font-weight:700;cursor:pointer;
+  background:#FBF3E2;color:#8A6410;border:1px solid #E8D49B;border-radius:4px;padding:0.1rem 0.5rem;}
+.gb-filter:hover{background:#F6E9CC;}
+.gb-filter[aria-pressed="true"]{background:#8A6410;color:#fff;border-color:#8A6410;}
+
+/* grootboek: rustige witte kaart, geen gradient */
+.gb-blok{background:var(--card,#fff);border:1px solid var(--border,#E5E0D8);
+  border-radius:14px;overflow:hidden;margin-bottom:1.6rem;}
+.gb-groep{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.7px;
+  color:#1A4A2E;background:#FAF8F4;border-bottom:1px solid #E5E0D8;
+  padding:0.6rem 0.9rem;scroll-margin-top:5.5rem;}
+.gb-rij{display:grid;grid-template-columns:4.4rem 1fr auto;gap:0.75rem;align-items:start;
+  padding:0.68rem 0.9rem;border-bottom:1px solid #F2EFE9;font-size:0.86rem;}
+.gb-rij:last-child{border-bottom:none;}
+.gb-dag{font-size:0.7rem;font-weight:800;color:#1A4A2E;line-height:1.3;padding-top:0.1rem;}
+.gb-dag small{display:block;font-weight:600;color:#8D9A8F;}
+.gb-txt strong{display:block;font-weight:700;color:var(--text,#1C2A1E);}
+.gb-txt span{display:block;color:var(--muted,#4A5E4D);font-size:0.78rem;line-height:1.55;margin-top:0.15rem;}
+.gb-txt a{color:#1A4A2E;font-weight:600;}
+
+/* "Vastgelegd voor deze locatie" op de locatiepagina's */
+.res-blok{background:var(--card,#fff);border:1px solid var(--border,#E5E0D8);border-radius:14px;
+  padding:0.85rem 1.05rem;margin:0 auto 1.4rem;max-width:860px;}
+.res-blok-kop{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.7px;
+  color:#1A4A2E;margin-bottom:0.5rem;}
+.res-regel{display:flex;align-items:flex-start;gap:0.6rem;padding:0.45rem 0;
+  border-top:1px solid #F2EFE9;font-size:0.84rem;line-height:1.5;}
+.res-regel:first-of-type{border-top:none;}
+.res-regel .rr-ico{flex:0 0 1.2rem;text-align:center;}
+.res-regel .rr-txt{flex:1;min-width:0;color:var(--text,#1C2A1E);}
+.res-regel .rr-txt small{display:block;color:var(--muted,#4A5E4D);font-size:0.75rem;margin-top:0.12rem;}
+
+@media(max-width:520px){
+  .gb-rij{grid-template-columns:3.3rem 1fr;}
+  .gb-rij .res-chip{grid-column:2;justify-self:start;margin-top:0.3rem;}
+}
+
+/* budgettabel */
+.budget-sub{background:#FAF8F4;border-top:1px solid #E5E0D8;}
+.budget-tot{background:#EEF3EE;font-weight:700;}
+
+/* klikbare hero-chips */
+a.badge{text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,transform .12s;}
+a.badge:hover{background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.55);transform:translateY(-1px);}
+a.badge:focus-visible{outline:2px solid #fff;outline-offset:2px;}

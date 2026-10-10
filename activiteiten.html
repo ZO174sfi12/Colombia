@@ -103,6 +103,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
 a.loc-link.cat-tag{color:white;cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.4);text-decoration:none;}
 a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:white;}
+.chip.dag{background:#EEF3EE;color:#1A4A2E;border:1px solid #CBDAC9;font-weight:800;}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
@@ -120,7 +121,6 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
   <a href="salento.html">☕ Salento</a>
   <a href="medellin.html">🌆 Medellín</a>
   <a href="guatape.html">🪨 Guatapé</a>
-  <a href="cartagena.html">🌊 Cartagena</a>
   <a href="minca.html">🌿 Minca</a>
   <a href="tayrona.html">🌴 Tayrona</a>
   <a href="palomino.html">🏖️ Palomino</a>
@@ -133,8 +133,6 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
   <a href="hotels.html">🏨 Hotels</a>
   <a href="praktisch.html">📌 Praktisch</a>
   <a href="routes.html">🗺️ Kaart &amp; Routes</a>
-  <a href="routes2.html">🔧 v2</a>
-  <a href="routes3.html">✂️ v3</a>
 </div>
 
 <div class="hero">
@@ -150,6 +148,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
   </div>
   <div class="filter-pills">
     <button class="pill active" data-filter="all">Alles</button>
+    <button class="pill" data-filter="planning">📅 In de planning</button>
     <button class="pill" data-filter="avontuur">🪂 Avontuur</button>
     <button class="pill" data-filter="water">🏄 Water</button>
     <button class="pill" data-filter="natuur">🌿 Natuur</button>
@@ -170,60 +169,192 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <div class="act-card" data-href="info/medellin-paragliden.html" data-name="paragliden medellin tandem vliegen paragliding" data-cat="avontuur">
+  <div class="act-card" data-name="filandia paardrijden horseback uitkijktoren brulapen koffie plaza quindio" data-cat="koffie" data-dag="5">
     <div class="card-img">
-      <img src="img/paragliding.jpg" alt="Paragliden Medellín" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🪂</span>Paragliden</div>'">
-      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()" title="Naar Medellín">Medellín · Paragliding</a>
+      <div class="no-img"><span>🏘️</span>Filandia — koffie, paarden, uitzicht</div>
+      <a class="cat-tag loc-link" href="salento.html" onclick="event.stopPropagation()">Filandia · Quindío</a>
     </div>
     <div class="card-body">
-      <div class="act-name">Paragliden — Medellín</div>
-      <div class="act-desc">Tandem paragliding boven de vallei van Medellín. Vanuit San Félix, 30 min vlucht boven de stad. Spectaculair uitzicht.</div>
+      <div class="act-name">Filandia — koffie, paarden, uitzicht</div>
+      <div class="act-desc">Lonely Planet geeft Filandia een volle dag: koffie op de plaza, paardrijden door de golvende heuvels, de uitkijktoren van 27 m en brulapen in Reserva Barbas-Bremen.</div>
       <div class="meta">
-        <span class="chip price">💶 €80–120</span>
-        <span class="chip dur">⏰ 30min vlucht</span>
-        <span class="chip loc">📍 Medellín</span>
+        <span class="chip dag">📅 Dag 5</span><span class="chip price">💶 Collectivo ±€2</span><span class="chip dur">⏰ Volle dag</span><span class="chip loc">📍 Filandia</span>
       </div>
     </div>
   </div>
 
-  <div class="act-card" data-href="info/cartagena-el-totumo.html" data-name="el totumo vulkaan modderbad cartagena dagtrip" data-cat="avontuur">
+  <div class="act-card" data-name="museo de antioquia plaza botero beelden medellin museum" data-cat="cultuur" data-dag="9">
     <div class="card-img">
-      <img src="img/modderbad.jpg" alt="El Totumo vulkaan modderbad" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🌋</span>El Totumo</div>'">
-      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Dagtrip</a>
+      <div class="no-img"><span>🎨</span>Museo de Antioquia & Plaza Botero</div>
+      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()">Medellín · Centrum</a>
     </div>
     <div class="card-body">
-      <div class="act-name">El Totumo — Modderbad</div>
-      <div class="act-desc">Zwemmen in een 15m hoge mini-vulkaan gevuld met mineraalrijke modder. De modder is zo dik dat je er bijna op drijft.</div>
+      <div class="act-name">Museo de Antioquia & Plaza Botero</div>
+      <div class="act-desc">De grootste collectie Botero, door hem zelf aan zijn geboortestad geschonken. Op het plein ervoor staan drieëntwintig bronzen beelden in de openlucht, gratis.</div>
       <div class="meta">
-        <span class="chip price">💶 €15 dagtrip</span>
-        <span class="chip dur">⏰ Halve dag</span>
-        <span class="chip loc">📍 45min van Cartagena</span>
+        <span class="chip dag">📅 Dag 9</span><span class="chip price">💶 ±€5</span><span class="chip dur">⏰ 2–3u</span><span class="chip loc">📍 Metro Parque Berrío</span>
       </div>
     </div>
   </div>
 
+  <div class="act-card" data-name="3 cordilleras brouwerij brewery bier tour medellin donderdag" data-cat="avond" data-dag="9">
+    <div class="card-img">
+      <div class="no-img"><span>🍺</span>3 Cordilleras — brouwerijtour</div>
+      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()">Medellín · Brouwerij</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">3 Cordilleras — brouwerijtour</div>
+      <div class="act-desc">Ambachtelijke brouwerij in Medellín, tour met degustatie. Alleen op donderdagavond — donderdag 26 november valt precies goed.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 9</span><span class="chip dur">⏰ Avond</span><span class="chip loc">📍 Medellín</span><span class="chip">⚠️ Enkel donderdag</span>
+      </div>
+    </div>
+  </div>
 
+  <div class="act-card" data-name="provenza parque lleras uitgaan zona rosa medellin diner wijn reggaeton" data-cat="avond" data-dag="8">
+    <div class="card-img">
+      <div class="no-img"><span>🌆</span>Provenza & Parque Lleras</div>
+      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()">Medellín · El Poblado</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Provenza & Parque Lleras</div>
+      <div class="act-desc">Provenza is het fine-dining district: boomrijke straten, elegante restaurants, wijnbars. Een paar honderd meter lager begint Parque Lleras, de neonverlichte zona rosa.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 8</span><span class="chip dur">⏰ Avond</span><span class="chip loc">📍 El Poblado</span>
+      </div>
+    </div>
+  </div>
 
-  <div class="act-card" data-href="info/medellin-mountainbiken.html" data-name="mountainbiken downhill fietsen medellin berg afdaling san felix" data-cat="avontuur">
+  <div class="act-card" data-name="boottocht boot meer embalse guatape kayak varen" data-cat="water" data-dag="11">
+    <div class="card-img">
+      <div class="no-img"><span>🛶</span>Boottocht op het Embalse</div>
+      <a class="cat-tag loc-link" href="guatape.html" onclick="event.stopPropagation()">Guatapé · Meer</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Boottocht op het Embalse</div>
+      <div class="act-desc">Varen over het stuwmeer langs verdronken dorpen en verscholen inhammen. Aan de kade te regelen; gaat door bij genoeg opvarenden. Kajak huren kan ook.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 11</span><span class="chip dur">⏰ 1–2u</span><span class="chip loc">📍 Kade Guatapé</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-name="afdaling san rafael guatape fietsen downhill onverharde wegen antioquia" data-cat="avontuur" data-dag="11">
+    <div class="card-img">
+      <div class="no-img"><span>🚵</span>Afdaling Guatapé → San Rafael</div>
+      <a class="cat-tag loc-link" href="guatape.html" onclick="event.stopPropagation()">Guatapé · Fietsen</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Afdaling Guatapé → San Rafael</div>
+      <div class="act-desc">Lonely Planet rekent dit bij de beste dagritten van Antioquia: "only hardcore riders try to pedal back up" — de rest zet de fiets op de bus terug. Er lopen ook vrijwel verkeersvrije onverharde wegen rond het dorp.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 11</span><span class="chip dur">⏰ Halve dag</span><span class="chip loc">📍 Guatapé</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-name="hacienda la victoria koffiefinca minca 1892 koffie tour engels" data-cat="koffie" data-dag="13">
+    <div class="card-img">
+      <div class="no-img"><span>☕</span>Hacienda La Victoria</div>
+      <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()">Minca · Koffiefinca</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Hacienda La Victoria</div>
+      <div class="act-desc">Biologische koffiefinca uit 1892, opgezet met Engelse investeerders — vandaar de naam. Dagelijks 9–17u, tour van anderhalf uur. Motortaxi 25 min, jeep 35 min, of twee uur klimmen.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 13</span><span class="chip dur">⏰ 1u30 tour</span><span class="chip loc">📍 6 km boven Minca</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-name="nevada cerveceria brouwerij kapel minca craft beer ambachtelijk bier" data-cat="avond" data-dag="13">
+    <div class="card-img">
+      <div class="no-img"><span>🍺</span>Nevada Cervecería — in de oude kapel</div>
+      <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()">Minca · Brouwerij</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Nevada Cervecería — in de oude kapel</div>
+      <div class="act-desc">Ambachtelijke brouwerij gevestigd in een oude kapel op het landgoed van Hacienda La Victoria. Koffiefinca, kapel en brouwerij op één heuvel.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 13</span><span class="chip loc">📍 Hacienda La Victoria</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-name="jungle joe vogels birding minca vogelkijken zonsopgang endemisch" data-cat="natuur" data-dag="14">
+    <div class="card-img">
+      <div class="no-img"><span>🦜</span>Vogeltocht bij zonsopgang</div>
+      <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()">Minca · Vogels</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Vogeltocht bij zonsopgang</div>
+      <div class="act-desc">Jungle Joe Minca vertrekt dagelijks om 6 uur voor een tocht van drie uur. De Sierra Nevada is een eigen eiland van soorten: honderden vogels, waarvan een reeks nergens anders voorkomt.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 14</span><span class="chip dur">⏰ 3u · start 6u</span><span class="chip loc">📍 Minca dorp</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-name="reserva el dorado san lorenzo kam vogels minca sierra nevada endemisch" data-cat="natuur" data-dag="15">
+    <div class="card-img">
+      <div class="no-img"><span>⛰️</span>Reserva Natural El Dorado</div>
+      <a class="cat-tag loc-link" href="minca.html" onclick="event.stopPropagation()">Minca · San Lorenzo</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Reserva Natural El Dorado</div>
+      <div class="act-desc">Vogelparadijs met weids uitzicht vanaf de San Lorenzo-kam, hoger dan alles eromheen. Vooraf regelen via je accommodatie. Cerro Kennedy op 3.100 m is een tweedaagse klim en past niet.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 15</span><span class="chip dur">⏰ Volle dag</span><span class="chip loc">📍 San Lorenzo-kam</span><span class="chip">📧 Vooraf</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-name="cabo san juan el mirador tayrona wandeling strand hangmat piscina" data-cat="natuur" data-dag="17">
+    <div class="card-img">
+      <div class="no-img"><span>🏝️</span>Cabo San Juan & El Mirador</div>
+      <a class="cat-tag loc-link" href="tayrona.html" onclick="event.stopPropagation()">Tayrona · Cabo San Juan</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Cabo San Juan & El Mirador</div>
+      <div class="act-desc">Het beeld waar Tayrona om bekendstaat: een rieten hut op een rotspunt tussen twee baaien. Twee tot drie uur lopen vanaf El Zaíno over oude inheemse paden, langs La Piscina en Arrecifes.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 17</span><span class="chip dur">⏰ 4–9 km</span><span class="chip loc">📍 Vanaf El Zaíno</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-href="info/dia-de-las-velitas.html" data-name="dia de las velitas kaarsjes 7 december feest palomino lichtjes" data-cat="avond" data-dag="20">
+    <div class="card-img">
+      <div class="no-img"><span>🕯️</span>Día de las Velitas</div>
+      <a class="cat-tag loc-link" href="palomino.html" onclick="event.stopPropagation()">Palomino · 7 december</a>
+    </div>
+    <div class="card-body">
+      <div class="act-name">Día de las Velitas</div>
+      <div class="act-desc">De avond waarop heel Colombia kaarsjes buitenzet, aan de vooravond van Maria Onbevlekte Ontvangenis. In een dorp als Palomino zie je het op zijn mooist: de hele straat vol lichtjes bij zonsondergang.</div>
+      <div class="meta">
+        <span class="chip dag">📅 Dag 20</span><span class="chip loc">📍 Overal in Palomino</span><span class="chip">🗓️ ma 7 dec</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-card" data-href="info/mountainbiken.html" data-name="mountainbiken downhill fietsen salento la carbonera guatape arvi afdaling" data-cat="avontuur">
     <div class="card-img">
       <img src="img/downhill.jpg" alt="Downhill mountainbiken Medellín" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🚵</span>Mountainbiken</div>'">
       <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()" title="Naar Medellín">Medellín · Avontuur</a>
     </div>
     <div class="card-body">
-      <div class="act-name">Downhill Mountainbiken</div>
-      <div class="act-desc">Van 2.400 m hoogte naar de stad: spectaculaire afdaling door Andeslandschap, koffieakkers en jungle. Combineerbaar met paragliden.</div>
+      <div class="act-name">Downhill 30 km — La Carbonera</div>
+      <div class="act-desc">30 km afdaling vanaf La Carbonera op 3.400 m door nevelwoud en koffieakkers. Salento Cycling: "you don't have to pedal once".</div>
       <div class="meta">
         <span class="chip price">💶 €30–60</span>
         <span class="chip dur">⏰ 3–5u</span>
-        <span class="chip loc">📍 Medellín</span>
+        <span class="chip loc">📍 Salento</span>
       </div>
     </div>
   </div>
 
-  <div class="act-card" data-href="info/palomino-tubing.html" data-name="palomino tubing rivier zwembanden drijven" data-cat="avontuur">
+  <div class="act-card" data-href="info/palomino-tubing.html" data-name="palomino tubing rivier zwembanden drijven" data-cat="avontuur" data-dag="19">
     <div class="card-img">
       <img src="img/tubing.jpg" alt="Palomino tubing rivier" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🛟</span>Palomino Tubing</div>'">
@@ -233,6 +364,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Palomino Tubing</div>
       <div class="act-desc">Drijven op banden door de Palomino-rivier, uitlopend in de Caraïbische zee. Meest ontspannen activiteit van de reis.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 19</span>
         <span class="chip price">💶 €10–15</span>
         <span class="chip dur">⏰ 2–3u</span>
         <span class="chip loc">📍 Palomino</span>
@@ -240,7 +372,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/palomino-surf.html" data-name="palomino surfen surfles strand golf" data-cat="avontuur">
+  <div class="act-card" data-href="info/palomino-surf.html" data-name="palomino surfen surfles strand golf" data-cat="avontuur" data-dag="21">
     <div class="card-img">
       <img src="img/surfing.jpg" alt="Surfen Palomino" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏄</span>Surfen Palomino</div>'">
@@ -250,6 +382,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Surfen — Palomino</div>
       <div class="act-desc">Beginner-vriendelijke golven aan de Caribische kust. Surfscholen aan het strand geven les voor alle niveaus.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 21</span>
         <span class="chip price">💶 €25 les + board</span>
         <span class="chip dur">⏰ 2u</span>
         <span class="chip loc">📍 Palomino</span>
@@ -284,41 +417,9 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <div class="act-card" data-href="info/cartagena-islas-rosario.html" data-name="islas rosario cartagena eilanden snorkelen boot" data-cat="water">
-    <div class="card-img">
-      <img src="img/cartagena_islas.jpg" alt="Islas del Rosario Cartagena" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏝️</span>Islas del Rosario</div>'">
-      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Eilanden</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Islas del Rosario</div>
-      <div class="act-desc">Archipel van 27 koraaleilandjes. Snorkelen, wit zand, turquoise water. Dagtour per speedboot.</div>
-      <div class="meta">
-        <span class="chip price">💶 €52 p.p.</span>
-        <span class="chip dur">⏰ Hele dag</span>
-        <span class="chip loc">📍 Cartagena</span>
-      </div>
-    </div>
-  </div>
 
-  <div class="act-card" data-href="info/palomino-strand.html" data-name="palomino strand caribbean beach relaxen" data-cat="water">
-    <div class="card-img">
-      <img src="img/palomino_beach.jpg" alt="Palomino strand" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏖️</span>Palomino Strand</div>'">
-      <a class="cat-tag loc-link" href="palomino.html" onclick="event.stopPropagation()" title="Naar Palomino">Palomino · Strand</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Palomino Strand</div>
-      <div class="act-desc">Rustig Caribisch strand omgeven door palmen en de Sierra Nevada. Minder toeristisch dan Cartagena. Hangmatten en coconut water.</div>
-      <div class="meta">
-        <span class="chip price">💶 Gratis</span>
-        <span class="chip dur">⏰ Hele dag</span>
-        <span class="chip loc">📍 Palomino</span>
-      </div>
-    </div>
-  </div>
 
-  <div class="act-card" data-href="info/minca-pozo-azul.html" data-name="pozo azul minca waterval zwemmen blauw bergwater" data-cat="natuur">
+  <div class="act-card" data-href="info/minca-pozo-azul.html" data-name="pozo azul minca waterval zwemmen blauw bergwater" data-cat="natuur" data-dag="13">
     <div class="card-img">
       <img src="img/pozoazul.jpg" alt="Pozo Azul waterval Minca" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>💦</span>Pozo Azul</div>'">
@@ -328,6 +429,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Pozo Azul</div>
       <div class="act-desc">Waterval met helder blauw bergwater diep in de jungle bij Minca. Zwem in de natuurlijke pool aan de voet van de val.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 13</span>
         <span class="chip price">💶 Gratis</span>
         <span class="chip dur">⏰ 1–2u</span>
         <span class="chip loc">📍 Minca</span>
@@ -345,7 +447,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <div class="act-card" data-href="info/guatape-piedra-del-penon.html" data-name="la piedra penol guatape rots beklimmen trappen" data-cat="natuur">
+  <div class="act-card" data-href="info/guatape-piedra-del-penon.html" data-name="la piedra penol guatape rots beklimmen trappen" data-cat="natuur" data-dag="11">
     <div class="card-img">
       <img src="img/guatape_piedra.jpg" alt="La Piedra del Peñol Guatapé" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🪨</span>La Piedra</div>'">
@@ -355,6 +457,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">La Piedra del Peñol</div>
       <div class="act-desc">740 treden omhoog langs een reusachtige granieten monoliet. Boven: 360° panorama over het merengebied van Guatapé.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 11</span>
         <span class="chip price">💶 €3</span>
         <span class="chip dur">⏰ 1u beklimming</span>
         <span class="chip loc">📍 Guatapé</span>
@@ -362,7 +465,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/salento-valle-de-cocora.html" data-name="valle de cocora salento waspalmen wandeling" data-cat="natuur">
+  <div class="act-card" data-href="info/salento-valle-de-cocora.html" data-name="valle de cocora salento waspalmen wandeling" data-cat="natuur" data-dag="4">
     <div class="card-img">
       <img src="img/cocora.webp" alt="Valle de Cocora waspalmen" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌴</span>Valle de Cocora</div>'">
@@ -372,6 +475,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Valle de Cocora</div>
       <div class="act-desc">Indrukwekkend dal vol waspalmen, Colombia's nationale boom. 8–12km lus door mistwoud en open grasland.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 4</span>
         <span class="chip price">💶 €3 entree + jeep</span>
         <span class="chip dur">⏰ Hele dag</span>
         <span class="chip loc">📍 Salento</span>
@@ -386,7 +490,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <a class="cat-tag loc-link" href="tayrona.html" onclick="event.stopPropagation()" title="Naar Tayrona">Tayrona · Ruïnes</a>
     </div>
     <div class="card-body">
-      <div class="act-name">Pueblito — Pre-Colombiaanse Ruïnes</div>
+      <div class="act-name">Pueblito — gesloten voor bezoekers</div>
       <div class="act-desc">Kogui-ruïnes hoog in de jungle boven Cabo San Juan. 2 km bergop vanuit het strand, weinig toeristen, spectaculair uitzicht.</div>
       <div class="meta">
         <span class="chip price">💶 Inbegrepen in parkticket</span>
@@ -396,7 +500,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/tayrona-park.html" data-name="tayrona nationaal park cabo san juan strand hike" data-cat="natuur">
+  <div class="act-card" data-href="info/tayrona-park.html" data-name="tayrona nationaal park cabo san juan strand hike" data-cat="natuur" data-dag="17">
     <div class="card-img">
       <img src="img/tayrona_beach.jpg" alt="Tayrona Nationaal Park" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌴</span>Tayrona</div>'">
@@ -407,6 +511,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 
       <div class="act-desc">Hike door jungle naar afgelegen stranden. Cabo San Juan is het mooiste eindpunt — turquoise water, rotsen en hangmatten.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 17</span>
         <span class="chip price">💶 €17 entree</span>
         <span class="chip dur">⏰ Hele dag</span>
         <span class="chip loc">📍 Tayrona / Santa Marta</span>
@@ -414,7 +519,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/minca-sierra.html" data-name="minca sierra nevada vogelspotten natuur wandeling" data-cat="natuur">
+  <div class="act-card" data-href="info/minca-sierra.html" data-name="minca sierra nevada vogelspotten natuur wandeling" data-cat="natuur" data-dag="15">
     <div class="card-img">
       <img src="img/minca_sierra.jpg" alt="Sierra Nevada Minca" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌿</span>Sierra Nevada</div>'">
@@ -424,6 +529,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Sierra Nevada — Minca</div>
       <div class="act-desc">Jungle wandelingen, vogelspotten (600+ soorten) en spectaculair uitzicht op de Caraïbische kust. Met lokale gids.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 15</span>
         <span class="chip price">💶 €25–40 gids</span>
         <span class="chip dur">⏰ Halve–hele dag</span>
         <span class="chip loc">📍 Minca</span>
@@ -431,7 +537,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/medellin-parque-arvi.html" data-name="parque arvi medellin metrocable natuur bos" data-cat="natuur">
+  <div class="act-card" data-href="info/medellin-parque-arvi.html" data-name="parque arvi medellin metrocable natuur bos" data-cat="natuur" data-dag="9">
     <div class="card-img">
       <img src="img/medellin_arvi.jpg" alt="Parque Arví Medellín metrocable" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🌳</span>Parque Arví</div>'">
@@ -441,6 +547,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Parque Arví</div>
       <div class="act-desc">Bereikbaar via metrocable en gondel. 1700 ha woud boven Medellín. Wandelpaden, marktjes en spectaculaire kabelbaanrit.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 9</span>
         <span class="chip price">💶 €6 kabel + entree</span>
         <span class="chip dur">⏰ Halve dag</span>
         <span class="chip loc">📍 Medellín</span>
@@ -448,7 +555,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/salento-mirador.html" data-name="mirador salento uitzicht koffievallei alto de la cruz" data-cat="natuur">
+  <div class="act-card" data-href="info/salento-mirador.html" data-name="mirador salento uitzicht koffievallei alto de la cruz" data-cat="natuur" data-dag="6">
     <div class="card-img">
       <img src="img/mirador.webp" alt="Mirador Alto de la Cruz Salento" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>⛰️</span>Mirador Salento</div>'">
@@ -458,6 +565,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Mirador Alto de la Cruz</div>
       <div class="act-desc">Korte klim boven Salento met panorama over de Cocora-vallei en koffieplantages. Best bij zonsopkomst of -ondergang.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 6</span>
         <span class="chip price">💶 Gratis</span>
         <span class="chip dur">⏰ 1u</span>
         <span class="chip loc">📍 Salento</span>
@@ -465,7 +573,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/minca-marinka.html" data-name="marinka waterval minca zwemmen natuur" data-cat="natuur">
+  <div class="act-card" data-href="info/minca-marinka.html" data-name="marinka waterval minca zwemmen natuur" data-cat="natuur" data-dag="14">
     <div class="card-img">
       <img src="img/marinka.webp" alt="Waterval Minca" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>💧</span>Marinka Waterval</div>'">
@@ -475,6 +583,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Waterval Marinka</div>
       <div class="act-desc">Populaire waterval 45 min wandelen van Minca. Zwemmen in natuurlijk bassin, omringd door tropisch bos.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 14</span>
         <span class="chip price">💶 €2 entree</span>
         <span class="chip dur">⏰ 2u</span>
         <span class="chip loc">📍 Minca</span>
@@ -492,7 +601,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <div class="act-card" data-href="info/medellin-comuna-13.html" data-name="comuna 13 medellin graffiti street art escalator" data-cat="streetart">
+  <div class="act-card" data-href="info/medellin-comuna-13.html" data-name="comuna 13 medellin graffiti street art escalator" data-cat="streetart" data-dag="8">
     <div class="card-img">
       <img src="img/medellin_comuna13.jpg" alt="Comuna 13 Medellín" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Comuna 13</div>'">
@@ -502,6 +611,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Comuna 13</div>
       <div class="act-desc">Van gevaarlijkste wijk naar kleurrijkste buurt van Medellín. Roltrappen, muurschilderingen en hip-hop.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 8</span>
         <span class="chip price">💶 Gratis/fooi tour</span>
         <span class="chip dur">⏰ 2–3u</span>
         <span class="chip loc">📍 Medellín</span>
@@ -509,22 +619,6 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/cartagena-getsemani.html" data-name="getsemani cartagena graffiti kleurrijke wijk muurschildering" data-cat="streetart">
-    <div class="card-img">
-      <img src="img/cartagena_street.jpg" alt="Getsemaní Cartagena" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Getsemaní</div>'">
-      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Wijk</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Getsemaní</div>
-      <div class="act-desc">Artistieke buurt buiten de stadsmuren. Kleurrijke muurschilderingen, Plaza Trinidad en beste bars van Cartagena.</div>
-      <div class="meta">
-        <span class="chip price">💶 Gratis</span>
-        <span class="chip dur">⏰ 1–2u + avond</span>
-        <span class="chip loc">📍 Cartagena</span>
-      </div>
-    </div>
-  </div>
 
   <div class="act-card" data-href="info/bogota-street-art.html" data-name="bogota street art graffiti la candelaria muurschildering" data-cat="streetart">
     <div class="card-img">
@@ -648,22 +742,6 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/cartagena-chiva.html" data-name="chiva rumbera feestbus cartagena avond party bus" data-cat="avond">
-    <div class="card-img">
-      <img src="img/chiva.webp" alt="Chiva Rumbera feestbus Cartagena" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🚌</span>Chiva Rumbera</div>'">
-      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Nightlife</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Chiva Rumbera</div>
-      <div class="act-desc">Open feestbus door de stad: liveband, aguardiente, dansen op de bus. Het meest Colombiaanse feest mogelijk. ±3u.</div>
-      <div class="meta">
-        <span class="chip price">💶 €18–25</span>
-        <span class="chip dur">⏰ 21u–middernacht</span>
-        <span class="chip loc">📍 Cartagena</span>
-      </div>
-    </div>
-  </div>
 
   <div class="act-card" data-href="info/medellin-salsa.html" data-name="salsa dansen medellin les dansles avond" data-cat="avond">
     <div class="card-img">
@@ -682,24 +760,8 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/cartagena-stadsmuren.html" data-name="cafe del mar cartagena zonsondergang cocktail stadsmuur rooftop" data-cat="avond">
-    <div class="card-img">
-      <img src="img/cartagena_portal.jpg" alt="Café del Mar stadsmuren zonsondergang Cartagena" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🌅</span>Café del Mar</div>'">
-      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Rooftop</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Zonsondergang op de Stadsmuren</div>
-      <div class="act-desc">Cocktail drinken op de oude stadsmuren bij zonsondergang. Café del Mar is de klassieke plek — kijk ook naar de minder drukke alternatieven.</div>
-      <div class="meta">
-        <span class="chip price">💶 €6–12 cocktail</span>
-        <span class="chip dur">⏰ 17–19u</span>
-        <span class="chip loc">📍 Cartagena</span>
-      </div>
-    </div>
-  </div>
 
-  <div class="act-card" data-href="info/guatape-zocalos.html" data-name="guatape zocalos kleurrijke gevels avond sfeer village" data-cat="avond">
+  <div class="act-card" data-href="info/guatape-zocalos.html" data-name="guatape zocalos kleurrijke gevels avond sfeer village" data-cat="avond" data-dag="10">
     <div class="card-img">
       <img src="img/Zocalos.jpg" alt="Guatapé Zocalos" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🎨</span>Guatapé Zocalos</div>'">
@@ -709,6 +771,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Guatapé Zocalos & Avond</div>
       <div class="act-desc">Kleurrijke gebeeldhouwde gevels (zocalos) en gezellige pleintjes. Overnacht voor een rustige avond na de drukte van La Piedra.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 10</span>
         <span class="chip price">💶 Gratis</span>
         <span class="chip dur">⏰ Avond</span>
         <span class="chip loc">📍 Guatapé</span>
@@ -726,24 +789,8 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
 <div class="cat-line"></div>
 <div class="cards-grid">
 
-  <div class="act-card" data-href="info/cartagena-castillo-san-felipe.html" data-name="castillo san felipe cartagena kasteel fort" data-cat="cultuur">
-    <div class="card-img">
-      <img src="img/act_castillo.jpg" alt="Castillo San Felipe" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏰</span>Castillo San Felipe</div>'">
-      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Fort</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Castillo San Felipe de Barajas</div>
-      <div class="act-desc">Spaans koloniaal fort uit 1657. Grootste en sterkste vesting van heel Zuid-Amerika.</div>
-      <div class="meta">
-        <span class="chip price">💶 €5</span>
-        <span class="chip dur">⏰ 1–2u</span>
-        <span class="chip loc">📍 Cartagena</span>
-      </div>
-    </div>
-  </div>
 
-  <div class="act-card" data-href="info/bogota-museo-del-oro.html" data-name="museo del oro goud museum bogota" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-museo-del-oro.html" data-name="museo del oro goud museum bogota" data-cat="cultuur" data-dag="2">
     <div class="card-img">
       <img src="img/act_museo_oro.jpg" alt="Museo del Oro Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🥇</span>Museo del Oro</div>'">
@@ -753,6 +800,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Museo del Oro</div>
       <div class="act-desc">55.000 pre-Colombiaanse gouden voorwerpen. Een van de beste musea van Zuid-Amerika.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 2</span>
         <span class="chip price">💶 Gratis zo</span>
         <span class="chip dur">⏰ 1–2u</span>
         <span class="chip loc">📍 Bogotá</span>
@@ -777,7 +825,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/bogota-la-candelaria.html" data-name="la candelaria bogota koloniale wijk wandelen" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-la-candelaria.html" data-name="la candelaria bogota koloniale wijk wandelen" data-cat="cultuur" data-dag="2">
     <div class="card-img">
       <img src="img/bogota_candelaria.jpg" alt="La Candelaria Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏛️</span>La Candelaria</div>'">
@@ -787,6 +835,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">La Candelaria</div>
       <div class="act-desc">Historische kern van Bogotá. Koloniale architectuur, Plaza de Bolívar, straatkunst en markten.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 2</span>
         <span class="chip price">💶 Gratis</span>
         <span class="chip dur">⏰ Halve dag</span>
         <span class="chip loc">📍 Bogotá</span>
@@ -794,7 +843,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/bogota-monserrate.html" data-name="monserrate bogota berg uitzicht kerk" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-monserrate.html" data-name="monserrate bogota berg uitzicht kerk" data-cat="cultuur" data-dag="2">
     <div class="card-img">
       <img src="img/bogota_monserrate.jpg" alt="Monserrate Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>⛰️</span>Monserrate</div>'">
@@ -804,6 +853,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Monserrate</div>
       <div class="act-desc">Heilige berg boven Bogotá op 3.152m. Panorama over de stad, kerk en bedevaartsoord.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 2</span>
         <span class="chip price">💶 €7 kabelbaan</span>
         <span class="chip dur">⏰ Halve dag</span>
         <span class="chip loc">📍 Bogotá</span>
@@ -818,7 +868,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <a class="cat-tag loc-link" href="bogota.html" onclick="event.stopPropagation()" title="Naar Bogotá">Bogotá · Markt</a>
     </div>
     <div class="card-body">
-      <div class="act-name">Usaquén — Zondagsmarkt</div>
+      <div class="act-name">Usaquén — zondagsmarkt (valt buiten de reis)</div>
       <div class="act-desc">Charmant koloniaal deelstadje binnen Bogotá met iedere zondag een bruisende antiekmarkt. Leuke cafés, galeries en lokale ambachten in een rustige sfeer.</div>
       <div class="meta">
         <span class="chip price">💶 Gratis entree</span>
@@ -828,7 +878,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/bogota-catedral-sal.html" data-name="catedral de sal zipaquira zoutmijn kerk zout" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-catedral-sal.html" data-name="catedral de sal zipaquira zoutmijn kerk zout" data-cat="cultuur" data-dag="24">
     <div class="card-img">
       <img src="img/Catedral de sal.jpeg" alt="Catedral de Sal Zipaquirá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>⛪</span>Catedral de Sal</div>'">
@@ -838,6 +888,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Catedral de Sal</div>
       <div class="act-desc">Kerk gebouwd in een actieve zoutmijn in Zipaquirá. 200m onder de grond, imposante gewelven en kruisweg.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 24</span>
         <span class="chip price">💶 €12</span>
         <span class="chip dur">⏰ Halve dag</span>
         <span class="chip loc">📍 Zipaquirá (1u van Bogotá)</span>
@@ -845,7 +896,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/bogota-plaza-bolivar.html" data-name="plaza bolivar bogota plein paleis" data-cat="cultuur">
+  <div class="act-card" data-href="info/bogota-plaza-bolivar.html" data-name="plaza bolivar bogota plein paleis" data-cat="cultuur" data-dag="2">
     <div class="card-img">
       <img src="img/act_plaza_bolivar.jpg" alt="Plaza de Bolívar Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏛️</span>Plaza Bolívar</div>'">
@@ -855,6 +906,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
       <div class="act-name">Plaza de Bolívar</div>
       <div class="act-desc">Historisch hart van Bogotá. Omringd door het Capitolio, de Catedral Primada en het Palacio de Justicia.</div>
       <div class="meta">
+        <span class="chip dag">📅 Dag 2</span>
         <span class="chip price">💶 Gratis</span>
         <span class="chip dur">⏰ 30–45min</span>
         <span class="chip loc">📍 Bogotá</span>
@@ -862,22 +914,6 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/cartagena-palacio-inquisicion.html" data-name="palacio inquisicion cartagena museum" data-cat="cultuur">
-    <div class="card-img">
-      <img src="img/palacio.jpg" alt="Palacio de la Inquisición Cartagena" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=no-img><span>🏛️</span>Palacio Inquisición</div>'">
-      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()" title="Naar Cartagena">Cartagena · Museum</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Palacio de la Inquisición</div>
-      <div class="act-desc">Barokke gevel, museum over de Spaanse Inquisitie in Cartagena. Aan Plaza de Bolívar.</div>
-      <div class="meta">
-        <span class="chip price">💶 €4</span>
-        <span class="chip dur">⏰ 1u</span>
-        <span class="chip loc">📍 Cartagena</span>
-      </div>
-    </div>
-  </div>
 
 
 </div>
@@ -939,37 +975,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="https://www.google.com/maps/search/Bodytech+El+Poblado+Medellín" data-name="bodytech gym el poblado medellin dagpas fitness" data-cat="sport">
-    <div class="card-img">
-      <div class="no-img"><span>💪</span>Bodytech</div>
-      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()">Medellín · Gym</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Bodytech — El Poblado</div>
-      <div class="act-desc">Colombiaanse fitnessketen — vergelijkbaar met Basic-Fit. Goede uitrusting, niks bijzonders. Handig als je gewoon wil trainen. Sede San Lucas (El Poblado). Ook in Cartagena Bocagrande.</div>
-      <div class="meta">
-        <span class="chip price">💶 ±€5 dagpas</span>
-        <span class="chip dur">⏰ Vrij</span>
-        <span class="chip loc">📍 Medellín / Cartagena</span>
-      </div>
-    </div>
-  </div>
 
-  <div class="act-card" data-href="https://www.google.com/maps/search/Smart+Fit+El+Poblado+Medellín" data-name="smart fit gym el poblado bogota medellin dagpas fitness goedkoop" data-cat="sport">
-    <div class="card-img">
-      <div class="no-img"><span>🏃</span>Smart Fit</div>
-      <a class="cat-tag loc-link" href="medellin.html" onclick="event.stopPropagation()">Medellín · Gym</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Smart Fit</div>
-      <div class="act-desc">Budget-fitnessketen, goedkoopste optie — vergelijkbaar met een no-frills sportschool. 195 vestigingen in Colombia, overal te vinden. Dagpas aan de balie, geen lidmaatschap nodig.</div>
-      <div class="meta">
-        <span class="chip price">💶 ±€4 dagpas</span>
-        <span class="chip dur">⏰ Vrij</span>
-        <span class="chip loc">📍 Medellín / Bogotá / Cartagena</span>
-      </div>
-    </div>
-  </div>
 
   <div class="act-card" data-href="https://www.thecharlee.com/en/ultra-gym/" data-name="charlee hotel ultra gym wellness rooftop pool sauna jacuzzi el poblado medellin" data-cat="sport">
     <div class="card-img">
@@ -1003,21 +1009,6 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="https://www.google.com/maps/search/Holiday+Inn+Morros+Cartagena" data-name="holiday inn morros cartagena dagpas gym spa zwembad wellness" data-cat="sport">
-    <div class="card-img">
-      <div class="no-img"><span>🌊</span>Spa Cartagena</div>
-      <a class="cat-tag loc-link" href="cartagena.html" onclick="event.stopPropagation()">Cartagena · Premium</a>
-    </div>
-    <div class="card-body">
-      <div class="act-name">Holiday Inn Morros — Dagpas</div>
-      <div class="act-desc">Populairste wellnessdagpas in Cartagena: gym + spa + zwembad + COP 100.000 restaurantcredit (~€22). Goed alternatief voor een ontspannen dag tussen de bezichtigingen.</div>
-      <div class="meta">
-        <span class="chip price">💶 Navragen</span>
-        <span class="chip dur">⏰ Dag</span>
-        <span class="chip loc">📍 Cartagena</span>
-      </div>
-    </div>
-  </div>
 
   <div class="act-card" data-href="https://www.botanicohostel.com" data-name="botanico hostel bogota yoga dans lessen activiteit" data-cat="sport">
     <div class="card-img">
@@ -1088,7 +1079,9 @@ document.querySelectorAll('.act-card[data-href]').forEach(function(card){
     cards.forEach(function(card){
       var name = (card.dataset.name||'').toLowerCase();
       var cat  = card.dataset.cat||'';
-      var show = (activeCat==='all'||cat===activeCat) && (!q||name.includes(q));
+      var inPlan = !!card.dataset.dag;
+      var catOk = activeCat==='all' || (activeCat==='planning' ? inPlan : cat===activeCat);
+      var show = catOk && (!q||name.includes(q));
       card.style.display = show ? '' : 'none';
       if(show) visible++;
     });

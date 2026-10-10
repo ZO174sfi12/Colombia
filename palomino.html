@@ -74,6 +74,14 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .nav-btn:hover{opacity:0.85;}
 .nav-btn.prev{background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;}
 .nav-btn.next{color:white;}
+
+.velitas-card{background:linear-gradient(135deg,#0B1F2A,#1C3A3A 48%,#7C4A12)!important;color:#fff!important;border-left:4px solid #FBBF24!important;}
+.velitas-card .time{color:rgba(255,255,255,0.7)!important;}
+.velitas-card h3{color:#fff!important;}
+.velitas-card .desc{color:rgba(255,255,255,0.9)!important;}
+.velitas-card .chip{background:rgba(255,255,255,0.14)!important;border-color:rgba(255,255,255,0.28)!important;color:#fff!important;}
+.velitas-card .lees-meer-btn{background:#FBBF24!important;color:#422006!important;border-color:#FBBF24!important;font-weight:800;}
+.velitas-flames{font-size:1.1rem;letter-spacing:0.3rem;margin:0.5rem 0 0.2rem;}
 </style>
 <link rel="stylesheet" href="site.css">
 <style>
@@ -102,7 +110,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="salento.html">☕ Salento</a>
   <a href="medellin.html">🌆 Medellín</a>
   <a href="guatape.html">🪨 Guatapé</a>
-  <a href="cartagena.html">🌊 Cartagena</a>
   <a href="minca.html">🌿 Minca</a>
   <a href="tayrona.html">🌴 Tayrona</a>
   <a href="palomino.html" class="active">🏖️ Palomino</a>
@@ -115,13 +122,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="hotels.html">🏨 Hotels</a>
   <a href="praktisch.html">📌 Praktisch</a>
   <a href="routes.html">🗺️ Kaart &amp; Routes</a>
-  <a href="routes2.html">🔧 v2</a>
-  <a href="routes3.html">✂️ v3</a>
 </div>
 
 <div class="hero">
   <h1>🏖️ Palomino</h1>
-  <p class="sub">Dag 19–21 · Rustig Caribisch Strandleven · Tubing · Surfen</p>
+  <p class="sub">Dag 18–21 · Rustig Caribisch Strandleven · Tubing · Surfen</p>
   <div class="badges">
     <a class="badge" href="info/palomino-tubing.html" style="text-decoration:none;cursor:pointer;">🛶 Tubing op de rivier</a>
     <a class="badge" href="info/palomino-strand.html" style="text-decoration:none;cursor:pointer;">🏖️ Strandwandeling</a>
@@ -130,10 +135,13 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 </div>
 
+<div id="resBlok" data-locatie="palomino" data-dagen="18-22" style="margin:1.2rem auto 0;"></div>
 <div class="section">
 
   <!-- DAG 19 -->
-  <div class="sec-divider">📅 Dag 19 · zo 6 dec — Aankomst vanuit Tayrona</div>
+  <div class="sec-divider">📅 Dag 18 · za 5 dec — Aankomst vanuit Tayrona</div>
+  <details class="dagdetail">
+  <summary><span class="dd-chev">▶</span>Dagdetail<span class="dd-n">1 onderdeel</span></summary>
   <div class="timeline">
     <div class="dagdeel dagdeel-ochtend">🌅 Ochtend</div>
 
@@ -153,15 +161,18 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       </div>
     </div>
   </div>
+</details>
 
   <!-- DAG 20 -->
-  <div class="sec-divider">📅 Dag 20 · ma 7 dec — Tubing op de Rivier</div>
+  <div class="sec-divider">📅 Dag 19 · zo 6 dec — Tubing op de Rivier</div>
+  <details class="dagdetail">
+  <summary><span class="dd-chev">▶</span>Dagdetail<span class="dd-n">2 onderdelen</span></summary>
   <div class="timeline">
     <div class="dagdeel dagdeel-ochtend">🌅 Ochtend</div>
 
     <div class="event water">
       <div class="card blue">
-        <div class="time">Dag 20 · Activiteit</div>
+        <div class="time">Dag 19 · Activiteit</div>
         <h3>🛶 Tubing op de Rio Palomino</h3>
         <p class="desc">Dé activiteit van Palomino: op een opblaasbare ring de Rio Palomino afdrijven vanuit de jungle naar de zee. Een ontspannend en uniek avontuur. Regelen via het hotel.</p>
         <div class="meta">
@@ -184,17 +195,21 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
         </details>
       </div>
     </div>
-  </div>
 
-  <!-- DAG 21 -->
-  <div class="sec-divider">📅 Dag 21 · di 8 dec — Stranddag & Surfen</div>
+  </div>
+</details>
+
+  <!-- DAG 20 -->
+  <div class="sec-divider">📅 Dag 20 · ma 7 dec — Strand &amp; Día de las Velitas</div>
+  <details class="dagdetail">
+  <summary><span class="dd-chev">▶</span>Dagdetail<span class="dd-n">3 onderdelen</span></summary>
   <div class="timeline">
 
     <div class="dagdeel dagdeel-namiddag">☀️ Namiddag</div>
 
     <div class="event">
       <div class="card teal">
-        <div class="time">Dag 21 · Ontspanning</div>
+        <div class="time">Dag 20 · Ontspanning</div>
         <h3>🏖️ Strandwandeling naar Rio San Salvador</h3>
         <img src="img/palomino_beach.jpg" alt="Palomino strand" style="width:100%;max-height:210px;object-fit:cover;border-radius:8px;margin:0.6rem 0 0.2rem;display:block;">
         <p class="desc">Wandel langs het ongerepte strand van Palomino naar de Rio San Salvador — een rivier die in zee stroomt. Prachtige combinatie van jungle-achtergrond, golven en stilte. Bijna geen toeristen.</p>
@@ -210,7 +225,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
     <div class="event water">
       <div class="card blue">
-        <div class="time">Dag 21 · Actief</div>
+        <div class="time">Dag 20 · Actief</div>
         <h3>🏄 Bodyboarden &amp; Surfen</h3>
         <p class="desc">Palomino heeft consistente golven — ideaal voor surfbeginnners en bodyboarden. Surfboards en bodyboards te huur aan het strand. Lessen ook beschikbaar via lokale operators.</p>
         <p class="desc" style="margin-top:0.6rem;">👨‍🦳 Sluit de dag af zoals Tony: een glas <strong>aguardiente</strong> aan het strand. De nationale anijsdrank van Colombia — koud, simpel, perfect bij zonsondergang op het Caribisch zand.</p>
@@ -227,7 +242,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <div class="card transit" style="border-left:4px solid #EF4444;">
         <div class="time">Dag 22 · Terugreis</div>
         <h3>🚌 Bus Palomino → Santa Marta (1u) · ✈️ SMR → BOG</h3>
-        <p class="desc">Op dag 22 vertrek je via Santa Marta — slechts 1 uur van Palomino. Vanuit Simón Bolívar airport (SMR) vlieg je rechtstreeks naar Bogotá met Avianca, LATAM, Wingo of JetSMART (~16 vluchten per dag). Je bent al op dag 22 in Bogotá — dag 23 is een vrije dag!</p>
+        <p class="desc">Op dag 22 vertrek je via Santa Marta — slechts 1 uur van Palomino. Vanuit Simón Bolívar airport (SMR) vlieg je met <strong>JetSMART JA5171 om 14:42</strong> naar Bogotá (geboekt, €283,69 voor twee, PNR DG5NPR). Vertrek rond 11:30 uit Palomino. Je bent al op dag 22 in Bogotá — dag 23 is een vrije dag!</p>
         <div class="meta">
           <span class="chip warn">⚠️ Dag 22: SMR→BOG vlucht vooraf boeken</span>
           <span class="chip">Na ontbijt vertrekken</span>
@@ -235,11 +250,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
         <div class="info-grid">
           <dl class="info-cell"><dt>Dag 22</dt><dd style="color:#D97706;font-weight:600;">Bus → SMR · Vlucht → BOG</dd></dl>
           <dl class="info-cell"><dt>Dag 23</dt><dd>Vrije dag Bogotá 🏙️</dd></dl>
-          <dl class="info-cell"><dt>Dag 24</dt><dd>Zoutmijnen + vlucht BOG → BRU 21:35</dd></dl>
+          <dl class="info-cell"><dt>Dag 24</dt><dd>Zoutmijnen + vlucht BOG → BRU 23:15</dd></dl>
           <dl class="info-cell full"><dt>Let op</dt><dd>Vanuit BOG altijd Uber nemen naar hotel — NOOIT bus/taxi!</dd></dl>
         </div>
         <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1rem;">
-          <a href="info/dag22-palomino-cartagena.html" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1rem;background:#92400E;color:white;border-radius:8px;font-size:0.82rem;font-weight:700;text-decoration:none;">🚌✈️ Dag 22 · SMR→BOG</a>
+          <a href="info/dag22-palomino-santamarta-bogota.html" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1rem;background:#92400E;color:white;border-radius:8px;font-size:0.82rem;font-weight:700;text-decoration:none;">🚌✈️ Dag 22 · SMR→BOG</a>
           <a href="info/dag23-vlucht-bogota.html" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1rem;background:#1A4A2E;color:white;border-radius:8px;font-size:0.82rem;font-weight:700;text-decoration:none;">🏙️ Dag 23 · Vrij Bogotá</a>
           <a href="info/dag24-zoutmijnen-vertrek.html" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1rem;background:#1A4A2E;color:white;border-radius:8px;font-size:0.82rem;font-weight:700;text-decoration:none;">⛏️ Dag 24 details</a>
         </div>
@@ -247,6 +262,59 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     </div>
 
   </div>
+    <div class="dagdeel dagdeel-avond">🌙 Avond</div>
+
+    <div class="event">
+      <div class="card velitas-card">
+        <div class="time">Dag 20 · vanaf zonsondergang (±18:15)</div>
+        <h3>🕯️ Día de las Velitas</h3>
+        <div class="velitas-flames">🕯️ 🕯️ 🕯️ 🕯️ 🕯️</div>
+        <p class="desc">Vanavond zet heel Colombia kaarsen en papieren lampionnen buiten — op stoepen,
+        muurtjes en hier ook op het strand. Het is de onofficiële start van de kerstperiode en voor
+        veel Colombianen de mooiste avond van het jaar. Jullie zitten er toevallig precies in.
+        Koop zelf een setje kaarsen in de tienda en zet ze bij je posada buiten.</p>
+        <div class="meta">
+          <span class="chip">🕯️ Gratis</span>
+          <span class="chip">🌅 Vanaf ±18:15 donker</span>
+          <span class="chip">🧀 Buñuelos &amp; natilla</span>
+          <span class="chip">📅 8 dec = feestdag</span>
+        </div>
+        <a href="info/dia-de-las-velitas.html" class="lees-meer-btn">📖 Lees meer over Día de las Velitas →</a>
+      </div>
+    </div>
+
+</details>
+
+  <!-- DAG 21 -->
+  <div class="sec-divider">📅 Dag 21 · di 8 dec — Laatste stranddag</div>
+  <details class="dagdetail">
+  <div class="timeline">
+    <div class="event">
+      <div class="card">
+        <div class="time">Dag 21 · Vrije dag</div>
+        <h3>🏖️ Niets moeten</h3>
+        <p class="desc">Je laatste volle dag aan zee, en meteen een officiële feestdag: Inmaculada Concepción.
+        Half Colombia is vrij en trekt naar de kust, dus het wordt drukker dan je gewend bent in Palomino.
+        Surfles, een strandwandeling naar de monding van de Río San Salvador, of gewoon een hangmat.</p>
+        <div class="meta">
+          <span class="chip warn">📅 Feestdag — drukker</span>
+          <span class="chip">🏄 Surfles mogelijk</span>
+          <span class="chip">🎒 Inpakken voor morgen</span>
+        </div>
+        <details class="card-details">
+          <summary>Denk vandaag al aan morgen</summary>
+          <div class="details-body">
+            <p><strong>Vervoer regelen:</strong> dag 22 reis je naar Santa Marta en vlieg je naar Bogotá.
+            Rond een feestdag zitten bussen en collectivo's voller. Vraag je accommodatie vandaag al om een
+            plek te reserveren of een taxi te regelen.</p>
+            <p><strong>Zwemmen:</strong> de stroming voor Palomino is verraderlijk. Blijf bij de plekken waar
+            locals het water in gaan en ga niet ver uit de kust.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</details>
 
   <div class="prac-block">
     <h3>📌 Praktische noten Palomino</h3>
@@ -255,7 +323,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     <div class="prac-item"><span class="pi">🌊</span><span><strong>Zwemmen:</strong> De golven kunnen krachtig zijn. Niet te ver de zee in bij hoge golven. Er is soms een sterke onderstroom.</span></div>
     <div class="prac-item"><span class="pi">🚌</span><span><strong>Dag 22:</strong> Bus/collectivo naar Santa Marta (1u). Vanuit SMR vlucht naar BOG — Avianca/LATAM/Wingo/JetSMART, ~16 vluchten per dag. Vlucht vooraf boeken!</span></div>
     <div class="prac-item"><span class="pi">✈️</span><span><strong>Dag 23:</strong> Vrije dag in Bogotá! UBER nemen van BOG luchthaven → hotel op dag 22. NOOIT bus/taxi.</span></div>
-    <div class="prac-item"><span class="pi">⛏️</span><span><strong>Dag 24:</strong> Zoutmijnen Zipaquirá (georganiseerde dagtrip). Terug in Bogotá ~16u, dan rustig eten en naar luchthaven voor vlucht 21:35.</span></div>
+    <div class="prac-item"><span class="pi">⛏️</span><span><strong>Dag 24:</strong> Zoutmijnen Zipaquirá (georganiseerde dagtrip). Terug in Bogotá ~16u, dan rustig eten en naar luchthaven voor vlucht 23:15.</span></div>
   </div>
 
 </div>
@@ -279,9 +347,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="bogota2.html" class="nav-btn next" style="background:#1A4A2E;">Volgende: 🏙️ Bogotá 2 →</a>
 </div>
 
-<div class="footer">🇨🇴 Colombia · Palomino · Dag 19–21<br><small style="font-weight:400;opacity:0.85">6–8 dec</small></div>
+<div class="footer">🇨🇴 Colombia · Palomino · Dag 18–21<br><small style="font-weight:400;opacity:0.85">5–8 dec</small></div>
 <script src="dagboek.js"></script>
 <script>Dagboek.render('palomino', 'Palomino');</script>
+<script src="reservaties.js"></script>
+<script src="locatieblok.js"></script>
 <script src="feedback.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}

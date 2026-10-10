@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🚵 Downhill mountainbiken · Colombia</title>
+<style>
+:root{--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#1A4A2E;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
+.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
+.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
+.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
+.subnav::-webkit-scrollbar{display:none;}
+.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{background:linear-gradient(135deg,#1A4A2E99,#1A4A2E);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
+.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
+.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);}
+.intro-block p{font-size:0.9rem;line-height:1.7;margin-bottom:0.6rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
+.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
+.fact-value{font-size:0.9rem;font-weight:600;}
+.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;border-top:3px solid #16A34A;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F0FDF4;color:#15803D;border-bottom:1px solid var(--border);}
+.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
+.tip-box{background:var(--accent);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
+.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.4rem;}
+.tip-box p:last-child{margin-bottom:0;}
+.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.7rem;flex-wrap:wrap;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html">Colombia 2026</a>
+  <div class="topbar-right">
+    <a class="home-link icon-btn" href="../setup.html" title="Setup">🔧</a>
+    <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
+  </div>
+</div>
+<div class="subnav subnav-locs">
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../bogota2.html">🏙️ Bogotá 2</a>
+</div>
+<div class="subnav subnav-info">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../activiteiten.html" class="active">🎯 Activiteiten</a>
+  <a href="../hotels.html">🏨 Hotels</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+  <a href="../routes.html">🗺️ Kaart &amp; Routes</a>
+</div>
+<div class="hero">
+  <div class="breadcrumb"><a href="../activiteiten.html">Activiteiten</a> &rsaquo; Mountainbiken</div>
+  <h1>🚵 Downhill mountainbiken</h1>
+  <p class="sub">Salento &middot; Guatapé &middot; Parque Arví</p>
+</div>
+<div class="section">
+  <div class="intro-block">
+    <p>Colombia is een wielerland — Egan Bernal won de Tour de France in 2019 — en dat merk je aan de infrastructuur en aan de automobilisten, die gewend zijn aan fietsers. Voor mountainbiken wijzen beide reisgidsen naar <strong>twee plekken die op jullie route liggen</strong>: Salento en Guatapé. Daar is in beide gevallen sprake van een echte afdaling, niet van een rondje om de kerk.</p>
+    <p>Medellín staat in de gidsen <em>niet</em> als downhill-bestemming. Wat ze daar wel aanraden is Parque Arví, waar je gratis een fiets kunt lenen voor een rondtocht op hoogte.</p>
+  </div>
+
+  <div class="source-block" style="border-top-color:#7C3AED">
+    <div class="source-label" style="background:#F5F3FF;color:#6D28D9">⭐ De aanrader — Salento, 30 km afdaling</div>
+    <div class="source-body">
+      <p><strong>Salento Cycling</strong> (C 6 No. 1–30, <a href="https://salentocycling.com" target="_blank" rel="noopener">salentocycling.com</a>) rijdt je met een voertuig naar <strong>La Carbonera op 3.400 m</strong>, in het nevelwoud, en van daar is het <strong>30 kilometer naar beneden</strong> door opeenvolgende ecosystemen. Hun eigen woorden volgens de Rough Guide: <em>"you don't have to pedal once"</em>.</p>
+      <p>Het is een excursie van <strong>5 à 6 uur</strong>. Transport, begeleidingsvoertuig, gids, picknicklunch, materiaal en verzekering zitten in de prijs.</p>
+      <p>Lonely Planet beschrijft een variant van dezelfde opzet: een rit van 25 km vanaf de Andesdeling aan de zuidrand van <strong>PNN Los Nevados</strong>, terug naar het dorp over de <strong>Camino Nacional</strong> — het eerste pad dat ooit over de bergketen werd aangelegd. Een 4x4 brengt je 's ochtends vroeg naar het startpunt op ongeveer 3.400 m, daarna is het dalen over een ruwe weg langs een reeks uitzichtpunten.</p>
+    </div>
+  </div>
+
+  <div class="facts-grid">
+    <div class="fact"><div class="fact-label">Waar</div><div class="fact-value">Salento · dag 3–6</div></div>
+    <div class="fact"><div class="fact-label">Afstand</div><div class="fact-value">30 km, bijna enkel dalen</div></div>
+    <div class="fact"><div class="fact-label">Start</div><div class="fact-value">La Carbonera, 3.400 m</div></div>
+    <div class="fact"><div class="fact-label">Duur</div><div class="fact-value">5–6 uur</div></div>
+    <div class="fact"><div class="fact-label">Inbegrepen</div><div class="fact-value">Gids, lunch, materiaal, verzekering</div></div>
+    <div class="fact"><div class="fact-label">Boeken</div><div class="fact-value">salentocycling.com</div></div>
+  </div>
+
+  <div class="source-block">
+    <div class="source-label">&#128214; Guatapé — Lonely Planet</div>
+    <div class="source-body">
+      <p>Twee opties, afhankelijk van wat je wil.</p>
+      <p><strong>De afdaling:</strong> de bekendste rit in de streek gaat van Guatapé naar <strong>San Rafael</strong>. Lonely Planet is er droog over: <em>"only hardcore riders try to pedal back up"</em> — de meesten laden de fiets in een van de vele bussen terug. Ze rekenen deze rit bij de beste dagtochten van heel Antioquia.</p>
+      <p><strong>De rondtocht:</strong> rond het dorp loopt een net van <strong>vrijwel verkeersvrije onverharde wegen</strong>, volgens LP uitstekend voor rustig verkennen. Dat is de optie zonder shuttle en zonder planning — je huurt en je rijdt.</p>
+      <p>Lonely Planet noemt <strong>Pedaleando Alma</strong> voor begeleide excursies in de streek. Het Lake View Hostel aan het meer verhuurt fietsen en regelt tochten.</p>
+      <p><strong>Maar:</strong> jullie hebben in Guatapé maar één nacht, en dag 12 vertrekt om 08:30 naar de luchthaven. La Piedra, de boottocht en de zonsondergang vullen dag 11 al. Dit past er realistisch niet bij.</p>
+    </div>
+  </div>
+
+  <div class="source-block">
+    <div class="source-label">&#128214; Parque Arví, Medellín — Rough Guide</div>
+    <div class="source-body">
+      <p>Twintig minuten met de Metrocable boven de stad, op 2.500 m, en ruim 1.750 hectare zacht golvend terrein. Volgens Lonely Planet uitstekend voor wandelen en fietsen.</p>
+      <p>De Rough Guide noemt het praktische detail dat het aantrekkelijk maakt: <strong>fietsen kun je bij de ingang gratis huren, mits je een identiteitsbewijs achterlaat</strong>. Geen boeking, geen gids, geen shuttle.</p>
+      <p>Kom vroeg — bij drukte beperken ze soms het aantal bezoekers, vooral in het weekend.</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-title">&#128161; Wat ik zou doen</div>
+    <p><strong>Salento.</strong> Dat is de enige van de drie waar een echte downhill van 30 km past in de tijd die je hebt, en de enige met een operator die alles inbegrepen levert.</p>
+    <p>Je hebt in Salento vier nachten, dus ruimte voor zowel de Cocora-wandeling van 13 km als deze rit — maar zet ze niet op opeenvolgende dagen.</p>
+    <p><strong>Parque Arví</strong> is de makkelijke tweede: gratis fietsen, al op jullie programma in Medellín, en geen verplichting.</p>
+    <p>Kleed je gelaagd. Op 3.400 m in het nevelwoud is het fris, beneden is het warm. Handschoenen helpen bij een lange afdaling.</p>
+  </div>
+</div>
+<div class="nav-wrap">
+  <a class="back-btn" href="../salento.html">← Terug naar Salento</a>
+  <a class="back-btn" href="../activiteiten.html">🎯 Alle activiteiten</a>
+</div>
+<div class="footer">Colombia 2026 &middot; Bert &amp; Ellen</div>
+<script>
+function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
+</script>
+</body>
+</html>

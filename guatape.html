@@ -99,7 +99,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="salento.html">☕ Salento</a>
   <a href="medellin.html">🌆 Medellín</a>
   <a href="guatape.html" class="active">🪨 Guatapé</a>
-  <a href="cartagena.html">🌊 Cartagena</a>
   <a href="minca.html">🌿 Minca</a>
   <a href="tayrona.html">🌴 Tayrona</a>
   <a href="palomino.html">🏖️ Palomino</a>
@@ -112,13 +111,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="hotels.html">🏨 Hotels</a>
   <a href="praktisch.html">📌 Praktisch</a>
   <a href="routes.html">🗺️ Kaart &amp; Routes</a>
-  <a href="routes2.html">🔧 v2</a>
-  <a href="routes3.html">✂️ v3</a>
 </div>
 
 <div class="hero">
   <h1>🪨 Guatapé</h1>
-  <p class="sub">Dag 10 · La Piedra del Peñón · Kleurrijke Zocalo's · Dagtrip vanuit Medellín</p>
+  <p class="sub">Dag 10–11 · vr 27 – za 28 nov · Zócalos · La Piedra del Peñón · Twee nachten aan het meer</p>
   <div class="badges">
     <a class="badge" href="info/guatape-piedra-del-penon.html" style="text-decoration:none;cursor:pointer;">🪨 Piedra del Peñón</a>
     <a class="badge" href="info/guatape-zocalos.html" style="text-decoration:none;cursor:pointer;">🎨 Kleurrijke Zócalo's</a>
@@ -126,10 +123,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 </div>
 
+<div id="resBlok" data-locatie="guatape" data-dagen="10-12" style="margin:1.2rem auto 0;"></div>
 <div class="section">
 
   <div class="route-block">
-    <h3>📍 Dag 10 · vr 27 nov op één blik</h3>
+    <h3>📍 Dag 10–11 · vr 27 – za 28 nov op één blik</h3>
     <div class="route-row"><div class="route-dot" style="background:#9CA3AF;"></div><div class="route-time">VM</div><div><div class="route-label">🚖 Uber vanuit Medellín naar bushalte</div><div class="route-sub">Naar de bushalte voor Guatapé-bussen</div></div></div>
     <div class="route-row"><div class="route-dot" style="background:#8B5CF6;"></div><div class="route-time">±2u</div><div><div class="route-label">🚌 Bus Medellín → Guatapé</div><div class="route-sub">Reistijd ±2 uur · landschappelijke rit</div></div></div>
     <div class="route-row"><div class="route-dot" style="background:#8B5CF6;"></div><div class="route-time">Dag</div><div><div class="route-label">🛺 Tuktuk → La Piedra del Peñón</div><div class="route-sub">Groot granieten monoliet · 740 treden beklimmen</div></div></div>
@@ -138,6 +136,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     <div class="route-row"><div class="route-dot" style="background:#EF4444;"></div><div class="route-time">Max 15u</div><div><div class="route-label">🚌 Bus terug naar Medellín!</div><div class="route-sub">VERPLICHT: uiterlijk 15:00 vertrekken voor vlucht dag 11</div></div></div>
   </div>
 
+  <details class="dagdetail">
+  <summary><span class="dd-chev">▶</span>Dagdetail<span class="dd-n">5 onderdelen</span></summary>
   <div class="timeline">
 
     <div class="event transit">
@@ -149,6 +149,20 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
           <span class="chip">🚌 ±2 uur reistijd</span>
           <span class="chip dist">📍 Bushalte Medellín (vragen via hotel)</span>
         </div>
+        <details class="card-details">
+          <summary>📏 Afstanden Medellín · Rionegro · Guatapé</summary>
+          <div class="details-body">
+            <p><strong>Guatapé → luchthaven MDE (Rionegro): 45 km, ±1u15.</strong> Taxi of Uber, ±€50 samen.
+            Er rijdt geen directe bus — die gaat via Rionegro-dorp met een overstap.</p>
+            <p><strong>Medellín → MDE: 33 km, 45–60 min</strong> (via de Oriente-tunnel soms 25 min).
+            Taxi COP 110.000, Uber 80–110K, of de Combuses-luchthavenbus voor COP 20.000.</p>
+            <p><strong>Medellín → Guatapé: ±70 km, ±2u</strong> met de bus vanaf Terminal del Norte.</p>
+            <p><strong>Waarom dit telt:</strong> Rionegro ligt tussen Medellín en Guatapé in. Rij je terug
+            naar Medellín en dan pas naar de luchthaven, dan ben je drie uur onderweg. Rechtstreeks vanuit
+            Guatapé is het 1u15 — bijna twee uur winst.</p>
+          </div>
+        </details>
+
         <a href="info/guatape-piedra-del-penon.html" class="lees-meer-btn">📖 Lees meer: 🪨 Piedra del Peñón →</a>
         <a href="info/guatape-zocalos.html" class="lees-meer-btn">📖 Lees meer: 🎨 Zócalos →</a>
       </div>
@@ -199,23 +213,23 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <div class="card transit" style="border-left:4px solid #EF4444;">
         <div class="time">Uiterlijk 15:00 · VERPLICHT</div>
         <h3>🚌 Terug naar Medellín — Niet te laat!</h3>
-        <p class="desc">De volgende ochtend (dag 11) vertrekt de bus terug naar Medellín vanuit Guatapé. Van de bushalte Medellín tot de luchthaven is het ±1 uur met Uber. De vlucht naar Cartagena vertrekt om 20:20 — tijdig vertrekken is cruciaal!</p>
+        <p class="desc">De volgende ochtend (dag 12) ga je rechtstreeks naar de luchthaven van Rionegro — niet terug naar Medellín. Van de bushalte Medellín tot de luchthaven is het ±1 uur met Uber. Je blijft hier slapen — geen haast. Morgen rijd je rechtstreeks naar luchthaven MDE in Rionegro (±1u15).</p>
         <div class="meta">
-          <span class="chip warn">⚠️ Uiterlijk 15:00 vertrekken dag 11!</span>
-          <span class="chip">✈️ Vlucht MDE→CTG: 20:20</span>
+          <span class="chip warn">🌙 Overnachten — geen deadline</span>
+          <span class="chip">✈️ Morgen: MDE → Santa Marta 11:30</span>
         </div>
         <div class="info-grid">
-          <dl class="info-cell"><dt>Max vertrek Guatapé</dt><dd style="color:#D97706;font-weight:600;">15:00</dd></dl>
-          <dl class="info-cell"><dt>Reistijd bus</dt><dd>±2 uur</dd></dl>
-          <dl class="info-cell"><dt>Luchthaven</dt><dd>Uber ±1u van bushalte</dd></dl>
-          <dl class="info-cell"><dt>Vlucht</dt><dd style="color:#1A4A2E;font-weight:600;">20:20 MDE→CTG · 3C8F4V</dd></dl>
+          <dl class="info-cell"><dt>Vertrek Guatapé</dt><dd style="color:#D97706;font-weight:600;">±08:30 (dag 12)</dd></dl>
+          <dl class="info-cell"><dt>Naar luchthaven</dt><dd>Rechtstreeks ±1u15</dd></dl>
+          <dl class="info-cell"><dt>Niet via Medellín</dt><dd>Rionegro ligt ertussen</dd></dl>
+          <dl class="info-cell"><dt>Vlucht</dt><dd style="color:#1A4A2E;font-weight:600;">11:30 MDE→SMR · JA5430</dd></dl>
         </div>
       </div>
     </div>
 
       <div class="event">
         <div class="card">
-        <div class="time">Dag 10 · Namiddag — na de klim</div>
+        <div class="time">Dag 11 · Namiddag — na de klim</div>
         <h3>⛵ Boottocht op het Embalse del Peñol</h3>
         <img src="img/boottocht guatape.jpg" alt="Boottocht Embalse del Peñol Guatapé" style="width:100%;max-height:230px;object-fit:cover;border-radius:8px;margin:0.6rem 0 0.2rem;display:block;">
         <p class="desc">Het meer waar La Piedra uit oprijst is geen natuurlijk meer: in 1972 werd de Río Nare afgedamd voor waterkracht — vandaag goed voor zo'n dertig procent van Colombia's elektriciteit. Het oude dorp Viejo Peñol verdween daarbij onder water. Vanaf de <strong>Malecón</strong> vertrekken boten voor een tocht van ongeveer drie uur over het meer: de perfecte manier om bij te komen na 740 treden.</p>
@@ -248,10 +262,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       </div>
 
   </div>
+</details>
 
   <div class="prac-block">
     <h3>📌 Praktische noten Guatapé</h3>
-    <div class="prac-item"><span class="pi">⏰</span><span><strong>Tijdplanning:</strong> Uiterlijk 15u00 vertrekken naar Medellín op dag 11. Vlucht naar Cartagena om 20:20!</span></div>
+    <div class="prac-item"><span class="pi">⏰</span><span><strong>Tijdplanning:</strong> Uiterlijk 15u00 vertrekken naar Medellín op dag 11. Morgen vlucht naar Santa Marta — vertrek ±08:30</span></div>
     <div class="prac-item"><span class="pi">🛺</span><span><strong>Tuktuk:</strong> Neem een tuktuk van het centrum naar La Piedra. Klein bedrag, onderhandelbaar.</span></div>
     <div class="prac-item"><span class="pi">💵</span><span><strong>Cash:</strong> Guatapé is een klein toeristendorp — breng cash mee. ATM aanwezig maar niet altijd werkzaam.</span></div>
     <div class="prac-item"><span class="pi">🌊</span><span><strong>Bootjes:</strong> Er zijn ook bootjes op het meer. Leuk als er tijd over is.</span></div>
@@ -276,12 +291,14 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 </div>
 <div class="nav-buttons">
   <span></span>
-  <a href="cartagena.html" class="nav-btn next" style="background:#4A1A6E;">Volgende: 🌊 Cartagena →</a>
+  <a href="minca.html" class="nav-btn next" style="background:#4A1A6E;">Volgende: 🌿 Minca →</a>
 </div>
 
-<div class="footer">🇨🇴 Colombia · Guatapé · Dag 10</div>
+<div class="footer">🇨🇴 Colombia · Guatapé · Dag 10–11</div>
 <script src="dagboek.js"></script>
 <script>Dagboek.render('guatape', 'Guatapé');</script>
+<script src="reservaties.js"></script>
+<script src="locatieblok.js"></script>
 <script src="feedback.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}

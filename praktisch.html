@@ -70,7 +70,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="salento.html">☕ Salento</a>
   <a href="medellin.html">🌆 Medellín</a>
   <a href="guatape.html">🪨 Guatapé</a>
-  <a href="cartagena.html">🌊 Cartagena</a>
   <a href="minca.html">🌿 Minca</a>
   <a href="tayrona.html">🌴 Tayrona</a>
   <a href="palomino.html">🏖️ Palomino</a>
@@ -83,13 +82,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="hotels.html">🏨 Hotels</a>
   <a href="praktisch.html" class="active">📌 Praktisch</a>
   <a href="routes.html">🗺️ Kaart &amp; Routes</a>
-  <a href="routes2.html">🔧 v2</a>
-  <a href="routes3.html">✂️ v3</a>
 </div>
 
 <div class="hero">
   <h1>📌 Praktisch</h1>
-  <p class="sub">Alles wat je moet weten · Colombia · 24 Dagen · 2 personen</p>
+  <p class="sub">Wat vastligt, wat nog moet, en met welke referentie</p>
+  <div class="res-tellers" id="resTellers"></div>
   <div class="badges">
     <span class="badge">💵 Geld & ATM</span>
     <span class="badge">🚖 Transport</span>
@@ -103,61 +101,17 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
   <div class="day-header">
     <div class="dn">📌</div>
-    <div><h2>Praktische Info & Reservaties</h2><p>2 personen · Colombia · 24 dagen</p></div>
+    <div><h2>Praktische Info &amp; Reservaties</h2><p id="gbSamenvatting">—</p></div>
   </div>
 
   <!-- RESERVEER OVERZICHT -->
+  <!-- GROOTBOEK — gerenderd uit reservaties.js, niet met de hand bijwerken -->
   <div class="sec-title">📞 Dit Moet Je Regelen Vóór Vertrek</div>
-  <div class="res-block">
-    <h3>Boekingen & Reservaties</h3>
-    <div class="res-item">
-      <span class="ri">🚌</span>
-      <div>
-        <strong>Bus Bogotá → Armenia (Dag 4) <span class="res-urgent">BOEKEN</span></strong>
-        <span>bolivariano.com.co · 7u30 aanwezig, 8u vertrek · Lunchpakket vragen in hotel!</span>
-      </div>
-    </div>
-    <div class="res-item">
-      <span class="ri">🚌</span>
-      <div>
-        <strong>Bus Salento → Medellín (Dag 7) <span class="res-urgent">BOEKEN</span></strong>
-        <span>flotaoccidental.co · 9u aanwezig, 9u30 vertrek</span>
-      </div>
-    </div>
-    <div class="res-item">
-      <span class="ri">🛶</span>
-      <div>
-        <strong>Rosario Eilanden tour (Dag 13)</strong>
-        <span>GetYourGuide · ±€52 p.p. · Of El Totumo modderbad</span>
-      </div>
-    </div>
-    <div class="res-item">
-      <span class="ri">🚌</span>
-      <div>
-        <strong>Bus Cartagena → Santa Marta (Dag 14)</strong>
-        <span>bookaway.com · Elk uur een bus · Na ontbijt vertrekken</span>
-      </div>
-    </div>
-    <div class="res-item">
-      <span class="ri">⛏️</span>
-      <div>
-        <strong>Zoutmijnen Zipaquirá Tour (Dag 24)</strong>
-        <span>Georganiseerde tour vanuit Bogotá · Terug ~16u · Vlucht 21:35</span>
-      </div>
-    </div>
-    <div class="res-item">
-      <span class="ri">⚠️</span>
-      <div>
-        <strong>Tayrona National Park: Check openingsdatum! <span class="res-urgent">VERPLICHT</span></strong>
-        <span>parquesnacionales.gov.co · Gesloten: begin feb, begin juni, eind okt</span>
-      </div>
-    </div>
-  </div>
+  <div class="gb-blok" id="grootboek"></div>
 
   <!-- CASH STRATEGIE -->
   <div class="cash-bar">
-    💵 <strong>Cash-strategie:</strong> Dag 2 (Bogotá): Davivienda ATM — max €400/opname, geen commissie. Neem ook $300 USD mee uit België voor wisselkantoren. Dag 12 (Cartagena): LAATSTE KANS voor grote ATM-opnames! Daarna enkel kleine plaatsen. Altijd cash hebben voor kleine steden (Salento, Minca, Tayrona, Palomino).
-  </div>
+    💵 <strong>Cash-strategie:</strong> Dag 2 (Bogotá): Davivienda ATM — max €400/opname, geen commissie. Neem ook $300 USD mee uit België voor wisselkantoren. Dag 9 (Medellín): laatste grote stad voor de kust — hier nog flink pinnen. </div>
 
   <!-- TAYRONA WAARSCHUWING -->
   <div class="warn-bar">
@@ -211,7 +165,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <div class="ov-day" style="background:#FEF2F2;color:#991B1B;min-width:110px;">🔴 Hoog</div>
       <div class="ov-content">
         <strong>Fine dining / trendy restaurant</strong>
-        <span>COP 90.000–200.000+ p.p. &nbsp;·&nbsp; <strong>€20–44+</strong> · Bogotá/Cartagena topdining</span>
+        <span>COP 90.000–200.000+ p.p. &nbsp;·&nbsp; <strong>€20–44+</strong> · Bogotá/Medellín topdining</span>
       </div>
     </div>
   </div>
@@ -249,7 +203,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <div class="ov-day" style="background:#FEF2F2;color:#991B1B;min-width:110px;">🔴 Hoog</div>
       <div class="ov-content">
         <strong>Boutique hotel / luxury (2 pers.)</strong>
-        <span>COP 650.000–2.000.000 &nbsp;·&nbsp; <strong>€144–444</strong> · Casa San Agustín-niveau (Cartagena)</span>
+        <span>COP 650.000–2.000.000 &nbsp;·&nbsp; <strong>€144–444</strong> · topklasse boutique</span>
       </div>
     </div>
   </div>
@@ -301,7 +255,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <h4>🌡️ Klimaat</h4>
       <p><strong>Bogotá/Salento:</strong> 15–20°C (koud 's avonds)<br>
       <strong>Medellín:</strong> 22–28°C, "eeuwige lente"<br>
-      <strong>Cartagena/kust:</strong> 30–35°C, heet en vochtig<br>
+      <strong>Caribische kust:</strong> 30–35°C, heet en vochtig<br>
       <strong>Minca:</strong> Frisser door hoogte<br>
       <strong>Tayrona/Palomino:</strong> 28–32°C</p>
     </div>
@@ -348,49 +302,43 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <div class="ov-content"><strong>Vlucht Brussel → Bogotá</strong><span>Uber/Cabify van luchthaven naar <strong>Botánico Hostel</strong> (Cra 2 #9-87, La Candelaria). GEEN gewone taxi!</span></div>
     </div>
     <div class="ov-row" style="border-left:4px solid #78350F;">
-      <div class="ov-day" style="background:#FEF3C7;color:#78350F;">🚌<br><small>Dag 4</small></div>
-      <div class="ov-content"><strong>Bus Bogotá → Armenia → Salento</strong><span>6u30 vertrek hotel · 7u30 op station · 8u bus · bolivariano.com.co</span></div>
+      <div class="ov-day" style="background:#FEF3C7;color:#78350F;">🚌<br><small>Dag 3</small></div>
+      <div class="ov-content"><strong>Vlucht Bogotá → Armenia → Salento</strong><span>10:15 uitchecken · 10:45 Uber naar El Dorado · 13:30 LATAM LA4292 · 14:35 El Edén · taxi naar Salento ±15:45</span></div>
     </div>
     <div class="ov-row" style="border-left:4px solid #A0450D;">
       <div class="ov-day" style="background:#FFF7ED;color:#A0450D;">🚌<br><small>Dag 7</small></div>
-      <div class="ov-content"><strong>Bus Salento → Medellín Terminal del Sur</strong><span>9u aanwezig · 9u30 bus · flotaoccidental.co</span></div>
+      <div class="ov-content"><strong>Bus Salento → Medellín Terminal del Sur</strong><span>9u aanwezig · 9u30 bus · ±6u30 · redBus</span></div>
     </div>
     <div class="ov-row" style="border-left:4px solid #4A1A6E;">
       <div class="ov-day" style="background:#F5F3FF;color:#4A1A6E;">🚌<br><small>Dag 10</small></div>
-      <div class="ov-content"><strong>Bus Medellín → Guatapé (dagtrip)</strong><span>Uber naar bushalte · 2u bus · Max 15u00 terug vertrekken!</span></div>
+      <div class="ov-content"><strong>Bus Medellín → Guatapé <em>(enkele reis)</em></strong><span>Uitchecken mét bagage · Terminal del Norte · ±2u · je blijft slapen in Guatapé</span></div>
     </div>
     <div class="ov-row" style="border-left:4px solid #C9962A;">
-      <div class="ov-day" style="background:#FFFBEB;color:#92400E;">✈️<br><small>Dag 11</small></div>
-      <div class="ov-content"><strong>Vlucht Medellín → Cartagena (20:20–21:25)</strong><span>Booking: 3C8F4V · Van bushalte tot luchthaven ±1u Uber</span></div>
+      <div class="ov-day" style="background:#FFFBEB;color:#92400E;">✈️<br><small>Dag 12</small></div>
+      <div class="ov-content"><strong>Guatapé → MDE Rionegro → Santa Marta</strong><span>Taxi 45 km / ±1u15 — niet via Medellín · JetSMART 11:30 → 12:46 · daarna ±1u naar Minca</span></div>
     </div>
     <div class="ov-row" style="border-left:4px solid #065F46;">
-      <div class="ov-day" style="background:#ECFDF5;color:#065F46;">🚌<br><small>Dag 14</small></div>
-      <div class="ov-content"><strong>Bus Cartagena → Santa Marta → Minca</strong><span>Na ontbijt · bookaway.com · Taxi in SM naar bushalte Minca</span></div>
-    </div>
-    <div class="ov-row" style="border-left:4px solid #0369A1;">
-      <div class="ov-day" style="background:#EFF6FF;color:#1E40AF;">🚌<br><small>Dag 17</small></div>
-      <div class="ov-content"><strong>Minca → Santa Marta → Tayrona National Park</strong><span>Check met Quetzal Dorado Eco-Lodge voor beste route · 1,5 km wandelen tot lodge</span></div>
+      <div class="ov-day" style="background:#ECFDF5;color:#065F46;">🚌<br><small>Dag 16</small></div>
+      <div class="ov-content"><strong>Minca → Parque Tayrona</strong><span>Collectivo naar Santa Marta (±45 min) · bus naar parkingang El Zaíno (±1u)</span></div>
     </div>
     <div class="ov-row" style="border-left:4px solid #0F766E;">
-      <div class="ov-day" style="background:#F0FDFA;color:#134E4A;">🚌<br><small>Dag 19</small></div>
+      <div class="ov-day" style="background:#F0FDFA;color:#134E4A;">🚌<br><small>Dag 18</small></div>
       <div class="ov-content"><strong>Tayrona → Palomino (±45 min)</strong><span>Na ontbijt · rustig aan · Check met lodge</span></div>
     </div>
-    <div class="ov-row" style="border-left:4px solid #B91C1C;">
-      <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">🚌<br><small>Dag 22</small></div>
-      <div class="ov-content"><strong>Bus Palomino → Cartagena</strong><span>Vorige dagen directe verbinding checken · Na ontbijt vertrekken</span></div>
-    </div>
-    <div class="ov-row" style="border-left:4px solid #B91C1C;">
-      <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">✈️<br><small>Dag 23</small></div>
-      <div class="ov-content"><strong>Vlucht Cartagena → Bogotá + UBER!</strong><span>Van luchthaven BOG: UBER nemen naar hotel. NOOIT een bus!</span></div>
+    <div class="ov-row" style="border-left:4px solid #0369A1;">
+      <div class="ov-day" style="background:#E0F2FE;color:#0369A1;">✈️<br><small>Dag 22</small></div>
+      <div class="ov-content"><strong>Palomino → Santa Marta → Bogotá</strong><span>✓ GEBOEKT · JetSMART JA5171 · 14:42 → 16:15 · PNR DG5NPR · €283,69 voor twee · vertrek Palomino 11:30</span></div>
     </div>
     <div class="ov-row" style="border-left:4px solid #B91C1C;">
       <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">✈️<br><small>Dag 24</small></div>
-      <div class="ov-content"><strong>Vlucht Bogotá → Brussel (21:35)</strong><span>Zoutmijnen Zipaquirá tour · Terug Bogotá ~16u · Luchthaven ±1u rijden</span></div>
+      <div class="ov-content"><strong>Vlucht Bogotá → Brussel (23:15)</strong><span>Zoutmijnen Zipaquirá tour · Terug Bogotá ~16u · Luchthaven ±1u rijden</span></div>
     </div>
   </div>
 
 </div>
 <div class="footer">🇨🇴 Colombia · 24 dagen · 2 personen</div>
+<script src="reservaties.js"></script>
+<script src="grootboek.js"></script>
 <script src="feedback.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
