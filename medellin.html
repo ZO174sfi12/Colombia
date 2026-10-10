@@ -94,7 +94,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 <div class="topbar">
   <a class="logo" href="index.html">Colombia 2026</a>
   <div class="topbar-right">
-    <a class="home-link icon-btn" href="setup.html" title="Setup">🔧</a>
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
 </div>
@@ -331,11 +330,13 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
   <!-- DAG 10 -->
   <div class="sec-divider">📅 Dag 10 · vr 27 nov — Vertrek naar Guatapé</div>
-  <details class="dagdetail">
-  <div class="timeline">
-
+  <div class="route-block">
+    <h3>📍 Dag 10 · vr 27 nov op één blik — Transit naar Guatapé</h3>
+    <div class="route-row"><div class="route-dot" style="background:#9CA3AF;"></div><div class="route-time">VM</div><div><div class="route-label">🏨 Uitchecken mét bagage</div><div class="route-sub">Ontbijt in El Poblado · laatste keer pinnen in de stad</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#F59E0B;"></div><div class="route-time">±10u</div><div><div class="route-label">🚖 Uber naar Terminal del Norte</div><div class="route-sub">±25 min · loket Sotrasanvicente · bus ongeveer elk half uur · ±COP 18.000 p.p.</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#8B5CF6;"></div><div class="route-time">±2u</div><div><div class="route-label">🚌 Bus Medellín → Guatapé</div><div class="route-sub">Vraag naar «Guatapé», niet «La Piedra» — dan stopt hij in het dorp</div></div></div>
+    <div class="route-row"><div class="route-dot" style="background:#1A4A2E;"></div><div class="route-time">NM</div><div><div class="route-label">🪨 Inchecken · zócalo's · zonsondergang aan het meer</div><div class="route-sub">Twee nachten in Guatapé — La Piedra en de boottocht zijn voor dag 11</div></div></div>
   </div>
-</details>
 
   <!-- PRAKTISCHE NOTEN -->
   <div class="prac-block">
@@ -344,7 +345,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     <div class="prac-item"><span class="pi">🚖</span><span><strong>Transport:</strong> Uber werkt uitstekend in Medellín. De metro is ook veilig en goedkoop voor de kabelbaan-routes.</span></div>
     <div class="prac-item"><span class="pi">🍷</span><span><strong>Provenza vs Lleras:</strong> Provenza voor diner en wijn, Parque Lleras om uit te gaan. Ze liggen op 5 minuten wandelen van elkaar.</span></div>
     <div class="prac-item"><span class="pi">🎨</span><span><strong>Comuna 13:</strong> Overdag volledig veilig als toerist. Nooit alleen 's avonds.</span></div>
-    <div class="prac-item"><span class="pi">✈️</span><span><strong>Dag 11:</strong> Je checkt uit en neemt de bus naar Guatapé (±2u) — mét bagage. Daar blijf je slapen. </span></div>
+    <div class="prac-item"><span class="pi">🚌</span><span><strong>Dag 10:</strong> Je checkt uit en neemt de bus naar Guatapé (±2u, Terminal del Norte) — mét bagage. Daar blijf je twee nachten.</span></div>
     <div class="prac-item"><span class="pi">✈️</span><span><strong>Dag 12:</strong> Vanuit Guatapé rechtstreeks naar luchthaven MDE in Rionegro — 45 km, ±1u15 met taxi. Je komt Medellín niet meer in. </span></div>
   </div>
 
@@ -384,9 +385,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="guatape.html" class="nav-btn next" style="background:#A0450D;">Volgende: 🪨 Guatapé →</a>
 </div>
 
-<div class="footer">🇨🇴 Colombia · Medellín · Dag 7–9<br><small style="font-weight:400;opacity:0.85">24–27 nov</small></div>
-<script src="dagboek.js"></script>
-<script>Dagboek.render('medellin', 'Medellín');</script>
+<div class="footer">🇨🇴 Colombia · Medellín · Dag 7–9<br><small style="font-weight:400;opacity:0.85">24–26 nov</small></div>
 <script src="reservaties.js"></script>
 <script src="locatieblok.js"></script>
 <script src="feedback.js"></script>

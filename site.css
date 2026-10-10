@@ -57,7 +57,6 @@
    Minder zij-ruimte op mobiel                              */
 @media(max-width:420px) {
   .section { padding:1.2rem 0.85rem 1.5rem; }
-  .db-wrap  { padding:0 0.85rem 1.5rem; }
 }
 
 /* ── ROUTE BLOCKS ─────────────────────────────────────────
@@ -196,7 +195,6 @@
 /* ── PC: max breedte bewaken ─────────────────────────── */
 @media(min-width:1200px) {
   .section { max-width:900px; }
-  .db-wrap  { max-width:900px; }
 }
 
 /* ══════════════════════════════════════════════════════════

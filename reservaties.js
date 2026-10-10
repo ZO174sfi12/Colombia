@@ -56,7 +56,7 @@ var RESERVATIES = [
     vluchtnr:'LH543 + LH5578', ref:'Y637MQ',
     note:'Zelfde boeking als de heenvlucht — prijs staat daar.' },
 
-  /* ------------------------------------------------------------ BUSSEN --- */
+  /* ----------------------------------------------- BINNENLANDSE VLUCHT --- */
   { id:'vlucht-bog-axm', type:'vlucht', dag:3, orde:1, status:'geboekt',
     titel:'Bogotá → Armenia (AXM)',
     van:'BOG', naar:'AXM', vertrek:'13:30', aankomst:'14:35',
@@ -65,6 +65,7 @@ var RESERVATIES = [
     via:'Booking.com', ref:'40-1090972461', pnr:'RQHJRU', tarief:'Full fare',
     note:'Annuleren en wijzigen toegestaan. Taxi El Edén → Salento ±45 min, in Salento ±15:45. Vervangt de busrit: uitslapen, ontbijten in Botánico, uitchecken 10:15, Uber naar El Dorado 10:45.' },
 
+  /* ------------------------------------------------------------ BUSSEN --- */
   /* Vervallen alternatief — bus Bogotá → Armenia. Bewaard als terugvaloptie
      als de vlucht niet doorgaat. Zet status op 'te-boeken' om weer te tonen. */
   { id:'bus-bog-arm', type:'bus', dag:3, orde:9, status:'vervallen',
@@ -117,7 +118,7 @@ var RESERVATIES = [
     datums:'18–20 nov', nachten:2, prijs:'€150 totaal · €75/nacht',
     kamer:'Driepersoonskamer met eigen badkamer, voor 2 personen',
     annuleren:'Gratis annuleren tot 16 nov 2026',
-    note:'Uitchecken vrijdagochtend — dezelfde dag als de bus naar Salento.' },
+    note:'Uitchecken vrijdag 10:15 — dezelfde dag als de vlucht naar Armenia (13:30).' },
 
   { id:'hotel-salento', type:'hotel', dag:3, totDag:7, status:'te-boeken',
     titel:'Salento', locatie:'salento', datums:'20–24 nov', nachten:4 },
