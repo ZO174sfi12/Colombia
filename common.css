@@ -81,22 +81,25 @@ a.badge:hover{background:rgba(255,255,255,0.25);opacity:0.9;}
 .card.green{border-left:4px solid #16A34A;}
 
 /* ── MOBIELE NAVIGATIE (navbar.js) ─────────────────────────
-   Onder 640 px: info-tabs als vaste onderbalk, bovenaan alleen de locaties. */
+   Onder 640 px: info-tabs als vaste onderbalk, bovenaan alleen de locaties.
+   Rustig: gedempte iconen, één accentpil voor de actieve tab. */
 .bottombar { display:none; }
 @media (max-width:640px) {
   .subnav-info { display:none; }
-  body { padding-bottom:calc(58px + env(safe-area-inset-bottom)); }
+  body { padding-bottom:calc(68px + env(safe-area-inset-bottom)); }
   .bottombar { display:flex; position:fixed; left:0; right:0; bottom:0; z-index:300;
-    background:#fff; border-top:1px solid var(--border,#E5E0D8); box-shadow:0 -2px 10px rgba(0,0,0,0.06);
-    padding-bottom:env(safe-area-inset-bottom); }
-  .bottombar a { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
-    padding:0.45rem 0 0.4rem; min-height:56px; text-decoration:none; color:var(--muted,#4A5E4D); font-size:0.62rem; font-weight:700; letter-spacing:0.2px; }
-  .bottombar .bb-ico { font-size:1.25rem; line-height:1; }
-  .bottombar a.active { color:var(--accent,var(--navy,#1A4A2E)); }
-  .bottombar a.active .bb-ico { transform:translateY(-1px); }
-  .bottombar a.active::after { content:''; width:18px; height:3px; border-radius:2px; background:currentColor; margin-top:1px; }
+    background:rgba(255,255,255,0.92); -webkit-backdrop-filter:saturate(1.4) blur(14px); backdrop-filter:saturate(1.4) blur(14px);
+    border-top:1px solid rgba(0,0,0,0.08); padding:5px 6px calc(12px + env(safe-area-inset-bottom)); }
+  .bottombar a { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;
+    padding:3px 0 0; min-height:46px; text-decoration:none; color:#6B7280; font-size:0.6rem; font-weight:600; letter-spacing:0.1px;
+    -webkit-tap-highlight-color:transparent; border-radius:12px; }
+  .bottombar .bb-ico { font-size:1.05rem; line-height:1; width:44px; height:26px; display:flex; align-items:center; justify-content:center;
+    border-radius:13px; filter:grayscale(1) opacity(0.55); transition:background 0.15s, filter 0.15s, transform 0.15s; }
+  .bottombar a:active .bb-ico { transform:scale(0.92); }
+  .bottombar a.active { color:var(--accent,var(--navy,#1A4A2E)); font-weight:800; }
+  .bottombar a.active .bb-ico { filter:none; background:color-mix(in srgb, var(--accent,var(--navy,#1A4A2E)) 14%, white); }
+  .bottombar a.active::after { content:none; }
   .subnav-locs a { padding:0.75rem 0.8rem; }
-  .fb-widget, #fb-widget { bottom:4.5rem; }
 }
 @media print { .bottombar { display:none !important; } }
 
