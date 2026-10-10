@@ -3,54 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="../common.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="../img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>🚌 Bus Palomino → Santa Marta · ✈️ SMR → BOG · Colombia</title>
 <style>
-:root{--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#92400E;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
-.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
-.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
-.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
-.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
-.hero{background:linear-gradient(135deg,#451A03,#92400E,#B45309);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
-.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
-.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
-.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
-.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
-.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
-.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
 .intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
-.intro-block p:last-child{margin-bottom:0;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+:root{--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#92400E;}
+.hero{background:linear-gradient(135deg,#451A03,#92400E,#B45309);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
 .step-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
 .step-header{display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;}
 .step-num{background:var(--accent);color:white;font-weight:800;font-size:0.8rem;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .step-title{font-size:1rem;font-weight:700;}
 .facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.8rem;}
 .fact{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
-.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
-.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
-.warn-box{background:#FEF2F2;border:1px solid #FCA5A5;border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;}
 .warn-title{font-weight:700;font-size:1rem;margin-bottom:0.5rem;color:#991B1B;}
 .warn-box p{font-size:0.85rem;line-height:1.6;color:#7F1D1D;margin-bottom:0.3rem;}
 .tip-box{background:linear-gradient(135deg,#451A03,#92400E,#B45309);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
-.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
-.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
 .airlines-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.8rem;}
 .airline{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;font-size:0.85rem;font-weight:600;}
-.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
-.back-btn:hover{opacity:0.85;}
 .nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.75rem;flex-wrap:wrap;}
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
 @media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.airlines-grid{grid-template-columns:repeat(4,1fr);}.hero h1{font-size:2.1rem;}}
 </style>
 <link rel="stylesheet" href="../site.css">
 </head>
 <body>
 <div class="topbar">
-  <a class="logo" href="../index.html">Colombia 2026</a>
+  <a class="logo" href="../index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <div class="topbar-right">
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
@@ -134,9 +121,16 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 </div>
 <div class="footer">🇨🇴 Colombia · Dag 22 · Bus Palomino → SMR · Vlucht → BOG</div>
 
-<script src="../feedback.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="../reservaties.js"></script>
+<script src="../countdown.js"></script>
+<script src="../navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("../sw.js",{scope:"../"}).catch(function(){});}</script>
 </body>
 </html>

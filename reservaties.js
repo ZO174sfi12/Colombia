@@ -121,30 +121,39 @@ var RESERVATIES = [
     note:'Uitchecken vrijdag 10:15 — dezelfde dag als de vlucht naar Armenia (13:30).' },
 
   { id:'hotel-salento', type:'hotel', dag:3, totDag:7, status:'te-boeken',
-    titel:'Salento', locatie:'salento', datums:'20–24 nov', nachten:4 },
+    titel:'Salento', locatie:'salento', datums:'20–24 nov', nachten:4, raming:64,
+    note:'Eerste keuze Casa Salento (±€64/nacht incl. ontbijt).' },
 
   { id:'hotel-medellin', type:'hotel', dag:7, totDag:10, status:'te-boeken',
-    titel:'Medellín (El Poblado)', locatie:'medellin', datums:'24–27 nov', nachten:3 },
+    titel:'Medellín (El Poblado)', locatie:'medellin', datums:'24–27 nov', nachten:3, raming:90,
+    note:'Eerste keuze 574 Hotel Poblado — prijs nog op te zoeken, raming €90/nacht.' },
 
   { id:'hotel-guatape', type:'hotel', dag:10, totDag:12, status:'te-boeken',
     titel:'Guatapé', locatie:'guatape', datums:'27–29 nov', nachten:2,
-    note:'Twee nachten, zodat La Piedra, de boottocht en eventueel de afdaling naar San Rafael allemaal passen. Kies iets aan het meer.' },
+    raming:26,
+    note:'Twee nachten, zodat La Piedra, de boottocht en eventueel de afdaling naar San Rafael allemaal passen. Kies iets aan het meer. Eerste keuze Hotel Guatatur (±€26 incl. ontbijt).' },
 
   { id:'hotel-minca', type:'hotel', dag:12, totDag:16, status:'te-boeken',
-    titel:'Minca', locatie:'minca', datums:'29 nov – 3 dec', nachten:4 },
+    titel:'Minca', locatie:'minca', datums:'29 nov – 3 dec', nachten:4, raming:59,
+    note:'Eerste keuze Costeño River Minca (±€59/nacht).' },
 
   { id:'hotel-tayrona', type:'hotel', dag:16, totDag:18, status:'te-boeken',
     titel:'Parque Tayrona', locatie:'tayrona', datums:'3–5 dec', nachten:2,
-    deadline:'Ruim aanbod — gidsen raden 1 à 2 nachten aan' },
+    raming:61,
+    deadline:'Ruim aanbod — gidsen raden 1 à 2 nachten aan',
+    note:'Eerste keuze Quetzal Dorado Eco-Lodge (±€61/nacht), 1,5 km van de ingang.' },
 
   { id:'hotel-palomino', type:'hotel', dag:18, totDag:22, status:'te-boeken',
     titel:'Palomino', locatie:'palomino', datums:'5–9 dec', nachten:4,
-    deadline:'Hoogseizoen — 7 dec is Día de las Velitas' },
+    raming:122,
+    deadline:'Hoogseizoen — 7 dec is Día de las Velitas',
+    note:'Eerste keuze Casa del Pavo Real (±€122/nacht) — duurste verblijf van de reis.' },
 
   { id:'hotel-bogota2', type:'hotel', dag:22, totDag:24, status:'te-boeken',
     titel:'Bogotá — laatste nachten', locatie:'bogota', datums:'9–11 dec', nachten:2,
+    raming:75,
     deadline:'Nog niet in de hotellijst opgenomen',
-    note:'Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig.' },
+    note:'Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig. Raming €75/nacht (niveau Botánico); bagagebewaring op dag 24 afspreken.' },
 
   /* ------------------------------------------------- ACTIVITEITEN (res) -- */
   { id:'act-comuna13', type:'activiteit', dag:8, status:'te-boeken',
@@ -153,8 +162,12 @@ var RESERVATIES = [
 
   { id:'act-catedral-sal', type:'activiteit', dag:24, status:'ter-plaatse',
     titel:'Catedral de Sal, Zipaquirá', locatie:'bogota',
-    prijs:'±COP 90.000 p.p.',
+    prijs:'±COP 110.000–130.000 p.p. (buitenlanders)',
     note:'Ticket aan de ingang. Laatste dag, vóór de nachtvlucht.' },
+
+  { id:'act-claudio', type:'activiteit', dag:24, status:'te-boeken', locatie:'bogota',
+    titel:'Lunch met Claudio — Zipaquirá', deadline:'Vóór vertrek datum bevestigen',
+    note:'Claudio woont bij de Catedral de Sal en bood aan om iets te gaan eten. Dag 24 (Zipaquirá) past het best; dag 23 of dag 2 in Bogotá als alternatief.' },
 
   { id:'act-3cordilleras', type:'activiteit', dag:9, status:'te-boeken',
     titel:'3 Cordilleras brouwerijtour', locatie:'medellin',
@@ -256,7 +269,7 @@ var PERSONEN = 2;
 var REISDAGEN = 24;
 
 var BUDGET_POSTEN = [
-  { id:'hotels',       label:'🏨 Overnachtingen',      detail:null, /* wordt berekend */
+  { id:'hotels',       label:'🏨 Overnachtingen',      detail:null, /* wordt berekend uit prijs of raming per hotel */
     perNacht:70, zeker:false },
   { id:'grondvervoer', label:'🚌 Vervoer over land',   detail:'bussen, collectivo\'s, taxi El Edén → Salento, transfer Guatapé → Rionegro',
     bedrag:137,  zeker:false },
@@ -269,9 +282,9 @@ var BUDGET_POSTEN = [
 /* Haalt alle bedragen uit de reservaties (formaat "€1.234,56 ...") */
 function resBedrag(r){
   if (!r.prijs) return 0;
-  var m = String(r.prijs).match(/€\s*([\d.]+),(\d{2})/);
+  var m = String(r.prijs).match(/€\s*(\d[\d.]*)(?:,(\d{2}))?/);
   if (!m) return 0;
-  return parseFloat(m[1].replace(/\./g,'')) + parseFloat(m[2]) / 100;
+  return parseFloat(m[1].replace(/\./g,'')) + (m[2] ? parseFloat(m[2]) / 100 : 0);
 }
 
 /* telt de nachten uit de hotelreservaties zelf */
@@ -284,16 +297,23 @@ function resNachten(){
 }
 
 function budgetOverzicht(){
-  /* hotelpost afleiden uit de werkelijke boekingen */
+  /* hotelpost: geboekte prijs waar die er is, anders de raming per nacht; perNacht alleen als fallback */
   BUDGET_POSTEN.forEach(function(p){
     if (p.id !== 'hotels') return;
-    var n = resNachten();
-    p.bedrag = n * p.perNacht;
-    p.detail = n + ' nachten · gem. €' + p.perNacht + '/nacht';
+    var n = 0, tot = 0, geboekt = 0;
+    RESERVATIES.forEach(function(r){
+      if (r.type !== 'hotel' || r.status === 'vervallen' || !r.nachten) return;
+      n += r.nachten;
+      var b = resBedrag(r);
+      if (b > 0){ tot += b; geboekt += r.nachten; }
+      else tot += r.nachten * (r.raming || p.perNacht);
+    });
+    p.bedrag = Math.round(tot);
+    p.detail = n + ' nachten · ' + geboekt + ' geboekt, rest raming per hotel · gem. €' + Math.round(tot / n) + '/nacht';
   });
   var vluchten = 0, vluchtItems = [];
   RESERVATIES.slice().sort(resSorteer).forEach(function(r){
-    if (r.status === 'vervallen') return;
+    if (r.status === 'vervallen' || r.type !== 'vlucht') return;
     var b = resBedrag(r);
     if (b > 0){ vluchten += b; vluchtItems.push(r); }
   });

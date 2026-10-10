@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>🏠 Overzicht · Colombia 24 Dagen</title>
 <style>
 :root {
@@ -11,17 +18,11 @@
   --cream:#FAF8F4; --card:#FFFFFF; --border:#E5E0D8;
   --text:#1C2A1E; --muted:#4A5E4D;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
 
 .topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
 .topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;border:1.5px solid rgba(255,255,255,0.45);border-radius:20px;padding:0.28rem 0.75rem;transition:background 0.15s;}
 .topbar .logo:hover{background:rgba(255,255,255,0.12);}
-.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
 .topbar .home-link:hover{background:rgba(255,255,255,0.1);}
-
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
 .subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;transition:all 0.2s;}
 .subnav a:hover{color:var(--navy);}
 .subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
@@ -29,15 +30,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .hero{background:linear-gradient(135deg,#0D2E18 0%,#1A4A2E 50%,#2A3A0A 100%);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
-.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
 .badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
-
-.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
-.sec-title{font-size:1rem;font-weight:800;margin-bottom:0.9rem;color:var(--text);text-transform:uppercase;letter-spacing:0.4px;}
 
 .ov-table{background:white;border-radius:12px;border:1px solid var(--border);overflow:hidden;margin-bottom:1.6rem;}
 .ov-row{display:flex;gap:0;border-bottom:1px solid var(--border);align-items:stretch;text-decoration:none;color:inherit;transition:background 0.15s;cursor:pointer;}
-.ov-row:last-child{border-bottom:none;}
 .ov-row:hover{background:#F5F2EE;}
 .ov-day{min-width:84px;padding:0.75rem 0.6rem;font-weight:800;font-size:0.8rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.4;gap:0.1rem;}
 .ov-day .od-date{font-size:0.65rem;font-weight:600;opacity:0.7;}
@@ -80,8 +76,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .budget-row .bl{flex:1;color:var(--muted);}
 .budget-row .bv{font-weight:600;color:var(--text);}
 
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
-
 /* Kaart preview */
 .kaart-preview-link{display:block;text-decoration:none;margin-bottom:1.6rem;border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,0.07);transition:box-shadow 0.15s;}
 .kaart-preview-link:hover{box-shadow:0 4px 16px rgba(0,0,0,0.13);}
@@ -117,26 +111,13 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 @media(max-width:430px){.fl-mid{min-width:60px;}.fl-code{font-size:1rem;}}
 
 
-
-/* ── COUNTDOWN in de topbar ── */
-.topbar{position:relative;}
-.tb-left{display:flex;align-items:center;gap:0.7rem;min-width:0;}
-.cdchip{display:inline-flex;align-items:baseline;gap:0.3rem;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.16rem 0.6rem;white-space:nowrap;}
-.cdchip b{font-family:'Playfair Display',Georgia,serif;font-size:0.95rem;font-weight:800;line-height:1;color:#fff;}
-.cdchip span{font-size:0.68rem;font-weight:600;color:rgba(255,255,255,0.78);}
-.cdline{position:absolute;left:0;bottom:0;height:3px;width:0;background:#86EFAC;transition:width 0.6s ease;}
-@media(max-width:430px){.cdchip span{display:none;}.cdchip{padding:0.16rem 0.5rem;}}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
 <div class="topbar">
-  <div class="tb-left">
-    <a class="logo" href="index.html">Colombia 2026</a>
-    <span class="cdchip" id="cdChip" title=""><b id="cdN">—</b><span id="cdL"></span></span>
-  </div>
-  <div class="cdline" id="cdF"></div>
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <div class="topbar-right">
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
@@ -163,10 +144,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 <div class="hero">
   <h1>Colombia<br>24 Dagen</h1>
-  <p class="sub">✈️ BRU 18 nov 10:05 → BOG 19:25<br>✈️ BOG 11 dec 23:15 → BRU 12 dec 20:15</p>
+  <p class="sub"><span data-vlucht="vlucht-heen" data-veld="hero">✈️ BRU 18 nov 10:05 → BOG 19:25</span><br><span data-vlucht="vlucht-terug" data-veld="hero">✈️ BOG 11 dec 23:15 → BRU 12 dec 20:15</span></p>
   <div class="badges">
     <a class="badge" href="info/salento-valle-de-cocora.html">🥾 Cocora Hike (13 km)</a>
-    <a class="badge" href="tayrona.html">🥾 Tayrona Hike (4–9 km)</a>
+    <a class="badge" href="info/tayrona-park.html">🥾 Tayrona Hike (±9 km)</a>
     <a class="badge" href="info/mountainbiken.html">🚵 Downhill 30 km Salento</a>
     <a class="badge" href="info/palomino-tubing.html">🛶 River tubing</a>
     <a class="badge" href="info/palomino-surf.html">🏄 Surfen</a>
@@ -177,7 +158,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 </div>
 
-<div style="max-height:280px;overflow:hidden;"><img src="img/overzicht.png" alt="Colombia" style="width:100%;max-height:280px;object-fit:cover;object-position:center;display:block;"></div>
+<div style="max-height:280px;overflow:hidden;"><img src="img/overzicht.webp" alt="Colombia" style="width:100%;max-height:280px;object-fit:cover;object-position:center;display:block;" loading="lazy"></div>
 
 <div class="section">
 
@@ -187,7 +168,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
     <div class="ov-row" onclick="location='bogota.html'" role="link" tabindex="0" style="border-left:4px solid #1A4A2E;">
       <div class="ov-day" style="background:#DCFCE7;color:#1A4A2E;">
-        🏙️<div class="od-date">Dag 1–2<br><small style="font-weight:400;opacity:0.85">18–19 nov</small></div>
+        🏙️<div class="od-date" data-verblijf="hotel-bogota" data-veld="dagen-datums">Dag 1–2<br><small style="font-weight:400;opacity:0.85">18–19 nov</small></div>
       </div>
       <div class="ov-content">
         <strong>Bogotá — Hoofdstad, Goudmuseum, Monserrate</strong>
@@ -209,7 +190,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
     <div class="ov-row" onclick="location='salento.html'" role="link" tabindex="0" style="border-left:4px solid #78350F;">
       <div class="ov-day" style="background:#FEF3C7;color:#78350F;">
-        ☕<div class="od-date">Dag 3–6<br><small style="font-weight:400;opacity:0.85">20–23 nov</small></div>
+        ☕<div class="od-date" data-verblijf="hotel-salento" data-veld="dagen-datums">Dag 3–6<br><small style="font-weight:400;opacity:0.85">20–23 nov</small></div>
       </div>
       <div class="ov-content">
         <strong>Salento — Koffiestreek &amp; Valle de Cocora</strong>
@@ -227,11 +208,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
     <div class="ov-row" onclick="location='medellin.html'" role="link" tabindex="0" style="border-left:4px solid #A0450D;">
       <div class="ov-day" style="background:#FFF7ED;color:#9A3412;">
-        🌆<div class="od-date">Dag 7–9<br><small style="font-weight:400;opacity:0.85">24–26 nov</small></div>
+        🌆<div class="od-date" data-verblijf="hotel-medellin" data-veld="dagen-datums">Dag 7–9<br><small style="font-weight:400;opacity:0.85">24–26 nov</small></div>
       </div>
       <div class="ov-content">
         <strong>Medellín — Eeuwige lente, Comuna 13, Parque Arvi</strong>
-        <span>Free tour Comuna 13 · Downhill biken · Kabelbaan Parque Arvi · Pablo Escobar tour</span>
+        <span>Free tour Comuna 13 · Provenza &amp; Lleras · Kabelbaan Parque Arví · Botero · 3 Cordilleras</span>
         <div class="ov-tags">
           <a class="ov-tag ov-tag-link" href="info/medellin-comuna-13.html" onclick="event.stopPropagation()">🎨 Comuna 13</a>
           <a class="ov-tag ov-tag-link" href="info/medellin-parque-arvi.html" onclick="event.stopPropagation()">🚡 Parque Arvi</a>
@@ -245,7 +226,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
     <div class="ov-row" onclick="location='guatape.html'" role="link" tabindex="0" style="border-left:4px solid #4A1A6E;">
       <div class="ov-day" style="background:#F5F3FF;color:#4A1A6E;">
-        🪨<div class="od-date">Dag 10–11<br><small style="font-weight:400;opacity:0.85">27–28 nov</small></div>
+        🪨<div class="od-date" data-verblijf="hotel-guatape" data-veld="dagen-datums">Dag 10–11<br><small style="font-weight:400;opacity:0.85">27–28 nov</small></div>
       </div>
       <div class="ov-content">
         <strong>Guatapé — La Piedra del Peñón, Kleurrijke stad</strong>
@@ -261,7 +242,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     
     <div class="ov-row" onclick="location='minca.html'" role="link" tabindex="0" style="border-left:4px solid #0F5B5B;">
       <div class="ov-day" style="background:#ECFDF5;color:#065F46;">
-        🌿<div class="od-date">Dag 12–15<br><small style="font-weight:400;opacity:0.85">29 nov – 2 dec</small></div>
+        🌿<div class="od-date" data-verblijf="hotel-minca" data-veld="dagen-datums">Dag 12–15<br><small style="font-weight:400;opacity:0.85">29 nov – 2 dec</small></div>
       </div>
       <div class="ov-content">
         <strong>Minca — Jungle, Watervallen, Sierra Nevada</strong>
@@ -277,7 +258,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
     <div class="ov-row" onclick="location='tayrona.html'" role="link" tabindex="0" style="border-left:4px solid #0369A1;">
       <div class="ov-day" style="background:#EFF6FF;color:#1E40AF;">
-        🌴<div class="od-date">Dag 16–17<br><small style="font-weight:400;opacity:0.85">3–4 dec</small></div>
+        🌴<div class="od-date" data-verblijf="hotel-tayrona" data-veld="dagen-datums">Dag 16–17<br><small style="font-weight:400;opacity:0.85">3–4 dec</small></div>
       </div>
       <div class="ov-content">
         <strong>Tayrona National Park — Paradijselijke stranden, Jungle wandelingen</strong>
@@ -292,7 +273,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
     <div class="ov-row" onclick="location='palomino.html'" role="link" tabindex="0" style="border-left:4px solid #0F766E;">
       <div class="ov-day" style="background:#F0FDFA;color:#134E4A;">
-        🏖️<div class="od-date">Dag 18–21<br><small style="font-weight:400;opacity:0.85">5–8 dec</small></div>
+        🏖️<div class="od-date" data-verblijf="hotel-palomino" data-veld="dagen-datums">Dag 18–21<br><small style="font-weight:400;opacity:0.85">5–8 dec</small></div>
       </div>
       <div class="ov-content">
         <strong>Palomino — Tubing, Surfen, Relaxen</strong>
@@ -308,7 +289,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
     <div class="ov-row" onclick="location='bogota2.html'" role="link" tabindex="0" style="border-left:4px solid #B91C1C;">
       <div class="ov-day" style="background:#FEF2F2;color:#991B1B;">
-        ✈️<div class="od-date">Dag 22–24<br><small style="font-weight:400;opacity:0.85">9–11 dec</small></div>
+        ✈️<div class="od-date" data-verblijf="hotel-bogota2" data-veld="dagen-datums">Dag 22–24<br><small style="font-weight:400;opacity:0.85">9–11 dec</small></div>
       </div>
       <div class="ov-content">
         <strong>Terugkeer — Santa Marta · Bogotá · Zoutmijnen · Brussel</strong>
@@ -325,7 +306,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
   <!-- KAART PREVIEW -->
   <a href="routes.html" class="kaart-preview-link">
-    <img src="img/route_kaart.svg" alt="Reisroute Colombia" class="kaart-preview-img">
+    <img src="img/route_kaart.svg" alt="Reisroute Colombia" class="kaart-preview-img" loading="lazy">
     <div class="kaart-preview-label">🗺️ Bekijk volledige kaart & routes →</div>
   </a>
 
@@ -338,91 +319,50 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 <div class="flights">
   <div class="flights-box">
-    <div class="flights-head"><span>✈️ Onze vluchten</span><span class="flights-ref">Boekingsref. Y637MQ</span></div>
+    <div class="flights-head"><span>✈️ Onze vluchten</span><span class="flights-ref" data-vlucht="vlucht-heen" data-veld="ref">Boekingsref. Y637MQ</span></div>
 
     <div class="flight">
       <div class="flight-dir">Heenvlucht</div>
       <div class="flight-route">
-        <div class="fl-pt"><div class="fl-code">BRU</div><div class="fl-time">10:05</div><div class="fl-date">wo 18 nov</div></div>
-        <div class="fl-mid"><div class="fl-line"></div><div class="fl-dur">15u20 · 1 stop</div></div>
-        <div class="fl-pt"><div class="fl-code">BOG</div><div class="fl-time">19:25</div><div class="fl-date">wo 18 nov</div></div>
+        <div class="fl-pt"><div class="fl-code">BRU</div><div class="fl-time" data-vlucht="vlucht-heen" data-veld="vertrek">10:05</div><div class="fl-date" data-vlucht="vlucht-heen" data-veld="datum-vertrek">wo 18 nov</div></div>
+        <div class="fl-mid"><div class="fl-line"></div><div class="fl-dur" data-vlucht="vlucht-heen" data-veld="duur">15u20 · 1 stop</div></div>
+        <div class="fl-pt"><div class="fl-code">BOG</div><div class="fl-time" data-vlucht="vlucht-heen" data-veld="aankomst">19:25</div><div class="fl-date" data-vlucht="vlucht-heen" data-veld="datum-aankomst">wo 18 nov</div></div>
       </div>
       <div class="flight-meta">
-        <span class="fl-chip nr">LX4555</span><span class="fl-chip nr">LX8092</span>
-        <span class="fl-chip">Swiss · Brussels Airlines · Edelweiss Air</span>
+        <span data-vlucht="vlucht-heen" data-veld="vluchtnr"><span class="fl-chip nr">LX4555</span><span class="fl-chip nr">LX8092</span></span>
+        <span class="fl-chip" data-vlucht="vlucht-heen" data-veld="operator">Swiss · Brussels Airlines · Edelweiss Air</span>
       </div>
     </div>
 
     <div class="flight">
       <div class="flight-dir">Terugvlucht</div>
       <div class="flight-route">
-        <div class="fl-pt"><div class="fl-code">BOG</div><div class="fl-time">23:15</div><div class="fl-date">vr 11 dec</div></div>
-        <div class="fl-mid"><div class="fl-line"></div><div class="fl-dur">15u · 1 stop</div></div>
-        <div class="fl-pt"><div class="fl-code">BRU</div><div class="fl-time">20:15</div><div class="fl-date">za 12 dec</div></div>
+        <div class="fl-pt"><div class="fl-code">BOG</div><div class="fl-time" data-vlucht="vlucht-terug" data-veld="vertrek">23:15</div><div class="fl-date" data-vlucht="vlucht-terug" data-veld="datum-vertrek">vr 11 dec</div></div>
+        <div class="fl-mid"><div class="fl-line"></div><div class="fl-dur" data-vlucht="vlucht-terug" data-veld="duur">15u · 1 stop</div></div>
+        <div class="fl-pt"><div class="fl-code">BRU</div><div class="fl-time" data-vlucht="vlucht-terug" data-veld="aankomst">20:15</div><div class="fl-date" data-vlucht="vlucht-terug" data-veld="datum-aankomst">za 12 dec</div></div>
       </div>
       <div class="flight-meta">
-        <span class="fl-chip nr">LH543</span><span class="fl-chip nr">LH5578</span>
-        <span class="fl-chip">Lufthansa · Brussels Airlines</span>
+        <span data-vlucht="vlucht-terug" data-veld="vluchtnr"><span class="fl-chip nr">LH543</span><span class="fl-chip nr">LH5578</span></span>
+        <span class="fl-chip" data-vlucht="vlucht-terug" data-veld="operator">Lufthansa · Brussels Airlines</span>
       </div>
     </div>
   </div>
 </div>
 
 <div class="footer">🇨🇴 Colombia · 24 dagen · Bert &amp; Ellen</div>
-<script src="feedback.js"></script>
 <script>
+document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('ov-row')){e.preventDefault();e.target.click();}});
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
-<script>
-(function(){
-  // Vaste ankers: vertrek Brussel wo 18 nov 2026 · laatste dag Colombia vr 11 dec · thuis za 12 dec 20:15
-  var VERTREK = new Date(2026,10,18),      // 18 nov 2026 (kalenderdag)
-      LAATSTE = new Date(2026,11,11),      // 11 dec 2026 (kalenderdag)
-      THUIS   = new Date(2026,11,12,20,15);
-  function dag0(d){ return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
-  function verschil(a,b){ return Math.round((dag0(b)-dag0(a))/86400000); }
-  var TOTAAL = verschil(VERTREK, LAATSTE) + 1;   // 24 dagen
-
-  function render(){
-    var nu = new Date(), vandaag = dag0(nu),
-        n=document.getElementById('cdN'), l=document.getElementById('cdL'),
-        s=document.getElementById('cdChip'), f=document.getElementById('cdF');
-    if(!n) return;
-    var tot = verschil(vandaag, VERTREK);
-
-    if(tot > 0){                                    // nog niet vertrokken
-      n.textContent = tot;
-      l.textContent = (tot===1 ? 'dag' : 'dagen') + ' tot vertrek';
-      s.title = '18 nov → 11 dec 2026';
-      f.style.width = '0%';
-    } else if(vandaag <= dag0(LAATSTE)){            // onderweg
-      var dag = verschil(VERTREK, vandaag) + 1,
-          resterend = verschil(vandaag, LAATSTE);
-      n.textContent = 'Dag ' + dag;
-      l.textContent = 'van ' + TOTAAL + ' in Colombia';
-      s.title = resterend === 0
-        ? 'laatste dag · 23:15 naar huis'
-        : 'nog ' + resterend + (resterend===1 ? ' dag' : ' dagen');
-      f.style.width = Math.round(dag / TOTAAL * 100) + '%';
-    } else if(nu < THUIS){                          // in de lucht
-      n.textContent = '✈️';
-      l.textContent = 'Onderweg naar huis';
-      s.title = 'landen 12 dec, 20:15';
-      f.style.width = '100%';
-    } else {                                        // terug
-      var terug = verschil(THUIS, vandaag);
-      n.textContent = terug;
-      l.textContent = (terug===1 ? 'dag' : 'dagen') + ' geleden thuisgekomen';
-      s.title = 'Colombia 2026';
-      f.style.width = '100%';
-    }
-  }
-  render();
-  setInterval(render, 60*60*1000);
-  document.addEventListener('visibilitychange', function(){ if(!document.hidden) render(); });
-})();
-</script>
 <script src="reservaties.js"></script>
+<script src="dagsync.js"></script>
 <script src="budget.js"></script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
 </body>
 </html>

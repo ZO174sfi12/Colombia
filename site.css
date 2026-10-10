@@ -388,6 +388,38 @@ a.res-teller:focus-visible{outline:2px solid #fff;outline-offset:2px;}
 .budget-tot{background:#EEF3EE;font-weight:700;}
 
 /* klikbare hero-chips */
-a.badge{text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,transform .12s;}
+a.badge{color:inherit;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,transform .12s;}
 a.badge:hover{background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.55);transform:translateY(-1px);}
 a.badge:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+
+
+/* ── GESLOTEN ACTIVITEIT ───────────────────────────────────
+   Kaart blijft zichtbaar als "weten wat niet kan", maar grijs */
+.act-card.gesloten { opacity:0.55; filter:grayscale(1); }
+.act-card.gesloten .act-name { text-decoration:line-through; }
+.act-card.gesloten::after { content:'Gesloten'; position:absolute; top:0.6rem; right:0.6rem; background:#991B1B; color:#fff; font-size:0.66rem; font-weight:800; letter-spacing:0.4px; text-transform:uppercase; padding:0.2rem 0.5rem; border-radius:20px; }
+.act-card { position:relative; }
+
+/* ── PRINT ─────────────────────────────────────────────────
+   Papieren back-up: navigatie, hero-beelden en knoppen weg,
+   alle uitklapblokken open, links met hun doel erbij.        */
+@media print {
+  @page { margin:14mm; }
+  body { background:#fff !important; color:#000 !important; font-size:10.5pt; }
+  .topbar, .subnav, .subnav-locs, .subnav-info, .share-btn, .nav-buttons, .nav-wrap, .back-btn,
+  .lees-meer-btn, .kaart-preview-link, .pills, #horecaFilter, .filter-bar, .search-wrap, .cdchip, .cdline,
+  .hero img, .hero .badges, img[src*="overzicht"], .card-img, .footer { display:none !important; }
+  .hero, .day-banner, .day-header, .res-block, .flights-head, .flight-card, .prac-block, .cash-bar, .warn-bar, .route-block, .warn-block, .intro-block, .tip-box, .warn-box, .tip-card {
+    background:none !important; color:#000 !important; border:1px solid #999 !important; box-shadow:none !important; }
+  .hero h1, .day-header *, .day-banner *, .prac-block * { color:#000 !important; }
+  details { display:block; }
+  details > summary { list-style:none; font-weight:700; }
+  details:not([open]) > *:not(summary) { display:block !important; }
+  details.dagdetail > summary, details.card-details > summary { pointer-events:none; }
+  .card, .ov-row, .gb-rij, .leg, .loc-block, .prac-item, .dish-card, .act-card { break-inside:avoid; page-break-inside:avoid; box-shadow:none !important; border:1px solid #bbb !important; }
+  a { color:#000 !important; text-decoration:none !important; }
+  a[href^="http"]::after { content:" (" attr(href) ")"; font-size:0.8em; color:#555; }
+  img { max-width:60mm !important; height:auto !important; }
+  .res-chip { border:1px solid #000 !important; color:#000 !important; background:none !important; }
+  .section, .flights, .db-wrap { max-width:none !important; padding:0 !important; }
+}

@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="../common.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="../img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>🕯️ Día de las Velitas · 7 december · Colombia</title>
 <style>
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.tip-box p:last-child{margin-bottom:0;}
 :root{--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#0F766E;--glow:#D97706;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
-.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
-.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
-.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
 .hero{background:linear-gradient(135deg,#0B1F2A,#1C3A3A 45%,#7C4A12);color:white;padding:2.6rem 1.5rem 2.2rem;text-align:center;position:relative;overflow:hidden;}
 .hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;position:relative;}
 .hero .breadcrumb a{color:rgba(255,255,255,0.78);text-decoration:none;}
@@ -25,12 +26,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .flames span:nth-child(4){animation-delay:1.1s} .flames span:nth-child(5){animation-delay:1.5s}
 @keyframes flick{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.55;transform:translateY(-2px)}}
 @media(prefers-reduced-motion:reduce){.flames span{animation:none}}
-.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
 .lead{background:white;border:1px solid var(--border);border-left:4px solid var(--glow);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;}
 .lead p{font-size:0.92rem;line-height:1.7;}
-.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
-.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
-.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
 .fact-value{font-size:0.9rem;font-weight:600;}
 h2{font-size:1.05rem;font-weight:800;margin:1.6rem 0 0.7rem;color:var(--text);}
 .block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;}
@@ -38,9 +35,7 @@ h2{font-size:1.05rem;font-weight:800;margin:1.6rem 0 0.7rem;color:var(--text);}
 .block p:last-child{margin-bottom:0;}
 .block strong{color:var(--text);}
 .tip-box{background:linear-gradient(135deg,#7C4A12,#A8640F);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
-.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
 .tip-box p{font-size:0.85rem;line-height:1.65;opacity:0.95;margin-bottom:0.5rem;}
-.tip-box p:last-child{margin-bottom:0;}
 .warn{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:0.85rem 1.1rem;font-size:0.84rem;color:#92400E;line-height:1.65;margin-bottom:1.4rem;}
 .food{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1rem;}
 .food-item{background:white;border:1px solid var(--border);border-radius:10px;padding:0.75rem 0.9rem;}
@@ -48,7 +43,6 @@ h2{font-size:1.05rem;font-weight:800;margin:1.6rem 0 0.7rem;color:var(--text);}
 .food-item span{font-size:0.78rem;color:var(--muted);line-height:1.5;}
 .nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.7rem;flex-wrap:wrap;}
 .back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;}
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
 .src{font-size:0.74rem;color:var(--muted);line-height:1.6;margin-top:1.2rem;}
 @media(min-width:580px){.facts-grid{grid-template-columns:repeat(4,1fr);}.hero h1{font-size:2.2rem;}}
 @media(max-width:460px){.food{grid-template-columns:1fr;}}
@@ -57,14 +51,26 @@ h2{font-size:1.05rem;font-weight:800;margin:1.6rem 0 0.7rem;color:var(--text);}
 </head>
 <body>
 <div class="topbar">
-  <a class="logo" href="../index.html">Colombia 2026</a>
+  <a class="logo" href="../index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
 </div>
-<div class="subnav">
-  <a href="../index.html">🏠 Overzicht</a>
+<div class="subnav subnav-locs">
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
   <a href="../palomino.html" class="active">🏖️ Palomino</a>
+  <a href="../bogota2.html">🏙️ Bogotá 2</a>
+</div>
+<div class="subnav subnav-info">
+  <a href="../index.html">🏠 Overzicht</a>
   <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../activiteiten.html">🎯 Activiteiten</a>
+  <a href="../hotels.html">🏨 Hotels</a>
   <a href="../praktisch.html">📌 Praktisch</a>
+  <a href="../routes.html">🗺️ Kaart &amp; Routes</a>
 </div>
 
 <div class="hero">
@@ -166,5 +172,13 @@ h2{font-size:1.05rem;font-weight:800;margin:1.6rem 0 0.7rem;color:var(--text);}
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="../reservaties.js"></script>
+<script src="../countdown.js"></script>
+<script src="../navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("../sw.js",{scope:"../"}).catch(function(){});}</script>
 </body>
 </html>

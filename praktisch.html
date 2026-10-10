@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>📌 Praktisch · Colombia 24 Dagen</title>
 <style>
 :root {
@@ -10,22 +17,12 @@
   --cream:#FAF8F4; --card:#FFFFFF; --border:#E5E0D8;
   --text:#1C2A1E; --muted:#4A5E4D;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
 .topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
-.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
-.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
 .subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
 .hero{background:linear-gradient(135deg,#263238,#37474F,#455A64);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
-.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
 .badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
-.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
-.sec-title{font-size:1rem;font-weight:800;margin-bottom:0.9rem;color:var(--text);text-transform:uppercase;letter-spacing:0.4px;}
 .day-header{background:linear-gradient(135deg,#263238,#37474F);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.2rem;color:white;display:flex;align-items:center;gap:1rem;}
 .day-header .dn{font-size:2rem;font-weight:900;opacity:0.85;}
 .day-header h2{font-size:1.1rem;font-weight:700;}
@@ -46,19 +43,17 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .cash-bar{background:#FFF7ED;border:1px solid #FDB97D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.4rem;font-size:0.83rem;color:#92400E;line-height:1.5;}
 .ov-table{background:white;border-radius:12px;border:1px solid var(--border);overflow:hidden;margin-bottom:1.6rem;}
 .ov-row{display:flex;gap:0;border-bottom:1px solid var(--border);align-items:stretch;}
-.ov-row:last-child{border-bottom:none;}
 .ov-day{min-width:80px;padding:0.7rem 0.6rem;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;text-align:center;}
 .ov-content{padding:0.7rem 0.9rem;flex:1;border-left:1px solid var(--border);}
 .ov-content strong{font-size:0.85rem;display:block;margin-bottom:0.1rem;}
 .ov-content span{font-size:0.76rem;color:var(--muted);}
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
 @media(min-width:580px){.prac-grid{grid-template-columns:1fr 1fr;}.hero h1{font-size:2.3rem;}}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 <div class="topbar">
-  <a class="logo" href="index.html">Colombia 2026</a>
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <div class="topbar-right">
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
@@ -114,7 +109,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
   <!-- TAYRONA WAARSCHUWING -->
   <div class="warn-bar">
-    ⚠️ <strong>Tayrona:</strong> Controleer op parquesnacionales.gov.co of het park open is. Gesloten ±3x per jaar (begin feb, begin juni, eind okt). Paspoort meenemen bij bezoek — geen kopie.
+    💉 <strong>Gele koorts:</strong> vaccinatiebewijs is vereist voor Tayrona, de Sierra Nevada (Minca) en La Guajira (Palomino) — vaccin minstens 10 dagen voor vertrek, geel boekje mee. Tayrona: origineel paspoort, entree ±COP 96.500 + 7.000 verzekering p.p. (hoogseizoen).
   </div>
 
 
@@ -211,7 +206,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="warn-bar" style="background:#F0FDF4;border-color:#86EFAC;color:#14532D;">
     📊 <strong>Dagbudget samenvatting (p.p., exclusief vluchten):</strong><br>
     🟢 <strong>Zuinig:</strong> COP 150.000–250.000 · <strong>€33–55/dag</strong> · Hosteldorm + comida corriente + openbaar vervoer<br>
-    🟡 <strong>Comfortabel (ons niveau):</strong> COP 350.000–500.000 · <strong>€78–111/dag</strong> · Eigen kamer + restaurants + Uber<br>
+    🟡 <strong>Comfortabel (ons niveau):</strong> COP 350.000–500.000 · <strong>€78–111/dag</strong> · Eigen kamer + restaurants + Uber — ons eigen cijfer staat hieronder bij "Ons budget"<br>
     🔴 <strong>Luxe:</strong> COP 800.000–1.000.000+ · <strong>€178–222+/dag</strong> · Boutique hotel + fine dining + vluchten intern
   </div>
 
@@ -257,11 +252,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <strong>Caribische kust:</strong> 30–35°C, heet en vochtig<br>
       <strong>Minca:</strong> Frisser door hoogte<br>
       <strong>Tayrona/Palomino:</strong> 28–32°C</p>
+      <p><strong>🌧️ Regenseizoen:</strong> november is in de Andes (Bogotá, Salento, Medellín) de natste maand van het jaar — meestal droge ochtenden en buien in de namiddag. Plan wandelingen en de downhill 's ochtends, regenjas altijd mee, Cocora is modderig (rubberlaarzen huren). Aan de kust is december het begin van het droge seizoen.</p>
     </div>
     <div class="prac-item">
       <h4>🦟 Gezondheid & Vaccins</h4>
       <p>• Muggenspray DEET ≥30% meenemen<br>
-      • Gele koorts vaccin aanbevolen (zeker voor Minca/Tayrona)<br>
+      • Gele koorts: vaccinatiebewijs <strong>vereist</strong> voor Tayrona, Minca en Palomino — geel boekje meenemen<br>
       • Hepatitis A vaccin aanbevolen<br>
       • Reisapotheek: buikpillen, pleisters, zonnecrème<br>
       • Bioreafbreekbare zonnecrème voor Tayrona</p>
@@ -276,20 +272,16 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <em>La cuenta por favor</em> = De rekening graag</p>
     </div>
     <div class="prac-item">
-      <h4>💰 Budget per Dag</h4>
-      <p>Hotels: gemiddeld €65/nacht (2 pers, incl. ontbijt)<br>
-      Eten & drinken: €20–40 p.p./dag<br>
-      Activiteiten: variabel (zie per dag)<br>
-      Transport: €5–20/dag<br>
-      <strong>Totaal: ±€80–120 p.p./dag (excl. vluchten)</strong></p>
+      <h4>💰 Ons budget</h4>
+      <p id="budgetKort">Wordt berekend uit reservaties.js…</p>
     </div>
     <div class="prac-item">
       <h4>🆘 Noodgevallen</h4>
-      <p>Noodnummer Colombia: <strong>123</strong><br>
-      Politie: 112<br>
-      EU-reiskaart/verzekering meenemen<br>
-      Ambassade België: Bogotá<br>
-      Bewaar kopie paspoort apart van origineel</p>
+      <p>Noodnummer Colombia (politie, ambulance, brandweer): <strong>123</strong><br>
+      Ambassade van België, Bogotá: Calle 26B nr. 4A-45, 7de verdieping · +57 601 380 03 70 (controleer op diplomatie.belgium.be)<br>
+      FOD Buitenlandse Zaken, 24/7 crisislijn: +32 2 501 81 11<br>
+      Registreer de reis op travellersonline.diplomatie.be<br>
+      Verzekeringskaart + polisnummer bij de hand; kopie paspoort apart van origineel</p>
     </div>
   </div>
 
@@ -338,9 +330,34 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 <div class="footer">🇨🇴 Colombia · 24 dagen · 2 personen</div>
 <script src="reservaties.js"></script>
 <script src="grootboek.js"></script>
-<script src="feedback.js"></script>
+<script>
+(function(){
+  if (typeof budgetOverzicht !== 'function') return;
+  var el = document.getElementById('budgetKort'); if (!el) return;
+  var b = budgetOverzicht(), p = {};
+  b.posten.forEach(function(x){ p[x.id] = x; });
+  function eur(n){ return '€' + Math.round(n).toLocaleString('nl-BE'); }
+  var dagen = REISDAGEN, pers = PERSONEN;
+  var perDag = (b.totaalInclEten - b.vluchten) / pers / dagen;
+  el.innerHTML =
+    'Hotels: ' + eur(p.hotels.bedrag) + ' · ' + p.hotels.detail + '<br>' +
+    'Eten &amp; drinken: ' + eur(p.eten.bedrag) + ' · ' + p.eten.detail + '<br>' +
+    'Activiteiten &amp; tours: ' + eur(p.activiteiten.bedrag) + ' · ' + p.activiteiten.detail + '<br>' +
+    'Vervoer over land: ' + eur(p.grondvervoer.bedrag) + '<br>' +
+    'Vluchten (geboekt): ' + eur(b.vluchten) + '<br>' +
+    '<strong>Totaal: ' + eur(b.totaalInclEten) + ' voor 2 · ±' + eur(perDag) + ' p.p./dag excl. vluchten</strong><br>' +
+    '<small>Zelfde cijfers als de budgettabel op het overzicht — één bron (reservaties.js).</small>';
+})();
+</script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
 </body>
 </html>

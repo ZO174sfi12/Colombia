@@ -1,3 +1,6 @@
 # Epub bronbestanden — lokaal bewaren, niet naar GitHub
 *.epub
 gist.config
+
+# Originele afbeeldingen (lokaal bewaard, site gebruikt webp)
+img/_orig/

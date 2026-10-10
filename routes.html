@@ -3,26 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>🗺️ Kaart & Routes · Colombia 24 Dagen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#1A4A2E;--gold:#C9962A;--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
-*{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--text);}
 .topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
-.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
-.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
 .subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
 .subnav a:hover{color:var(--text);}
 .hero{background:linear-gradient(135deg,#0D2E18,#1A4A2E,#2C5364);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;font-family:"Playfair Display",serif;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
-.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
 .badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
 /* SVG Diagram */
 .diagram-card{background:white;border:1px solid var(--border);border-radius:16px;padding:1.5rem 1rem 1rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);margin-bottom:1.5rem;}
@@ -34,9 +34,6 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 .leg-bus{background:#1A4A2E;}
 .leg-fly{background:repeating-linear-gradient(90deg,#D97706 0,#D97706 7px,transparent 7px,transparent 13px);}
 .leg-day{background:repeating-linear-gradient(90deg,#1D4ED8 0,#1D4ED8 5px,transparent 5px,transparent 9px);}
-/* Routes content */
-.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
-.sec-title{font-size:1rem;font-weight:800;margin-bottom:0.9rem;color:var(--text);text-transform:uppercase;letter-spacing:0.4px;}
 .leg{display:flex;gap:0;margin-bottom:0;border-bottom:1px solid var(--border);}
 .leg:last-child{border-bottom:none;}
 .leg-left{min-width:90px;padding:0.9rem 0.8rem;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0.3rem;border-right:1px solid var(--border);background:#FAFAFA;}
@@ -54,19 +51,17 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 .chip.purple{background:#F5F3FF;border-color:#C4B5FD;color:#5B21B6;}
 .route-table{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.6rem;}
 .ov-row{display:flex;border-bottom:1px solid var(--border);align-items:stretch;}
-.ov-row:last-child{border-bottom:none;}
 .ov-day{min-width:72px;padding:0.65rem 0.5rem;font-weight:700;font-size:0.75rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.15rem;}
 .ov-content{padding:0.65rem 0.9rem;flex:1;border-left:1px solid var(--border);}
 .ov-content strong{font-size:0.84rem;display:block;}
 .ov-content span{font-size:0.74rem;color:var(--muted);}
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
 @media(min-width:580px){.hero h1{font-size:2.1rem;}}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 <div class="topbar">
-  <a class="logo" href="index.html">Colombia 2026</a>
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <div class="topbar-right">
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
@@ -168,10 +163,10 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
           <circle cx="618" cy="422" r="22" fill="#1A4A2E"/>
           <text x="618" y="428" text-anchor="middle" dominant-baseline="middle" font-size="15">🏙️</text>
           <text x="618" y="453" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" fill="#1C2A1E" font-weight="700">Bogotá</text>
-          <text x="618" y="467" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D">2 nachten</text>
+          <text x="618" y="467" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D" data-verblijf="hotel-bogota" data-veld="nachten">2 nachten</text>
         </a>
         <rect x="584" y="397" width="40" height="14" rx="7" fill="#ECFDF5"/>
-        <text x="604" y="407" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#065F46" font-weight="700">dag 1–2</text>
+        <text x="604" y="407" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#065F46" font-weight="700" data-verblijf="hotel-bogota" data-veld="dagen-klein">dag 1–2</text>
         <text x="618" y="390" text-anchor="middle" font-family="Nunito,sans-serif" font-size="9" fill="#1A4A2E" opacity="0.65" font-weight="600">▼ aankomst</text>
 
         <!-- Salento -->
@@ -179,20 +174,20 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
           <circle cx="408" cy="327" r="20" fill="#7C3AED"/>
           <text x="408" y="333" text-anchor="middle" dominant-baseline="middle" font-size="14">☕</text>
           <text x="408" y="357" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" fill="#1C2A1E" font-weight="700">Salento</text>
-          <text x="408" y="371" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D">4 nachten</text>
+          <text x="408" y="371" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D" data-verblijf="hotel-salento" data-veld="nachten">4 nachten</text>
         </a>
         <rect x="374" y="302" width="40" height="14" rx="7" fill="#F5F3FF"/>
-        <text x="394" y="312" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#5B21B6" font-weight="700">dag 3–6</text>
+        <text x="394" y="312" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#5B21B6" font-weight="700" data-verblijf="hotel-salento" data-veld="dagen-klein">dag 3–6</text>
 
         <!-- Medellín -->
         <a href="medellin.html">
           <circle cx="250" cy="255" r="22" fill="#1D4ED8"/>
           <text x="250" y="261" text-anchor="middle" dominant-baseline="middle" font-size="15">🌆</text>
           <text x="250" y="286" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" fill="#1C2A1E" font-weight="700">Medellín</text>
-          <text x="250" y="300" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D">3 nachten</text>
+          <text x="250" y="300" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D" data-verblijf="hotel-medellin" data-veld="nachten">3 nachten</text>
         </a>
         <rect x="214" y="230" width="40" height="14" rx="7" fill="#EFF6FF"/>
-        <text x="234" y="240" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#1E40AF" font-weight="700">dag 7–9</text>
+        <text x="234" y="240" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#1E40AF" font-weight="700" data-verblijf="hotel-medellin" data-veld="dagen-klein">dag 7–9</text>
 
         <!-- Guatapé (1 nacht) -->
         <a href="guatape.html">
@@ -200,8 +195,8 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
           <text x="383" y="243" text-anchor="middle" dominant-baseline="middle" font-size="11">🪨</text>
           <text x="383" y="262" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#1D4ED8" font-weight="700">Guatapé</text>
         <rect x="362" y="206" width="42" height="14" rx="7" fill="#DBEAFE"/>
-        <text x="383" y="216" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#1D4ED8" font-weight="700">dag 10–11</text>
-          <text x="383" y="274" text-anchor="middle" font-family="Nunito,sans-serif" font-size="9" fill="#4A5E4D">2 nachten</text>
+        <text x="383" y="216" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#1D4ED8" font-weight="700" data-verblijf="hotel-guatape" data-veld="dagen-klein">dag 10–11</text>
+          <text x="383" y="274" text-anchor="middle" font-family="Nunito,sans-serif" font-size="9" fill="#4A5E4D" data-verblijf="hotel-guatape" data-veld="nachten">2 nachten</text>
         </a>
 
         <!-- Minca -->
@@ -209,30 +204,30 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
           <circle cx="488" cy="104" r="18" fill="#166534"/>
           <text x="488" y="110" text-anchor="middle" dominant-baseline="middle" font-size="12">🌿</text>
           <text x="488" y="132" text-anchor="middle" font-family="'Playfair Display',serif" font-size="12" fill="#1C2A1E" font-weight="700">Minca</text>
-          <text x="488" y="145" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D">4 nachten</text>
+          <text x="488" y="145" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D" data-verblijf="hotel-minca" data-veld="nachten">4 nachten</text>
         </a>
         <rect x="458" y="82" width="42" height="14" rx="7" fill="#DCFCE7"/>
-        <text x="479" y="92" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#166534" font-weight="700">dag 12–15</text>
+        <text x="479" y="92" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#166534" font-weight="700" data-verblijf="hotel-minca" data-veld="dagen-klein">dag 12–15</text>
 
         <!-- Tayrona -->
         <a href="tayrona.html">
           <circle cx="580" cy="99" r="18" fill="#166534"/>
           <text x="580" y="105" text-anchor="middle" dominant-baseline="middle" font-size="12">🌴</text>
           <text x="580" y="127" text-anchor="middle" font-family="'Playfair Display',serif" font-size="12" fill="#1C2A1E" font-weight="700">Tayrona</text>
-          <text x="580" y="140" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D">2 nachten</text>
+          <text x="580" y="140" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D" data-verblijf="hotel-tayrona" data-veld="nachten">2 nachten</text>
         </a>
         <rect x="550" y="77" width="42" height="14" rx="7" fill="#DCFCE7"/>
-        <text x="571" y="87" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#166534" font-weight="700">dag 16–17</text>
+        <text x="571" y="87" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#166534" font-weight="700" data-verblijf="hotel-tayrona" data-veld="dagen-klein">dag 16–17</text>
 
         <!-- Palomino -->
         <a href="palomino.html">
           <circle cx="695" cy="99" r="20" fill="#92400E"/>
           <text x="695" y="105" text-anchor="middle" dominant-baseline="middle" font-size="14">🏖️</text>
           <text x="695" y="129" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" fill="#1C2A1E" font-weight="700">Palomino</text>
-          <text x="695" y="143" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D">4 nachten</text>
+          <text x="695" y="143" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D" data-verblijf="hotel-palomino" data-veld="nachten">4 nachten</text>
         </a>
         <rect x="660" y="77" width="50" height="14" rx="7" fill="#FEF3C7"/>
-        <text x="685" y="87" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#92400E" font-weight="700">dag 18–21</text>
+        <text x="685" y="87" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#92400E" font-weight="700" data-verblijf="hotel-palomino" data-veld="dagen-klein">dag 18–21</text>
 
         <!-- Dag 22: Palomino → Santa Marta → vlucht naar Bogotá -->
         <path d="M 695 117 Q 822 272 640 418" stroke="#D97706" stroke-width="2.6" fill="none" stroke-dasharray="9,5"/>
@@ -398,10 +393,17 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
 <div class="footer">🇨🇴 Colombia · 24 dagen · Bert &amp; Ellen · Alle tijden lokaal</div>
 <script src="reservaties.js"></script>
+<script src="dagsync.js"></script>
 <script src="routestatus.js"></script>
-<script src="feedback.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
 </body>
 </html>

@@ -3,46 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>🏙️ Bogotá 2 · Colombia 24 Dagen</title>
 <style>
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}
 :root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
 .topbar{background:#1A4A2E;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
-.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
-.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
 .subnav a.active{color:#1A4A2E;border-bottom-color:#1A4A2E;}
 .hero{background:linear-gradient(135deg,#0D2318,#1A4A2E,#2D6A4F);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
-.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
-.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}
-.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
 .day-banner{border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
 .day-banner.bus{background:linear-gradient(135deg,#451A03,#92400E,#B45309);}
 .day-banner.fly{background:linear-gradient(135deg,#0F172A,#1E3A5F,#1D4ED8);}
 .day-banner.home{background:linear-gradient(135deg,#0D2318,#1A4A2E,#2D6A4F);}
-.day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
-.day-banner h2{font-size:1.1rem;font-weight:700;}
-.day-banner p{font-size:0.82rem;opacity:0.78;margin-top:0.2rem;}
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.95rem 1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);margin-bottom:1.2rem;}
 .card h3{font-size:0.97rem;font-weight:700;margin-bottom:0.45rem;}
 .card .desc{font-size:0.85rem;color:var(--muted);line-height:1.6;}
-.card .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.55rem;}
-.chip{font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
-.chip.warn{background:#FFF7ED;border-color:#FDB97D;color:#92400E;}
 .chip.green{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
 .chip.blue{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:0.7rem 0;}
-.info-cell{padding:0.55rem 0.75rem;background:#FAFAFA;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
-.info-cell:nth-child(2n){border-right:none;}.info-cell:nth-last-child(-n+2){border-bottom:none;}
-.info-cell.full{grid-column:1/-1;border-right:none;}
-.info-cell dt{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:0.15rem;}
-.info-cell dd{font-size:0.82rem;}
-.warn-box{background:#FEF2F2;border:1px solid #FCA5A5;border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;}
 .warn-box h3{font-weight:700;font-size:1rem;margin-bottom:0.5rem;color:#991B1B;}
 .warn-box p{font-size:0.85rem;line-height:1.6;color:#7F1D1D;margin-bottom:0.4rem;}
 .warn-box p:last-child{margin-bottom:0;}
@@ -52,18 +37,14 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 .tip-card p:last-child{margin-bottom:0;}
 .sec-divider{font-size:0.85rem;font-weight:800;color:#1A4A2E;margin:1.8rem 0 0.8rem;text-transform:uppercase;border-top:2px solid var(--border);padding-top:1rem;letter-spacing:0.5px;}
 .nav-buttons{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.75rem;justify-content:space-between;}
-.nav-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;transition:opacity 0.15s;}
-.nav-btn:hover{opacity:0.85;}
-.nav-btn.prev{background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;}
 .nav-btn.next{color:white;background:#1A4A2E;}
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
 @media(min-width:580px){.info-grid{grid-template-columns:repeat(3,1fr);}.info-cell:nth-child(2n){border-right:1px solid var(--border);}.info-cell:nth-child(3n){border-right:none;}}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 <div class="topbar">
-  <a class="logo" href="index.html">Colombia 2026</a>
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <div class="topbar-right">
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
@@ -90,10 +71,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 <div class="hero">
   <h1>🏙️ Bogotá 2</h1>
-  <p class="sub">Dag 22–24 · Palomino → Santa Marta → Bogotá → Brussel</p>
+  <p class="sub"><span data-verblijf="hotel-bogota2" data-veld="dagen">Dag 22–24</span> · Palomino → Santa Marta → Bogotá → Brussel</p>
   <div class="badges">
     <span class="badge">🚌 Bus ±1u30</span>
     <span class="badge">✈️ SMR → BOG</span>
+    <a class="badge" href="info/dag24-zoutmijnen-vertrek.html">⛪ Zoutkathedraal dag 24</a>
     <span class="badge">✈️ BOG → BRU 23:15</span>
   </div>
 </div>
@@ -195,16 +177,17 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
     <div class="dn">24</div>
   <div class="card">
     <h3>⛪ Zoutkathedraal van Zipaquirá — de laatste dag</h3>
-    <img src="img/Catedral de sal.jpeg" alt="Catedral de Sal Zipaquirá" style="width:100%;max-width:520px;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:10px;margin:0.7rem auto 0.9rem;" onerror="this.style.display='none'">
+    <img src="img/catedral_de_sal.webp" alt="Catedral de Sal Zipaquirá" style="width:100%;max-width:520px;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:10px;margin:0.7rem auto 0.9rem;" onerror="this.style.display='none'" loading="lazy">
     <p class="desc">Een complete kathedraal uitgehouwen in een <strong>actieve zoutmijn</strong>, 180 meter
     onder de grond. Veertien kruiswegstaties in zijgangen, een centrale koepel van 75 meter lang, en een
     enorm kruis uitgehakt in het zoutgesteente. De Rough Guide noemt het de enige ondergrondse kathedraal
     ter wereld — indrukwekkend én een beetje luguber.</p>
     <p class="desc">Perfect voor je laatste dag: je vlucht gaat pas om 23:15, dus je hebt de hele dag.
     Je bent 's middags terug in Bogotá met tijd om te douchen en rustig in te pakken.</p>
+    <p class="desc"><strong>🍽️ Lunch met Claudio:</strong> hij woont vlak bij de Catedral de Sal en bood aan om samen iets te gaan eten. Zipaquirá op dag 24 is daarvoor de logische plek — na de kathedraal, rond 13u, in het koloniale centrum. Vóór vertrek de datum met hem bevestigen (alternatief: dag 23 in Bogotá).</p>
     <div class="info-grid">
       <dl class="info-cell"><dt>Afstand</dt><dd class="hi">48 km · ±1u</dd></dl>
-      <dl class="info-cell"><dt>Prijs</dt><dd>±€20 p.p.</dd></dl>
+      <dl class="info-cell"><dt>Prijs</dt><dd>±€27 p.p. (COP 110.000+, buitenlanders)</dd></dl>
       <dl class="info-cell"><dt>Tijd nodig</dt><dd>Halve dag</dd></dl>
       <dl class="info-cell"><dt>Hoogte</dt><dd>2.652 m</dd></dl>
     </div>
@@ -273,12 +256,20 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="routes.html" class="nav-btn next" style="background:#1A4A2E;">🗺️ Kaart →</a>
 </div>
 
-<div class="footer">🇨🇴 Colombia · Bogotá 2 · Dag 22–24<br><small style="font-weight:400;opacity:0.85">Bus Palomino → Santa Marta · vlucht SMR→BOG · vrije dag · vlucht BOG→BRU</small></div>
+<div class="footer">🇨🇴 Colombia · Bogotá 2 · <span data-verblijf="hotel-bogota2" data-veld="dagen">Dag 22–24</span><br><small style="font-weight:400;opacity:0.85">Bus Palomino → Santa Marta · vlucht SMR→BOG · vrije dag · vlucht BOG→BRU</small></div>
 <script src="reservaties.js"></script>
+<script src="dagsync.js"></script>
 <script src="locatieblok.js"></script>
-<script src="feedback.js"></script>
+<script src="dagplan.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
 </body>
 </html>

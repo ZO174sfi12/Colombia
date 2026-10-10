@@ -61,7 +61,13 @@
 
   if (!regels.length){ el.style.display = 'none'; return; }
 
-  var html = '<div class="res-blok-kop">Vastgelegd voor deze locatie</div>';
+  var tel = { geboekt:0, 'te-boeken':0, 'ter-plaatse':0 };
+  regels.forEach(function(x){ if (x.status in tel) tel[x.status]++; });
+  var samen = [];
+  if (tel['te-boeken'])   samen.push('<b style="color:#B45309">! ' + tel['te-boeken'] + ' te boeken</b>');
+  if (tel.geboekt)        samen.push('<span style="color:#16A34A">✓ ' + tel.geboekt + ' geboekt</span>');
+  if (tel['ter-plaatse']) samen.push('○ ' + tel['ter-plaatse'] + ' ter plaatse');
+  var html = '<div class="res-blok-kop klik" role="button" tabindex="0"><span>Vastgelegd voor deze locatie · <small style="font-weight:600">' + samen.join(' · ') + '</small></span><span class="rb-chev">▾</span></div>';
   regels.forEach(function(x){
     html += '<div class="res-regel">' +
       '<span class="rr-ico">' + x.ico + '</span>' +
@@ -70,6 +76,10 @@
       resChip(x.status, '', true) +
       '</div>';
   });
-  el.className = 'res-blok';
+  el.className = 'res-blok inklap' + (tel['te-boeken'] ? ' open' : '');   /* open als er nog iets te boeken is */
   el.innerHTML = html;
+  var kop = el.querySelector('.res-blok-kop.klik');
+  function toggle(){ el.classList.toggle('open'); }
+  kop.addEventListener('click', toggle);
+  kop.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); } });
 })();

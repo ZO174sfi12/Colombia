@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>🍽️ Culinair Colombia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,21 +18,15 @@
 :root{
   --navy:#1A4A2E;--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--text);}
 
 .topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
 .topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;font-family:'Nunito',sans-serif;letter-spacing:0.01em;}
-.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
-.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
 .subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
 
 .hero{background:linear-gradient(135deg,#2D1B00,#78350F,#9A3412);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
 .hero h1{font-size:1.9rem;font-weight:800;font-family:'Playfair Display',serif;letter-spacing:-0.01em;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
-.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
 .badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
 
 .section{max-width:1040px;margin:0 auto;padding:1.5rem 1rem 0.5rem;}
@@ -97,7 +98,6 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
 .footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1.5rem;}
 
-
 @media(min-width:580px){.hero h1{font-size:2.3rem;}}
 @media(max-width:440px){.cards-grid{grid-template-columns:repeat(2,1fr);} .dish-card .card-img{height:155px;}}
 
@@ -168,7 +168,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 <body>
 
 <div class="topbar">
-  <a class="logo" href="index.html">Colombia 2026</a>
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <div class="topbar-right">
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
@@ -247,7 +247,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="ajiaco bogotá soep" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Ajiaco+Bogot%C3%A1+Colombia">
     <div class="card-img">
-      <img src="img/food/ajiaco.jpg" alt="Ajiaco Bogotá" loading="lazy"
+      <img src="img/food/ajiaco.webp" alt="Ajiaco Bogotá" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍲</span>Ajiaco</div>'">
       <span class="cat-tag">Bogotá · Soep</span>
       <span class="region-tag">📍 Bogotá</span>
@@ -261,7 +261,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="sancocho nationaal soep" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Sancocho+Colombia">
     <div class="card-img">
-      <img src="img/food/sancocho.jpg" alt="Sancocho" loading="lazy"
+      <img src="img/food/sancocho.webp" alt="Sancocho" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍲</span>Sancocho</div>'">
       <span class="cat-tag">Nationaal · Soep</span>
       <span class="google-hint">🔍 zoek</span>
@@ -274,7 +274,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="asado huilense huila grill" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Asado+Huilense+Colombia">
     <div class="card-img">
-      <img src="img/food/asado_huilense.jpg" alt="Asado Huilense" loading="lazy"
+      <img src="img/food/asado_huilense.webp" alt="Asado Huilense" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🥩</span>Asado Huilense</div>'">
       <span class="cat-tag">Huila · Grill</span>
       <span class="region-tag">📍 Huila</span>
@@ -302,7 +302,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="tamales ontbijt overal" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Tamales+Colombia+bananenblaad">
     <div class="card-img">
-      <img src="img/food/tamales.jpg" alt="Tamal in bananenblaad" loading="lazy"
+      <img src="img/food/tamales.webp" alt="Tamal in bananenblaad" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🫔</span>Tamales</div>'">
       <span class="cat-tag">Ontbijt · Overal</span>
       <span class="google-hint">🔍 zoek</span>
@@ -316,7 +316,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="caldo de costilla soep bogota ontbijt" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Caldo+de+Costilla+Colombia">
     <div class="card-img">
-      <img src="img/food/caldo_costilla.jpg" alt="Caldo de Costilla" loading="lazy"
+      <img src="img/food/caldo_costilla.webp" alt="Caldo de Costilla" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍽️</span>Caldo de Costilla</div>'">
       <span class="cat-tag">Bogotá · Ontbijt</span>
       <span class="cat-tag" style="right:auto;left:0.5rem;background:rgba(80,80,80,0.85);">👨‍🦳 Tony</span>
@@ -329,7 +329,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   </div>
   <div class="dish-card" data-name="tamales bogotanos kip varken bogota" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Tamales+Bogotanos+Colombia">
     <div class="card-img">
-      <img src="img/food/tamales.jpg" alt="Tamales Bogotanos" loading="lazy"
+      <img src="img/food/tamales.webp" alt="Tamales Bogotanos" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍽️</span>Tamales Bogotanos</div>'">
       <span class="cat-tag">Bogotá · Ontbijt</span>
       <span class="cat-tag" style="right:auto;left:0.5rem;background:rgba(80,80,80,0.85);">👨‍🦳 Tony</span>
@@ -342,7 +342,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
   </div>
   <div class="dish-card" data-name="colombiaanse picada gefrituurd vlees tejo" data-cat="gerecht" data-google-href="https://www.google.com/search?tbm=isch&q=Colombiaanse+Picada">
     <div class="card-img">
-      <img src="img/food/picada.jpg" alt="Colombiaanse Picada" loading="lazy"
+      <img src="img/food/picada.webp" alt="Colombiaanse Picada" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍽️</span>Colombiaanse Picada</div>'">
       <span class="cat-tag">Colombia · Tejo</span>
       <span class="cat-tag" style="right:auto;left:0.5rem;background:rgba(80,80,80,0.85);">👨‍🦳 Tony</span>
@@ -365,7 +365,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="carib. lunch caribbean coast" data-cat="vis" data-google-href="https://www.google.com/search?tbm=isch&q=Caribbean+lunch+Colombia+coast+fish">
     <div class="card-img">
-      <img src="img/food/typicalcaribbeanlunch.jpg" alt="Caribbean lunch" loading="lazy"
+      <img src="img/food/typicalcaribbeanlunch.webp" alt="Caribbean lunch" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🐟</span>Carib. Lunch</div>'">
       <span class="cat-tag">Caribbean · Lunch</span>
       <span class="region-tag">📍 Palomino · Tayrona · Santa Marta</span>
@@ -393,7 +393,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="viudo de bocachico rivier vis" data-cat="vis" data-google-href="https://www.google.com/search?tbm=isch&q=Viudo+de+Bocachico+Colombia+river">
     <div class="card-img">
-      <img src="img/food/viudo_bocachico.jpg" alt="Viudo de Bocachico" loading="lazy"
+      <img src="img/food/viudo_bocachico.webp" alt="Viudo de Bocachico" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🐟</span>Viudo Bocachico</div>'">
       <span class="cat-tag">Rivier · Vis</span>
       <span class="google-hint">🔍 zoek</span>
@@ -407,7 +407,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="cazuela de mariscos caribische kust stoofpot" data-cat="vis" data-google-href="https://www.google.com/search?tbm=isch&q=Cazuela+de+Mariscos+Colombia">
     <div class="card-img">
-      <img src="img/food/cazuela_mariscos.jpg" alt="Cazuela de Mariscos" loading="lazy"
+      <img src="img/food/cazuela_mariscos.webp" alt="Cazuela de Mariscos" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍽️</span>Cazuela de Mariscos</div>'">
       <span class="cat-tag">Caraïben · Kust</span>
       <span class="cat-tag" style="right:auto;left:0.5rem;background:rgba(80,80,80,0.85);">👨‍🦳 Tony</span>
@@ -456,7 +456,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="patacones caribisch snack plantain" data-cat="streetfood" data-google-href="https://www.google.com/search?tbm=isch&q=Patacones+Colombia+fried+plantain">
     <div class="card-img">
-      <img src="img/food/patacones.jpg" alt="Patacones" loading="lazy"
+      <img src="img/food/patacones.webp" alt="Patacones" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍌</span>Patacones</div>'">
       <span class="cat-tag">Caribisch · Snack</span>
       <span class="google-hint">🔍 zoek</span>
@@ -469,7 +469,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="arequipe zoet street dulce de leche" data-cat="streetfood" data-google-href="https://www.google.com/search?tbm=isch&q=Arequipe+Colombia+dulce+de+leche">
     <div class="card-img">
-      <img src="img/food/arequipe.jpg" alt="Arequipe Colombia dulce de leche" loading="lazy"
+      <img src="img/food/arequipe.webp" alt="Arequipe Colombia dulce de leche" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍯</span>Arequipe</div>'">
       <span class="cat-tag">Zoet · Street</span>
       <span class="google-hint">🔍 zoek</span>
@@ -519,7 +519,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="tinto koffie overal zwart" data-cat="drank" data-google-href="https://www.google.com/search?tbm=isch&q=Tinto+koffie+Colombia+cafe">
     <div class="card-img">
-      <img src="img/food/coffee_cafe.jpg" alt="Tinto Colombiaanse koffie" loading="lazy"
+      <img src="img/food/coffee_cafe.webp" alt="Tinto Colombiaanse koffie" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>☕</span>Tinto</div>'">
       <span class="cat-tag">Koffie · Overal</span>
       <span class="google-hint">🔍 zoek</span>
@@ -573,7 +573,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="uchuva fruit markten physalis goudbes" data-cat="drank" data-google-href="https://www.google.com/search?tbm=isch&q=Uchuva+Colombia+golden+berry+markt">
     <div class="card-img">
-      <img src="img/food/fruits.jpg" alt="Uchuva goudbes Colombia" loading="lazy"
+      <img src="img/food/fruits.webp" alt="Uchuva goudbes Colombia" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🫐</span>Uchuva</div>'">
       <span class="cat-tag">Fruit · Markten</span>
       <span class="google-hint">🔍 zoek</span>
@@ -596,7 +596,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 
   <div class="dish-card" data-name="natilla kerst nationaal pudding panela" data-cat="dessert" data-google-href="https://www.google.com/search?tbm=isch&q=Natilla+Colombia+dessert+kerst">
     <div class="card-img">
-      <img src="img/food/natilla.jpg" alt="Natilla Colombia" loading="lazy"
+      <img src="img/food/natilla.webp" alt="Natilla Colombia" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🍮</span>Natilla</div>'">
       <span class="cat-tag">Kerst · Nationaal</span>
       <span class="google-hint">🔍 zoek</span>
@@ -1623,7 +1623,6 @@ document.querySelectorAll('.dish-card').forEach(function(card){
 });
 </script>
 
-<script src="feedback.js"></script>
 <script>
 document.querySelectorAll('#horecaFilter .pill').forEach(function(p){
   p.addEventListener('click', function(){
@@ -1643,5 +1642,13 @@ document.querySelectorAll('#horecaFilter .pill').forEach(function(p){
 })();
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="reservaties.js"></script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
 </body>
 </html>

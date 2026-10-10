@@ -3,79 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>🌴 Tayrona National Park · Colombia 24 Dagen</title>
 <style>
+.prac-item:last-child{margin-bottom:0;}
+.prac-item{display:flex;gap:0.6rem;align-items:flex-start;margin-bottom:0.5rem;font-size:0.84rem;line-height:1.5;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}
+.nav-buttons{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.75rem;justify-content:space-between;align-items:center;}
+.details-body strong{color:var(--text);}
+.details-body p{margin-bottom:0.6rem;}
+.details-body{padding:0.9rem 1rem;font-size:0.82rem;color:var(--muted);line-height:1.65;background:white;}
 :root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
 .topbar{background:#0F172A;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
-.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
-.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
 .subnav a.active{color:#0369A1;border-bottom-color:#0369A1;}
 .hero{background:linear-gradient(135deg,#0C1A2E,#0369A1,#0891B2);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
-.hero .badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;}
-.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}a.badge:hover{background:rgba(255,255,255,0.25);opacity:0.9;}
-.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
 .day-banner{background:linear-gradient(135deg,#0C1A2E,#0369A1);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
-.day-banner .dn{font-size:2rem;font-weight:900;opacity:0.85;}
-.day-banner h2{font-size:1.1rem;font-weight:700;}
-.day-banner p{font-size:0.82rem;opacity:0.78;margin-top:0.2rem;}
 .warn-block{background:linear-gradient(135deg,#451A03,#9A3412);border-radius:14px;padding:1.1rem 1.4rem;color:white;margin-bottom:1.4rem;}
 .warn-block h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem;}
 .warn-block p{font-size:0.85rem;opacity:0.9;line-height:1.5;}
-.route-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:1.4rem;}
 .route-block h3{font-size:0.9rem;font-weight:800;color:#0369A1;margin-bottom:0.8rem;text-transform:uppercase;}
-.route-row{display:flex;gap:0.7rem;align-items:flex-start;padding:0.35rem 0;border-bottom:1px solid #F5F0E8;}
-.route-row:last-child{border-bottom:none;}
-.route-dot{width:8px;height:8px;border-radius:50%;margin-top:0.35rem;flex-shrink:0;}
-.route-time{font-size:0.72rem;font-weight:700;color:var(--muted);min-width:2.5rem;flex-shrink:0;}
-.route-label{font-size:0.84rem;} .route-sub{font-size:0.72rem;color:var(--muted);}
-.timeline{position:relative;padding-left:2.5rem;}
-.timeline::before{content:'';position:absolute;left:0.85rem;top:0;bottom:0;width:2px;background:var(--border);}
-.event{position:relative;margin-bottom:1rem;}
 .event::before{content:'';position:absolute;left:-1.85rem;top:0.9rem;width:10px;height:10px;border-radius:50%;background:#0369A1;border:2px solid white;box-shadow:0 0 0 2px #93C5FD;}
 .event.green::before{background:#16A34A;box-shadow:0 0 0 2px #86EFAC;}
-.event.transit::before{background:#9CA3AF;box-shadow:0 0 0 2px #E5E7EB;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.95rem 1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
-.card.blue{border-left:4px solid #0369A1;} .card.green{border-left:4px solid #16A34A;}
-.card.transit{border-left:4px solid #9CA3AF;}
-.card .time{font-size:0.72rem;font-weight:700;color:var(--muted);margin-bottom:0.3rem;}
-.card h3{font-size:0.97rem;font-weight:700;margin-bottom:0.25rem;}
-.card .desc{font-size:0.85rem;color:var(--muted);line-height:1.5;}
-.card .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.55rem;}
-.chip{font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:20px;background:var(--cream);border:1px solid var(--border);}
-.chip.price{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
-.chip.warn{background:#FFF7ED;border-color:#FDB97D;color:#92400E;}
-.chip.dist{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.card.blue{border-left:4px solid #0369A1;}
 .card-details{border:1px solid #93C5FD;border-radius:8px;overflow:hidden;margin-top:0.7rem;}
-.card-details summary{padding:0.6rem 0.9rem;cursor:pointer;font-size:0.82rem;font-weight:700;background:#EFF6FF;list-style:none;display:flex;align-items:center;justify-content:space-between;color:#1E40AF;}
-.card-details summary::-webkit-details-marker{display:none;}
-.card-details summary::after{content:'＋';font-size:1rem;}
-.card-details[open] summary::after{content:'－';}
-.details-body{padding:0.9rem 1rem;font-size:0.82rem;color:var(--muted);line-height:1.65;background:white;}
-.details-body p{margin-bottom:0.6rem;} .details-body strong{color:var(--text);}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:0.7rem 0;}
-.info-cell{padding:0.55rem 0.75rem;background:#FAFAFA;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
-.info-cell:nth-child(2n){border-right:none;} .info-cell:nth-last-child(-n+2){border-bottom:none;}
-.info-cell.full{grid-column:1/-1;border-right:none;}
-.info-cell dt{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:0.15rem;}
-.info-cell dd{font-size:0.82rem;} .info-cell dd.hi{color:#0369A1;font-weight:600;} .info-cell dd.warn{color:#D97706;}
+.card-details summary{padding:0.6rem 0.9rem;cursor:pointer;font-size:0.82rem;font-weight:700;background:#EFF6FF;list-style:none;display:flex;align-items:center;justify-content:space-between;color:#1E40AF;} .info-cell dd.hi{color:#0369A1;font-weight:600;}
 .prac-block{background:linear-gradient(135deg,#0C1A2E,#0369A1);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
-.prac-block h3{font-size:1rem;font-weight:700;margin-bottom:0.75rem;}
-.prac-item{display:flex;gap:0.6rem;align-items:flex-start;margin-bottom:0.5rem;font-size:0.84rem;line-height:1.5;}
-.prac-item:last-child{margin-bottom:0;} .prac-item .pi{min-width:1.2rem;}
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
-
-.nav-buttons{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.75rem;justify-content:space-between;align-items:center;}
-.nav-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;transition:opacity 0.15s;}
-.nav-btn:hover{opacity:0.85;}
-.nav-btn.prev{background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;}
-.nav-btn.next{color:white;}
 </style>
 <link rel="stylesheet" href="site.css">
 <style>
@@ -92,7 +52,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 </head>
 <body>
 <div class="topbar">
-  <a class="logo" href="index.html">Colombia 2026</a>
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <div class="topbar-right">
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
@@ -119,10 +79,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 <div class="hero">
   <h1>🌴 Tayrona National Park</h1>
-  <p class="sub">Dag 16–17 · Nationaal Park · Jungle &amp; Paradijselijk Strand</p>
+  <p class="sub"><span data-verblijf="hotel-tayrona" data-veld="dagen">Dag 16–17</span> · Nationaal Park · Jungle &amp; Paradijselijk Strand</p>
   <div class="badges">
-    <span class="badge">🏝️ Cabo San Juan</span>
-    <span class="badge">🌿 Jungle wandelingen</span>
+    <a class="badge" href="info/tayrona-park.html">🏝️ Cabo San Juan</a>
+    <a class="badge" href="info/tayrona-park.html">🌿 Jungle hike ±9 km</a>
   </div>
 </div>
 
@@ -130,8 +90,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 <div class="section">
 
   <div class="warn-block">
-    <h3>⚠️ BELANGRIJK: Controleer of het park OPEN is!</h3>
-    <p>Tayrona Nationaal Park is 3 keer per jaar 2 weken gesloten voor ecologisch herstel: <strong>begin februari, begin juni en eind oktober</strong>. Controleer op parquesnacionales.gov.co vóór vertrek of het park open is op jullie reisdagen!</p>
+    <h3>⚠️ Gelekoortsvaccin + paspoort + hoogseizoentarief</h3>
+    <p>Het park is open op jullie dagen (de jaarlijkse sluitingen zijn 1–15 feb, 1–15 juni en 19 okt–2 nov). Wat wél telt: Colombia vraagt een <strong>gelekoortsvaccinatiebewijs</strong> voor Tayrona, de Sierra Nevada (Minca) en La Guajira (Palomino) — neem het gele boekje mee, naast je originele paspoort. Entree 2026 voor buitenlanders: <strong>COP 81.000</strong> laagseizoen / <strong>COP 96.500</strong> hoogseizoen (±€18–22) + COP 7.000 verplichte verzekering p.p. Begin december valt in de kerstvakantie, dus reken op het hoge tarief. Cash of kaart aan de ingang; max. 6.900 bezoekers per dag — vroeg komen.</p>
   </div>
 
   <!-- DAG 17 -->
@@ -166,10 +126,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
       <div class="card blue">
         <div class="time">Dag 16–17 · Park activiteiten</div>
         <h3>🌴 Tayrona Nationaal Park — Hikes & Stranden</h3>
-        <img src="img/tayrona_beach.jpg" alt="Cabo San Juan Tayrona" style="width:100%;max-height:210px;object-fit:cover;border-radius:8px;margin:0.6rem 0 0.2rem;display:block;">
+        <img src="img/tayrona_beach.webp" alt="Cabo San Juan Tayrona" style="width:100%;max-height:210px;object-fit:cover;border-radius:8px;margin:0.6rem 0 0.2rem;display:block;" loading="lazy">
         <p class="desc">Het park combineert tropisch regenwoud met het Caribisch Zeekust — de Andes-uitlopers dalen letterlijk in de zee. Wandelingen door de jungle leiden naar geïsoleerde stranden zoals Cabo San Juan, La Piscina en Arrecifes.</p>
         <div class="meta">
-          <span class="chip price">💶 Parkentree apart betalen</span>
+          <span class="chip price">💶 ±COP 96.500 + 7.000 verzekering p.p.</span>
           <span class="chip warn">🎒 Paspoort meenemen! (geen kopie)</span>
           <span class="chip">🌡️ Veel water en muggenspray</span>
           <span class="chip">☀️ Zonnecrème</span>
@@ -190,7 +150,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
             <p><strong>Zwemmen:</strong> Volg altijd de vlaggen: groen = veilig, geel = opgelet, rood = verboden.</p>
             <p><strong>Wildlife:</strong> Kansen op miereneters, howler monkeys, kleurrijke vogels, agouts en zelfs capibara's.</p>
             <div class="info-grid">
-              <dl class="info-cell"><dt>Openingstijden</dt><dd class="hi">Check parquesnacionales.gov.co</dd></dl>
+              <dl class="info-cell"><dt>Open</dt><dd class="hi">8–17u · max. 6.900 bezoekers/dag</dd></dl>
               <dl class="info-cell"><dt>Paspoort</dt><dd class="warn">Verplicht (geen kopie!)</dd></dl>
               <dl class="info-cell"><dt>Ingang → Cabo San Juan</dt><dd>±4–5 km · 1,5–2u</dd></dl>
               <dl class="info-cell"><dt>Pueblito</dt><dd class="warn">Gesloten voor bezoekers</dd></dl>
@@ -242,7 +202,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
   <div class="prac-block">
     <h3>📌 Praktische noten Tayrona</h3>
-    <div class="prac-item"><span class="pi">⚠️</span><span><strong>OPEN CHECK:</strong> Controleer op parquesnacionales.gov.co of het park open is! Gesloten begin februari, begin juni en eind oktober.</span></div>
+    <div class="prac-item"><span class="pi">💉</span><span><strong>Gele koorts:</strong> vaccinatiebewijs (geel boekje) meenemen — wordt gevraagd voor Tayrona, Sierra Nevada en La Guajira. Vaccin minstens 10 dagen voor vertrek.</span></div>
     <div class="prac-item"><span class="pi">🎒</span><span><strong>Paspoort:</strong> Origineel paspoort verplicht bij parksingang — geen kopie geaccepteerd!</span></div>
     <div class="prac-item"><span class="pi">💧</span><span><strong>Water:</strong> Neem minstens 2L water mee per persoon. In het park is water beperkt beschikbaar.</span></div>
     <div class="prac-item"><span class="pi">🌊</span><span><strong>Zwemvlaggen:</strong> Volg altijd de kleurcode. Arrecifes is gevaarlijk — nooit zwemmen bij rode vlag.</span></div>
@@ -271,12 +231,20 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <a href="palomino.html" class="nav-btn next" style="background:#0F172A;">Volgende: 🏖️ Palomino →</a>
 </div>
 
-<div class="footer">🇨🇴 Colombia · Tayrona National Park · Dag 16–17<br><small style="font-weight:400;opacity:0.85">3–4 dec</small></div>
+<div class="footer">🇨🇴 Colombia · Tayrona National Park · <span data-verblijf="hotel-tayrona" data-veld="dagen">Dag 16–17</span><br><small style="font-weight:400;opacity:0.85" data-verblijf="hotel-tayrona" data-veld="datums">3–4 dec</small></div>
 <script src="reservaties.js"></script>
+<script src="dagsync.js"></script>
 <script src="locatieblok.js"></script>
-<script src="feedback.js"></script>
+<script src="dagplan.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
 </body>
 </html>

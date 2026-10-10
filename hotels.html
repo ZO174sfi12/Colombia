@@ -3,18 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>🏨 Hotels &amp; Logies · Colombia 24 Dagen</title>
 <style>
 :root{--cream:#FAF8F4;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#1A4A2E;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
-.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
-.topbar .home-link{color:rgba(255,255,255,0.7);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.25);border-radius:20px;}
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
-.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
-.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
 .hero{background:linear-gradient(135deg,#0D2E18,#1A4A2E,#14532D);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
 .hero h1{font-size:1.9rem;font-weight:800;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
@@ -55,14 +53,13 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 
 .price{font-size:0.72rem;color:var(--muted);background:#F5F2EE;border:1px solid var(--border);border-radius:10px;padding:0.15rem 0.45rem;white-space:nowrap;}
 .src-note{font-size:0.7rem;color:#9CA3AF;margin-top:1rem;font-style:italic;}
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
 @media(min-width:600px){.hotels-grid{grid-template-columns:1fr 1fr 1fr;}}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 <div class="topbar">
-  <a class="logo" href="index.html">Colombia 2026</a>
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <div class="topbar-right">
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
@@ -108,7 +105,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="loc-block" data-loc="bogota">
   <div class="loc-header">
     <div>
-      <div class="loc-title">🏙️ Bogotá · Dag 1–2 + Dag 22–23</div>
+      <div class="loc-title">🏙️ Bogotá · <span data-verblijf="hotel-bogota" data-veld="dagen">Dag 1–2</span> + <span data-verblijf="hotel-bogota2" data-veld="dagen">Dag 22–24</span></div>
       <div class="loc-sub">Wijk: La Candelaria · historisch centrum · 2640 m hoogte</div>
     </div>
   </div>
@@ -182,7 +179,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="loc-block" data-loc="salento">
   <div class="loc-header">
     <div>
-      <div class="loc-title">☕ Salento · Dag 3–6</div>
+      <div class="loc-title">☕ Salento · <span data-verblijf="hotel-salento" data-veld="dagen">Dag 3–6</span></div>
       <div class="loc-sub">Eje Cafetero · koffiestreek · centraal plein</div>
     </div>
   </div>
@@ -250,7 +247,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="loc-block" data-loc="medellin">
   <div class="loc-header">
     <div>
-      <div class="loc-title">🌆 Medellín · Dag 7–9</div>
+      <div class="loc-title">🌆 Medellín · <span data-verblijf="hotel-medellin" data-veld="dagen">Dag 7–9</span></div>
       <div class="loc-sub">Wijk: El Poblado · beste toeristische basis · eeuwige lente</div>
     </div>
   </div>
@@ -318,8 +315,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="loc-block" data-loc="guatape">
   <div class="loc-header">
     <div>
-      <div class="loc-title">🪨 Guatapé · Dag 10–11</div>
-      <div class="loc-sub">2 nachten · overnachting aan het meer</div>
+      <div class="loc-title">🪨 Guatapé · <span data-verblijf="hotel-guatape" data-veld="dagen">Dag 10–11</span></div>
+      <div class="loc-sub"><span data-verblijf="hotel-guatape" data-veld="nachten">2 nachten</span> · overnachting aan het meer</div>
     </div>
   </div>
   <div class="hotels-grid">
@@ -400,7 +397,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="loc-block" data-loc="minca">
   <div class="loc-header">
     <div>
-      <div class="loc-title">🌿 Minca · Dag 12–15</div>
+      <div class="loc-title">🌿 Minca · <span data-verblijf="hotel-minca" data-veld="dagen">Dag 12–15</span></div>
       <div class="loc-sub">Sierra Nevada de Santa Marta · jungle · watervallen · vogelkijken</div>
     </div>
   </div>
@@ -477,7 +474,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="loc-block" data-loc="tayrona">
   <div class="loc-header">
     <div>
-      <div class="loc-title">🌴 Tayrona · Dag 16–17</div>
+      <div class="loc-title">🌴 Tayrona · <span data-verblijf="hotel-tayrona" data-veld="dagen">Dag 16–17</span></div>
       <div class="loc-sub">Binnen het park of aan de rand · vroeg boeken verplicht</div>
     </div>
   </div>
@@ -554,7 +551,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   <div class="loc-block" data-loc="palomino">
   <div class="loc-header">
     <div>
-      <div class="loc-title">🏖️ Palomino · Dag 18–21</div>
+      <div class="loc-title">🏖️ Palomino · <span data-verblijf="hotel-palomino" data-veld="dagen">Dag 18–21</span></div>
       <div class="loc-sub">Caribisch strand · Rivier Palomino · surfing · river tubing</div>
     </div>
   </div>
@@ -626,15 +623,15 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
   </div>
 
-<p class="src-note">📚 Hotelbeschrijvingen gebaseerd op Lonely Planet Colombia (10e ed., 2023). Prijsschattingen zijn indicatief op basis van de LP-tiers ($/$$/$$$ = budget/midden/boutique) en marktgemiddelden voor 2024–2025. Wisselkoers: 1 EUR ≈ COP 4.600. Prijzen zijn indicatief en per nacht voor 2 personen; controleer actuele tarieven via Booking.com.</p>
+<p class="src-note">📚 Hotelbeschrijvingen gebaseerd op Lonely Planet Colombia (10e ed., 2023). Prijzen van de eerste keuzes zijn eigen ramingen (2026, via Booking.com); de alternatieven volgen de LP-tiers ($/$$/$$$ = budget/midden/boutique). Wisselkoers: 1 EUR ≈ COP 4.500 (zelfde richtkoers als op Praktisch). Prijzen zijn indicatief en per nacht voor 2 personen; controleer actuele tarieven via Booking.com.</p>
 
 </div>
 
 <div class="footer">🇨🇴 Colombia · Hotels &amp; Logies · 7 bestemmingen · 6 opties per locatie</div>
 
 <script src="reservaties.js"></script>
+<script src="dagsync.js"></script>
 <script src="hotelstatus.js"></script>
-<script src="feedback.js"></script>
 <script>
 function toggleAlts(btn){
   var grid = btn.nextElementSibling, open = btn.getAttribute('aria-expanded')==='true';
@@ -656,5 +653,12 @@ document.querySelectorAll('#locFilter .pill').forEach(function(p){
 });
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
 </body>
 </html>

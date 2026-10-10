@@ -3,52 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="../common.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="../img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
 <title>⛰️ Minca Sierra & Koffieplantages · Minca · Colombia</title>
 <style>
-:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#065F46;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);}
-.topbar{background:var(--accent);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-.topbar .logo{color:white;font-weight:800;font-size:0.95rem;text-decoration:none;}
-.topbar .back-link{color:rgba(255,255,255,0.85);font-size:0.82rem;text-decoration:none;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.35);border-radius:20px;}
-.subnav{background:white;border-bottom:2px solid var(--border);overflow-x:auto;white-space:nowrap;scrollbar-width:none;text-align:center;}
-.subnav::-webkit-scrollbar{display:none;}
-.subnav a{display:inline-block;padding:0.8rem 0.9rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent;}
-.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
-.hero{background:linear-gradient(135deg,#064E3B,#065F46,#047857);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
-.hero .breadcrumb{font-size:0.78rem;opacity:0.7;margin-bottom:0.5rem;}
-.hero .breadcrumb a{color:rgba(255,255,255,0.75);text-decoration:none;}
-.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
-.hero .sub{font-size:0.9rem;opacity:0.82;margin-top:0.4rem;}
-.section{max-width:860px;margin:0 auto;padding:1.5rem 1rem 2rem;}
-.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
-.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
-.intro-block p:last-child{margin-bottom:0;}
 .facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
-.fact{background:white;border:1px solid var(--border);border-radius:10px;padding:0.7rem 1rem;}
-.fact-label{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;}
-.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
-.source-block{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.4rem;}
-.source-block.lp{border-top:3px solid #16A34A;}
-.source-block.rg{border-top:3px solid #2563EB;}
-.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
-.source-block.lp .source-label{background:#F0FDF4;color:#15803D;}
-.source-block.rg .source-label{background:#EFF6FF;color:#1D4ED8;}
-.source-body{padding:1rem 1.2rem;font-size:0.85rem;line-height:1.75;color:var(--muted);}
-.tip-box{background:linear-gradient(135deg,#064E3B,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
-.tip-box .tip-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;}
-.tip-box p{font-size:0.84rem;line-height:1.6;opacity:0.93;margin-bottom:0.3rem;}
 .back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
-.back-btn:hover{opacity:0.85;}
-.nav-wrap{max-width:860px;margin:0 auto;padding:0 1rem 2rem;}
-.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#065F46;}
+.hero{background:linear-gradient(135deg,#064E3B,#065F46,#047857);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.tip-box{background:linear-gradient(135deg,#064E3B,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
 @media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
 </style>
 <link rel="stylesheet" href="../site.css">
 </head>
 <body>
 <div class="topbar">
-  <a class="logo" href="../index.html">Colombia 2026</a>
+  <a class="logo" href="../index.html" aria-label="Naar het overzicht">Colombia 2026</a>
   <div class="topbar-right">
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
@@ -86,7 +66,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
   </div>
 
 
-  <img src="../img/minca_sierra.jpg" alt="Sierra Nevada Minca" style="width:100%;max-width:560px;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:12px;margin:0 auto 1.4rem;" onerror="this.style.display='none'">
+  <img src="../img/minca_sierra.webp" alt="Sierra Nevada Minca" style="width:100%;max-width:560px;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:12px;margin:0 auto 1.4rem;" onerror="this.style.display='none'" loading="lazy">
 
   <div class="facts-grid"><div class="fact"><div class="fact-label">Type</div><div class="fact-value">Jungle-dagtrip / vogelobservatie</div></div><div class="fact"><div class="fact-label">Koffie</div><div class="fact-value">Werkende finca's te bezoeken</div></div><div class="fact"><div class="fact-label">Vogels</div><div class="fact-value">150+ soorten, zeldzame endemics</div></div><div class="fact"><div class="fact-label">Gidsen</div><div class="fact-value">Beschikbaar in Minca dorp</div></div><div class="fact"><div class="fact-label">Hoogte</div><div class="fact-value">Tot 2000+ m (Sierra Nevada)</div></div><div class="fact"><div class="fact-label">Tip</div><div class="fact-value">Start voor zonsopgang voor vogels</div></div></div>
 
@@ -112,9 +92,16 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:v
 </div>
 
 <div class="footer">🇨🇴 Colombia · Minca Sierra & Koffieplantages · Minca</div>
-<script src="../feedback.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
 </script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="../reservaties.js"></script>
+<script src="../countdown.js"></script>
+<script src="../navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("../sw.js",{scope:"../"}).catch(function(){});}</script>
 </body>
 </html>
