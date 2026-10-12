@@ -148,3 +148,36 @@ a.badge:hover{background:rgba(255,255,255,0.25);opacity:0.9;}
 .cdchip span{font-size:0.68rem;font-weight:600;color:rgba(255,255,255,0.78);}
 .cdline{position:absolute;left:0;bottom:0;height:3px;width:0;background:#86EFAC;transition:width 0.6s ease;}
 @media(max-width:430px){.cdchip span{display:none;}.cdchip{padding:0.16rem 0.5rem;}}
+
+/* GIDS-EXTRA:start — uitklapbaar blok "Meer uit de reisgidsen" */
+.gids-wrap{max-width:860px;margin:0 auto 1.4rem;padding:0 1rem;}
+details.gids{background:#fff;border:1px solid var(--border,#E5E0D8);border-left:5px solid var(--accent,var(--navy,#1A4A2E));border-radius:14px;overflow:hidden;}
+details.gids>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:0.75rem;padding:0.95rem 1.1rem;}
+details.gids>summary::-webkit-details-marker{display:none;}
+details.gids>summary:hover{background:#FAFAF7;}
+.gids-ico{font-size:1.45rem;line-height:1;flex-shrink:0;}
+.gids-t{flex:1;min-width:0;}
+.gids-t strong{display:block;font-size:0.95rem;font-weight:800;color:var(--text,#1C2A1E);}
+.gids-t>span{display:block;font-size:0.74rem;color:var(--muted,#4A5E4D);margin-top:0.12rem;}
+.gids-chev{font-size:0.75rem;color:var(--muted,#4A5E4D);transition:transform .15s;flex-shrink:0;}
+details.gids[open]>summary{border-bottom:1px solid var(--border,#E5E0D8);background:#FAFAF7;}
+details.gids[open]>summary .gids-chev{transform:rotate(90deg);}
+details.gids[open]>summary .gids-t>span{display:none;}
+.gids-body{padding:0.2rem 1.1rem 1rem;}
+.gids-groep{margin-top:0.95rem;}
+.gids-groep h4{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted,#4A5E4D);margin:0 0 0.2rem;}
+details.gi{border-bottom:1px solid #F0EBE2;}
+.gids-groep details.gi:last-child{border-bottom:none;}
+details.gi>summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:0.5rem;padding:0.55rem 0;font-size:0.86rem;font-weight:600;color:var(--text,#1C2A1E);line-height:1.35;}
+details.gi>summary::-webkit-details-marker{display:none;}
+details.gi>summary::before{content:'+';font-weight:800;color:var(--accent,var(--navy,#1A4A2E));width:0.85rem;flex-shrink:0;text-align:center;}
+details.gi[open]>summary::before{content:'–';}
+.gi-t{flex:1;min-width:0;}
+.gi-dag{font-size:0.66rem;font-weight:700;color:var(--muted,#4A5E4D);border:1px solid var(--border,#E5E0D8);border-radius:20px;padding:0.08rem 0.45rem;white-space:nowrap;margin-top:0.05rem;}
+.gi-body{padding:0 0 0.75rem 1.35rem;font-size:0.83rem;line-height:1.62;color:var(--muted,#4A5E4D);}
+.gi-body p+p{margin-top:0.5rem;}
+.gi-body b{color:var(--text,#1C2A1E);}
+.gi-body a{color:var(--accent,var(--navy,#1A4A2E));}
+.gids-bron{font-size:0.7rem;line-height:1.5;color:var(--muted,#4A5E4D);margin-top:1rem;padding-top:0.65rem;border-top:1px dashed var(--border,#E5E0D8);}
+@media print{details.gids,details.gi{break-inside:avoid-page;} .gids-chev{display:none;}}
+/* GIDS-EXTRA:end */

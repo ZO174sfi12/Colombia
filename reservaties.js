@@ -30,22 +30,20 @@ var RESERVATIES = [
     titel:'Brussel → Bogotá',
     van:'BRU', naar:'BOG', vertrek:'10:05', aankomst:'19:25',
     duur:'15u20 · 1 stop', operator:'Swiss · Brussels Airlines · Edelweiss',
-    vluchtnr:'LX4555 + LX8092', ref:'Y637MQ',
-    prijs:'€1.944,00 voor 2 personen (heen en terug)',
+    vluchtnr:'LX4555 + LX8092',
+    prijs:'€1.944,42 voor 2 personen (heen en terug)',
     note:'Uber of Cabify van El Dorado naar Botánico — nooit een gewone taxi.' },
 
   { id:'vlucht-mde-smr', type:'vlucht', dag:12, orde:2, status:'geboekt',
     titel:'Rionegro (MDE) → Santa Marta',
     van:'MDE', naar:'SMR', vertrek:'11:30', aankomst:'12:46',
-    duur:'1u16', operator:'JetSMART', vluchtnr:'JA5430',
-    ref:'40-1090989605', pnr:'Q4FWRL', prijs:'€167,00 voor 2 personen', bagage:'23 kg ruimbagage p.p.',
+    duur:'1u16', operator:'JetSMART', vluchtnr:'JA5430', prijs:'€167,00 voor 2 personen', bagage:'23 kg ruimbagage p.p.',
     via:'Booking.com' },
 
   { id:'vlucht-smr-bog', type:'vlucht', dag:22, orde:2, status:'geboekt',
     titel:'Santa Marta → Bogotá',
     van:'SMR', naar:'BOG', vertrek:'14:42', aankomst:'16:15',
-    duur:'1u33', operator:'JetSMART', vluchtnr:'JA5171',
-    ref:'40-1090994658', pnr:'DG5NPR', prijs:'€283,69 voor 2 personen', bagage:'23 kg ruimbagage p.p.',
+    duur:'1u33', operator:'JetSMART', vluchtnr:'JA5171', prijs:'€283,69 voor 2 personen', bagage:'23 kg ruimbagage p.p.',
     via:'Booking.com',
     note:'Vertrek uit Palomino om 11:30 om dit te halen.' },
 
@@ -53,7 +51,7 @@ var RESERVATIES = [
     titel:'Bogotá → Brussel',
     van:'BOG', naar:'BRU', vertrek:'23:15', aankomst:'20:15 (za 12 dec)',
     duur:'15u · 1 stop', operator:'Lufthansa · Brussels Airlines',
-    vluchtnr:'LH543 + LH5578', ref:'Y637MQ',
+    vluchtnr:'LH543 + LH5578',
     note:'Zelfde boeking als de heenvlucht — prijs staat daar.' },
 
   /* ----------------------------------------------- BINNENLANDSE VLUCHT --- */
@@ -62,7 +60,7 @@ var RESERVATIES = [
     van:'BOG', naar:'AXM', vertrek:'13:30', aankomst:'14:35',
     duur:'1u05 · direct', operator:'LATAM Airlines Colombia', vluchtnr:'LA4292',
     prijs:'€283,63 voor 2 personen', bagage:'23 kg ruimbagage + handbagage p.p. inbegrepen',
-    via:'Booking.com', ref:'40-1090972461', pnr:'RQHJRU', tarief:'Full fare',
+    via:'Booking.com', tarief:'Full fare',
     note:'Annuleren en wijzigen toegestaan. Taxi El Edén → Salento ±45 min, in Salento ±15:45. Vervangt de busrit: uitslapen, ontbijten in Botánico, uitchecken 10:15, Uber naar El Dorado 10:45.' },
 
   /* ------------------------------------------------------------ BUSSEN --- */
@@ -141,12 +139,12 @@ var RESERVATIES = [
     titel:'Parque Tayrona', locatie:'tayrona', datums:'3–5 dec', nachten:2,
     raming:61,
     deadline:'Ruim aanbod — gidsen raden 1 à 2 nachten aan',
-    note:'Eerste keuze Quetzal Dorado Eco-Lodge (±€61/nacht), 1,5 km van de ingang.' },
+    note:'Eerste keuze Quetzal Dorado Eco-Lodge (±€61/nacht), 1,5 km van de ingang. Boek met gratis annuleren — zie plan B op de Tayrona-pagina (kustweg kan 1–2 dagen dicht).' },
 
   { id:'hotel-palomino', type:'hotel', dag:18, totDag:22, status:'te-boeken',
     titel:'Palomino', locatie:'palomino', datums:'5–9 dec', nachten:4,
     raming:122,
-    deadline:'Hoogseizoen — 7 dec is Día de las Velitas',
+    deadline:'Hoogseizoen — 7 dec is Día de las Velitas · gratis annuleren',
     note:'Eerste keuze Casa del Pavo Real (±€122/nacht) — duurste verblijf van de reis.' },
 
   { id:'hotel-bogota2', type:'hotel', dag:22, totDag:24, status:'te-boeken',

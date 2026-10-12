@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2B1B17">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
+<title>🎬 Narcos & Escobar · Colombia 24 Dagen</title>
+<style>
+:root{--accent:#7A2E1F;--ink:#2B1B17;--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;
+  --real:#166534;--real-bg:#F0FDF4;--film:#6D28D9;--film-bg:#F5F3FF;--food:#B45309;--food-bg:#FFFBEB;--myth:#991B1B;--myth-bg:#FEF2F2;--check:#92400E;--check-bg:#FFF7ED;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.5;}
+.topbar{background:var(--ink);}
+.subnav a.active{color:var(--accent);border-bottom-color:var(--accent);}
+
+.nhero{background:radial-gradient(120% 140% at 15% 0%,#5A2418 0%,#2B1B17 55%,#120B09 100%);color:#fff;padding:2.4rem 1.2rem 2rem;text-align:center;}
+.nhero .kicker{font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;opacity:0.7;font-weight:700;}
+.nhero h1{font-family:Georgia,'Times New Roman',serif;font-size:2rem;line-height:1.15;margin:0.4rem 0 0.6rem;font-weight:700;}
+.nhero p{max-width:620px;margin:0 auto;font-size:0.92rem;opacity:0.85;}
+.legend{display:flex;flex-wrap:wrap;gap:0.35rem;justify-content:center;margin-top:1.1rem;}
+.tag{display:inline-flex;align-items:center;gap:0.25rem;font-size:0.68rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:20px;border:1px solid transparent;white-space:nowrap;}
+.nhero .tag{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.22);color:#fff;}
+.t-real{background:var(--real-bg);color:var(--real);border-color:#BBF7D0;}
+.t-film{background:var(--film-bg);color:var(--film);border-color:#DDD6FE;}
+.t-food{background:var(--food-bg);color:var(--food);border-color:#FDE68A;}
+.t-myth{background:var(--myth-bg);color:var(--myth);border-color:#FECACA;}
+.t-check{background:var(--check-bg);color:var(--check);border-color:#FED7AA;}
+.t-dag{background:#F1F5F9;color:#334155;border-color:#CBD5E1;}
+
+.wrap{max-width:860px;margin:0 auto;padding:1.3rem 1rem 2rem;}
+.toc{display:flex;gap:0.4rem;overflow-x:auto;scrollbar-width:none;padding:0.2rem 0 0.9rem;}
+.toc::-webkit-scrollbar{display:none;}
+.toc a{flex-shrink:0;font-size:0.76rem;font-weight:700;color:var(--ink);text-decoration:none;background:#fff;border:1px solid var(--border);border-radius:20px;padding:0.3rem 0.7rem;}
+
+.respect{background:#fff;border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.4rem;}
+.respect h2{font-size:0.95rem;margin-bottom:0.4rem;}
+.respect p{font-size:0.86rem;color:var(--muted);margin-bottom:0.45rem;}
+.respect ul{font-size:0.84rem;color:var(--muted);padding-left:1.1rem;}
+.respect li{margin-bottom:0.2rem;}
+.quote{font-family:Georgia,serif;font-style:italic;color:var(--ink);font-size:0.95rem;border-left:2px solid var(--border);padding-left:0.7rem;margin:0.5rem 0 0.6rem;}
+
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem;margin-bottom:1.6rem;}
+.fact{background:var(--ink);color:#fff;border-radius:12px;padding:0.75rem 0.85rem;}
+.fact b{display:block;font-family:Georgia,serif;font-size:1.15rem;line-height:1.2;}
+.fact span{font-size:0.72rem;opacity:0.75;}
+@media(min-width:640px){.facts{grid-template-columns:repeat(4,1fr);}}
+
+.stop{margin:2rem 0 0;}
+.stop-head{display:flex;align-items:flex-end;gap:0.8rem;border-radius:14px;overflow:hidden;position:relative;min-height:120px;padding:1rem;color:#fff;background:#2B1B17 center/cover no-repeat;}
+.stop-head::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,11,9,0.15),rgba(18,11,9,0.85));}
+.stop-head > *{position:relative;}
+.stop-head h2{font-family:Georgia,serif;font-size:1.35rem;line-height:1.15;}
+.stop-head .dagen{font-size:0.74rem;font-weight:700;opacity:0.85;letter-spacing:0.4px;text-transform:uppercase;}
+.stop-intro{font-size:0.86rem;color:var(--muted);margin:0.7rem 0 0.2rem;}
+
+.item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:0.85rem 0.95rem;margin-top:0.7rem;}
+.item h3{font-size:0.96rem;line-height:1.3;margin-bottom:0.25rem;}
+.item .tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.4rem;}
+.item p{font-size:0.85rem;color:#34433A;margin-bottom:0.4rem;}
+.item p:last-child{margin-bottom:0;}
+.item .zie{font-size:0.8rem;background:#FAFAF8;border-radius:8px;padding:0.5rem 0.65rem;color:var(--muted);}
+.item .zie b{color:var(--ink);}
+.item details{margin-top:0.4rem;}
+.item summary{cursor:pointer;font-size:0.8rem;font-weight:700;color:var(--accent);list-style:none;}
+.item summary::-webkit-details-marker{display:none;}
+.item summary::after{content:' ▾';}
+.item details[open] summary::after{content:' ▴';}
+.item details > div{margin-top:0.45rem;font-size:0.83rem;color:#34433A;}
+.item details p{font-size:0.83rem;}
+.item.skip{opacity:0.82;border-style:dashed;}
+
+.tbl{width:100%;border-collapse:collapse;font-size:0.8rem;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:0.7rem;}
+.tbl th,.tbl td{text-align:left;padding:0.5rem 0.6rem;border-bottom:1px solid var(--border);vertical-align:top;}
+.tbl th{background:#F5F2EE;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.4px;color:var(--muted);}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl td:first-child{white-space:nowrap;font-weight:700;color:var(--ink);}
+.tbl .hier td{background:#FFF7ED;}
+
+.sec-title{font-family:Georgia,serif;font-size:1.3rem;color:var(--ink);margin:2.2rem 0 0.2rem;}
+.sec-sub{font-size:0.84rem;color:var(--muted);}
+.grid2{display:grid;gap:0.6rem;}
+@media(min-width:640px){.grid2{grid-template-columns:1fr 1fr;}}
+
+.slang{display:grid;grid-template-columns:auto 1fr;gap:0.25rem 0.8rem;font-size:0.83rem;background:#fff;border:1px solid var(--border);border-radius:12px;padding:0.8rem 0.95rem;margin-top:0.7rem;}
+.slang b{color:var(--ink);white-space:nowrap;}
+.slang .nee{color:var(--myth);}
+
+.bronnen{font-size:0.74rem;color:var(--muted);margin-top:2.2rem;border-top:1px solid var(--border);padding-top:1rem;}
+.bronnen a{color:var(--muted);}
+.bronnen ul{padding-left:1rem;columns:1;}
+@media(min-width:640px){.bronnen ul{columns:2;}}
+.bronnen li{margin-bottom:0.2rem;break-inside:avoid;}
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem;}
+@media print{.stop-head{min-height:0;background:none !important;color:#000;}.stop-head::before{display:none;}.toc{display:none;}.fact{background:none;color:#000;border:1px solid #999;}}
+</style>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
+  <div class="topbar-right">
+    <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
+  </div>
+</div>
+<div class="subnav subnav-locs">
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="bogota2.html">🏙️ Bogotá 2</a>
+</div>
+<div class="subnav subnav-info">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="culinair.html">🍽️ Culinair</a>
+  <a href="activiteiten.html">🎯 Activiteiten</a>
+  <a href="hotels.html">🏨 Hotels</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+  <a href="routes.html">🗺️ Kaart &amp; Routes</a>
+</div>
+
+<div class="nhero">
+  <div class="kicker">Achtergrond · alleen wat op onze route ligt</div>
+  <h1>Narcos &amp; Escobar<br>op onze route</h1>
+  <p>Wat er echt gebeurde, waar de serie werd gefilmd, wat je vandaag nog ziet — en wat je beter laat. Van Plaza de Bolívar tot de stranden van La Guajira, dag per dag.</p>
+  <div class="legend">
+    <span class="tag">✅ Echt gebeurd</span>
+    <span class="tag">🎬 Narcos-opnameplek</span>
+    <span class="tag">🍽️ Eten &amp; drinken</span>
+    <span class="tag">⚠️ Ter plaatse checken</span>
+    <span class="tag">❌ Mythe</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <nav class="toc" aria-label="Inhoud">
+    <a href="#bogota">🏙️ Bogotá</a>
+    <a href="#armenia">☕ Armenia–Salento</a>
+    <a href="#medellin">🌆 Medellín</a>
+    <a href="#guatape">🪨 Guatapé</a>
+    <a href="#rionegro">✈️ Rionegro</a>
+    <a href="#kust">🌴 De kust</a>
+    <a href="#bogota2">🏙️ Bogotá 2</a>
+    <a href="#kalender">📅 Kalender</a>
+    <a href="#serie">🎬 De serie</a>
+    <a href="#eten">🍽️ Eten</a>
+    <a href="#kijken">📺 Kijken &amp; lezen</a>
+    <a href="#taal">🗣️ Taal</a>
+    <a href="#mythes">❌ Mythes</a>
+  </nav>
+
+  <div class="respect">
+    <h2>Eerst dit: het is geen pretpark</h2>
+    <p>Voor veel Colombianen is dit geen spannende serie maar een open wonde. In Medellín alleen al vielen tussen 1983 en 1994 <b>46.612 doden</b>. Een gids in Medellín zei het zo:</p>
+    <div class="quote">"If you go to Berlin, you don't buy a Hitler T-shirt."</div>
+    <ul>
+      <li>Geen Escobar-T-shirts, -magneten of -mokken kopen (ook niet "voor de grap").</li>
+      <li>Geen grappen over cocaïne of "plata o plomo" tegen locals.</li>
+      <li>Praat over de <i>víctimas</i> en over hoe Medellín veranderd is — niet over "El Patrón".</li>
+      <li>Kies musea en tours die vanuit de slachtoffers vertellen; die staan hieronder aangeduid.</li>
+    </ul>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><b>1 dec 1949</b><span>Escobar geboren in Rionegro — waar ons vliegveld ligt</span></div>
+    <div class="fact"><b>2 dec 1993</b><span>doodgeschoten op een dak in Los Olivos, Medellín</span></div>
+    <div class="fact"><b>3 seizoenen</b><span>Narcos (2015–17), grotendeels gefilmd in Bogotá</span></div>
+    <div class="fact"><b>46.612</b><span>gaatjes in de herdenkingsmuur van Parque Inflexión</span></div>
+  </div>
+
+  <!-- ═══════════════ BOGOTÁ ═══════════════ -->
+  <section class="stop" id="bogota">
+    <div class="stop-head" style="background-image:url('img/bogota_candelaria.webp')">
+      <div><div class="dagen">Dag 1–2 · 18–19 nov</div><h2>Bogotá — waar Narcos echt gefilmd werd</h2></div>
+    </div>
+    <p class="stop-intro">Weinig mensen weten het: de meeste scènes van seizoen 1 en 2 werden niet in Medellín maar in Bogotá opgenomen. Studio's in een industriewijk werden aangekleed als Medellín. Tegelijk was Bogotá het doelwit van de zwaarste aanslagen van het kartel.</p>
+
+    <div class="item">
+      <h3>🚓 Museo Histórico de la Policía Nacional</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-check">⚠️ Escobar-zaal checken</span><span class="tag t-dag">Dag 2</span></div>
+      <p>Twee straten van Plaza de Bolívar, in het oude politiehoofdkwartier uit 1923. Gratis rondleiding door jonge agenten in dienstplicht. De kelder had jarenlang een Escobar-tentoonstelling: de Harley van zijn neef, zijn satelliettelefoon, wapens, en de bebloede <b>dakpan van het dak waar hij stierf</b>.</p>
+      <p class="zie"><b>Waar:</b> Calle 9 #9-27, La Candelaria · 10 min wandelen van Botánico. <b>Open:</b> di–zo 9–16u, gratis, ma dicht. Op het dak: uitzicht op Monserrate.</p>
+      <details><summary>Waarom checken?</summary><div><p>De officiële politiesite en een artikel uit 2024 vermelden de Escobar-stukken niet meer. Of ze nog getoond worden is onzeker — vraag het aan de ingang. Foto's van de gidsen zijn niet toegestaan.</p></div></details>
+    </div>
+
+    <div class="item">
+      <h3>⚖️ Palacio de Justicia — de bestorming van 1985</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 2 · Plaza de Bolívar</span></div>
+      <p>Op 6 november 1985 bezette de guerrillabeweging M-19 het Hooggerechtshof aan de noordkant van het plein. Het leger heroverde het gebouw met tanks; meer dan 90 doden, waaronder 11 rechters. Een commissie van het Hooggerechtshof (2005–2010) besloot dat <b>narcogeld</b> de aanval mee betaalde om uitleveringsdossiers te vernietigen — maar geen rechtbank heeft dat ooit bewezen. Het blijft een van de gevoeligste dossiers van het land.</p>
+      <p class="zie"><b>Wat je ziet:</b> het herbouwde Palacio, en op het pleintje ervoor de plaquette <b>"¡Que cese el fuego!"</b> (2022) met de namen van de slachtoffers — de laatste radio-oproep van de voorzitter van het Hof, Alfonso Reyes Echandía.</p>
+    </div>
+
+    <div class="item">
+      <h3>🏛️ Capitolio &amp; Casa de Nariño — Pablo in het parlement</h3>
+      <div class="tags"><span class="tag t-film">🎬 Narcos</span><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 2</span></div>
+      <p>In Narcos stapt Pablo het Congres binnen in het <b>Capitolio</b> op Plaza de Bolívar. Dat klopt historisch: in <b>1982</b> werd hij verkozen als plaatsvervangend volksvertegenwoordiger, om parlementaire onschendbaarheid te krijgen. Een anekdote die wél waar zou zijn: hij werd eerst niet binnengelaten zonder das, leende er een van een bewaker en gaf hem die terug met COP 300.000.</p>
+      <p>De scènes met president Gaviria werden — uitzonderlijk — echt in het presidentieel paleis <b>Casa de Nariño</b> gefilmd, net achter het plein. Bezoekers zien het alleen van buiten.</p>
+    </div>
+
+    <div class="item">
+      <h3>🎬 La Candelaria als decor</h3>
+      <div class="tags"><span class="tag t-film">🎬 Narcos</span><span class="tag t-dag">Dag 1–2</span></div>
+      <p>De straatjes rond jullie hostel waren decor voor de eerste ontmoeting tussen Peña en kolonel Carrillo, de kroeg waar Peña rondhing, en de ontvoering van Marta Ochoa door M-19 (die in werkelijkheid in Medellín gebeurde). Een exacte lijst per straat bestaat niet — kijk gewoon goed rond.</p>
+    </div>
+
+    <div class="item">
+      <h3>🎨 Museo Botero</h3>
+      <div class="tags"><span class="tag t-check">⚠️ Checken</span><span class="tag t-dag">Dag 2 · 400 m van het hostel</span></div>
+      <p>Botero schilderde Escobars dood twee keer — die doeken hangen in Medellín (zie dag 9). In Bogotá hangt mogelijk werk uit zijn geweldsreeks. Gratis, di dicht.</p>
+    </div>
+
+    <div class="item">
+      <h3>🥑 Paloquemao — en wat er 300 meter verder gebeurde</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 2 ochtend</span></div>
+      <p>Op <b>6 december 1989</b> om 7u30 ontplofte een gestolen bus van het waterbedrijf, geladen met ±500 kg dynamiet, voor het hoofdkwartier van de geheime dienst <b>DAS</b> — een paar straten van de markt (rond Carrera 27–28 / Calle 17–18). 63 doden, honderden gewonden. Het doelwit, DAS-chef Maza Márquez, overleefde in zijn gepantserd kantoor. Het chassis van de bus belandde op het dak.</p>
+      <p class="zie"><b>Wat je ziet:</b> geen gedenkteken. Een stille omweg na de markt, meer niet.</p>
+      <details><summary>Bizarre wending</summary><div><p>Maza Márquez, het doelwit van deze bom, zit vandaag zelf 30 jaar uit — voor medeplichtigheid aan de moord op presidentskandidaat Galán.</p></div></details>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ARMENIA–SALENTO ═══════════════ -->
+  <section class="stop" id="armenia">
+    <div class="stop-head" style="background-image:url('img/salento_town.webp')">
+      <div><div class="dagen">Dag 3 &amp; 7 · 20 en 24 nov</div><h2>Armenia–Salento — het hotel van Carlos Lehder</h2></div>
+    </div>
+    <p class="stop-intro">De koffiestreek lijkt ver van het kartel, maar de man die cocaïne per vliegtuig naar de VS bracht, kwam hiervandaan.</p>
+
+    <div class="item">
+      <h3>🏨 Posada Alemana — vanuit de taxi zichtbaar</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 3 taxi · dag 7 bus</span></div>
+      <p><b>Carlos Lehder</b>, mede-oprichter van het Medellín-kartel, werd in 1949 in <b>Armenia</b> geboren — waar jullie landen. Begin jaren '80 bouwde hij langs de Autopista del Café (Armenia–Pereira) de <b>Posada Alemana</b>: 24 Zwitsers ogende chalets, een discotheek "John Lennon", condors en naar verluidt leeuwen. In dezelfde jaren richtte hij zijn eigen politieke partij op, die zetels haalde in Armenia en Quindío.</p>
+      <p class="zie"><b>Wat je ziet:</b> ruïnes langs de autosnelweg — toeterende chauffeurs wijzen het aan. Volgens Caracol zichtbaar vanaf de weg naar Salento. Betreden is verboden (instortingsgevaar). Vraag de taxichauffeur ernaar.</p>
+      <details><summary>Het naakte John Lennon-beeld</summary><div>
+        <p>Lehder liet door beeldhouwer Rodrigo Arenas Betancur een bronzen <b>John Lennon</b> maken: naakt, met gitaar en een Duitse helm, en twee gaten voor de kogels van Mark Chapman. Het "verdween" in 2003; in maart 2026 dook het op en werd het teruggeplaatst bij de ruïnes, als erfgoed van het departement Quindío. Lehder kwam zelf poseren — er volgde ophef over "apologie van misdaad".</p>
+        <p>Lehder zat in de VS levenslang plus 135 jaar, kwam in 2020 vrij, keerde in maart 2025 terug naar Bogotá, werd gearresteerd en drie dagen later vrijgelaten omdat zijn Colombiaanse straf verjaard was.</p>
+      </div></details>
+    </div>
+
+    <div class="item">
+      <h3>🎬 Lehder op het scherm</h3>
+      <div class="tags"><span class="tag t-film">🎬 Narcos</span></div>
+      <p>In Narcos seizoen 1 (afl. 1–4) gespeeld door Juan Riedinger. In de film <i>Blow</i> (2001) is het personage Diego Delgado op hem gebaseerd; in <i>El patrón del mal</i> heet hij "Marcos Herber".</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MEDELLÍN ═══════════════ -->
+  <section class="stop" id="medellin">
+    <div class="stop-head" style="background-image:url('img/medellin_city.webp')">
+      <div><div class="dagen">Dag 7–9 · 24–26 nov</div><h2>Medellín — van moordhoofdstad naar herdenking</h2></div>
+    </div>
+    <p class="stop-intro">De stad wil niet langer "de stad van Pablo" zijn. Ze sloopte zijn flatgebouw, schilderde murals over en voert campagne tegen Escobar-souvenirs. Hieronder wat past in jullie planning, en wat je beter overslaat.</p>
+
+    <div class="item">
+      <h3>🎨 Comuna 13 — vooral géén Escobar-verhaal</h3>
+      <div class="tags"><span class="tag t-myth">❌ Mythe</span><span class="tag t-real">✅ Echt verhaal</span><span class="tag t-dag">Dag 8 · 13u30</span></div>
+      <p>Narco-gidsen vertellen graag dat Escobar zich in Comuna 13 verstopte. Volgens El Colombiano is dat een mythe. Het echte trauma van de wijk is <b>Operación Orión</b> (16–17 oktober 2002), negen jaar na Escobars dood: leger en politie, met steun van paramilitairen, tegen stadsmilities. In de puinberg <b>La Escombrera</b> worden nog altijd verdwenen mensen gezocht — sinds december 2024 vond het vredestribunaal JEP er al lichamen.</p>
+      <p class="zie">Bij de roltrappen worden ondanks de campagne van de burgemeester nog Escobar-souvenirs en zelfs een wassen beeld verkocht. Gewoon voorbijlopen.</p>
+    </div>
+
+    <div class="item">
+      <h3>🕯️ Parque Memorial Inflexión — waar het Mónaco-gebouw stond</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 8 · bij schemer, vóór Provenza</span></div>
+      <p>Hier stond <b>Edificio Mónaco</b>, Escobars luxeflat in El Poblado (de familie woonde op de bovenste twee verdiepingen). In 1988 ontplofte er een autobom van het Cali-kartel. Op <b>22 februari 2019 om 11u54</b> ging het gebouw met 28.000 boorgaten explosief in minder dan drie seconden neer. Het park opende 301 dagen later.</p>
+      <p class="zie"><b>Wat je ziet:</b> een zwarte granieten muur van 70 m met <b>46.612 gaatjes</b> — één per slachtoffer in Medellín tussen 1983 en 1994 — die 's avonds oplichten. Aan de achterkant een tijdlijn van 208 aanslagen. Negen monolieten met citaten van mensen die vermoord werden omdat ze weerstand boden, zoals minister Low Murtra: <i>"Me puede temblar la voz, pero no la moral."</i> <b>Waar:</b> Santa María de los Ángeles, El Poblado ("Parque Memorial Inflexión" in Google Maps), ±10–15 min taxi van Parque Lleras. Gratis, open park.</p>
+      <details><summary>Goed om te weten</summary><div><p>Buren klagen over narco-tourbusjes die er luidruchtig drinken. Ga er rustig naartoe — het is een herdenkingsplaats.</p></div></details>
+    </div>
+
+    <div class="item">
+      <h3>🍽️ Lunch: bandeja paisa bij Hacienda (Junín)</h3>
+      <div class="tags"><span class="tag t-food">🍽️ Eten</span><span class="tag t-dag">Dag 9 · middag</span></div>
+      <p>Geen narco-restaurant (die bestaan op onze route niet op een manier die we willen aanraden), wel het echte Antioquia waar Escobar uit kwam: <b>bandeja paisa</b> — bonen, rijst, gehakt, chicharrón, chorizo, ei, banaan, arepa en avocado. Twee straten van het Museo de Antioquia.</p>
+      <p class="zie"><b>Waar:</b> Hacienda, Carrera 49 #52-98, 2de verdieping (Junín) · ±12–20u.</p>
+    </div>
+
+    <div class="item">
+      <h3>🖼️ Botero: "La muerte de Pablo Escobar"</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-check">⚠️ Zaal vragen</span><span class="tag t-dag">Dag 9 · namiddag</span></div>
+      <p>In het <b>Museo de Antioquia</b> hangen twee schilderijen van Botero over Escobar: <i>La muerte de Pablo Escobar</i> (1999) — een dikke Pablo die onder een kogelregen van een dak valt — en <i>Pablo Escobar muerto</i> (2006). Botero schonk ze bewust, zodat het museum ze zou gebruiken om over die tijd te vertellen. Vraag aan de balie waar ze hangen; fotograferen in de zalen mag niet.</p>
+      <p class="zie"><b>Waar:</b> Carrera 52 #52-43 · ma–za 10–17u40, zo 10–16u40. Plaza Botero ervoor: 23 bronzen beelden, gratis.</p>
+    </div>
+
+    <div class="item">
+      <h3>🍦 Parque Bolívar — het ijsje uit de finale</h3>
+      <div class="tags"><span class="tag t-film">🎬 Narcos</span><span class="tag t-myth">❌ Verzonnen scène</span><span class="tag t-dag">Dag 9 · 5 min van het museum</span></div>
+      <p>In de finale van seizoen 2 eet Pablo vlak voor zijn dood een ijsje op een bankje en slentert hij door het park — gefilmd in Parque Bolívar, bij de kathedraal. Pure dramatisering: in werkelijkheid zat hij al weken ondergedoken. Leuk: de verzonnen scène en Botero's schilderij van de echte dood liggen op een paar honderd meter van elkaar.</p>
+    </div>
+
+    <div class="item">
+      <h3>🏛️ Museo Casa de la Memoria</h3>
+      <div class="tags"><span class="tag t-real">✅ Vanuit de slachtoffers</span><span class="tag t-dag">Dag 9 · als er tijd is</span></div>
+      <p>Het museum dat de stad zelf aanraadt in plaats van een Escobar-tour: getuigenissen van gewone inwoners over geweld en verzet ("Medellín: memorias de violencia y resistencia"). In 2024 kreeg Comuna 13 1,6 miljoen bezoekers, dit museum 50.000.</p>
+      <p class="zie"><b>Waar:</b> Calle 51 #36-66, Parque Bicentenario · di–vr 9–18u, za–zo 10–16u · <b>gratis</b>, met gratis audiogids (neem oortjes mee). ±1,5 km van het Museo de Antioquia.</p>
+    </div>
+
+    <div class="item skip">
+      <h3>🏠 Optioneel: het huis in Los Olivos waar hij stierf</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-film">🎬 Narcos</span><span class="tag t-dag">Niet gepland · taxi</span></div>
+      <p>Carrera 79B #45D-94, wijk Los Olivos (Laureles), achter de Placita de La América. Escobar zat er ±15 dagen ondergedoken; op 2 december 1993 werd hij op het dak doodgeschoten. Het huis kreeg later een derde verdieping en werd een taalschool. Narcos filmde de doodsscène een paar huizen verder.</p>
+      <p class="zie">Privéwoning: alleen van op straat kijken, niet aanbellen, niemand fotograferen.</p>
+    </div>
+
+    <div class="item skip">
+      <h3>⚰️ Optioneel: het graf in Jardines Montesacro (Itagüí)</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Niet gepland · metro + 10 min</span></div>
+      <p>Een eenvoudig familiegraf in de grond naast zijn ouders; neef en partner Gustavo Gaviria ligt vlakbij, en <b>Griselda Blanco</b> enkele meters verder. Metro lijn A naar Sabaneta, dan 7–10 min wandelen. Het is een werkende begraafplaats met begrafenissen: stil, niets meenemen, niet poseren.</p>
+    </div>
+
+    <div class="item skip">
+      <h3>⛔ Overslaan: La Catedral en Barrio Pablo Escobar</h3>
+      <div class="tags"><span class="tag t-check">Afgeraden</span></div>
+      <p><b>La Catedral</b> (Envigado), de luxegevangenis die hij zelf liet bouwen, is nu een kerk en klein bejaardenhuis waarover religieuze groepen en de gemeente procederen; er werd entree gevraagd aan narco-toeristen. Een halve dag, en weinig te zien. <b>Barrio Pablo Escobar</b> (Comuna 9), de wijk die hij voor arme gezinnen bouwde, heeft een dakmuseum van zijn neef dat hem verheerlijkt; de stad schilderde de grote muurschildering in januari 2025 over.</p>
+    </div>
+
+    <div class="item">
+      <h3>🧭 Als je toch een tour wil</h3>
+      <div class="tags"><span class="tag t-real">✅ Respectvol</span></div>
+      <p>Er bestaan zo'n 44 Escobar-tours, vaak met merchandise en verheerlijkend. Kies liever voor journalist <b>Luis Alirio Calle</b> — de enige reporter die Escobar toeliet bij zijn overgave in 1991 — die tours "Del dolor y el miedo" en "De la esperanza" in kleine groepen aanbiedt. Rough Guide noemt Escobar terecht "the crime lord who remains admired by so many despite having brought so much misery".</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ GUATAPÉ ═══════════════ -->
+  <section class="stop" id="guatape">
+    <div class="stop-head" style="background-image:url('img/guatape_piedra.webp')">
+      <div><div class="dagen">Dag 10–11 · 27–28 nov</div><h2>Guatapé — La Manuela vanaf het water</h2></div>
+    </div>
+
+    <div class="item">
+      <h3>🏚️ Finca La Manuela</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-check">⚠️ Aanleggen? vragen</span><span class="tag t-dag">Dag 11 · boottocht</span></div>
+      <p>Escobar noemde dit landgoed op een schiereiland in het stuwmeer naar zijn jongste dochter <b>Manuela</b>. Zwembaden, sportvelden, een privédisco, een steiger voor watervliegtuigen en een tuin met bomen uit vier continenten. Op <b>17 februari 1993</b> bliezen <b>Los Pepes</b> ("slachtoffers van Pablo Escobar", deels betaald door het Cali-kartel) het op.</p>
+      <p>De Colombiaanse staat verkocht het in <b>januari 2026</b> op een veiling voor COP 7,7 miljard (±$2 miljoen) aan een <b>geheime koper</b>; de opbrengst gaat naar slachtofferherstel. Een familielid noemde het "eerder een cadeau dan een verkoop".</p>
+      <p class="zie"><b>Wat je ziet:</b> zeker vanuit de boot — de standaardtocht vanaf de Malecón vaart er langs. Of je nog kunt aanleggen (vroeger met paintball in de oude stallen) is onzeker sinds de verkoop: vraag het op 27 nov aan de kade.</p>
+      <details><summary>Mythes over La Manuela</summary><div><p>❌ Escobar woonde er nooit: het werd volgens zijn achterneef ±15 dagen vóór de inhuldiging opgeblazen (El Tiempo schreef in 2019 wel dat de familie er verbleef — de bronnen spreken elkaar tegen). Tours die "Pablo's slaapkamer" tonen zijn dus twijfelachtig.<br>❌ Verborgen geld, juwelen, geheime tunnels, een schat onder het zwembad: nooit iets gevonden.</p></div></details>
+    </div>
+
+    <div class="item">
+      <h3>🪨 Weetje (geen narco): de letters "GI" op La Piedra</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 11</span></div>
+      <p>Guatapé begon ooit "GUATAPÉ" in reuzenletters op de rots te schilderen. Inwoners van buurdorp El Peñol vonden de rots van hen en hielden het tegen. Resultaat: een G en een "I" die eigenlijk een halve U is. Het oude El Peñol verdween in 1978 onder het stuwmeer; een kruis op het water markeert waar het kerkaltaar stond.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ RIONEGRO ═══════════════ -->
+  <section class="stop" id="rionegro">
+    <div class="stop-head" style="background-image:url('img/overzicht.webp')">
+      <div><div class="dagen">Dag 12 · 29 nov</div><h2>Rionegro — waar het begon</h2></div>
+    </div>
+    <div class="item">
+      <h3>✈️ Je vliegt weg uit Escobars geboortegemeente</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 12 · onderweg naar MDE</span></div>
+      <p>Pablo Escobar Gaviria werd op 1 december 1949 geboren in de landelijke wijk <b>El Tablazo</b>, in Rionegro — dezelfde gemeente als luchthaven José María Córdova (geopend in 1985). Zijn vader was boer, zijn moeder onderwijzeres. Er is niets te bezoeken; het is een zin voor in de taxi.</p>
+      <p>En een tweede: <b>Carlos Lehder</b> (zie Armenia) werd op 4 februari 1987 opgepakt op een finca in <b>Guarne</b>, vlak bij de luchthaven, en meteen aan de VS uitgeleverd.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ KUST ═══════════════ -->
+  <section class="stop" id="kust">
+    <div class="stop-head" style="background-image:url('img/palomino_beach.webp')">
+      <div><div class="dagen">Dag 12–22 · Minca · Tayrona · Palomino</div><h2>De kust — Santa Marta Gold, vóór de cocaïne</h2></div>
+    </div>
+    <p class="stop-intro">Escobar had hier niets; zijn kustvilla's lagen bij Cartagena. Maar de Sierra Nevada en La Guajira hebben hun eigen drugsgeschiedenis, ouder dan het Medellín-kartel — en die verklaart waarom Palomino pas na 2006 een backpackersdorp werd.</p>
+
+    <div class="item">
+      <h3>🌿 De "bonanza marimbera" (±1974–1985)</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 12 · Troncal del Caribe · Minca</span></div>
+      <p>In de jaren '70 werden de hellingen van de Sierra Nevada — ook rond <b>Minca</b> — en La Guajira een van de grootste marihuanagebieden ter wereld. De variëteit <b>"Santa Marta Gold"</b> was in de VS legendarisch. Op het hoogtepunt (1978) stond er ±19.000 ha, en vertrokken er dagelijks tientallen boten van de kust van La Guajira en Magdalena, plus vliegtuigjes van geheime landingsbanen. De export bracht meer op dan koffie.</p>
+      <p>De boer kreeg ±1% van de straatprijs. Het eindigde begin jaren '80 door militaire acties met Amerikaanse steun en sproeien, betere marihuana uit Californië — en de opkomst van cocaïne.</p>
+      <details><summary>Weetjes</summary><div><p>De marimberos betaalden opnames en concerten — zo werd vallenato commercieel groot, en noemen veel liedjes uit die tijd smokkelaars bij naam. Het verhaal dat het Amerikaanse Peace Corps de zaden zou hebben gebracht, wordt door historica Lina Britto (<i>Marijuana Boom</i>, 2020) afgedaan als mythe.</p></div></details>
+    </div>
+
+    <div class="item">
+      <h3>🏖️ Palomino ligt in La Guajira</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 18–22</span></div>
+      <p>Palomino hoort bij de gemeente <b>Dibulla, La Guajira</b>. De hele kuststrook van voorbij Santa Marta tot aan de Palomino-rivier — inclusief Minca, Guachaca en vanaf 1987 ook Palomino zelf — was decennialang het gebied van paramilitair leider <b>Hernán Giraldo</b> ("El Señor de la Sierra"), die er begon als marihuanakweker. Zijn blok demobiliseerde in 2006; pas daarna kwamen de hostels, het tubing en de surfscholen. Lonely Planet: het dorp "bursts with 100 top-notch hostels" na jaren van conflict.</p>
+    </div>
+
+    <div class="item">
+      <h3>🍃 Coca is geen cocaïne — de poporo van de Kogi</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Minca · Tayrona · Palomino</span></div>
+      <p>De Kogi, Arhuaco en Wiwa van de Sierra kauwen al eeuwenlang <b>cocablad</b> met kalk uit verbrande schelpen, uit een kalebas (<i>poporo</i>) die een man bij zijn volwassenwording krijgt. Het wrijven van het stokje bouwt een korst op die staat voor gedachten en gesprek. Cocablad is een mild opwekkend middel, vergelijkbaar met koffie — een heel ander verhaal dan cocaïne. Zie je mannen met een poporo in Palomino of Minca: niet fotograferen zonder te vragen.</p>
+    </div>
+
+    <div class="item">
+      <h3>✈️ Weetje: de luchthaven van Santa Marta</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 12 &amp; 22</span></div>
+      <p>Volgens InSight Crime werden in 2026 zes mensen vervolgd voor het vervoeren van cocaïne met privévluchten vanaf de luchthaven van Santa Marta, met logistiek van de opvolgers van Giraldo's groep. De drugshandel is hier geen geschiedenis — wel niets waar je als reiziger mee te maken krijgt.</p>
+    </div>
+
+    <div class="item">
+      <h3>🎬 Kijktip voor in Palomino: <i>Pájaros de verano</i></h3>
+      <div class="tags"><span class="tag t-film">🎬 Film</span><span class="tag t-dag">Een avond in Palomino</span></div>
+      <p>Film van Ciro Guerra en Cristina Gallego (2018) over een Wayuu-familie die rijk wordt en ten onder gaat aan de marihuanahandel, eind jaren '60 tot rond 1980. Gefilmd in La Guajira en Magdalena, grotendeels in het Wayuunaiki, ±30% van cast en crew Wayuu. De beste film over precies de kust waar je dan bent. (Engelse titel: <i>Birds of Passage</i>.)</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BOGOTÁ 2 ═══════════════ -->
+  <section class="stop" id="bogota2">
+    <div class="stop-head" style="background-image:url('img/bogota_monserrate.webp')">
+      <div><div class="dagen">Dag 22–24 · 9–11 dec</div><h2>Bogotá 2 — de slachtoffers</h2></div>
+    </div>
+    <p class="stop-intro">Dag 23 is vrij. Als je één ding uit deze pagina doet, maak het dit.</p>
+
+    <div class="item">
+      <h3>🚶 Free tour: gewapend conflict, drugshandel en vrede</h3>
+      <div class="tags"><span class="tag t-real">✅ Aanrader</span><span class="tag t-dag">Dag 23 · 10u</span></div>
+      <p>Wandeltour van Beyond Colombia: 3 uur, 9 stops, van de Bogotazo en M-19 tot het narcotijdperk en de vredesakkoorden. Fooi naar keuze, alleen cash. Zeer goed beoordeeld (4,8/5 op ±300 reviews).</p>
+      <p class="zie"><b>Start:</b> 10u aan het Museo del Oro, Parque Santander — zoek de rode paraplu's. Boeken via GuruWalk.</p>
+    </div>
+
+    <div class="item">
+      <h3>🕊️ Cementerio Central, Centro de Memoria &amp; de columbarios</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-film">🎬 Narcos</span><span class="tag t-check">⚠️ Uren checken</span><span class="tag t-dag">Dag 23 · namiddag</span></div>
+      <p>Op de centrale laan van de <b>Cementerio Central</b> ligt <b>Luis Carlos Galán</b>, de presidentskandidaat die het kartel in 1989 liet vermoorden tijdens een meeting in Soacha. Narcos filmde hier zijn begrafenis. Zijn zoon Carlos Fernando Galán is vandaag burgemeester van Bogotá.</p>
+      <p>Ernaast: het gratis <b>Centro de Memoria, Paz y Reconciliación</b> (Carrera 19B #24-86, TransMilenio "Centro Memoria", ma–za ±8–17u) en de <b>columbarios</b> met het kunstwerk <i>Auras anónimas</i> van Beatriz González — duizenden grafnissen met silhouetten van mannen die lichamen dragen.</p>
+    </div>
+
+    <div class="item">
+      <h3>🚕 Calle 26 naar de luchthaven — kijk uit het raam</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 3 &amp; dag 24 · taxi</span></div>
+      <p>Op weg naar El Dorado passeer je: <b>Residencias Tequendama</b>, waar Escobars vrouw en kinderen in november 1993 onder politiebewaking zaten nadat Duitsland hen had teruggestuurd — zijn telefoontjes naar dat gebouw verraadden waar hij zat. In Narcos woont de familie er op het einde van seizoen 2. Dan de Cementerio Central en de columbarios, en aan Avenida 68 het gebouw van krant <b>El Espectador</b>, waar hoofdredacteur Guillermo Cano in 1986 werd vermoord en dat in 1989 met een vrachtwagenbom werd getroffen.</p>
+    </div>
+
+    <div class="item">
+      <h3>✈️ El Dorado en vlucht 203</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 3 &amp; 24</span></div>
+      <p>Op <b>27 november 1989</b> vertrok Avianca-vlucht 203 van El Dorado naar Cali. Vijf minuten later ontplofte een bom van het kartel boven Soacha: 107 inzittenden en 3 mensen op de grond kwamen om. Het doelwit zou presidentskandidaat César Gaviria zijn geweest, die niet aan boord was. Er is op de luchthaven geen gedenkteken.</p>
+    </div>
+
+    <div class="item">
+      <h3>⛪ Zipaquirá — geen narco-verhaal (en dat is ook mooi)</h3>
+      <div class="tags"><span class="tag t-real">✅ Echt</span><span class="tag t-dag">Dag 24</span></div>
+      <p>Er is geen echte narco-link met de Zoutkathedraal. Hooguit het toeval van de naam: Escobars gevangenis heette ook "La Catedral". En op 50 km verder, in <b>Pacho</b>, groeide Gonzalo Rodríguez Gacha "El Mexicano" op — nummer twee van het kartel, met haciënda's die hij naar Mexicaanse steden noemde. Niet de omweg waard.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ KALENDER ═══════════════ -->
+  <h2 class="sec-title" id="kalender">📅 Verjaardagen tijdens onze reis</h2>
+  <p class="sec-sub">Wat er op dezelfde datum gebeurde — en waar wij dan zijn.</p>
+  <table class="tbl">
+    <thead><tr><th>Datum</th><th>Wat</th><th>Wij zijn in</th></tr></thead>
+    <tbody>
+      <tr><td>17 nov 1986</td><td>Kolonel Jaime Ramírez, die de grote raid op cocaïnelab Tranquilandia leidde, vermoord in Bogotá</td><td>dag ervoor vertrekken we</td></tr>
+      <tr><td>27 nov 1989</td><td>Bom op Avianca-vlucht 203 na vertrek uit Bogotá — 37 jaar geleden</td><td>Medellín → Guatapé</td></tr>
+      <tr><td>27 nov 1993</td><td>Escobars familie vliegt naar Frankfurt; Duitsland stuurt hen terug naar Bogotá</td><td>Medellín → Guatapé</td></tr>
+      <tr class="hier"><td>29 nov</td><td>Vlucht vanuit Rionegro, Escobars geboortegemeente</td><td>Rionegro → Santa Marta</td></tr>
+      <tr class="hier"><td>1 dec 1949</td><td>Pablo Escobar geboren in El Tablazo, Rionegro</td><td>Minca</td></tr>
+      <tr class="hier"><td>2 dec 1993</td><td>Escobar doodgeschoten op een dak in Los Olivos, Medellín — 33 jaar geleden</td><td>Minca</td></tr>
+      <tr><td>3 dec 1993</td><td>Begrafenis: ±20.000 mensen, de familie geraakt niet bij de kist</td><td>Minca → Tayrona</td></tr>
+      <tr><td>6 dec 1989</td><td>Bom op het DAS-gebouw bij Paloquemao, Bogotá: 63 doden</td><td>Palomino</td></tr>
+      <tr><td>15 dec 1989</td><td>"El Mexicano" Rodríguez Gacha gedood bij Coveñas</td><td>dan zijn we thuis</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════ DE SERIE ═══════════════ -->
+  <h2 class="sec-title" id="serie">🎬 Narcos: echt of verzonnen?</h2>
+  <p class="sec-sub">Wat je weet als je het nog eens herbekijkt.</p>
+  <div class="grid2">
+    <div class="item">
+      <h3>De DEA-agenten: "een derde echt"</h3>
+      <div class="tags"><span class="tag t-real">✅ Echte personen</span></div>
+      <p>Steve Murphy en Javier Peña bestaan echt. Murphy zegt zelf: een derde van de serie is feit, een derde gebaseerd op feiten maar aangepast, een derde "all Hollywood". Geen van beiden was erbij toen Escobar stierf; Murphy kwam pas achteraf en fotografeerde het lichaam. Peña ontkent ooit iets met Los Pepes te maken te hebben gehad.</p>
+    </div>
+    <div class="item">
+      <h3>Wagner Moura en het accent</h3>
+      <div class="tags"><span class="tag t-film">🎬 Productie</span></div>
+      <p>De Braziliaanse acteur leerde Spaans en volgde bijna zes maanden les aan een universiteit in Medellín, en kwam ±20 kg aan. Colombianen vonden zijn accent toch niet paisa genoeg — net als het Mexicaanse accent van Tata (Paulina Gaitán). In 2025 won Moura in Cannes de prijs voor beste acteur voor een andere film.</p>
+    </div>
+    <div class="item">
+      <h3>"Tuyo"</h3>
+      <div class="tags"><span class="tag t-film">🎬 Productie</span><span class="tag t-myth">❌ Geen oude bolero</span></div>
+      <p>Het intronummer is geen oude bolero die Escobars moeder zong, maar een nieuw nummer van de Braziliaan Rodrigo Amarante (2015). Hij vroeg zich af welke muziek Pablo's moeder zou hebben gedraaid toen ze hem opvoedde. Emmy-nominatie.</p>
+    </div>
+    <div class="item">
+      <h3>De zoon van Pablo telde 28 fouten</h3>
+      <div class="tags"><span class="tag t-myth">❌ Fouten</span></div>
+      <p>Juan Pablo Escobar (nu Sebastián Marroquín) zette 28 fouten uit seizoen 2 op Facebook. Een greep: zijn vader supporterde voor Independiente Medellín (niet Nacional), zijn moeder hanteerde nooit een wapen, oom Carlos Henao was geen smokkelaar. Hij houdt vol dat zijn vader zelfmoord pleegde.</p>
+    </div>
+    <div class="item">
+      <h3>Feiten over de productie</h3>
+      <div class="tags"><span class="tag t-film">🎬 Productie</span></div>
+      <p>Drie seizoenen van tien afleveringen (2015, 2016, 2017), gemaakt door het Franse Gaumont voor Netflix. Seizoen 1–2 gaan over Escobar, seizoen 3 over het Cali-kartel. Hacienda Nápoles werd nagebouwd bij Villavicencio, Cartagena speelde Curaçao.</p>
+    </div>
+    <div class="item">
+      <h3>Wat Colombianen er van vinden</h3>
+      <div class="tags"><span class="tag t-real">✅ Context</span></div>
+      <p>Veel kritiek: weer een Amerikaanse blik ("de blonde DEA-agent weet het beter"), clichés, en de zin "God created Colombia… he had to fill it with bad people". Lonely Planet noemt de grappen van buitenlanders over Narcos "a thorn in the side of Colombians".</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ ETEN ═══════════════ -->
+  <h2 class="sec-title" id="eten">🍽️ Eten &amp; drinken</h2>
+  <p class="sec-sub">Weinig is goed gedocumenteerd — dit wel (en waar niet, staat het erbij).</p>
+  <div class="grid2">
+    <div class="item">
+      <h3>🍳 Het nachtmaal van Pablo</h3>
+      <div class="tags"><span class="tag t-food">🍽️ Eten</span><span class="tag t-check">⚠️ Eén bron</span></div>
+      <p>Volgens zijn huurmoordenaar "Popeye" vroeg Escobar rond 3u 's nachts rijst met vier gebakken eieren erdoor, warme melk, twee arepa's en een schuimige café con leche "uit de blender". Enige bron is een veroordeelde moordenaar — neem het met een korrel zout. Bestel het gerust als <i>arroz con huevo</i>: overal te krijgen.</p>
+    </div>
+    <div class="item">
+      <h3>🥃 Guaro: Antioqueño of Cristal?</h3>
+      <div class="tags"><span class="tag t-food">🍽️ Drinken</span></div>
+      <p>Aguardiente (<i>guaro</i>) is anijsdrank op suikerrietbasis. <b>Antioqueño</b> komt van de provinciale stokerij van Antioquia (Medellín), <b>Cristal</b> van die van Caldas (koffiestreek). Tot 2025 mocht elke provincie zijn eigen merk beschermen; het Grondwettelijk Hof schafte dat af. Proef ze allebei: Cristal in Salento, Antioqueño in Medellín.</p>
+    </div>
+    <div class="item">
+      <h3>☕ Koffie versus cocaïne</h3>
+      <div class="tags"><span class="tag t-real">✅ Cijfers</span></div>
+      <p>Een studie van universiteit EAFIT schat de cocaïne-inkomsten in 2024 op ±$16,5 miljard (4,4% van het bbp) — meer dan de olie-export of het geld dat migranten naar huis sturen. Koffie-export: ±$2,7 miljard in de eerste helft van 2025. Bestel je <i>tinto</i> met een vriendelijk "¿me regalás un tinto?".</p>
+    </div>
+    <div class="item">
+      <h3>🍵 Cocathee: daar wel, thuis niet</h3>
+      <div class="tags"><span class="tag t-check">⚠️ Niet meenemen</span></div>
+      <p>Cocathee (<i>mate de coca</i>) en producten van inheemse gemeenschappen zijn in Colombia gewoon te koop. Maar cocablad staat op lijst I van het VN-verdrag van 1961: <b>meenemen naar België is illegaal</b>, ook een paar theezakjes, en het kan een drugstest positief maken.</p>
+    </div>
+    <div class="item">
+      <h3>🥘 Bandeja paisa</h3>
+      <div class="tags"><span class="tag t-food">🍽️ Eten</span></div>
+      <p>Geen "Escobar-gerecht" (daar is geen bron voor), wel het bord van de streek waar hij opgroeide. Beste plek op de route: Hacienda op Junín, Medellín (dag 9). Eén bord is genoeg voor twee.</p>
+    </div>
+    <!-- NARCOS-GIDS:eten:start -->
+    <div class="item">
+      <h3>🏚️ Mondongo's — soep in het oude kartelkantoor</h3>
+      <div class="tags"><span class="tag t-food">🍽️ Eten</span><span class="tag t-check">⚠️ Eén bron</span></div>
+      <p>Volgens de Rough Guide was het gebouw van restaurant <b>Mondongo's</b> in El Poblado (Calle 10 #38-38) ooit het administratieve hoofdkwartier van het Medellín-kartel. De specialiteit is <i>mondongo</i>, pensensoep — lekkerder dan het klinkt. Enige bron is de gids; het restaurant zelf maakt er geen reclame mee, en dat is maar goed ook.</p>
+    </div>
+<!-- NARCOS-GIDS:eten:end -->
+    <div class="item">
+      <h3>💎 "Narco-estética"</h3>
+      <div class="tags"><span class="tag t-real">✅ Context</span></div>
+      <p>Colombianen hebben er een woord voor: de smaak van protserigheid — Griekse zuilen, marmer, vergulde balustrades, grote fincas met dieren. Je herkent het in sommige villa's langs het meer van Guatapé en in de ruïnes van de Posada Alemana.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ KIJKEN & LEZEN ═══════════════ -->
+  <h2 class="sec-title" id="kijken">📺 Kijken &amp; lezen vóór vertrek</h2>
+  <div class="grid2">
+    <div class="item"><h3>Escobar, el patrón del mal (2012)</h3><p>De Colombiaanse serie die Colombianen zelf aanraden. Gemaakt door kinderen van slachtoffers: producente Juana Uribe is de dochter van ontvoerde journaliste Maruja Pachón en nicht van Galán, schrijver Camilo Cano de zoon van vermoorde hoofdredacteur Guillermo Cano. Andrés Parra als Escobar. Elke aflevering eindigt met archiefbeelden van echte slachtoffers.</p></div>
+    <div class="item"><h3>Pecados de mi padre (2009)</h3><p>Documentaire waarin Escobars zoon de zonen van Lara Bonilla en Galán om vergeving vraagt. De meest ontroerende van allemaal.</p></div>
+    <div class="item"><h3>The Two Escobars (2010)</h3><p>ESPN-documentaire over narcovoetbal en voetballer Andrés Escobar, in 1994 in Medellín vermoord na een eigen doelpunt op het WK. Geen familie van Pablo.</p></div>
+    <div class="item"><h3>Noticia de un secuestro — García Márquez (1996)</h3><p>Non-fictie over de ontvoeringen van 1990 in Bogotá, door de grootste schrijver van het land. Zo leefde de hoofdstad de terreur. (NL: <i>Ontvoeringsbericht</i>.)</p></div>
+    <div class="item"><h3>Killing Pablo — Mark Bowden (2001)</h3><p>De jacht op Escobar en Los Pepes, op basis waarvan Narcos een groot deel van seizoen 2 dramatiseerde.</p></div>
+    <div class="item"><h3>Pájaros de verano (2018)</h3><p>Zie de kust: voor in Palomino.</p></div>
+  <!-- NARCOS-GIDS:lezen:start -->
+    <div class="item"><h3>Delirio — Laura Restrepo (2004)</h3><p>Roman over het Bogotá van de jaren '80: een werkloze professor vindt zijn vrouw krankzinnig terug en ontrafelt langzaam waarom. Een beklemmend beeld van de wetteloze hoofdstad in de cocaïnejaren.</p></div>
+    <div class="item"><h3>El ruido de las cosas al caer — Juan Gabriel Vásquez (2011)</h3><p>Bogotá, jaren '90: een jonge professor raakt bevriend met een mysterieuze man uit de biljartzaal, die kort daarna wordt neergeschoten. Over hoe de drugshandel ook het leven raakt van wie er niets mee te maken had. Vásquez is een soort anti-Márquez: koel, zonder magisch realisme. (NL: <i>Het geluid van vallende dingen</i>.)</p></div>
+    <div class="item"><h3>La virgen de los sicarios — Fernando Vallejo (1994)</h3><p>Een schrijver keert terug naar Medellín en raakt verwikkeld in het leven van tienerhuurmoordenaars. Rauw en controversieel; verfilmd in 2000. De titel betekent "Onze Lieve Vrouw van de huurmoordenaars".</p></div>
+    <div class="item"><h3>Rosario Tijeras — Jorge Franco (1999)</h3><p>De mooie Rosario wordt eind jaren '80 neergeschoten in Medellín; haar leven wordt verteld door een verliefde vriend. Werd een film en een tv-serie — een klassieker van de "narconovela".</p></div>
+    <div class="item"><h3>Short Walks from Bogotá — Tom Feiling (2012)</h3><p>Klinkt als een reisboek, is een verslag van Colombia's moeizame weg van narcostaat naar democratie, via plekken die vroeger verboden terrein waren. Van dezelfde auteur: <i>The Candy Machine</i>, over hoe cocaïne de wereld veroverde.</p></div>
+    <div class="item"><h3>Sumas y restas — Víctor Gaviria (2004)</h3><p>Film over het ontstaan van de drugshandel in Medellín, van een regisseur die met echte buurtbewoners werkt. Serieuzer dan de meeste narco-fictie.</p></div>
+<!-- NARCOS-GIDS:lezen:end -->
+  </div>
+
+  <!-- ═══════════════ TAAL ═══════════════ -->
+  <h2 class="sec-title" id="taal">🗣️ Taal uit de serie — en wat je beter niet zegt</h2>
+  <div class="slang">
+    <b>parce / parcero</b><span>maat, vriend — paisa, vriendelijk ✅</span>
+    <b>¿Qué más, pues?</b><span>hoe gaat het? — overal te gebruiken ✅</span>
+    <b>bacano</b><span>tof ✅</span>
+    <b>berraco</b><span>stoer, hardwerkend — compliment ✅</span>
+    <b>guaro</b><span>aguardiente ✅</span>
+    <b>mono / mona</b><span>blond, buitenlands ogend — meestal lief bedoeld ✅</span>
+    <b>plata o plomo</b><span class="nee">geld of lood (omkoping of kogel) — niet als grap gebruiken ❌</span>
+    <b>sicario</b><span class="nee">huurmoordenaar — geen grapwoord ❌</span>
+    <b>patrón</b><span class="nee">baas; "El Patrón" was Escobars bijnaam — niet bewonderend gebruiken ❌</span>
+    <b>tombo</b><span class="nee">onbeleefd woord voor agent ❌</span>
+    <b>gonorrea</b><span class="nee">scheldwoord uit de kartelperiode, tussen vrienden soms liefkozend — als toerist nooit ❌</span>
+  </div>
+
+  <!-- ═══════════════ MYTHES ═══════════════ -->
+  <h2 class="sec-title" id="mythes">❌ Mythes om te vergeten</h2>
+  <div class="item">
+    <p>❌ <b>Escobar verstopte zich in Comuna 13</b> — volgens El Colombiano een fabeltje van narco-gidsen.<br>
+    ❌ <b>Escobar woonde in La Manuela</b> — volgens familie werd het opgeblazen vóór de inhuldiging.<br>
+    ❌ <b>Schatten en tunnels onder La Manuela</b> — nooit iets gevonden.<br>
+    ❌ <b>$2 miljoen verbrand om Manuela warm te houden</b> — alleen het verhaal van zijn zoon.<br>
+    ❌ <b>Het ijsje in Parque Bolívar</b> — verzonnen voor de serie.<br>
+    ❌ <b>Narcos filmde in Guatapé of Santa Marta</b> — geen bewijs.<br>
+    ❌ <b>"Tuyo" is een bolero van zijn moeder</b> — geschreven in 2015.<br>
+    ❌ <b>Peace Corps bracht de marihuanazaden</b> — door historici weerlegd.<br>
+    ❌ <b>Escobar zat in 1984 in het Congres</b> — verkozen in 1982, eind 1983 eruit, begin 1984 stopte hij met politiek.<br>
+    ⚠️ <b>Wie het dodelijke schot loste</b> — betwist; de familie houdt vol dat het zelfmoord was.</p>
+  </div>
+
+  <!-- ═══════════════ BRONNEN ═══════════════ -->
+  <div class="bronnen">
+    <b>Bronnen</b> — Lonely Planet Colombia (2023) en Rough Guide to Colombia (2024), aangevuld met:
+    <ul>
+      <li><a href="https://www.elcolombiano.com/antioquia/parque-inflexion-en-medellin-abre-al-publico-FK12181703">El Colombiano — Parque Inflexión</a></li>
+      <li><a href="https://www.elcolombiano.com/medellin-es-mas-que-pablo-escobar/edificio-monaco">El Colombiano — Edificio Mónaco</a></li>
+      <li><a href="https://www.elcolombiano.com/antioquia/la-deformada-historia-que-cuentan-en-los-narcotours-de-medellin-EK22397388">El Colombiano — mythes van narcotours</a></li>
+      <li><a href="https://www.elcolombiano.com/medellin/en-barrio-pablo-escobar-medellin-borraron-mural-pero-el-narco-tour-sigue-AE26448338">El Colombiano — Barrio Pablo Escobar</a></li>
+      <li><a href="https://www.museocasadelamemoria.gov.co/?p=2873">Museo Casa de la Memoria</a></li>
+      <li><a href="https://www.24horas.cl/internacional/noticias-bbc/fernando-botero-la-historia-tras-2-cuadros-pablo-escobar">BBC — Botero's Escobar-schilderijen</a></li>
+      <li><a href="https://www.infobae.com/colombia/2025/09/20/la-catedral-carcel-de-pablo-escobar-estaria-siendo-disputada-por-grupos-religiosos-en-colombia/">Infobae — La Catedral</a></li>
+      <li><a href="https://www.infobae.com/colombia/2026/01/09/los-mitos-y-verdades-sobre-la-manuela-la-propiedad-de-pablo-escobar-que-colombia-vendio-por-mas-de-dos-millones-de-dolares/">Infobae — La Manuela, mythes</a></li>
+      <li><a href="https://www.elcolombiano.com/antioquia/subasta-finca-la-manuela-pablo-escobar-reparacion-victimas-AL32396431">El Colombiano — veiling La Manuela</a></li>
+      <li><a href="https://radionacional.co/cultura/turismo/piedra-del-penol-turismo-historia-y-mitos-guatape-antioquia">Radio Nacional — La Piedra</a></li>
+      <li><a href="https://www.eltiempo.com/colombia/otras-ciudades/turistas-pitan-al-ver-a-carlos-lehder-junto-a-la-estatua-de-john-lennon-en-quindio-el-inesperado-regreso-que-desato-furor-en-la-posada-alemana-3542595">El Tiempo — Lehder &amp; Lennon-beeld</a></li>
+      <li><a href="https://www.noticiascaracol.com/colombia/del-lujo-a-las-ruinas-asi-se-ve-la-posada-alemana-mansion-y-centro-de-operaciones-de-carlos-lehder-rg10">Caracol — Posada Alemana</a></li>
+      <li><a href="https://www.asuntoslegales.com.co/actualidad/juzgado-de-ejecucion-de-penas-ordeno-la-libertad-de-carlos-lehder-por-prescripcion-4098717">Asuntos Legales — vrijlating Lehder</a></li>
+      <li><a href="https://cortesuprema.gov.co/corte/index.php/2022/11/04/que-cese-el-fuego-altas-cortes-develan-placa-en-memoria-de-las-victimas-del-holocausto-del-palacio-de-justicia/">Corte Suprema — plaquette Palacio</a></li>
+      <li><a href="https://www.elespectador.com/judicial/que-escobar-financiara-la-toma-es-ridiculo-article-170002/">El Espectador — financiering Palacio betwist</a></li>
+      <li><a href="https://www.elcolombiano.com/medellin-es-mas-que-pablo-escobar/atentado-al-edificio-del-das">El Colombiano — DAS-aanslag</a></li>
+      <li><a href="https://www.elcolombiano.com/medellin-es-mas-que-pablo-escobar/atentado-avion-de-avianca">El Colombiano — Avianca 203</a></li>
+      <li><a href="https://www.semana.com/diciembre-1993-brel-senor-drogas/65868-3/">Semana — december 1993</a></li>
+      <li><a href="https://sitiosdememoria.org/en/institucion/centro-de-memoria-paz-y-reconciliacion-2_en/">Centro de Memoria, Paz y Reconciliación</a></li>
+      <li><a href="https://www.guruwalk.com/walks/30173-free-tour-colombian-armed-conflict-war-drug-trafficking-and-peace">GuruWalk — conflicttour Bogotá</a></li>
+      <li><a href="https://www.atlasofwonders.com/2017/08/narcos-filming-locations.html">Atlas of Wonders — opnamelocaties</a></li>
+      <li><a href="https://www.nme.com/blogs/behind-the-scenes-narcos-1780564">NME — achter de schermen</a></li>
+      <li><a href="https://gangstersinc.org/2017/05/11/the-real-dea-agents-of-narcos-javier-pena-steve-murphy-talk-about-whats-fact-and-fiction-in-netflixs-hit-series/">Murphy &amp; Peña over feit en fictie</a></li>
+      <li><a href="https://dailydot.com/upstream/pablo-escobar-son-facebook-post-inaccuracies-narcos/">Daily Dot — 28 fouten volgens de zoon</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Tuyo_(Rodrigo_Amarante_song)">Wikipedia — Tuyo</a></li>
+      <li><a href="https://www.semana.com/nacion/articulo/el-patron-del-mal-ficcion-muy-real/258919-3/">Semana — El patrón del mal</a></li>
+      <li><a href="https://www.semana.com/especiales/articulo/bonanza-marimbera-adios/988-3/">Semana 1982 — bonanza marimbera</a></li>
+      <li><a href="https://es.wikipedia.org/wiki/Bonanza_marimbera">Wikipedia — bonanza marimbera</a></li>
+      <li><a href="https://www.elheraldo.co/colombia/2021/01/25/el-poderio-de-hernan-giraldo-en-la-sierra-a-punta-de-sangre-y-destierro-785389/">El Heraldo — Hernán Giraldo</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Palomino,_Colombia">Wikipedia — Palomino</a></li>
+      <li><a href="https://insightcrime.org/es/noticias-crimen-organizado-colombia/los-pachenca/">InSight Crime — opvolgers van Giraldo</a></li>
+      <li><a href="https://news.mongabay.com/2019/01/indigenous-communities-in-post-farc-colombia-struggle-to-destigmatize-sacred-leaf/">Mongabay — coca en de Sierra</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Birds_of_Passage_(film)">Wikipedia — Pájaros de verano</a></li>
+      <li><a href="https://www.eluniverso.com/entretenimiento/gente/los-curiosos-regalos-que-pablo-escobar-entregaba-en-navidad-nota/">El Universo — Popeye over Escobars eten</a></li>
+      <li><a href="https://www.larepublica.co/empresas/llega-la-primera-navidad-sin-ninguna-frontera-para-la-venta-de-los-aguardientes-4284619">La República — aguardiente zonder grenzen</a></li>
+      <li><a href="https://www.larepublica.co/economia/cocaina-le-deja-mas-a-la-nacion-que-las-remesas-o-ventas-de-petroleo-o-cafe-4420729">La República — cocaïne vs. koffie</a></li>
+      <li><a href="https://www.iceers.org/coca-leaf-schedule-i-historical-anomaly/">ICEERS — cocablad op lijst I</a></li>
+      <li><a href="https://www.colombia.com/actualidad/nacionales/pablo-escobar-casi-no-puede-entrar-al-congreso-de-la-republica-por-no-llevar-corbata-426321">Colombia.com — Escobar en de das</a></li>
+      <li><a href="https://medellinguru.com/hacienda/">Medellin Guru — Hacienda</a></li>
+      <li><a href="https://medellinguru.com/pablo-escobars-grave/">Medellin Guru — graf</a></li>
+    </ul>
+    <p style="margin-top:0.6rem">Opgesteld oktober 2026. Openingsuren en wat er in musea hangt, kunnen veranderen — wat met ⚠️ gemarkeerd staat, ter plaatse even nagaan.</p>
+  </div>
+
+</div>
+
+<div class="footer">🇨🇴 Colombia · Narcos &amp; Escobar op onze route · Bert &amp; Ellen</div>
+<script>
+function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
+</script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="reservaties.js"></script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
+</body>
+</html>

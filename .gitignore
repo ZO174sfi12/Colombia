@@ -4,3 +4,6 @@ gist.config
 
 # Originele afbeeldingen (lokaal bewaard, site gebruikt webp)
 img/_orig/
+
+# Privé: boekingsreferenties en PNRs
+referenties-prive.md

@@ -1,7 +1,7 @@
 /* sw.js — offline-cache voor de Colombia-site.
    VERSIE verhogen bij elke wijziging aan de site; de oude cache wordt dan opgeruimd.
    Strategie: alles vooraf in de cache (precache), daarna cache-first met update op de achtergrond. */
-var VERSIE = 'colombia-v9';
+var VERSIE = 'colombia-v13';
 var BESTANDEN = [
  "./activiteiten.html",
  "./bogota.html",
@@ -113,6 +113,7 @@ var BESTANDEN = [
  "./site.css",
  "./common.css",
  "./navbar.js",
+ "./narcos.html",
  "./countdown.js",
  "./dagplan.js",
  "./tayrona.html"
