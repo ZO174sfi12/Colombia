@@ -89,7 +89,7 @@ var RESERVATIES = [
   { id:'transfer-sal-mde', type:'transfer', dag:7, orde:1, status:'geboekt',
     titel:'Salento → Manizales → Medellín',
     van:'Salento', naar:'Medellín',
-    vertrek:'10:00', aankomst:'±17:33', duur:'±7u30 incl. stop',
+    vertrek:'10:00', aankomst:'±17:33', duur:'6u03 rijden · ±7u33 deur tot deur',
     operator:'Daytrip · privéchauffeur, sedan',
     prijs:'US$337 (€301) voor 2 personen', via:'Daytrip',
     bagage:'2 ruimkoffers + 2 handbagages inbegrepen',
