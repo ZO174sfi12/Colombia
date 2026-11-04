@@ -41,6 +41,15 @@
 .res-urgent{background:rgba(255,255,255,0.18);border-radius:6px;padding:0.15rem 0.55rem;font-size:0.7rem;font-weight:800;display:inline-block;margin-left:0.35rem;vertical-align:middle;}
 .warn-bar{background:#FEF3C7;border:1px solid #FCD34D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.4rem;font-size:0.83rem;color:#78350F;line-height:1.5;}
 .cash-bar{background:#FFF7ED;border:1px solid #FDB97D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.4rem;font-size:0.83rem;color:#92400E;line-height:1.5;}
+.cash-plan{margin:0 0 1.4rem;overflow-x:auto;}
+.cash-plan table{width:100%;border-collapse:collapse;font-size:0.78rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.cash-plan th{background:#1A4A2E;color:#fff;text-align:left;padding:0.5rem 0.6rem;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.4px;font-weight:700;}
+.cash-plan td{padding:0.55rem 0.6rem;border-top:1px solid var(--border);vertical-align:top;line-height:1.45;}
+.cash-plan tr.groot td{background:#FFF7ED;}
+.cash-plan .bedrag{font-weight:800;color:#1A4A2E;white-space:nowrap;}
+.cash-plan tr.tot td{border-top:2px solid #1A4A2E;font-weight:700;background:#F0FDF4;}
+.cash-note{font-size:0.75rem;color:var(--muted);line-height:1.6;margin:0.6rem 0 1.4rem;}
+.cash-note b{color:var(--text);}
 .ov-table{background:white;border-radius:12px;border:1px solid var(--border);overflow:hidden;margin-bottom:1.6rem;}
 .ov-row{display:flex;gap:0;border-bottom:1px solid var(--border);align-items:stretch;}
 .ov-day{min-width:80px;padding:0.7rem 0.6rem;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;text-align:center;}
@@ -109,7 +118,55 @@
 
   <!-- CASH STRATEGIE -->
   <div class="cash-bar">
-    💵 <strong>Cash-strategie:</strong> jullie betalen vooral met kaart, dus pin klein in de steden en groot vóór de kust. <strong>Dag 2 Bogotá:</strong> COP 600.000–800.000 bij Davivienda (hoogste plafond, COP 2.000.000 op Visa — maar <strong>niet gratis</strong>: ±COP 19.000–28.000 per opname). <strong>Dag 8–9 Medellín:</strong> bijvullen. <strong>Dag 12 Santa Marta, vóór je naar Minca rijdt:</strong> de grote opname — Minca, Tayrona en Palomino zijn tien dagen zonder betrouwbare automaat. Altijd <strong>in pesos</strong> afrekenen, nooit de euro-optie. Geen $300 om te wisselen; ±€100 aan briefjes als noodreserve is genoeg. </div>
+    💵 <strong>Cash-strategie:</strong> jullie betalen vooral met kaart, dus pin klein in de steden en groot vóór de kust. Vijf opnames, zie de tabel hieronder. Davivienda heeft het hoogste plafond (COP 2.000.000 op Visa) maar is <strong>niet gratis</strong>: ±COP 19.000–28.000 per opname. De grote is <strong>dag 12 in Santa Marta</strong>, vóór je naar Minca rijdt — daarna volgen tien dagen zonder betrouwbare automaat. Altijd <strong>in pesos</strong> afrekenen, nooit de euro-optie. Geen $300 om te wisselen; ±€100 aan briefjes als noodreserve is genoeg. </div>
+
+  <!-- CASH-PLAN -->
+  <div class="cash-plan">
+  <table>
+    <thead><tr><th>Wanneer</th><th>Waar</th><th>Hoeveel</th><th>Dekt</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Dag 2</b><br>do 19 nov</td>
+        <td>Davivienda, Bogotá centrum</td>
+        <td class="bedrag">COP 400.000</td>
+        <td>Monserrate, markt, snacks, fooien, bier. Musea en restaurants gaan met kaart.</td>
+      </tr>
+      <tr>
+        <td><b>Dag 3</b><br>vr 20 nov</td>
+        <td>Luchthaven Armenia of Salento</td>
+        <td class="bedrag">COP 700.000</td>
+        <td>Jeep Cocora, entree, koffiefinca, collectivo Filandia, paarden, downhill, dorpsrestaurants. Salento heeft géén zekere automaat — pin op El Edén.</td>
+      </tr>
+      <tr>
+        <td><b>Dag 8 of 9</b><br>wo–do 25–26 nov</td>
+        <td>Medellín, El Poblado</td>
+        <td class="bedrag">COP 600.000</td>
+        <td>Fooi Comuna 13, metro, Botero, taxi naar Guatapé, Piedra del Peñón, tuktuks, taxi naar MDE (±COP 185.000).</td>
+      </tr>
+      <tr class="groot">
+        <td><b>Dag 12</b><br>zo 29 nov</td>
+        <td><b>Santa Marta</b> — luchthaven of centrum, vóór je de berg op gaat</td>
+        <td class="bedrag">COP 1.800.000<br><small>(plafond = 2.000.000)</small></td>
+        <td><b>De grote opname.</b> Tien dagen Minca + Tayrona + Palomino zonder betrouwbare automaat: Tayrona-entree (COP 207.000 samen), motortaxi’s, La Victoria, Marinka, tubing, alle maaltijden, transport naar SMR op dag 22.</td>
+      </tr>
+      <tr>
+        <td><b>Dag 22 of 23</b><br>wo–do 9–10 dec</td>
+        <td>Bogotá</td>
+        <td class="bedrag">COP 400.000</td>
+        <td>Zipaquirá (±COP 220.000 samen), laatste diner, bier, luchthaventransport.</td>
+      </tr>
+      <tr class="tot"><td colspan="2">Totaal over 5 opnames</td><td class="bedrag">±COP 3.900.000</td><td>±€1.050 · opnamekosten samen ±COP 100.000 (±€27)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="cash-note">
+    <b>Waarom niet alles in Bogotá?</b> Het plafond is COP 2.000.000 per opname, dus alles vooraf halen kán niet én je zou drie weken met een dik pak rondlopen. Vijf opnames kosten samen ±€27 — dat is de prijs van niet vastzitten.<br>
+    <b>Dit is de ruime versie.</b> Betaal je consequent met kaart waar het kan (hotels, restaurants in Bogotá en Medellín, supermarkt, Uber), dan kom je rond <b>COP 2.400.000 (±€650)</b> uit. De kustlus van dag 12 tot 22 valt niet te drukken: dat is bijna volledig cash.<br>
+    <b>Drie posten zijn een schatting</b> omdat we de prijs nog niet weten: de paarden in Filandia, de downhill van dag 6 en de Reserva El Dorado op dag 15. Vraag bij het boeken of je met kaart kan — zo ja, haal COP 300.000 van de opname van dag 3 af.<br>
+    <b>Bedragen in pesos, niet in euro’s</b>, want de koers beweegt: reken grof met 3.700 COP per euro en lees altijd het bedrag op het scherm van de automaat.
+  </p>
+
 
   <!-- TAYRONA WAARSCHUWING -->
   <div class="warn-bar">
