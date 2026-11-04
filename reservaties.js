@@ -73,18 +73,29 @@ var RESERVATIES = [
     van:'Terminal Salitre', naar:'Terminal de Armenia',
     duur:'±7u30 + 1u colectivo',
     advies:'Bolivariano 2G Gold 07:00 → Armenia 14:33 → Salento ±16:00 · COP 80.000 p.p.',
-    link:'https://www.redbus.co/en/bus-tickets/bogota-to-armenia',
+    link:'https://www.redbus.co/en/bus-tickets/bogota-to-armenia?fromCityId=195201&fromCityName=Bogota%20(D.C)&toCityId=195230&toCityName=Armenia%20(Qui)&onward=20-Nov-2026&doj=20-Nov-2026&ref=search',
     note:'Terugvaloptie. Komt op hetzelfde uur in Salento aan als de vlucht, maar kost 7u30 bus en opstaan om 05:15.' },
 
-  { id:'bus-sal-mde', type:'bus', dag:7, status:'te-boeken',
+  { id:'bus-sal-mde', type:'bus', dag:7, orde:9, status:'vervallen',
     titel:'Salento → Medellín',
     van:'Terminal de Salento', naar:'Terminal del Sur',
     vertrek:'09:30', aankomst:'±16:00', duur:'±6u30',
     operator:'Flota Occidental · Línea Príncipe Star',
     prijs:'COP 89.000 + 5.340 fee p.p.',
-    link:'https://www.redbus.co/en/bus-tickets/salento-to-medellin',
+    link:'https://www.redbus.co/en/bus-tickets/salento-to-medellin?fromCityId=195231&fromCityName=Salento%20(Qui)&toCityId=195160&toCityName=Medellin%20(Ant)&onward=24-Nov-2026&doj=24-Nov-2026&ref=search',
     deadline:'URGENT — slechts 19 zitplaatsen',
-    note:'Lukt online boeken niet, laat je accommodatie in Salento de plaatsen vastleggen. Daarna Uber naar El Poblado.' },
+    note:'Slechts één maatschappij op deze route en drie ritten per dag (09:30, 12:30, 22:15) — de 09:30 heeft 19 zitplaatsen. Vooraf boeken dus. Lukt dat online niet, laat je accommodatie in Salento de plaatsen vastleggen. Daarna Uber naar El Poblado.' },
+
+  { id:'transfer-sal-mde', type:'transfer', dag:7, orde:1, status:'geboekt',
+    titel:'Salento → Manizales → Medellín',
+    van:'Salento', naar:'Medellín',
+    vertrek:'10:00', aankomst:'±17:33', duur:'±7u30 incl. stop',
+    operator:'Daytrip · privéchauffeur, sedan',
+    prijs:'US$337 (€301) voor 2 personen', via:'Daytrip',
+    bagage:'2 ruimkoffers + 2 handbagages inbegrepen',
+    tarief:'Standard — gratis annuleren tot 24u vooraf',
+    deadline:'Ophaal- en afzetadres aanpassen vóór 23 nov 10:00',
+    note:'Deur tot deur met eigen chauffeur, inclusief een stop van 1u30 in Manizales (12:06–13:36) om te lunchen. LET OP: het afzetadres staat nu op Plaza Botero in La Candelaria, niet in El Poblado — aanpassen zodra het hotel geboekt is. Hetzelfde voor het ophaaladres in Salento.' },
 
   { id:'bus-mde-gua', type:'bus', dag:10, status:'ter-plaatse',
     titel:'Medellín → Guatapé',
@@ -155,6 +166,12 @@ var RESERVATIES = [
     deadline:'Nog niet in de hotellijst opgenomen',
     note:'Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig. Raming €75/nacht (niveau Botánico); bagagebewaring op dag 24 afspreken.' },
 
+  /* ----------------------------------------------------- HERINNERINGEN -- */
+  { id:'herin-daytrip-adressen', type:'herinnering', dag:5, status:'te-boeken',
+    titel:'Daytrip-adressen invullen — deadline morgen 10:00', locatie:'salento',
+    deadline:'Vóór ma 23 nov 10:00',
+    note:'Vul in de boeking VRW7F2KW het echte ophaaladres in Salento in (staat nu op "Salento-Cocora") en het afzetadres in Medellín (staat nu op Plaza Botero in La Candelaria, moet El Poblado zijn). Na maandag 10:00 kan het niet meer, en dan rijdt de chauffeur je naar het verkeerde deel van de stad. Annuleren kan ook nog tot dat moment.' },
+
   /* ------------------------------------------------- ACTIVITEITEN (res) -- */
   { id:'act-comuna13', type:'activiteit', dag:8, status:'te-boeken',
     titel:'Free walking tour Comuna 13', locatie:'medellin',
@@ -191,6 +208,11 @@ var RESERVATIES = [
     link:'https://salentocycling.com',
     deadline:'Vooraf mailen bij Salento Cycling',
     note:'Voertuig naar La Carbonera op 3.400 m, daarna 30 km dalen door nevelwoud. 5 à 6 uur.' },
+
+  { id:'act-manizales', type:'activiteit', dag:7, status:'ter-plaatse',
+    titel:'Manizales — lunchstop, twee opties', locatie:'medellin',
+    vertrek:'12:06–13:36',
+    note:'De chauffeur stopt anderhalf uur, maar waar hij afzet spreek je zelf af — zeg het bij het instappen. OPTIE A: afzetten en ophalen aan de Plaza de Bolívar. Eerst het plein met de Bolívar-Cóndor en de kathedraal (gratis), dan lunch bij La Azotea Rooftop op verdieping 15 pal aan het plein, 360° uitzicht. Reserveren via WhatsApp +57 322 306 8358. Nul looptijd, maar geen streeketen. OPTIE B: afzetten bij El Zaguán Paisa, Carrera 23 #31-27 — bamboegang, menú del día of plato montañero. Rond 13:05 afrekenen, kwartier over Carrera 23 naar het plein, daar om 13:30 opgepikt. Echt paisa-eten, maar een kwartier lopen en maar vijftien minuten plein. In beide gevallen: kathedraaltoren overslaan (rondleiding 1u15) en niet naar de Zona Rosa, die ligt 3 km verderop.' },
 
   { id:'act-minca-pozoazul', type:'activiteit', dag:13, status:'ter-plaatse',
     titel:'Pozo Azul + Hacienda La Victoria', locatie:'minca',
@@ -271,8 +293,8 @@ var REISDAGEN = 24;
 var BUDGET_POSTEN = [
   { id:'hotels',       label:'🏨 Overnachtingen',      detail:null, /* wordt berekend uit prijs of raming per hotel */
     perNacht:70, zeker:false },
-  { id:'grondvervoer', label:'🚌 Vervoer over land',   detail:'bussen, collectivo\'s, taxi El Edén → Salento, transfer Guatapé → Rionegro',
-    bedrag:137,  zeker:false },
+  { id:'grondvervoer', label:'🚌 Vervoer over land',   detail:'collectivo\'s, taxi El Edén → Salento, transfer Guatapé → Rionegro, bussen aan de kust',
+    bedrag:95,  zeker:false },
   { id:'activiteiten', label:'🎟️ Activiteiten & tours', detail:'€340 p.p.',
     bedrag:340*PERSONEN, zeker:false },
   { id:'eten',         label:'🍽️ Eten & drinken',      detail:'€35 p.p. per dag × ' + REISDAGEN + ' dagen',
@@ -313,7 +335,7 @@ function budgetOverzicht(){
   });
   var vluchten = 0, vluchtItems = [];
   RESERVATIES.slice().sort(resSorteer).forEach(function(r){
-    if (r.status === 'vervallen' || r.type !== 'vlucht') return;
+    if (r.status === 'vervallen' || (r.type !== 'vlucht' && r.type !== 'transfer')) return;
     var b = resBedrag(r);
     if (b > 0){ vluchten += b; vluchtItems.push(r); }
   });

@@ -13,7 +13,7 @@
   function esc(x){ return String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
   function inRange(d){ return d >= van && d <= tot; }
 
-  var ICO = { vlucht:'✈️', bus:'🚌', hotel:'🏨', activiteit:'🎯' };
+  var ICO = { vlucht:'✈️', bus:'🚌', transfer:'🚗', hotel:'🏨', activiteit:'🎯', herinnering:'⏰' };
   var regels = [];
 
   /* overnachting(en) voor deze locatie binnen dit dagbereik */
@@ -32,7 +32,7 @@
   /* heen- en terugreis: bewegingen op de eerste en laatste dag, op dagvolgorde */
   var bewegingen = [];
   RESERVATIES.slice().sort(resSorteer).forEach(function(r){
-    if (r.type !== 'bus' && r.type !== 'vlucht') return;
+    if (r.type !== 'bus' && r.type !== 'vlucht' && r.type !== 'transfer') return;
     if (r.status === 'vervallen') return;
     if (r.dag !== van && r.dag !== tot) return;
     var rol = (r.dag === van) ? 'Aankomst' : 'Verder reizen';
@@ -59,6 +59,17 @@
     regels.push({ ico:ICO.activiteit, kop:r.titel, sub:d.join(' · '), status:r.status, link:'activiteiten.html' });
   });
 
+  /* herinneringen met een dag in dit bereik, bovenaan */
+  var herinneringen = [];
+  RESERVATIES.forEach(function(r){
+    if (r.type !== 'herinnering' || r.status === 'vervallen') return;
+    if (!inRange(r.dag)) return;
+    herinneringen.push({ ico:ICO.herinnering, kop:r.titel,
+      sub:'Dag ' + r.dag + ' · ' + resDatum(r.dag) + (r.note ? ' · ' + esc(r.note) : ''),
+      status:r.status, link:'#', klasse:'rr-herinnering' });
+  });
+  regels = herinneringen.concat(regels);
+
   if (!regels.length){ el.style.display = 'none'; return; }
 
   var tel = { geboekt:0, 'te-boeken':0, 'ter-plaatse':0 };
@@ -69,7 +80,7 @@
   if (tel['ter-plaatse']) samen.push('○ ' + tel['ter-plaatse'] + ' ter plaatse');
   var html = '<div class="res-blok-kop klik" role="button" tabindex="0"><span>Vastgelegd voor deze locatie · <small style="font-weight:600">' + samen.join(' · ') + '</small></span><span class="rb-chev">▾</span></div>';
   regels.forEach(function(x){
-    html += '<div class="res-regel">' +
+    html += '<div class="res-regel' + (x.klasse ? ' ' + x.klasse : '') + '">' +
       '<span class="rr-ico">' + x.ico + '</span>' +
       '<span class="rr-txt"><a href="' + x.link + '" style="color:inherit;text-decoration:none;font-weight:700">' +
         esc(x.kop) + '</a>' + (x.sub ? '<small>' + x.sub + '</small>' : '') + '</span>' +

@@ -434,3 +434,9 @@ body .topbar .share-btn { padding:0.2rem 0.6rem; font-size:0.76rem; }
 
 /* iOS: achtergrond doortrekken onder de home indicator / notch */
 html { background:var(--cream,#FAF8F4); }
+
+/* herinnering in het locatieblok */
+.res-regel.rr-herinnering{background:#FFFBEB;border:1px solid #FCD34D;border-radius:8px;
+  padding:0.55rem 0.7rem;margin-bottom:0.5rem;border-top:1px solid #FCD34D;}
+.res-regel.rr-herinnering .rr-txt{font-weight:600;color:#78350F;}
+.res-regel.rr-herinnering .rr-txt small{color:#92400E;font-weight:400;}
