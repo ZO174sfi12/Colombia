@@ -132,39 +132,39 @@ var RESERVATIES = [
     note:'Uitchecken vrijdag 10:15 — dezelfde dag als de vlucht naar Armenia (13:30).' },
 
   { id:'hotel-salento', type:'hotel', dag:3, totDag:7, status:'te-boeken',
-    titel:'Salento', locatie:'salento', datums:'20–24 nov', nachten:4, raming:64,
-    note:'Eerste keuze Casa Salento (±€64/nacht incl. ontbijt).' },
+    titel:'Salento', locatie:'salento', datums:'20–24 nov', nachten:4, raming:45,
+    note:'⚠️ Casa Salento is VOLZET voor 20–24 nov (gecheckt 4 nov 2026). Booking biedt daar wel 21–24 nov aan, 3 nachten vanaf €151 (≈€50/nacht) — maar dan mis je een nacht. Beschikbaar én goedkoper in Salento: Hospedaje Camino Real (€146 voor 4 nachten, ≈€37/nacht, 8,8 met 570 reviews) of Hotel Campestre La Chiva (€132, ≈€33/nacht). Raming bijgesteld van €64 naar €45/nacht.' },
 
   { id:'hotel-medellin', type:'hotel', dag:7, totDag:10, status:'te-boeken',
-    titel:'Medellín (El Poblado)', locatie:'medellin', datums:'24–27 nov', nachten:3, raming:90,
-    note:'Eerste keuze 574 Hotel Poblado — prijs nog op te zoeken, raming €90/nacht.' },
+    titel:'Medellín (El Poblado)', locatie:'medellin', datums:'24–27 nov', nachten:3, raming:52,
+    note:'✅ 574 Hotel (El Poblado) is beschikbaar: €157 voor 3 nachten (van €185), ontbijt inbegrepen, gratis annuleren, niets vooruit betalen — ≈€52/nacht. 9,0 op Booking met 2.083 reviews. Gecheckt 4 nov 2026. Raming bijgesteld van €90 naar €52/nacht.' },
 
   { id:'hotel-guatape', type:'hotel', dag:10, totDag:12, status:'te-boeken',
     titel:'Guatapé', locatie:'guatape', datums:'27–29 nov', nachten:2,
-    raming:26,
-    note:'Twee nachten, zodat La Piedra, de boottocht en eventueel de afdaling naar San Rafael allemaal passen. Kies iets aan het meer. Eerste keuze Hotel Guatatur (±€26 incl. ontbijt).' },
+    raming:40,
+    note:'⚠️ Hotel Guatatur is VOLZET voor 27–29 nov (gecheckt 4 nov 2026), en wáár het nog kan kost het ±€96/nacht — de oude raming van €26 was niet realistisch. Beschikbaar: Hospedaje Marin (€61 voor 2 nachten, ≈€30/nacht, 8,8 met 121 reviews) of Libélula finca-hotel (€82, ≈€41/nacht, 8,6 met 95). Twee nachten, zodat La Piedra, de boottocht en eventueel San Rafael passen; kies iets aan het meer.' },
 
   { id:'hotel-minca', type:'hotel', dag:12, totDag:16, status:'te-boeken',
     titel:'Minca', locatie:'minca', datums:'29 nov – 3 dec', nachten:4, raming:59,
-    note:'Eerste keuze Costeño River Minca (±€59/nacht). Alternatieven uit reisverslagen en de gidsen: Hostal Sierra Minca (1.600 m hoog, drie maaltijden per dag, zwembad en hangmatten met zicht tot Santa Marta), Casa del Pozo Azul (vijf minuten van de waterval, aan de rivier), Mini Cabaña TANOA (boscabañas, kwartier buiten het dorp bij Pozo Azul), Hotel Minca Express Relax (centrum, budget) en Masaya Casas Viejas (boutique met infinity pool, maar een half uur buiten Minca — staat ook in de Rough Guide).' },
+    note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Eerste keuze Costeño River Minca (±€59/nacht). Alternatieven uit reisverslagen en de gidsen: Hostal Sierra Minca (1.600 m hoog, drie maaltijden per dag, zwembad en hangmatten met zicht tot Santa Marta), Casa del Pozo Azul (vijf minuten van de waterval, aan de rivier), Mini Cabaña TANOA (boscabañas, kwartier buiten het dorp bij Pozo Azul), Hotel Minca Express Relax (centrum, budget) en Masaya Casas Viejas (boutique met infinity pool, maar een half uur buiten Minca — staat ook in de Rough Guide).' },
 
   { id:'hotel-tayrona', type:'hotel', dag:16, totDag:18, status:'te-boeken',
     titel:'Parque Tayrona', locatie:'tayrona', datums:'3–5 dec', nachten:2,
     raming:61,
     deadline:'Ruim aanbod — gidsen raden 1 à 2 nachten aan',
-    note:'Eerste keuze Quetzal Dorado Eco-Lodge (±€61/nacht), 1,5 km van de ingang. Boek met gratis annuleren — zie plan B op de Tayrona-pagina (kustweg kan 1–2 dagen dicht).' },
+    note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Eerste keuze Quetzal Dorado Eco-Lodge (±€61/nacht), 1,5 km van de ingang. Boek met gratis annuleren — zie plan B op de Tayrona-pagina (kustweg kan 1–2 dagen dicht).' },
 
   { id:'hotel-palomino', type:'hotel', dag:18, totDag:22, status:'te-boeken',
     titel:'Palomino', locatie:'palomino', datums:'5–9 dec', nachten:4,
     raming:122,
     deadline:'Hoogseizoen — 7 dec is Día de las Velitas · gratis annuleren',
-    note:'Eerste keuze Casa del Pavo Real (±€122/nacht) — duurste verblijf van de reis.' },
+    note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Eerste keuze Casa del Pavo Real (±€122/nacht) — duurste verblijf van de reis.' },
 
   { id:'hotel-bogota2', type:'hotel', dag:22, totDag:24, status:'te-boeken',
     titel:'Bogotá — laatste nachten', locatie:'bogota', datums:'9–11 dec', nachten:2,
     raming:75,
     deadline:'Nog niet in de hotellijst opgenomen',
-    note:'Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig. Raming €75/nacht (niveau Botánico); bagagebewaring op dag 24 afspreken.' },
+    note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig. Raming €75/nacht (niveau Botánico); bagagebewaring op dag 24 afspreken.' },
 
   /* ----------------------------------------------------- HERINNERINGEN -- */
   { id:'herin-daytrip-adressen', type:'herinnering', dag:5, status:'te-boeken',
