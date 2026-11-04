@@ -163,7 +163,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <!-- ══════ STAD NODES ══════ -->
 
         <!-- Bogotá -->
-        <g><circle cx="452" cy="362" r="11" fill="white" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,2.5"/><text x="452" y="363" text-anchor="middle" dominant-baseline="middle" font-size="9">✈️</text><text x="452" y="379" text-anchor="middle" font-family="Nunito,sans-serif" font-size="9" fill="#92400E" font-weight="800">Armenia <tspan font-size="8">(AXM)</tspan></text><text x="452" y="389" text-anchor="middle" font-family="Nunito,sans-serif" font-size="7.5" fill="#B45309">1u05 vanaf Bogota</text></g><g><circle cx="316" cy="290" r="11" fill="white" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,2.5"/><text x="316" y="291" text-anchor="middle" dominant-baseline="middle" font-size="9">✈️</text><text x="333" y="288" text-anchor="start" font-family="Nunito,sans-serif" font-size="8.5" fill="#92400E" font-weight="800">(MDE)</text></g><g><circle cx="452" cy="44" r="11" fill="white" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,2.5"/><text x="452" y="45" text-anchor="middle" dominant-baseline="middle" font-size="9">✈️</text><text x="452" y="61" text-anchor="middle" font-family="Nunito,sans-serif" font-size="9" fill="#92400E" font-weight="800">Santa Marta <tspan font-size="8">(SMR)</tspan></text><text x="452" y="71" text-anchor="middle" font-family="Nunito,sans-serif" font-size="7.5" fill="#B45309">aankomst kust</text></g>
+        <g><circle cx="452" cy="362" r="11" fill="white" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,2.5"/><text x="452" y="363" text-anchor="middle" dominant-baseline="middle" font-size="9">✈️</text><text x="452" y="379" text-anchor="middle" font-family="Nunito,sans-serif" font-size="9" fill="#92400E" font-weight="800">Armenia <tspan font-size="8">(AXM)</tspan></text><text x="452" y="389" text-anchor="middle" font-family="Nunito,sans-serif" font-size="7.5" fill="#B45309">1u05 vanaf Bogota</text></g><g><circle cx="316" cy="290" r="11" fill="white" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,2.5"/><text x="316" y="291" text-anchor="middle" dominant-baseline="middle" font-size="9">✈️</text><text x="333" y="288" text-anchor="start" font-family="Nunito,sans-serif" font-size="8.5" fill="#92400E" font-weight="800">(MDE)</text></g><g><circle cx="452" cy="44" r="11" fill="white" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,2.5"/><text x="452" y="45" text-anchor="middle" dominant-baseline="middle" font-size="9">✈️</text><text x="452" y="61" text-anchor="middle" font-family="Nunito,sans-serif" font-size="9" fill="#92400E" font-weight="800">Santa Marta (SMR)</text><text x="452" y="71" text-anchor="middle" font-family="Nunito,sans-serif" font-size="7.5" fill="#B45309">heen &amp; terug</text></g>
         <a href="bogota.html">
           <circle cx="618" cy="422" r="22" fill="#1A4A2E"/>
           <text x="618" y="428" text-anchor="middle" dominant-baseline="middle" font-size="15">🏙️</text>
@@ -231,15 +231,18 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
           <text x="695" y="129" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" fill="#1C2A1E" font-weight="700">Palomino</text>
           <text x="695" y="143" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#4A5E4D" data-verblijf="hotel-palomino" data-veld="nachten">4 nachten</text>
         </a>
-        <rect x="660" y="77" width="50" height="14" rx="7" fill="#FEF3C7"/>
-        <text x="685" y="87" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" fill="#92400E" font-weight="700" data-verblijf="hotel-palomino" data-veld="dagen-klein">dag 18–21</text>
+        <rect x="718" y="90" width="52" height="14" rx="7" fill="#FEF3C7"/>
+        <text x="721" y="100" text-anchor="start" font-family="Nunito,sans-serif" font-size="8.5" fill="#92400E" font-weight="700" data-verblijf="hotel-palomino" data-veld="dagen-klein">dag 18–21</text>
 
         <!-- Dag 22: Palomino → Santa Marta → vlucht naar Bogotá -->
-        <path d="M 695 117 Q 822 272 640 418" stroke="#D97706" stroke-width="2.6" fill="none" stroke-dasharray="9,5"/>
+        <!-- dag 22a: weg Palomino → luchthaven Santa Marta -->
+        <path d="M 695 79 C 650 70, 520 58, 457 44" stroke="#1A4A2E" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- dag 22b: vlucht Santa Marta → Bogotá -->
+        <path d="M 457 34 C 560 6, 720 8, 792 92 C 838 210, 798 345, 648 408" stroke="#D97706" stroke-width="2.8" fill="none" stroke-dasharray="10,5"/>
         <rect x="738" y="246" width="94" height="16" rx="8" fill="white" opacity="0.94"/>
-        <text x="706" y="336" text-anchor="end" font-family="Nunito,sans-serif" font-size="8.5" fill="#92400E" font-weight="800">✈️ SMR → BOG 1u33</text>
+        <text x="772" y="252" text-anchor="end"  font-family="Nunito,sans-serif" font-size="8.5" fill="#92400E" font-weight="800">✈️ SMR → BOG 1u33</text>
         <rect x="716" y="300" width="74" height="14" rx="7" fill="white" opacity="0.9"/>
-        <text x="726" y="196" text-anchor="end" font-family="Nunito,sans-serif" font-size="8" fill="#B45309" font-weight="700">🚌 Palomino → SMR 1u30</text>
+        <text x="576" y="50" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8" fill="#1A4A2E" font-weight="700">🚕 Palomino → SMR 1u30</text>
 
         <!-- Dag 24: vanuit Bogotá naar Brussel -->
         <a href="bogota2.html">
@@ -365,7 +368,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
         <div class="leg-title">Palomino → Santa Marta → Bogotá (BOG)</div>
         <div class="leg-sub">Vertrek 11:30 uit Palomino — taxi of collectivo rechtstreeks naar de luchthaven van Santa Marta (±1u30), via je accommodatie geregeld (dag na het Velitas-weekend, drukte op de kustweg). JetSMART JA5171 14:42 → 16:15 — ✓ geboekt, €283,69 voor twee. Rond 17:30 in het hotel.</div>
         <div class="chips">
-          <span class="chip">🚌 ±1u30 · vertrek 11:30</span>
+          <span class="chip">🚕 Taxi/collectivo ±1u30 · vertrek 11:30</span>
           <span class="chip green">✓ geboekt · JA5171</span><span class="chip purple">✈️ 14:42 → 16:15</span>
           <span class="chip amber">⚠️ Uber vanaf El Dorado</span>
         </div>
