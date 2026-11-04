@@ -139,7 +139,9 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var
 .brewery-scene-note strong{color:var(--text);}
 
 /* ── HORECA PER LOCATIE ── */
-.horeca-wrap{margin-top:2.5rem;}
+.horeca-wrap{max-width:1040px;margin:2.5rem auto 0;padding:0 1rem;}
+@media(max-width:420px){.horeca-wrap{padding:0 0.85rem;}}
+@media(min-width:1200px){.horeca-wrap{max-width:900px;}}
 .loc-filter{display:flex;flex-wrap:wrap;gap:0.4rem;margin:0 0 1.4rem;}
 .loc-filter .pill{font-size:0.75rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:20px;border:2px solid var(--border);background:white;color:var(--muted);cursor:pointer;font-family:inherit;transition:all 0.12s;}
 .loc-filter .pill.active{background:var(--navy,#1A4A2E);color:white;border-color:var(--navy,#1A4A2E);}
