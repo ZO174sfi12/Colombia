@@ -53,7 +53,6 @@
     <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
   </div>
 </div>
-</div>
 <div class="subnav subnav-locs">
   <a href="bogota.html">🏙️ Bogotá</a>
   <a href="salento.html">☕ Salento</a>
@@ -161,11 +160,16 @@
       <div class="card purple">
         <div class="time">Namiddag · Wandelen</div>
         <h3>🎨 Kleurrijke Zocalo's van Guatapé</h3>
+        <img src="img/zocalos.webp" alt="Kleurrijke zócalos aan de gevels van Guatapé" style="width:100%;max-height:210px;object-fit:cover;border-radius:8px;margin:0.6rem 0 0.2rem;display:block;" loading="lazy">
         <p class="desc">Guatapé is de kleurrijkste stad van Colombia. Elk huis heeft unieke ingekleurde reliëf-panelen (zocalo's) op de onderkant van de gevels die taferelen uit het dagelijkse leven verbeelden. Wandel door de straatjes en bewonder de details.</p>
         <div class="meta">
           <span class="chip price">💶 Gratis</span>
           <span class="chip">🎨 Uniek in Colombia</span>
         </div>
+        <div class="biertip"><span class="bt-ico">🍺</span><div><b>Bier bij zonsondergang:</b> Guatapé heeft geen brouwerij, maar
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Lake+View+Hostel+Carrera+22+29B-29+Guatap%C3%A9+Colombia" target="_blank" rel="noopener">Lake View Hostel</a> (Cra 22 #29B-29) heeft een dakterras over het meer.
+          Je komt voor het uitzicht, niet voor de taplijst. <a href="culinair.html#loc=guatape">Adressen →</a></div></div>
+
       </div>
     </div>
 
@@ -204,6 +208,7 @@
           <div class="details-body">
             <p><strong>El Cruz</strong> — een kruis dat het verdronken dorp Viejo Peñol markeert. Bij laag water steken de resten van het oude dorp boven het wateroppervlak uit.</p>
             <p><strong>Museo del Viejo Peñol</strong> — in een 200 jaar oud huis, het enige gebouw van het oude dorp dat boven de waterlijn bleef. Binnen hangen foto's van hoe het er vroeger uitzag.</p>
+            <img src="img/guatape_la_manuela.webp" alt="Hacienda La Manuela, de ruïnes van Escobars landgoed aan het Guatapé-meer" style="width:100%;max-height:200px;object-fit:cover;border-radius:8px;margin:0.5rem 0;display:block;" loading="lazy">
             <p><strong>Hacienda La Manuela</strong> — de ruïnes van Pablo Escobars vakantiehuis aan het meer, uitgebrand en vervallen. De meeste boten varen er langs.</p>
             <p><strong>Een eiland</strong> in het midden van het meer hoort ook bij de standaardronde.</p>
           </div>
@@ -293,5 +298,6 @@ window.addEventListener('afterprint',function(){document.querySelectorAll('detai
 <script src="countdown.js"></script>
 <script src="navbar.js"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
+<script src="lightbox.js"></script>
 </body>
 </html>

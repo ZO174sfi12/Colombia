@@ -146,7 +146,7 @@ var RESERVATIES = [
 
   { id:'hotel-minca', type:'hotel', dag:12, totDag:16, status:'te-boeken',
     titel:'Minca', locatie:'minca', datums:'29 nov – 3 dec', nachten:4, raming:59,
-    note:'Eerste keuze Costeño River Minca (±€59/nacht).' },
+    note:'Eerste keuze Costeño River Minca (±€59/nacht). Alternatieven uit reisverslagen en de gidsen: Hostal Sierra Minca (1.600 m hoog, drie maaltijden per dag, zwembad en hangmatten met zicht tot Santa Marta), Casa del Pozo Azul (vijf minuten van de waterval, aan de rivier), Mini Cabaña TANOA (boscabañas, kwartier buiten het dorp bij Pozo Azul), Hotel Minca Express Relax (centrum, budget) en Masaya Casas Viejas (boutique met infinity pool, maar een half uur buiten Minca — staat ook in de Rough Guide).' },
 
   { id:'hotel-tayrona', type:'hotel', dag:16, totDag:18, status:'te-boeken',
     titel:'Parque Tayrona', locatie:'tayrona', datums:'3–5 dec', nachten:2,
