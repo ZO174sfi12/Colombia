@@ -32,7 +32,9 @@ var RESERVATIES = [
     duur:'15u20 · 1 stop', operator:'Swiss · Brussels Airlines · Edelweiss',
     vluchtnr:'LX4555 + LX8092',
     prijs:'€1.944,42 voor 2 personen (heen en terug)',
-    note:'Uber of Cabify van El Dorado naar Botánico — nooit een gewone taxi.' },
+    tarief:'Economy Comfort',
+    bagage:'Per persoon: 23 kg ruimbagage + handbagage max 8 kg (23×40×55 cm) + persoonlijk item',
+    note:'Via Zürich: LX4555 Brussel 10:05 → Zürich 11:25, dan LX8092 Zürich 13:30 → Bogotá 19:25. Overstap in Zürich 2u05. Bij aankomst Uber of Cabify van El Dorado naar Botánico — nooit een gewone taxi.' },
 
   { id:'vlucht-mde-smr', type:'vlucht', dag:12, orde:2, status:'geboekt',
     titel:'Rionegro (MDE) → Santa Marta',
@@ -52,7 +54,7 @@ var RESERVATIES = [
     van:'BOG', naar:'BRU', vertrek:'23:15', aankomst:'20:15 (za 12 dec)',
     duur:'15u · 1 stop', operator:'Lufthansa · Brussels Airlines',
     vluchtnr:'LH543 + LH5578',
-    note:'Zelfde boeking als de heenvlucht — prijs staat daar.' },
+    note:'Zelfde boeking als de heenvlucht — prijs staat daar. Via Frankfurt: LH543 Bogotá 23:15 → Frankfurt 15:55 (volgende dag), dan LH5578 Frankfurt 19:10 → Brussel 20:15. Overstap in Frankfurt 3u15. Schemawijziging oktober 2026 verwerkt en bevestigd; beheer de boeking via swiss.com, niet Lufthansa.' },
 
   /* ----------------------------------------------- BINNENLANDSE VLUCHT --- */
   { id:'vlucht-bog-axm', type:'vlucht', dag:3, orde:1, status:'geboekt',
