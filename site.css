@@ -464,3 +464,16 @@ img.lb-klik{cursor:zoom-in;}
 .biertip a{color:#8A6418;font-weight:600;text-decoration:none;border-bottom:1px dotted #C9962A;}
 .biertip a:hover{color:#5E440F;}
 .biertip b{color:#1A4A2E;}
+
+/* ── Untappd-score op de brouwerijkaarten ────────────────── */
+.brewery-score{display:flex;align-items:baseline;gap:0.4rem;flex-wrap:wrap;margin:0.1rem 0 0.55rem;}
+.bs-stars{font-size:0.9rem;letter-spacing:1px;color:#C9962A;line-height:1;}
+.bs-num{font-size:0.95rem;font-weight:800;color:#1A4A2E;}
+.bs-max{font-size:0.7rem;color:var(--muted);margin-left:-0.25rem;}
+.bs-n{font-size:0.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.4px;}
+.bs-geen{font-size:0.7rem;color:var(--muted);font-style:italic;}
+.bs-medaille{font-size:0.62rem;font-weight:700;padding:0.1rem 0.4rem;border-radius:20px;
+  background:#FEF3C7;color:#8A6418;border:1px solid #F3DFA2;white-space:nowrap;}
+.beer-uitleg{font-size:0.76rem;line-height:1.6;color:var(--muted);background:#F9FAFB;
+  border:1px solid var(--border);border-radius:10px;padding:0.75rem 0.9rem;margin:0.8rem 0 1.6rem;}
+.beer-uitleg b{color:var(--text);}
