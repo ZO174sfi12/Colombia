@@ -477,3 +477,8 @@ img.lb-klik{cursor:zoom-in;}
 .beer-uitleg{font-size:0.76rem;line-height:1.6;color:var(--muted);background:#F9FAFB;
   border:1px solid var(--border);border-radius:10px;padding:0.75rem 0.9rem;margin:0.8rem 0 1.6rem;}
 .beer-uitleg b{color:var(--text);}
+a.bs-link{display:inline-flex;align-items:baseline;gap:0.35rem;text-decoration:none;
+  border-bottom:1px dotted #C9962A;padding-bottom:1px;}
+a.bs-link:hover{border-bottom-color:#8A6418;}
+a.bs-link:hover .bs-num{color:#8A6418;}
+.bs-ut{font-size:0.6rem;font-weight:700;color:#8A6418;text-transform:uppercase;letter-spacing:0.5px;}
