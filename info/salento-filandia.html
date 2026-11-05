@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<link rel="stylesheet" href="../common.css">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="../img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
+<title>🏘️ Filandia · Salento · Colombia</title>
+<style>
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.4rem;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;background:#F5F2EE;color:#4A5E4D;border:1px solid #E5E0D8;transition:opacity 0.15s;}
+.source-label{font-size:0.75rem;font-weight:700;padding:0.6rem 1.2rem;background:#F8FAFF;border-bottom:1px solid var(--border);letter-spacing:0.3px;}
+.fact-value{font-size:0.9rem;font-weight:600;color:var(--text);}
+.intro-block p{font-size:0.9rem;line-height:1.7;color:var(--text);margin-bottom:0.6rem;}
+.intro-block{background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.4rem;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.hero h1{font-size:1.75rem;font-weight:800;line-height:1.2;}
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;--accent:#78350F;}
+.hero{background:linear-gradient(135deg,#451A03,#78350F,#92400E);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.tip-box{background:linear-gradient(135deg,#451A03,var(--accent));border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+@media(min-width:580px){.facts-grid{grid-template-columns:repeat(3,1fr);}.hero h1{font-size:2.1rem;}}
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="../index.html" aria-label="Naar het overzicht">Colombia 2026</a>
+  <div class="topbar-right">
+    <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
+  </div>
+</div>
+<div class="subnav subnav-locs">
+  <a href="../bogota.html">🏙️ Bogotá</a>
+  <a href="../salento.html">☕ Salento</a>
+  <a href="../medellin.html">🌆 Medellín</a>
+  <a href="../guatape.html">🪨 Guatapé</a>
+  <a href="../minca.html">🌿 Minca</a>
+  <a href="../tayrona.html">🌴 Tayrona</a>
+  <a href="../palomino.html">🏖️ Palomino</a>
+  <a href="../bogota2.html">🏙️ Bogotá 2</a>
+</div>
+<div class="subnav subnav-info">
+  <a href="../index.html">🏠 Overzicht</a>
+  <a href="../culinair.html">🍽️ Culinair</a>
+  <a href="../activiteiten.html">🎯 Activiteiten</a>
+  <a href="../hotels.html">🏨 Hotels</a>
+  <a href="../praktisch.html">📌 Praktisch</a>
+  <a href="../routes.html">🗺️ Kaart &amp; Routes</a>
+</div>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="../salento.html">Salento</a> › Filandia</div>
+  <h1>🏘️ Filandia</h1>
+  <p class="sub">Dag 5 · zondag 22 nov · koffie, paarden en uitzicht</p>
+</div>
+
+<div class="section">
+
+  <div class="intro-block">
+    <p>Filandia is het rustigere zusje van Salento: hetzelfde kleurrijke koloniale karakter, minder souvenirwinkels en betere panorama's. De Rough Guide vindt de plaza beter bewaard dan die van Salento. Op zondag staat er een markt op het plein en komen veel Colombianen op weekenduitstap.</p>
+    <p>Lonely Planet geeft Filandia een volle dag: koffie op de plaza, een rit te paard door de heuvels, de houten uitkijktoren Colina Iluminada en brulapen in de Reserva Barbas-Bremen.</p>
+  </div>
+
+  <img src="../img/filandia.webp" alt="Kleurrijke gevels aan het plein van Filandia" style="width:100%;max-width:560px;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:12px;margin:0 auto 1.4rem;" onerror="this.style.display='none'">
+
+  <div class="facts-grid">
+    <div class="fact"><div class="fact-label">Willy vanaf Salento</div><div class="fact-value">±COP 7.500 p.p. · ±40 min</div></div>
+    <div class="fact"><div class="fact-label">Laatste willy terug</div><div class="fact-value">18:10</div></div>
+    <div class="fact"><div class="fact-label">Paardrijden</div><div class="fact-value">COP 220.000 p.p. · 3 u</div></div>
+    <div class="fact"><div class="fact-label">Mirador</div><div class="fact-value">COP 8.000–12.000 · tot 18u</div></div>
+    <div class="fact"><div class="fact-label">Zonsondergang</div><div class="fact-value">±17:45</div></div>
+    <div class="fact"><div class="fact-label">Zondag</div><div class="fact-value">markt op het plein</div></div>
+  </div>
+
+  <div class="intro-block">
+    <p><strong>📅 Dagplan</strong></p>
+    <p>08:00 · willy vanaf de plaza van Salento (elk uur op het uur)<br>
+    08:45 · koffie bij Mocafé en de zondagsmarkt · retourticket voor 18:10 meteen kopen<br>
+    09:30 · 🐴 paardrijden (optie A) <em>of</em> vanaf ±06:00 🐒 brulapen in Barbas-Bremen (optie B)<br>
+    13:00 · lunch bij Helena Adentro, vraag een tafel op het terras<br>
+    15:00 · mandenvlechters in de Casa del Artesano (Cra 5 / Calle 6), mandje vlechten vanaf COP 20.000<br>
+    16:30 · 🗼 Mirador Colina Iluminada, 1 km buiten het dorp<br>
+    18:10 · laatste willy terug · ±18:50 in Salento · daarna ManoNegra Taproom</p>
+  </div>
+
+  <div class="source-block lp">
+    <div class="source-label">🐴 Optie A · paardrijden (voorkeur)</div>
+    <div class="source-body"><p><strong>Rural Adventure</strong> (Finca Akila, La India): 3 uur met vaquero langs koffievelden naar de Río Barbas en de Quebrada La Plata, koffie bij de start, snack aan de rivier. Helm en regenkledij inbegrepen. COP 220.000 p.p., minimum 2, gids in het Engels te vragen. Gratis annuleren tot 5 dagen vooraf.</p>
+    <p>Status: WhatsApp-aanvraag verstuurd op 5 nov (vervoer vanuit Salento, betaling) — wacht op antwoord van David (+57 312 834 4386).</p>
+    <p><a href="https://www.ruraladventure.co/en/cabalgata-ecologica-finca-akila" target="_blank" rel="noopener">Bekijk de rit op Rural Adventure ↗</a></p></div>
+  </div>
+
+  <div class="source-block rg">
+    <div class="source-label">🐒 Optie B · Reserva Barbas-Bremen</div>
+    <div class="source-body"><p>Nevelwoud in een kloof met troepen brulapen, enkel 's ochtends vroeg actief: start ±6u, 3–5 uur wandelen, alleen met gids. Horen doe je ze bijna zeker, zien is niet gegarandeerd. Georganiseerde tour ±US$105 p.p. Kies je dit, dan vallen de paarden weg.</p></div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-title">💡 Tips</div>
+    <p>• Koop je retourticket voor de willy bij aankomst — op zondag loopt de laatste snel vol</p>
+    <p>• De uitkijktoren sluit om 18:00: vertrek uiterlijk 17:45 voor de willy van 18:10</p>
+    <p>• Waterschoenen of oude sneakers voor de rit door de rivier · regenjas mee</p>
+    <p>• Koffiefinca staat als optie in Salento (Las Acacías): hier gewoon een kop op de plaza</p>
+  </div>
+
+</div>
+
+<div class="nav-wrap">
+  <a href="../salento.html#dag-5" class="back-btn">← Terug naar dag 5 in Salento</a>
+</div>
+
+<div class="footer">🇨🇴 Colombia · Filandia · Dag 5 · Salento</div>
+<script>
+function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
+</script>
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
+window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});
+</script>
+<script src="../reservaties.js"></script>
+<script src="../countdown.js"></script>
+<script src="../navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("../sw.js",{scope:"../"}).catch(function(){});}</script>
+<script src="../lightbox.js"></script>
+</body>
+</html>

@@ -33,7 +33,27 @@
 .pk-groep .sec-title small{font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0;}
 .pk-lijst{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .pk-lijst li+li{border-top:1px solid var(--border);}
-.pk-lijst label{display:grid;grid-template-columns:22px 1fr auto;gap:0.65rem;align-items:start;padding:0.65rem 0.9rem;cursor:pointer;}
+.pk-lijst li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:0.3rem;padding-right:0.55rem;}
+.pk-lijst label{display:grid;grid-template-columns:22px 1fr;gap:0.65rem;align-items:start;padding:0.65rem 0.4rem 0.65rem 0.9rem;cursor:pointer;min-width:0;}
+.pk-acties{display:flex;align-items:center;gap:0.1rem;flex:0 0 auto;}
+.pk-step{font:inherit;font-weight:800;font-size:0.95rem;line-height:1;width:26px;height:26px;border-radius:7px;
+  background:#FFFDF8;border:1px solid var(--border);color:var(--navy);cursor:pointer;padding:0;}
+.pk-step:hover{background:#F3F0E8;}
+.pk-step:disabled{opacity:0.3;cursor:default;}
+.pk-del{font:inherit;font-size:1rem;line-height:1;width:26px;height:26px;margin-left:0.3rem;border-radius:7px;
+  background:transparent;border:1px solid transparent;color:var(--done);cursor:pointer;padding:0;}
+.pk-del:hover{background:#FEF2F2;border-color:#FCA5A5;color:var(--red);}
+.pk-herstel{font-size:0.74rem;color:var(--muted);padding:0.4rem 0.9rem 0;}
+.pk-herstel button{font:inherit;font-weight:700;background:none;border:none;color:var(--navy);cursor:pointer;text-decoration:underline;padding:0;}
+.pk-add{padding:0.5rem 0.9rem;border-top:1px solid var(--border);}
+.pk-add>button{font:inherit;font-size:0.8rem;font-weight:700;background:none;border:none;color:var(--muted);cursor:pointer;padding:0.15rem 0;}
+.pk-add>button:hover{color:var(--navy);}
+.pk-form{display:flex;gap:0.4rem;flex-wrap:wrap;align-items:center;}
+.pk-form input[type=text]{flex:1 1 150px;min-width:0;font:inherit;font-size:0.84rem;padding:0.4rem 0.55rem;border:1px solid var(--border);border-radius:8px;background:#FFFDF8;}
+.pk-form input[type=number]{width:60px;font:inherit;font-size:0.84rem;padding:0.4rem 0.4rem;border:1px solid var(--border);border-radius:8px;background:#FFFDF8;}
+.pk-form button{font:inherit;font-size:0.82rem;font-weight:700;border-radius:8px;padding:0.4rem 0.7rem;cursor:pointer;border:1px solid var(--navy);background:var(--navy);color:#fff;}
+.pk-form button.sec{background:#fff;color:var(--muted);border-color:var(--border);}
+li.eigen .pk-t{font-style:italic;}
 .pk-lijst input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--navy);}
 .pk-lijst input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
 .pk-t{min-width:0;font-size:0.88rem;font-weight:600;color:var(--text);}
@@ -45,7 +65,7 @@
 .pk-reset{font:inherit;font-weight:700;background:white;border:1px solid var(--border);color:var(--text);border-radius:8px;padding:0.45rem 0.8rem;cursor:pointer;}
 .pk-reset.let-op{border-color:var(--red);color:var(--red);}
 @media(prefers-reduced-motion:reduce){.pk-bar i{transition:none;}}
-@media print{.pk-prog,.pk-voet{display:none !important;}}
+@media print{.pk-prog,.pk-voet,.pk-step,.pk-del,.pk-add,.pk-herstel{display:none !important;}}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
@@ -93,14 +113,16 @@
   <div id="paklijst"></div>
 
   <div class="pk-voet">
-    <span>Vinkjes worden alleen op dit toestel bewaard.</span>
+    <span>Vinkjes, aantallen en je eigen items worden alleen op dít toestel bewaard — niet gedeeld met Ellen.</span>
     <button class="pk-reset" id="pkReset" type="button">Alles leegmaken</button>
   </div>
 </div>
 <div class="footer">🇨🇴 Colombia · 24 dagen · 2 personen</div>
 
 <script>
-/* Paklijst — items aanpassen in PAKLIJST hieronder. [naam, toelichting, aantal] */
+/* Paklijst — basislijst. [naam, toelichting, aantal]
+   Aantallen, verwijderde items en eigen toevoegingen bewaart de browser apart;
+   wijzig je hieronder iets, dan blijven die aanpassingen gewoon staan. */
 var PAKLIJST = [
  ["👕 Kleding", "voor ±8 dagen", [
   ["T-shirts sneldrogend / sport", "", "4"],
@@ -185,39 +207,153 @@ var PAKLIJST = [
 ];
 
 (function(){
-  var KEY = 'paklijst-bert-v1', staat = {};
-  try { staat = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { staat = {}; }
-  function bewaar(){ try { localStorage.setItem(KEY, JSON.stringify(staat)); } catch(e) {} }
-  var wrap = document.getElementById('paklijst'), n = 0;
-  PAKLIJST.forEach(function(g, gi){
-    var sec = document.createElement('div'); sec.className = 'pk-groep';
+  var KEY = 'paklijst-bert-v2', OUD = 'paklijst-bert-v1';
+  var st = { vink:{}, aantal:{}, weg:{}, extra:{} };
+  try {
+    var raw = localStorage.getItem(KEY);
+    if (raw) { var p = JSON.parse(raw) || {};
+      st.vink = p.vink || {}; st.aantal = p.aantal || {}; st.weg = p.weg || {}; st.extra = p.extra || {};
+    } else {
+      /* oude versie overnemen: dat waren alleen vinkjes */
+      var o = JSON.parse(localStorage.getItem(OUD) || '{}') || {};
+      Object.keys(o).forEach(function(k){ if (o[k]) st.vink[k] = true; });
+    }
+  } catch(e) {}
+  function bewaar(){ try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e) {} }
+
+  var wrap = document.getElementById('paklijst');
+
+  function items(gi){
+    var uit = [];
+    PAKLIJST[gi][2].forEach(function(it, ii){
+      uit.push({ id:'pk'+gi+'-'+ii, t:it[0], n:it[1], q:it[2], eigen:false });
+    });
+    (st.extra[gi] || []).forEach(function(ex){
+      uit.push({ id:ex.id, t:ex.t, n:ex.n || '', q:ex.q, eigen:true });
+    });
+    return uit;
+  }
+
+  function aantalVan(it){
+    if (st.aantal[it.id] != null) return st.aantal[it.id];
+    return it.q === '' ? '' : parseInt(it.q, 10);
+  }
+
+  function tekenGroep(gi){
+    var g = PAKLIJST[gi];
+    var sec = document.createElement('div');
+    sec.className = 'pk-groep';
     sec.innerHTML = '<div class="sec-title">' + g[0] + (g[1] ? '<small>' + g[1] + '</small>' : '') + '</div>';
+
     var ul = document.createElement('ul'); ul.className = 'pk-lijst';
-    g[2].forEach(function(it, ii){
-      var id = 'pk' + gi + '-' + ii; n++;
+    var weg = 0;
+
+    items(gi).forEach(function(it){
+      if (st.weg[it.id]) { weg++; return; }
       var li = document.createElement('li');
-      li.innerHTML = '<label for="' + id + '"><input type="checkbox" id="' + id + '"><span class="pk-t">' + it[0] +
-        (it[1] ? '<em>' + it[1] + '</em>' : '') + '</span><span class="pk-q">' + (it[2] ? it[2] + '×' : '') + '</span></label>';
-      var cb = li.querySelector('input');
-      cb.checked = !!staat[id]; li.classList.toggle('klaar', cb.checked);
-      cb.addEventListener('change', function(){ staat[id] = cb.checked; li.classList.toggle('klaar', cb.checked); bewaar(); tel(); });
+      if (it.eigen) li.className = 'eigen';
+      var n = aantalVan(it);
+
+      var lab = document.createElement('label');
+      lab.setAttribute('for', it.id);
+      lab.innerHTML = '<input type="checkbox" id="' + it.id + '"><span class="pk-t"></span>';
+      lab.querySelector('.pk-t').textContent = it.t;
+      if (it.n) { var em = document.createElement('em'); em.textContent = it.n; lab.querySelector('.pk-t').appendChild(em); }
+
+      var act = document.createElement('div'); act.className = 'pk-acties';
+      if (n !== '') {
+        var min = document.createElement('button'); min.type='button'; min.className='pk-step'; min.textContent='−';
+        min.setAttribute('aria-label','Eén minder'); min.disabled = n <= 1;
+        var num = document.createElement('span'); num.className='pk-q'; num.textContent = n + '×';
+        var plus = document.createElement('button'); plus.type='button'; plus.className='pk-step'; plus.textContent='+';
+        plus.setAttribute('aria-label','Eén meer');
+        min.addEventListener('click', function(){ zet(it, Math.max(1, aantalVan(it) - 1), num, min); });
+        plus.addEventListener('click', function(){ zet(it, Math.min(99, aantalVan(it) + 1), num, min); });
+        act.appendChild(min); act.appendChild(num); act.appendChild(plus);
+      }
+      var del = document.createElement('button'); del.type='button'; del.className='pk-del';
+      del.innerHTML = '&times;'; del.title = 'Verwijderen'; del.setAttribute('aria-label','Verwijder ' + it.t);
+      del.addEventListener('click', function(){ st.weg[it.id] = true; bewaar(); herteken(); });
+      act.appendChild(del);
+
+      li.appendChild(lab); li.appendChild(act);
+      var cb = lab.querySelector('input');
+      cb.checked = !!st.vink[it.id];
+      li.classList.toggle('klaar', cb.checked);
+      cb.addEventListener('change', function(){
+        if (cb.checked) st.vink[it.id] = true; else delete st.vink[it.id];
+        li.classList.toggle('klaar', cb.checked); bewaar(); tel();
+      });
       ul.appendChild(li);
     });
-    sec.appendChild(ul); wrap.appendChild(sec);
-  });
-  function tel(){
-    var k = wrap.querySelectorAll('input:checked').length;
-    document.getElementById('pkCount').textContent = k + ' / ' + n;
-    document.getElementById('pkFill').style.width = (k / n * 100) + '%';
+
+    /* toevoegen */
+    var add = document.createElement('li'); add.className = 'pk-add';
+    var knop = document.createElement('button'); knop.type='button'; knop.textContent = '+ item toevoegen';
+    add.appendChild(knop);
+    knop.addEventListener('click', function(){
+      add.innerHTML = '';
+      var f = document.createElement('div'); f.className = 'pk-form';
+      var tIn = document.createElement('input'); tIn.type='text'; tIn.placeholder='Wat neem je mee?'; tIn.maxLength=70;
+      var qIn = document.createElement('input'); qIn.type='number'; qIn.min='1'; qIn.max='99'; qIn.value='1'; qIn.setAttribute('aria-label','Aantal');
+      var ok = document.createElement('button'); ok.type='button'; ok.textContent='Toevoegen';
+      var an = document.createElement('button'); an.type='button'; an.className='sec'; an.textContent='Annuleer';
+      f.appendChild(tIn); f.appendChild(qIn); f.appendChild(ok); f.appendChild(an);
+      add.appendChild(f); tIn.focus();
+      function voegtoe(){
+        var tekst = tIn.value.trim(); if (!tekst) { tIn.focus(); return; }
+        var q = Math.min(99, Math.max(1, parseInt(qIn.value, 10) || 1));
+        if (!st.extra[gi]) st.extra[gi] = [];
+        st.extra[gi].push({ id:'ex' + gi + '-' + Date.now().toString(36), t:tekst, n:'', q:String(q) });
+        bewaar(); herteken();
+      }
+      ok.addEventListener('click', voegtoe);
+      tIn.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); voegtoe(); } });
+      an.addEventListener('click', herteken);
+    });
+    ul.appendChild(add);
+    sec.appendChild(ul);
+
+    if (weg) {
+      var h = document.createElement('div'); h.className = 'pk-herstel';
+      h.textContent = weg + (weg === 1 ? ' item verwijderd · ' : ' items verwijderd · ');
+      var hb = document.createElement('button'); hb.type='button'; hb.textContent='herstel';
+      hb.addEventListener('click', function(){
+        items(gi).forEach(function(it){ delete st.weg[it.id]; }); bewaar(); herteken();
+      });
+      h.appendChild(hb); sec.appendChild(h);
+    }
+    return sec;
   }
-  tel();
+
+  function zet(it, n, num, min){
+    st.aantal[it.id] = n; num.textContent = n + '×'; min.disabled = n <= 1; bewaar();
+  }
+
+  function herteken(){
+    wrap.innerHTML = '';
+    PAKLIJST.forEach(function(g, gi){ wrap.appendChild(tekenGroep(gi)); });
+    tel();
+  }
+
+  function tel(){
+    var vak = wrap.querySelectorAll('.pk-lijst input[type=checkbox]');
+    var k = wrap.querySelectorAll('.pk-lijst input[type=checkbox]:checked').length;
+    var n = vak.length;
+    document.getElementById('pkCount').textContent = k + ' / ' + n;
+    document.getElementById('pkFill').style.width = (n ? k / n * 100 : 0) + '%';
+  }
+
+  herteken();
+
   var btn = document.getElementById('pkReset'), scherp = false, t;
   btn.addEventListener('click', function(){
     if (!scherp) { scherp = true; btn.textContent = 'Zeker? Tik nog eens'; btn.classList.add('let-op');
       t = setTimeout(function(){ scherp = false; btn.textContent = 'Alles leegmaken'; btn.classList.remove('let-op'); }, 3000); return; }
-    clearTimeout(t); staat = {}; bewaar();
-    wrap.querySelectorAll('input').forEach(function(cb){ cb.checked = false; cb.closest('li').classList.remove('klaar'); });
-    scherp = false; btn.textContent = 'Alles leegmaken'; btn.classList.remove('let-op'); tel();
+    clearTimeout(t);
+    st = { vink:{}, aantal:{}, weg:{}, extra:{} };
+    bewaar(); herteken();
+    scherp = false; btn.textContent = 'Alles leegmaken'; btn.classList.remove('let-op');
   });
 })();
 </script>

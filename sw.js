@@ -98,6 +98,7 @@ var BESTANDEN = [
  "./info/salento-coffee-proeverij.html",
  "./info/salento-koffieboerderij.html",
  "./info/salento-mirador.html",
+ "./info/salento-filandia.html",
  "./info/salento-valle-de-cocora.html",
  "./info/tayrona-park.html",
  "./locatieblok.js",

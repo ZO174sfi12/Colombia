@@ -45,29 +45,22 @@
   var elG = document.getElementById('grootboek');
   if (!elG) return;
 
+  /* compact overzicht: enkel wat, wanneer en (voor open punten) wat er nog moet gebeuren.
+     Details (kamer, refs, uren, notities) staan op de locatie- en hotelpagina's. */
   function regel(r){
-    var det = [];
-    if (r.operator)  det.push(esc(r.operator));
-    if (r.vluchtnr)  det.push(esc(r.vluchtnr));
-    if (r.vertrek)   det.push(esc(r.vertrek) + (r.aankomst ? ' → ' + esc(r.aankomst) : ''));
-    else if (r.datums) det.push(esc(r.datums) + (r.nachten ? ' · ' + r.nachten + ' nacht' + (r.nachten>1?'en':'') : ''));
-    if (r.duur)      det.push(esc(r.duur));
-    if (r.prijs)     det.push(esc(r.prijs));
-    if (r.pnr)       det.push('luchtvaartref. ' + esc(r.pnr));
-    if (r.ref)       det.push('boekingsref. ' + esc(r.ref));
-    if (r.bagage)    det.push(esc(r.bagage));
-    if (r.advies)    det.push(esc(r.advies));
-    if (r.annuleren) det.push(esc(r.annuleren));
-    if (r.note)      det.push(esc(r.note));
-    if (r.link)      det.push('<a href="' + esc(r.link) + '" target="_blank" rel="noopener">boekingslink</a>');
-
-    var extra = r.deadline ? r.deadline : '';
+    var kern = [];
+    if (r.vluchtnr)  kern.push('<b>' + esc(r.vluchtnr) + '</b>');
+    if (r.vertrek)   kern.push(esc(r.vertrek) + (r.aankomst ? ' → ' + esc(r.aankomst) : ''));
+    else if (r.datums) kern.push('<b>' + esc(r.datums) + '</b>' + (r.nachten ? ' · ' + r.nachten + ' nacht' + (r.nachten>1?'en':'') : ''));
+    if (r.prijs)     kern.push(esc(String(r.prijs).split(' · ')[0]));
+    var todo = (r.status === 'te-boeken' && r.deadline) ? '<div class="gb-todo">⏳ ' + esc(r.deadline) + '</div>' : '';
     return '<div class="gb-rij" data-status="' + r.status + '">' +
       '<div class="gb-dag">Dag ' + r.dag + (r.totDag ? '–' + r.totDag : '') +
         '<small>' + resDatum(r.dag) + '</small></div>' +
       '<div class="gb-txt"><strong>' + esc(r.titel) + '</strong>' +
-        (det.length ? '<span>' + det.join(' · ') + '</span>' : '') + '</div>' +
-      resChip(r.status, extra) +
+        (kern.length ? '<div class="gb-kern">' + kern.join(' · ') + '</div>' : '') + todo +
+      '</div>' +
+      resChip(r.status, '') +
       '</div>';
   }
 

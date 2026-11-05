@@ -112,6 +112,8 @@
     kop.remove(); if (route) route.remove(); details.forEach(function(d){ d.remove(); });
     if (vandaagDag >= dag && vandaagDag <= dagTot) wrap.classList.add('vandaag');
   });
-  var v = document.querySelector('.dag.vandaag');
+  /* link naar een dag (bv. salento.html#dag-5): de dag bestaat pas na het opbouwen, dus nu pas scrollen */
+  var doel = location.hash && /^#dag-\d+$/.test(location.hash) ? document.getElementById(location.hash.slice(1)) : null;
+  var v = doel || document.querySelector('.dag.vandaag');
   if (v) setTimeout(function(){ v.scrollIntoView({ behavior:'smooth', block:'start' }); }, 150);
 })();

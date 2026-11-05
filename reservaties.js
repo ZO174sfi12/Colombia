@@ -160,7 +160,7 @@ var RESERVATIES = [
 
   { id:'hotel-minca', type:'hotel', dag:12, totDag:16, status:'te-boeken',
     titel:'Minca', locatie:'minca', datums:'29 nov – 3 dec', nachten:4, raming:59,
-    note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Eerste keuze Costeño River Minca (±€59/nacht). Alternatieven uit reisverslagen en de gidsen: Hostal Sierra Minca (1.600 m hoog, drie maaltijden per dag, zwembad en hangmatten met zicht tot Santa Marta), Casa del Pozo Azul (vijf minuten van de waterval, aan de rivier), Mini Cabaña TANOA (boscabañas, kwartier buiten het dorp bij Pozo Azul), Hotel Minca Express Relax (centrum, budget) en Masaya Casas Viejas (boutique met infinity pool, maar een half uur buiten Minca — staat ook in de Rough Guide).' },
+    note:'Nagekeken op Booking op 5 nov: eerste keuze Costeño River Minca is vrij, €283 voor 4 nachten (≈€71/nacht, 8,7 met 1.335 reviews). Ook vrij: El Refugio (€178), Hostal Vista Verde (€178, met ontbijt), Casa de Hadas (€211). Alternatieven uit reisverslagen en de gidsen: Hostal Sierra Minca (1.600 m hoog, drie maaltijden per dag, zwembad en hangmatten met zicht tot Santa Marta), Casa del Pozo Azul (vijf minuten van de waterval, aan de rivier), Mini Cabaña TANOA (boscabañas, kwartier buiten het dorp bij Pozo Azul), Hotel Minca Express Relax (centrum, budget) en Masaya Casas Viejas (boutique met infinity pool, maar een half uur buiten Minca — staat ook in de Rough Guide).' },
 
   { id:'hotel-tayrona', type:'hotel', dag:16, totDag:18, status:'geboekt',
     titel:'Quetzal Dorado Eco-Lodge', locatie:'tayrona',
