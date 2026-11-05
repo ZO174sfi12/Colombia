@@ -110,7 +110,7 @@ var RESERVATIES = [
   { id:'bus-minca-tayrona', type:'bus', dag:16, status:'ter-plaatse',
     titel:'Minca → Santa Marta → El Zaíno (Tayrona)',
     duur:'±2u totaal',
-    note:'Collectivo Minca → Santa Marta (±45 min), daar overstappen op de bus naar El Zaíno. Alleen cash.' },
+    note:'Collectivo Minca → Santa Marta (±45 min), taxi naar El Mercado, daar de bus van Cootraoriente richting Tayrona/Palomino (elk half uur, 6:00–18:00). Die stopt pal voor Quetzal Dorado. Alleen cash. Alternatief: taxi via de lodge, COP 200.000 vanaf de luchthaven van Santa Marta.' },
 
   { id:'bus-tayrona-palomino', type:'bus', dag:18, status:'ter-plaatse',
     titel:'Tayrona → Palomino',
@@ -128,7 +128,7 @@ var RESERVATIES = [
     datums:'18–20 nov', nachten:2, prijs:'€150 totaal · €75/nacht',
     kamer:'Driepersoonskamer met eigen badkamer, voor 2 personen',
     annuleren:'Gratis annuleren tot 16 nov 2026',
-    note:'Uitchecken vrijdag 10:15 — dezelfde dag als de vlucht naar Armenia (13:30).' },
+    note:'Inchecken 15:00–23:00 (receptie 24/7), uitchecken vóór 12:30. Wij vertrekken vrijdag 10:15 — vlucht naar Armenia om 13:30.' },
 
   { id:'hotel-salento-plaza', type:'hotel', dag:3, totDag:4, status:'geboekt',
     titel:'Hotel Salento Plaza', locatie:'salento',
@@ -166,13 +166,14 @@ var RESERVATIES = [
     kamer:'Tweepersoonskamer met balkon, ontbijt inbegrepen',
     annuleren:'Gratis annuleren tot 25 nov 2026 23:59',
     deadline:'Vooruitbetaling via overschrijving — wacht op instructies van de lodge',
-    note:'Km 32 Troncal del Caribe, Vereda Los Naranjos (El Zaíno) · tel. +57 320 374 9488. ±1,5 km van de parkingang El Zaíno. Inchecken 14:00–21:00, uitchecken 07:00–11:00. Het totaal wordt binnen 7 dagen voor aankomst aangerekend; de lodge stuurt zelf betaalinstructies (overschrijving). Aankomsttijd vooraf doorgeven. Alleen volwassenen; poort dicht 22:00–06:00. Bar, restaurant en zwembad met zicht op de bergen van het park.' },
+    note:'Km 32 Troncal del Caribe, Vereda Los Naranjos (El Zaíno) · tel. +57 320 374 9488. ±1,5 km van de parkingang El Zaíno. Inchecken 14:00–21:00, uitchecken 07:00–11:00. Het totaal wordt binnen 7 dagen voor aankomst aangerekend; de lodge stuurt zelf betaalinstructies (overschrijving). Aankomsttijd vooraf doorgeven. Alleen volwassenen; poort dicht 22:00–06:00. Lodge ligt op een heuvel: trappen naar de receptie (bagage!). Ontbijt 7:00–10:00, restaurant 13:00–20:30, zwembad 9:00–21:00. Zicht op de Río Piedras; Los Naranjos-strand op 1,4 km. ⚠️ Geen geldautomaat in de buurt — cash voor Tayrona en activiteiten meenemen (lodge zelf aanvaardt kaart). Geen sla eten in het park (geen gefilterd water).' },
 
-  { id:'hotel-palomino', type:'hotel', dag:18, totDag:22, status:'te-boeken',
-    titel:'Palomino', locatie:'palomino', datums:'5–9 dec', nachten:4,
-    raming:83,
-    deadline:'Hoogseizoen — 7 dec is Día de las Velitas · gratis annuleren',
-    note:'⚠️ Casa del Pavo Real is VOLZET voor 5–9 dec (gecheckt 4 nov 2026). Het is wél echt boutique — Hotel Yoga &amp; Spa, 9,1 met 1.089 reviews — en kost ±€83/nacht, niet €122: de oude raming was te hoog. Er zijn 123 adressen vrij ondanks Velitas. Best beoordeeld en beschikbaar met gratis annuleren: Atalaya del Mar (€156 voor 4 nachten, 9,6 met 215 reviews), El Leon Feliz (€127, 9,5 met 201) en El Paraiso de Carmen (€176, 9,7 met 75). Luxer: Coconuco Beach (€507) of UUTTAAKA Eco-Hotel (€583).' },
+  { id:'hotel-palomino', type:'hotel', dag:18, totDag:22, status:'geboekt',
+    titel:'Casa del Pavo Real', locatie:'palomino',
+    datums:'5–9 dec', nachten:4, prijs:'≈€285 totaal · €71/nacht · COP 1.026.800', ref:'6014679439',
+    kamer:'Bungalow met 1 slaapkamer, ontbijt inbegrepen',
+    annuleren:'Gratis annuleren tot 1 dec 2026 23:59',
+    note:'Calle 10 / km 72, Palomino (±300 m van het strand). Inchecken 14:00–22:00, uitchecken 07:00–11:00. Booking rekent het totaal aan binnen 3 dagen voor aankomst (kaart of cash). Boutiquehotel met zwembad, vegetarisch restaurant, bar, spa en yoga; zonnepanelen, het water komt op kamertemperatuur. Keuze van Lisa. 7 dec is Día de las Velitas.' },
 
   { id:'hotel-bogota2', type:'hotel', dag:22, totDag:24, status:'te-boeken',
     titel:'Bogotá — laatste nachten', locatie:'bogota', datums:'9–11 dec', nachten:2,
@@ -196,8 +197,8 @@ var RESERVATIES = [
     note:'Claudio woont bij de Catedral de Sal en bood aan om iets te gaan eten. Dag 24 (Zipaquirá) past het best; dag 23 of dag 2 in Bogotá als alternatief.' },
 
   { id:'act-3cordilleras', type:'activiteit', dag:9, status:'te-boeken',
-    titel:'3 Cordilleras brouwerijtour', locatie:'medellin',
-    note:'Alleen op donderdagavond — donderdag 26 nov valt goed. Vooraf reserveren.' },
+    titel:'3 Cordilleras · Estación Central — tafel reserveren', locatie:'medellin',
+    note:'Estación Central is alleen open do–za 18:00–02:00; dag 10 vertrekken we, dus donderdag 26 nov is de enige avond. Tafel reserveren via 3cordilleras.com (reservatielink) of WhatsApp +57 315 818 3233; vragen of er een rondleiding/proeverij is.' },
 
   { id:'act-guatape-boot', type:'activiteit', dag:11, status:'ter-plaatse',
     titel:'Boottocht op het meer', locatie:'guatape',

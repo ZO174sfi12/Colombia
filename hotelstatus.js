@@ -8,7 +8,8 @@
   Array.prototype.forEach.call(blokken, function(b){
     var loc = b.getAttribute('data-loc');
     if (loc === 'all') return;
-    var stays = RESERVATIES.filter(function(r){ return r.type === 'hotel' && r.locatie === loc; })
+    /* geboekte verblijven staan al in de groene kaart; enkel open verblijven tonen */
+    var stays = RESERVATIES.filter(function(r){ return r.type === 'hotel' && r.locatie === loc && r.status !== 'geboekt' && r.status !== 'vervallen'; })
                            .sort(resSorteer);
     if (!stays.length) return;
     var kop = b.querySelector('.loc-header');
