@@ -63,7 +63,7 @@ var RESERVATIES = [
     duur:'1u05 · direct', operator:'LATAM Airlines Colombia', vluchtnr:'LA4292',
     prijs:'€283,63 voor 2 personen', bagage:'23 kg ruimbagage + handbagage p.p. inbegrepen',
     via:'Booking.com', tarief:'Full fare',
-    note:'Annuleren en wijzigen toegestaan. Taxi El Edén → Salento ±45 min, in Salento ±15:45. Vervangt de busrit: uitslapen, ontbijten in Botánico, uitchecken 10:15, Uber naar El Dorado 10:45.' },
+    note:'Annuleren en wijzigen toegestaan. Taxi El Edén → Salento ±45 min, ±COP 80.000 (≈€22), taxistand aan de luchthaven — de transfer van Salento Plaza (COP 200.000 cash) niet nodig. In Salento ±15:45. Vervangt de busrit: uitslapen, ontbijten in Botánico, uitchecken 10:15, Uber naar El Dorado 10:45.' },
 
   /* ------------------------------------------------------------ BUSSEN --- */
   /* Vervallen alternatief — bus Bogotá → Armenia. Bewaard als terugvaloptie
@@ -94,8 +94,7 @@ var RESERVATIES = [
     prijs:'US$337 (€301) voor 2 personen', via:'Daytrip',
     bagage:'2 ruimkoffers + 2 handbagages inbegrepen',
     tarief:'Standard — gratis annuleren tot 24u vooraf',
-    deadline:'Ophaal- en afzetadres aanpassen vóór 23 nov 10:00',
-    note:'Deur tot deur met eigen chauffeur, inclusief een stop van 1u30 in Manizales (12:06–13:36) om te lunchen. LET OP: in de boeking staat het ophaaladres nog op "Salento-Cocora" en het afzetadres op Plaza Botero (La Candelaria). Aanpassen naar Casa Salento (Calle 7 #4-43, Salento) en Landmark Hotel (Calle 14 #43D-85, El Poblado) — zie herinnering dag 5.' },
+    note:'Deur tot deur met eigen chauffeur, inclusief een stop van 1u30 in Manizales (12:06–13:36) om te lunchen. Adressen aangepast in de boeking (5 nov): ophalen aan Casa Salento, Calle 7 #4-43, Salento · afzetten aan Landmark Hotel, Calle 14 #43D-85, El Poblado.' },
 
   { id:'bus-mde-gua', type:'bus', dag:10, status:'ter-plaatse',
     titel:'Medellín → Guatapé',
@@ -161,11 +160,13 @@ var RESERVATIES = [
     titel:'Minca', locatie:'minca', datums:'29 nov – 3 dec', nachten:4, raming:59,
     note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Eerste keuze Costeño River Minca (±€59/nacht). Alternatieven uit reisverslagen en de gidsen: Hostal Sierra Minca (1.600 m hoog, drie maaltijden per dag, zwembad en hangmatten met zicht tot Santa Marta), Casa del Pozo Azul (vijf minuten van de waterval, aan de rivier), Mini Cabaña TANOA (boscabañas, kwartier buiten het dorp bij Pozo Azul), Hotel Minca Express Relax (centrum, budget) en Masaya Casas Viejas (boutique met infinity pool, maar een half uur buiten Minca — staat ook in de Rough Guide).' },
 
-  { id:'hotel-tayrona', type:'hotel', dag:16, totDag:18, status:'te-boeken',
-    titel:'Parque Tayrona', locatie:'tayrona', datums:'3–5 dec', nachten:2,
-    raming:61,
-    deadline:'Ruim aanbod — gidsen raden 1 à 2 nachten aan',
-    note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Eerste keuze Quetzal Dorado Eco-Lodge (±€61/nacht), 1,5 km van de ingang. Boek met gratis annuleren — zie plan B op de Tayrona-pagina (kustweg kan 1–2 dagen dicht).' },
+  { id:'hotel-tayrona', type:'hotel', dag:16, totDag:18, status:'geboekt',
+    titel:'Quetzal Dorado Eco-Lodge', locatie:'tayrona',
+    datums:'3–5 dec', nachten:2, prijs:'≈€157 totaal · €79/nacht · COP 566.980', ref:'6950810967',
+    kamer:'Tweepersoonskamer met balkon, ontbijt inbegrepen',
+    annuleren:'Gratis annuleren tot 25 nov 2026 23:59',
+    deadline:'Vooruitbetaling via overschrijving — wacht op instructies van de lodge',
+    note:'Km 32 Troncal del Caribe, Vereda Los Naranjos (El Zaíno) · tel. +57 320 374 9488. ±1,5 km van de parkingang El Zaíno. Inchecken 14:00–21:00, uitchecken 07:00–11:00. Het totaal wordt binnen 7 dagen voor aankomst aangerekend; de lodge stuurt zelf betaalinstructies (overschrijving). Aankomsttijd vooraf doorgeven. Alleen volwassenen; poort dicht 22:00–06:00. Bar, restaurant en zwembad met zicht op de bergen van het park.' },
 
   { id:'hotel-palomino', type:'hotel', dag:18, totDag:22, status:'te-boeken',
     titel:'Palomino', locatie:'palomino', datums:'5–9 dec', nachten:4,
@@ -180,11 +181,6 @@ var RESERVATIES = [
     note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig. Raming €75/nacht (niveau Botánico); bagagebewaring op dag 24 afspreken.' },
 
   /* ----------------------------------------------------- HERINNERINGEN -- */
-  { id:'herin-daytrip-adressen', type:'herinnering', dag:5, status:'te-boeken',
-    titel:'Daytrip-adressen invullen — deadline morgen 10:00', locatie:'salento',
-    deadline:'Vóór ma 23 nov 10:00',
-    note:'Pas in de boeking VRW7F2KW beide adressen aan. Ophalen: Casa Salento, Calle 7 #4-43, Salento (staat nu op "Salento-Cocora"). Afzetten: Landmark Hotel, Calle 14 #43D-85, El Poblado (staat nu op Plaza Botero in La Candelaria). Na maandag 10:00 kan het niet meer. Annuleren kan ook nog tot dat moment.' },
-
   /* ------------------------------------------------- ACTIVITEITEN (res) -- */
   { id:'act-comuna13', type:'activiteit', dag:8, status:'te-boeken',
     titel:'Free walking tour Comuna 13', locatie:'medellin',
