@@ -63,7 +63,7 @@
     /* 1. regels uit de handgeschreven timeline */
     var regels = [];
     if (route) Array.prototype.forEach.call(route.querySelectorAll('.route-row'), function(r){
-      regels.push({ tijd: txt(r.querySelector('.route-time')), titel: txt(r.querySelector('.route-label')), sub: txt(r.querySelector('.route-sub')), kaart: null });
+      regels.push({ tijd: txt(r.querySelector('.route-time')), titel: txt(r.querySelector('.route-label')), sub: (r.querySelector('.route-sub') ? r.querySelector('.route-sub').innerHTML.replace(/\s+/g,' ').trim() : ''), kaart: null });   /* innerHTML: links in de sub blijven klikbaar */
     });
     /* 2. kaarten koppelen of toevoegen */
     var kaarten = [];
@@ -102,7 +102,7 @@
         zet(geheugen[key] === true || (geheugen[key] === undefined && vandaagDag >= dag && vandaagDag <= dagTot));
         rij.setAttribute('role','button'); rij.tabIndex = 0;
         function toggle(){ var open = !rij.classList.contains('open'); zet(open); geheugen[key] = open; bewaar(); }
-        rij.addEventListener('click', toggle);
+        rij.addEventListener('click', function(e){ if (e.target.closest('a')) return; toggle(); });
         rij.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); } });
       }
     });

@@ -39,12 +39,18 @@
 .culi-cta{max-width:860px;margin:0 auto 1.4rem;padding:0 1rem;}
 .culi-box{border:1px solid #E5E0D8;border-radius:12px;padding:1rem 1.2rem;background:#fff;}
 .culi-title{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#4A5E4D;margin-bottom:0.5rem;}
-.culi-top{display:flex;flex-direction:column;gap:0.35rem;font-size:0.83rem;margin-bottom:0.7rem;}
-.culi-top a{color:#1A4A2E;text-decoration:none;}
-.culi-top a:hover{text-decoration:underline;}
+.culi-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0.5rem;margin-bottom:0.85rem;}
+.culi-top a{display:flex;gap:0.55rem;align-items:flex-start;padding:0.55rem 0.7rem;border:1px solid #E5E0D8;border-radius:10px;background:#FBFAF7;color:#1A4A2E;text-decoration:none;font-size:0.84rem;line-height:1.35;transition:background .15s,border-color .15s;}
+.culi-top a:hover{background:#F1EFE8;border-color:#CFC8BB;}
+.ci-ic{font-size:1.15rem;line-height:1.2;flex:none;}
+.ci-txt{flex:1;min-width:0;}
+.ci-txt strong{display:block;}
+.ci-tip{display:block;color:#5F6B62;font-size:0.76rem;margin-top:0.1rem;}
+.ci-go{flex:none;color:#9CA3AF;font-size:0.75rem;}
+.culi-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.5rem 1rem;}
 .culi-btn{display:inline-flex;align-items:center;gap:0.45rem;background:#1A4A2E;color:#fff;padding:0.55rem 1rem;border-radius:9px;font-size:0.83rem;font-weight:700;text-decoration:none;}
 .culi-btn:hover{opacity:0.9;}
-.culi-counts{font-size:0.72rem;color:#4A5E4D;margin-top:0.55rem;}
+.culi-counts{font-size:0.72rem;color:#4A5E4D;}
 </style>
 </head>
 <body>
@@ -124,6 +130,10 @@
 
   <!-- DAG 15 -->
   <div class="sec-divider">📅 Dag 13 · ma 30 nov — Pozo Azul &amp; koffiefinca</div>
+  <div class="route-block">
+    <h3>📍 Dag 13 · ma 30 nov op één blik</h3>
+    <div class="route-row"><div class="route-dot" style="background:#0EA5E9;"></div><div class="route-time">Ochtend</div><div><div class="route-label">🪣 Kleine was</div><div class="route-sub">Wasservice van het verblijf of handwas · binnengeven vóór Pozo Azul · drogen gaat traag in de bergen</div></div></div>
+  </div>
   <details class="dagdetail">
   <summary><span class="dd-chev">▶</span>Dagdetail<span class="dd-n">2 onderdelen</span></summary>
   <div class="timeline">
@@ -355,12 +365,11 @@
   <div class="culi-box">
     <div class="culi-title">🍽️ Eten &amp; drinken in Minca</div>
     <div class="culi-top">
-      <a href="https://www.google.com/maps/search/?api=1&query=Lazy+Cat+C+Principal+%231-460+Minca+Colombia" target="_blank" rel="noopener">🍽️ <strong>Lazy Cat</strong> — Aantrekkelijk rivierrestaurant met relaxed terras, gratis wifi en vriendelijke</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=La+Miga+Cra+66+naast+Banco+de+Bogot%C3%A1+Minca+Colombia" target="_blank" rel="noopener">☕ <strong>La Miga</strong> — Zuurdesembrood</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Nevada+Cervecer%C3%ADa" target="_blank" rel="noopener">🍺 <strong>Nevada Cervecería</strong> — Happy Coca pale ale</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Lazy%20Cat%2C%20Minca&query_place_id=ChIJoyCPcinx9I4REjUPbJ8GF8M" target="_blank" rel="noopener"><span class="ci-ic">🍽️</span><span class="ci-txt"><strong>Lazy Cat</strong><span class="ci-tip">Aantrekkelijk rivierrestaurant met relaxed terras, gratis wifi en…</span></span><span class="ci-go">↗</span></a>
+      <a href="https://www.google.com/maps/search/?api=1&query=La%20Miga%2C%20Minca&query_place_id=ChIJGaKgmSnx9I4RWUE4mbjQ7R8" target="_blank" rel="noopener"><span class="ci-ic">☕</span><span class="ci-txt"><strong>La Miga</strong><span class="ci-tip">Zuurdesembrood</span></span><span class="ci-go">↗</span></a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Nevada%20Cervecer%C3%ADa%2C%20Minca" target="_blank" rel="noopener"><span class="ci-ic">🍺</span><span class="ci-txt"><strong>Nevada Cervecería</strong><span class="ci-tip">Happy Coca pale ale</span></span><span class="ci-go">↗</span></a>
     </div>
-    <a class="culi-btn" href="culinair.html#loc=minca">Alle 5 adressen in Minca →</a>
-    <div class="culi-counts">🍽️ 3 restaurants · ☕ 1 koffie · 🍺 1 bier</div>
+    <div class="culi-foot"><a class="culi-btn" href="culinair.html#loc=minca">Alle 5 adressen in Minca →</a><div class="culi-counts">🍽️ 3 restaurants · ☕ 1 koffie · 🍺 1 bier</div></div>
   </div>
 </div>
 <div class="nav-buttons">
@@ -372,6 +381,7 @@
 <script src="reservaties.js"></script>
 <script src="dagsync.js"></script>
 <script src="locatieblok.js"></script>
+<script src="weer.js"></script>
 <script src="dagplan.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}

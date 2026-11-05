@@ -118,9 +118,9 @@ var RESERVATIES = [
     note:'Bus langs de kustweg aanhouden bij de parkingang. Rijdt frequent.' },
 
   { id:'bus-palomino-smr', type:'bus', dag:22, orde:1, status:'ter-plaatse',
-    titel:'Palomino → Santa Marta (luchthaven)',
-    vertrek:'11:30', duur:'±1u30',
-    note:'Via je accommodatie regelen. Dag na het Velitas-weekend, dus drukte op de kustweg — ruim tijd nemen voor de vlucht van 14:42.' },
+    titel:'Palomino → luchthaven SMR (hoteltransport)',
+    vertrek:'11:30', duur:'±1u45',
+    note:'Hoteltransport Casa del Pavo Real COP 265.000 (≈€74) voor de rit — op dag 21 aan de receptie regelen en vragen of het tot SMR rijdt. Uber kost even veel (±COP 240.000–275.000) maar is in Palomino onzeker; bus + taxi ±3 uur. Dag na het Velitas-weekend, dus drukte op de kustweg — ruim tijd nemen voor de vlucht van 14:42.' },
 
   /* ------------------------------------------------------------ HOTELS --- */
   { id:'hotel-bogota', type:'hotel', dag:1, totDag:3, status:'geboekt',
@@ -151,10 +151,12 @@ var RESERVATIES = [
     annuleren:'Gratis annuleren tot 24 nov 2026 18:00',
     note:'Calle 14 #43D-85, Manila (El Poblado) · tel. +57 304 234 3158. Inchecken 15:00–23:30 met paspoort én creditcard, uitchecken vóór 12:00. Betalen ter plaatse. Ontbijt niet inbegrepen: COP 53.560 p.p. per nacht. Dakzwembad, spa en fitness. Craft beer te voet: Bipolar ±6 min, Métropole ±10 min, Sierra Blanca ±15 min.' },
 
-  { id:'hotel-guatape', type:'hotel', dag:10, totDag:12, status:'te-boeken',
-    titel:'Guatapé', locatie:'guatape', datums:'27–29 nov', nachten:2,
-    raming:40,
-    note:'⚠️ Hotel Guatatur is VOLZET voor 27–29 nov (gecheckt 4 nov 2026), en wáár het nog kan kost het ±€96/nacht — de oude raming van €26 was niet realistisch. Beschikbaar: Hospedaje Marin (€61 voor 2 nachten, ≈€30/nacht, 8,8 met 121 reviews) of Libélula finca-hotel (€82, ≈€41/nacht, 8,6 met 95). Twee nachten, zodat La Piedra, de boottocht en eventueel San Rafael passen; kies iets aan het meer.' },
+  { id:'hotel-guatape', type:'hotel', dag:10, totDag:12, status:'geboekt',
+    titel:'La Madriguera Hotel', locatie:'guatape',
+    datums:'27–29 nov', nachten:2, prijs:'≈€126 totaal · €63/nacht · COP 454.420', ref:'6853386286',
+    kamer:'Bungalow met balkon op het meer, ontbijt inbegrepen',
+    annuleren:'Gratis annuleren tot 27 nov 2026 18:00',
+    note:'Carrera 20 #27-01, aan het water · tel. +57 324 4148622. Inchecken vr 15:00–22:00 (laat je aankomsttijd weten), uitchecken zo 12:00–12:30. Geen vooruitbetaling: betalen ter plaatse, kaart of cash. Ontbijt in het café ernaast. ±7–10 min wandelen naar het plein; craft beer bij San Tropel en Del Origen (±800 m).' },
 
   { id:'hotel-minca', type:'hotel', dag:12, totDag:16, status:'te-boeken',
     titel:'Minca', locatie:'minca', datums:'29 nov – 3 dec', nachten:4, raming:59,
@@ -173,7 +175,7 @@ var RESERVATIES = [
     datums:'5–9 dec', nachten:4, prijs:'≈€285 totaal · €71/nacht · COP 1.026.800', ref:'6014679439',
     kamer:'Bungalow met 1 slaapkamer, ontbijt inbegrepen',
     annuleren:'Gratis annuleren tot 1 dec 2026 23:59',
-    note:'Calle 10 / km 72, Palomino (±300 m van het strand). Inchecken 14:00–22:00, uitchecken 07:00–11:00. Booking rekent het totaal aan binnen 3 dagen voor aankomst (kaart of cash). Boutiquehotel met zwembad, vegetarisch restaurant, bar, spa en yoga; zonnepanelen, het water komt op kamertemperatuur. Keuze van Lisa. 7 dec is Día de las Velitas.' },
+    note:'Calle 10 / km 72, Palomino (±300 m van het strand). Inchecken 14:00–22:00, uitchecken 07:00–11:00. Booking rekent het totaal aan binnen 3 dagen voor aankomst (kaart of cash). Receptie 7–21u, ontbijt 7:30–10:30, restaurant 12–14u en 18–21u, happy hour 17–19u (2-voor-1), zwembad tot 22u. Yoga dagelijks 8:30 (COP 50.000), 2 gratis fietsen, wasservice binnen 24u. Transport van of naar Santa Marta COP 265.000. Via de receptie: tubing, paardrijden, inheems dorp, paddleboarden, surflessen, Cabo de la Vela. Zonnepanelen, het water komt op kamertemperatuur. Keuze van Lisa. 7 dec is Día de las Velitas.' },
 
   { id:'hotel-bogota2', type:'hotel', dag:22, totDag:24, status:'te-boeken',
     titel:'Bogotá — laatste nachten', locatie:'bogota', datums:'9–11 dec', nachten:2,
@@ -210,13 +212,13 @@ var RESERVATIES = [
 
   { id:'act-filandia', type:'activiteit', dag:5, status:'ter-plaatse',
     titel:'Filandia — koffie, paardrijden, uitkijktoren', locatie:'salento',
-    note:'Lonely Planet geeft Filandia een volle dag: koffie op de plaza, paardrijden door de heuvels, de Mirador Colina Iluminada (27 m houten toren) en brulapen in Reserva Natural Barbas-Bremen. Rough Guide vindt de plaza beter bewaard dan die van Salento.' },
+    note:'Voorkeur: A) paardrijden ±3u bij Rural Adventure (COP 220.000 p.p., Engelstalige gids gevraagd) — WhatsApp-aanvraag verstuurd 5 nov, wacht op antwoord over vervoer en betaling. Alternatief B) brulapen in Barbas-Bremen (start ±6u, 3–5u met gids, tour ±US$105 p.p.). Rest van de dag: willy vanaf de plaza van Salento (elk uur, ±COP 7.500 p.p., ±40 min) · koffie en zondagsmarkt op de plaza · lunch Helena Adentro (reserveren) · Mirador Colina Iluminada (COP 8.000–12.000, open tot 18:00) · laatste willy 18:10 terug, retourticket bij aankomst kopen.' },
 
   { id:'act-downhill-salento', type:'activiteit', dag:6, status:'te-boeken',
     titel:'Downhill 30 km vanaf La Carbonera', locatie:'salento',
-    prijs:'incl. gids, lunch, materiaal en verzekering',
-    link:'https://salentocycling.com',
-    deadline:'Vooraf mailen bij Salento Cycling',
+    prijs:'COP 240.000 p.p. + COP 15.000 entree natuurgebied',
+    link:'https://www.salentocycling.com',
+    deadline:'WhatsApp-aanvraag verstuurd 5 nov (+57 316 535 1792) — wacht op bevestiging',
     note:'Voertuig naar La Carbonera op 3.400 m, daarna 30 km dalen door nevelwoud. 5 à 6 uur.' },
 
   { id:'act-manizales', type:'activiteit', dag:7, status:'ter-plaatse',

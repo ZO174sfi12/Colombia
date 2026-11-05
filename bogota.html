@@ -64,12 +64,18 @@
 .culi-cta{max-width:860px;margin:0 auto 1.4rem;padding:0 1rem;}
 .culi-box{border:1px solid #E5E0D8;border-radius:12px;padding:1rem 1.2rem;background:#fff;}
 .culi-title{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#4A5E4D;margin-bottom:0.5rem;}
-.culi-top{display:flex;flex-direction:column;gap:0.35rem;font-size:0.83rem;margin-bottom:0.7rem;}
-.culi-top a{color:#1A4A2E;text-decoration:none;}
-.culi-top a:hover{text-decoration:underline;}
+.culi-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0.5rem;margin-bottom:0.85rem;}
+.culi-top a{display:flex;gap:0.55rem;align-items:flex-start;padding:0.55rem 0.7rem;border:1px solid #E5E0D8;border-radius:10px;background:#FBFAF7;color:#1A4A2E;text-decoration:none;font-size:0.84rem;line-height:1.35;transition:background .15s,border-color .15s;}
+.culi-top a:hover{background:#F1EFE8;border-color:#CFC8BB;}
+.ci-ic{font-size:1.15rem;line-height:1.2;flex:none;}
+.ci-txt{flex:1;min-width:0;}
+.ci-txt strong{display:block;}
+.ci-tip{display:block;color:#5F6B62;font-size:0.76rem;margin-top:0.1rem;}
+.ci-go{flex:none;color:#9CA3AF;font-size:0.75rem;}
+.culi-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.5rem 1rem;}
 .culi-btn{display:inline-flex;align-items:center;gap:0.45rem;background:#1A4A2E;color:#fff;padding:0.55rem 1rem;border-radius:9px;font-size:0.83rem;font-weight:700;text-decoration:none;}
 .culi-btn:hover{opacity:0.9;}
-.culi-counts{font-size:0.72rem;color:#4A5E4D;margin-top:0.55rem;}
+.culi-counts{font-size:0.72rem;color:#4A5E4D;}
 </style>
 </head>
 <body>
@@ -183,7 +189,7 @@
           <span class="chip">🍺 BBC La Candelaria te voet</span>
           <span class="chip price">Vroeg slapen aanbevolen</span>
         </div>
-                <div class="biertip"><span class="bt-ico">🍺</span><div><b>Dichtbij vanavond.</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Bogot%C3%A1+Beer+Company+Calle+12D+4-02+La+Candelaria+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">BBC La Candelaria</a> (3,40★) zit een paar blokken van het hotel — de pionier van Colombiaanse craft, te voet. Vraag een <b>Monserrate Roja</b> of een <b>Chapinero Porter</b>. Meer sfeer: de <a href="https://www.google.com/maps/search/?api=1&amp;query=Callej%C3%B3n+del+Embudo+Chorro+de+Quevedo+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">chicha-bars in de Callejón del Embudo</a> aan Chorro de Quevedo. Drukke straten aanhouden, en op 2.640 m hakt het er harder in. <b>Morgen het betere bier, verder noord.</b> <a href="culinair.html#loc=bogota">Alle bieradressen →</a></div></div>
+                <div class="biertip"><span class="bt-ico">🍺</span><div><b>Dichtbij vanavond.</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Bogot%C3%A1%20Beer%20Company%2C%20Calle%2012D%20%234-02%2C%20Bogot%C3%A1" target="_blank" rel="noopener">BBC La Candelaria</a> (3,40★) zit een paar blokken van het hotel — de pionier van Colombiaanse craft, te voet. Vraag een <b>Monserrate Roja</b> of een <b>Chapinero Porter</b>. Meer sfeer: de <a href="https://www.google.com/maps/search/?api=1&amp;query=Callej%C3%B3n%20del%20Embudo%2C%20Bogot%C3%A1" target="_blank" rel="noopener">chicha-bars in de Callejón del Embudo</a> aan Chorro de Quevedo. Drukke straten aanhouden, en op 2.640 m hakt het er harder in. <b>Morgen het betere bier, verder noord.</b> <a href="culinair.html#loc=bogota">Alle bieradressen →</a></div></div>
 
         <details class="card-details">
           <summary>Eettips vlakbij Botanico · La Candelaria</summary>
@@ -330,9 +336,9 @@
         <h3>🍺 Craft beer — Chapinero, de twee beste van de stad</h3>
         <p class="desc">Vanavond het betere bier, en daar mag je vijf kilometer noordwaarts voor: <strong>Chapinero</strong> heeft de twee
         hoogst beoordeelde brouwhuizen van de stad, op loopafstand van elkaar.
-        <strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Madriguera+Brewing+Calle+59+8-10+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">Madriguera Brewing</a> (3,60★ — de hoogste van Bogotá)</strong>
+        <strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Madriguera%20Brewing%2C%20Bogot%C3%A1" target="_blank" rel="noopener">Madriguera Brewing</a> (3,60★ — de hoogste van Bogotá)</strong>
         maakt ook cider van Colombiaanse appels en heeft onconventionele stijlen, zoals een porter met cacao en geroosterde kokos.
-        <strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Cervecer%C3%ADa+Gigante+Calle+63A+10-46+Chapinero+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">Cervecería Gigante</a> (3,55★)</strong> is de gezelligere kamer:
+        <strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Cervecer%C3%ADa%20Gigante%2C%20Bogot%C3%A1" target="_blank" rel="noopener">Cervecería Gigante</a> (3,55★)</strong> is de gezelligere kamer:
         halve liters, bordspellen, happy hour 2-voor-1. Doe ze allebei, of kies op sfeer.
         <strong>El Sindicato</strong> in de Zona T bewaren we voor dag 23 — nog verder noord en een avond op zich.</p>
         <div class="meta">
@@ -346,8 +352,8 @@
           <div class="details-body">
             <p><strong>Cervecería Irlandesa (3,04★), La Macarena:</strong> brouwt zelf en staat in de Rough Guide, maar is met 3,04 het laagst beoordeelde adres van de lijst — lager dan de BBC waar je dag 1 naartoe loopt. Alleen de moeite als je toch in La Macarena bent.</p>
             <p><strong>Over Madriguera:</strong> sinds 2015, de enige in de stad die ook cider van Colombiaanse appels maakt. Gastropub, onconventionele stijlen — zoals een porter met Colombiaanse cacao en geroosterde kokos. Drie vestigingen, de dichtste is Calle 59 #8-10.</p>
-            <p><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Galer%C3%ADa+Hopulus+Calle+81+8-60+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">Galería Hopulus</a>:</strong> Duits huis, brouwt volgens de Reinheitsgebot van 1516, met Brezel en Schweinshaxe erbij. Calle 81 #8-60.</p>
-            <p><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Hanna+Hops+Calle+69A+9-40+Quinta+Camacho+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">Hanna Hops</a>:</strong> alles van de tap, sampler met vier naar keuze. De vestiging in Quinta Camacho zit in een oud herenhuis met terras.</p>
+            <p><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Hopulus%2C%20Calle%2081%20%238-60%2C%20Bogot%C3%A1" target="_blank" rel="noopener">Galería Hopulus</a>:</strong> Duits huis, brouwt volgens de Reinheitsgebot van 1516, met Brezel en Schweinshaxe erbij. Calle 81 #8-60.</p>
+            <p><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Hanna%20Hops%2C%20Bogot%C3%A1" target="_blank" rel="noopener">Hanna Hops</a>:</strong> alles van de tap, sampler met vier naar keuze. De vestiging in Quinta Camacho zit in een oud herenhuis met terras.</p>
             <p><strong>Over BBC (Bogotá Beer Company):</strong> de pionier — in 2002 opgericht door Berny Silberwasser — maar sinds 2015 eigendom van AB InBev en inmiddels een keten met tientallen vestigingen. Colombianen noemen het spottend "de Starbucks van het bier". Prima en overal te vinden, maar niet waarvoor je een Uber neemt. De klassiekers zijn Monserrate Roja, Cajicá Honey Ale, Chapinero Porter en Bacatá Blanca.</p>
             <p><strong>Praktisch:</strong> Uber heen en terug. Volledige lijst met adressen en openingstijden op de <a href="culinair.html#loc=bogota">culinaire pagina</a> onder 🍺 Craft Beer.</p>
           </div>
@@ -434,12 +440,11 @@
   <div class="culi-box">
     <div class="culi-title">🍽️ Eten &amp; drinken in Bogotá</div>
     <div class="culi-top">
-      <a href="https://www.google.com/maps/search/?api=1&query=La+Puerta+Falsa+C+11+%236-50+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">🍽️ <strong>La Puerta Falsa</strong> — Chocolate completo · tamales</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+Florida+Cra+7+%2321-46+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">☕ <strong>Pastelería Florida</strong> — Chocolate santafereño met almojábana</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=A+Seis+Manos+C+22+%238-60+Centro+Bogot%C3%A1+Colombia" target="_blank" rel="noopener">🍸 <strong>A Seis Manos</strong> — Koele, ruime bar met Franse leiding: minimalistisch, eten, patio, filmvertonin</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=La%20Puerta%20Falsa%2C%20Bogot%C3%A1" target="_blank" rel="noopener"><span class="ci-ic">🍽️</span><span class="ci-txt"><strong>La Puerta Falsa</strong><span class="ci-tip">Chocolate completo · tamales</span></span><span class="ci-go">↗</span></a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa%20Florida%2C%20Bogot%C3%A1" target="_blank" rel="noopener"><span class="ci-ic">☕</span><span class="ci-txt"><strong>Pastelería Florida</strong><span class="ci-tip">Chocolate santafereño met almojábana</span></span><span class="ci-go">↗</span></a>
+      <a href="https://www.google.com/maps/search/?api=1&query=A%20Seis%20Manos%2C%20Bogot%C3%A1" target="_blank" rel="noopener"><span class="ci-ic">🍸</span><span class="ci-txt"><strong>A Seis Manos</strong><span class="ci-tip">Koele, ruime bar met Franse leiding: minimalistisch, eten, patio…</span></span><span class="ci-go">↗</span></a>
     </div>
-    <a class="culi-btn" href="culinair.html#loc=bogota">Alle 44 adressen in Bogotá →</a>
-    <div class="culi-counts">🍽️ 30 restaurants · ☕ 4 koffie · 🍺 2 bier · 🍸 4 cocktails · 💃 4 nachtleven</div>
+    <div class="culi-foot"><a class="culi-btn" href="culinair.html#loc=bogota">Alle 44 adressen in Bogotá →</a><div class="culi-counts">🍽️ 30 restaurants · ☕ 4 koffie · 🍺 2 bier · 🍸 4 cocktails · 💃 4 nachtleven</div></div>
   </div>
 </div>
 
@@ -452,6 +457,7 @@
 <script src="reservaties.js"></script>
 <script src="dagsync.js"></script>
 <script src="locatieblok.js"></script>
+<script src="weer.js"></script>
 <script src="dagplan.js"></script>
 <script>
 function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
