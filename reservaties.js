@@ -313,6 +313,10 @@ var BUDGET_POSTEN = [
     bedrag:35*PERSONEN*REISDAGEN, zeker:false, buitenTotaal:true }
 ];
 
+/* Oorspronkelijk budget (index.html, 7 aug 2026 — eerste volledige versie), 2 personen.
+   Toen nog: 22 nachten, één binnenlandse vlucht MDE → Cartagena, bussen overland. */
+var BUDGET_ORIGINEEL = { datum:'7 aug 2026', intl:1944, binnen:160, land:60, hotels:1540, activiteiten:680, eten:1680 };
+
 /* Haalt alle bedragen uit de reservaties (formaat "€1.234,56 ...") */
 function resBedrag(r){
   if (!r.prijs) return 0;
