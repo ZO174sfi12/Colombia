@@ -49,7 +49,11 @@
 .alts-toggle .arrow{transition:transform 0.15s;display:inline-block;}
 .alts-toggle[aria-expanded="true"] .arrow{transform:rotate(90deg);}
 .alts.collapsed{display:none;}
-.lisa-badge{position:absolute;top:0.6rem;right:0.7rem;background:#9333EA;color:white;font-size:0.62rem;font-weight:800;padding:0.15rem 0.45rem;border-radius:10px;letter-spacing:0.3px;}
+.src{font-size:0.68rem;font-weight:700;padding:0.15rem 0.45rem;border-radius:10px;white-space:nowrap;border:1px solid;}
+.src-gids{background:#F1F5F9;color:#334155;border-color:#CBD5E1;}
+.src-claude{background:#FFF7ED;color:#9A3412;border-color:#FDBA74;}
+.src-bert{background:#EFF6FF;color:#1E40AF;border-color:#93C5FD;}
+.src-lisa{background:#9333EA;color:white;border-color:#9333EA;}
 
 .price{font-size:0.72rem;color:var(--muted);background:#F5F2EE;border:1px solid var(--border);border-radius:10px;padding:0.15rem 0.45rem;white-space:nowrap;}
 .score{font-size:0.72rem;color:#003580;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:0.15rem 0.45rem;white-space:nowrap;font-weight:600;}
@@ -117,6 +121,7 @@
       <div class="hotel-name">Botanico Hostel</div>
       <div class="hotel-desc">Hangmatten, houtbalken, jungle-tuin, ruime privékamers en rooftop yoga.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">€150 totaal · 2 nachten</span>
       </div>
@@ -130,10 +135,10 @@
   <button class="alts-toggle" aria-expanded="false" onclick="toggleAlts(this)"><span class="arrow">▶</span><span class="alts-label"> Toon 5 alternatieven die we bekeken hebben</span></button>
   <div class="hotels-grid alts collapsed">
     <div class="hotel">
-      <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Masaya Bogotá Hostel</div>
       <div class="hotel-desc">Stylish hostel met muurkunst, felblauw design en luxueuze badkamers. Zit midden in La Candelaria.</div>
       <div class="hotel-meta">
+        <span class="src src-lisa" title="Bron">👩 Lisa</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">~€57/nacht · COP 205K</span>
       </div>
@@ -143,6 +148,7 @@
       <div class="hotel-name">Cranky Croc</div>
       <div class="hotel-desc">Bogotá's beste hostel — strakke dorms, boutique privékamers en gloednieuwe pods.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">€20–35/nacht · COP 70K–125K</span>
       </div>
@@ -152,6 +158,7 @@
       <div class="hotel-name">Hotel Muisca</div>
       <div class="hotel-desc">Eigenzinnig hotel in historisch gebouw op steile straat. Kamers met terras en bergzicht.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Midden</span>
         <span class="price">€50–80/nacht · COP 180K–290K</span>
       </div>
@@ -161,6 +168,7 @@
       <div class="hotel-name">Casa Deco</div>
       <div class="hotel-desc">Warm service, gourmet ontbijt en aantrekkelijke art-deco mozaïeken. Sfeervol en rustig.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">€90–140/nacht · COP 325K–505K</span>
       </div>
@@ -170,6 +178,7 @@
       <div class="hotel-name">Hotel de la Ópera</div>
       <div class="hotel-desc">Elegant historisch hotel met binnentuin, basement spa en klein buitenzwembad. Toplocatie.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">€120–200/nacht · COP 430K–720K</span>
       </div>
@@ -186,60 +195,90 @@
     </div>
   </div>
   <div class="hotels-grid">
-    <div class="hotel">
-      <span class="lisa-badge">👩 Lisa</span>
-      <div class="hotel-name">Casa Salento</div>
-      <div class="hotel-desc">Centraal gelegen, vlak bij het plein. Ontbijt inbegrepen — nog niet geboekt, 4 nachten nodig.</div>
+    <div class="hotel confirmed">
+      <span class="confirm-badge">✓ GEBOEKT</span>
+      <div class="hotel-name">Hotel Salento Plaza</div>
+      <div class="hotel-desc">Aan het centrale plein. Brugnacht omdat Casa Salento op vrijdag 20 nov volzet was — zaterdag te voet met de koffers naar Casa Salento, ±3 blokken.</div>
       <div class="hotel-meta">
+        <span class="src src-claude" title="Bron">🤖 Claude</span>
         <span class="tier tier-mid">$$ Midden</span>
-        <span class="price">~€64/nacht · COP 230K</span>
+        <span class="price">≈€91 totaal · 1 nacht</span>
+        <span class="score">Booking 9,4 · 816 reviews</span>
       </div>
-      <a href="https://www.booking.com/searchresults.html?ss=Casa+Salento+Colombia&checkin=2026-11-21&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
+      <div class="booking-facts">
+        <b>Deluxe kamer</b> met kingsize bed, ontbijt inbegrepen<br>
+        <b>20–21 nov 2026</b> · 1 nacht · COP 327.860 · ref. 6700033419<br>Carrera 7 #6-26 · inchecken 14:00–18:00 · uitchecken vóór 12:00 · betalen ter plaatse<br>
+        <span class="cancel-note">Gratis annuleren tot 16 nov 2026</span>
+      </div>
     </div>
+    <div class="hotel confirmed">
+      <span class="confirm-badge">✓ GEBOEKT</span>
+      <div class="hotel-name">Casa Salento</div>
+      <div class="hotel-desc">Centraal gelegen, vlak bij het plein. Ontbijt inbegrepen. Hier haalt de Daytrip-chauffeur jullie op dinsdag 24 nov om 10:00 op.</div>
+      <div class="hotel-meta">
+        <span class="src src-lisa" title="Bron">👩 Lisa</span>
+        <span class="tier tier-mid">$$ Midden</span>
+        <span class="price">≈€153 totaal · 3 nachten</span>
+        <span class="score">Booking 9,2 · 1.714 reviews</span>
+      </div>
+      <div class="booking-facts">
+        <b>Tweepersoonskamer</b> met eigen badkamer, ontbijt inbegrepen<br>
+        <b>21–24 nov 2026</b> · 3 nachten · €51/nacht · COP 550.000 · ref. 6199996396<br>Calle 7 #4-43 · inchecken 15:00–18:00 · uitchecken vóór 12:00<br>
+        <span class="cancel-note">⚠️ Alleen cash</span> <span class="cancel-note">Gratis annuleren tot 21 nov 2026 18:00</span>
+      </div>
+    </div>
+  </div>
+  <button class="alts-toggle" aria-expanded="false" onclick="toggleAlts(this)"><span class="arrow">▶</span><span class="alts-label"> Toon 5 alternatieven die we bekeken hebben</span></button>
+  <div class="hotels-grid alts collapsed">
     <div class="hotel">
       <div class="hotel-name">Coffee Tree Hostel</div>
       <div class="hotel-desc">Echt boutique hostel — 3 verdiepingen met ruimte, mooi ingerichte kamers en prachtig uitzicht.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">€50–85/nacht · COP 180K–305K</span>
       </div>
-      <a href="https://www.booking.com/searchresults.html?ss=Coffee+Tree+Hostel+Salento+Colombia&checkin=2026-11-21&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
+      <a href="https://www.booking.com/searchresults.html?ss=Coffee+Tree+Hostel+Salento+Colombia&checkin=2026-11-20&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
     </div>
     <div class="hotel">
       <div class="hotel-name">Hostal Tralala</div>
       <div class="hotel-desc">Gastvrij, schoon en goed georganiseerd hostel in felgerenoveerd typisch huis.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">€20–35/nacht · COP 70K–125K</span>
       </div>
-      <a href="https://www.booking.com/searchresults.html?ss=Hostal+Tralala+Salento+Colombia&checkin=2026-11-21&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
+      <a href="https://www.booking.com/searchresults.html?ss=Hostal+Tralala+Salento+Colombia&checkin=2026-11-20&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
     </div>
     <div class="hotel">
       <div class="hotel-name">Las Terrazas de Salento</div>
       <div class="hotel-desc">Op een heuvel aan de rand van het dorp. Elegante kamers met gepolijste houten vloeren.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Midden</span>
         <span class="price">€55–90/nacht · COP 200K–325K</span>
       </div>
-      <a href="https://www.booking.com/searchresults.html?ss=Las+Terrazas+de+Salento+Colombia&checkin=2026-11-21&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
+      <a href="https://www.booking.com/searchresults.html?ss=Las+Terrazas+de+Salento+Colombia&checkin=2026-11-20&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
     </div>
     <div class="hotel">
       <div class="hotel-name">Plantation House</div>
       <div class="hotel-desc">Populaire boutique B&amp;B in koloniale stijl — bekend om de ontbijten en fijne sfeer.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Midden</span>
         <span class="price">€60–100/nacht · COP 215K–360K</span>
       </div>
-      <a href="https://www.booking.com/searchresults.html?ss=Plantation+House+Salento+Colombia&checkin=2026-11-21&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
+      <a href="https://www.booking.com/searchresults.html?ss=Plantation+House+Salento+Colombia&checkin=2026-11-20&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
     </div>
     <div class="hotel">
       <div class="hotel-name">Hostal Jesed</div>
       <div class="hotel-desc">Eenvoudig en schoon budgethostel vlakbij het centrale plein. Goed voor een nacht.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">€15–25/nacht · COP 55K–90K</span>
       </div>
-      <a href="https://www.booking.com/searchresults.html?ss=Hostal+Jesed+Salento+Colombia&checkin=2026-11-21&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
+      <a href="https://www.booking.com/searchresults.html?ss=Hostal+Jesed+Salento+Colombia&checkin=2026-11-20&checkout=2026-11-24&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
     </div>
   </div>
 
@@ -254,17 +293,36 @@
     </div>
   </div>
   <div class="hotels-grid">
+    <div class="hotel confirmed">
+      <span class="confirm-badge">✓ GEBOEKT</span>
+      <div class="hotel-name">Landmark Hotel</div>
+      <div class="hotel-desc">4-sterrenhotel in Manila (El Poblado) met dakzwembad, spa en fitness. Craft beer te voet: Bipolar ±6 min, Métropole ±10 min, Sierra Blanca ±15 min.</div>
+      <div class="hotel-meta">
+        <span class="src src-claude" title="Bron">🤖 Claude</span>
+        <span class="tier tier-lux">$$$ Boutique</span>
+        <span class="price">≈€293 totaal · 3 nachten</span>
+        <span class="score">Booking 9,2 · 3.213 reviews</span>
+      </div>
+      <div class="booking-facts">
+        <b>Queen room</b> met balkon, zonder ontbijt (COP 53.560 p.p. per nacht)<br>
+        <b>24–27 nov 2026</b> · 3 nachten · €98/nacht · COP 1.054.820 · ref. 6866440696<br>Calle 14 #43D-85 · inchecken 15:00–23:30 met paspoort + creditcard · uitchecken vóór 12:00 · betalen ter plaatse<br>
+        <span class="cancel-note">Gratis annuleren tot 24 nov 2026 18:00</span>
+      </div>
+    </div>
+  </div>
+  <button class="alts-toggle" aria-expanded="false" onclick="toggleAlts(this)"><span class="arrow">▶</span><span class="alts-label"> Toon 6 alternatieven die we bekeken hebben</span></button>
+  <div class="hotels-grid alts collapsed">
     <div class="hotel">
-      <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">574 Hotel Poblado</div>
       <div class="hotel-desc">Klein boutique hotel (±15 kamers) in een rustige straat van El Poblado, 10 min wandelen van Parque Lleras en Provenza. Ontbijt à la carte inbegrepen. Tip: kamer op een hogere verdieping vragen.</div>
       <div class="hotel-meta">
+        <span class="src src-lisa" title="Bron">👩 Lisa</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">vanaf ±€40/nacht · COP 145K</span>
         <span class="score">Booking 8,9 · 1.957 reviews</span>
       </div>
       <div class="booking-facts">
-        <b>24–27 nov 2026</b> · 3 nachten · nog niet geboekt<br>
+        <b>24–27 nov 2026</b> · 3 nachten · niet gekozen<br>
         <span class="hotel-src">Bron: Booking.com (8,9/10, 1.957 reviews) · Expedia (9,4/10, 92 reviews) · prijs indicatief, geraadpleegd 25 okt 2026</span>
       </div>
       <a href="https://www.booking.com/searchresults.html?ss=574+Hotel+Poblado+Medellin+Colombia&checkin=2026-11-24&checkout=2026-11-27&group_adults=2" target="_blank" rel="noopener" class="bk-link"><svg viewBox="0 0 92 18" width="92" height="18" xmlns="http://www.w3.org/2000/svg" aria-label="booking.com" style="vertical-align:middle;display:inline-block"><rect width="17" height="17" rx="2.5" y="0.5" fill="#003580"/><text x="3.5" y="13" font-family="Georgia,serif" font-size="12.5" font-weight="900" fill="white">B</text><text x="21" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="700" fill="#003580">booking</text><text x="68" y="13" font-family="-apple-system,system-ui,sans-serif" font-size="10.5" font-weight="400" fill="#003580">.com</text></svg></a>
@@ -273,6 +331,7 @@
       <div class="hotel-name">Masaya Medellín</div>
       <div class="hotel-desc">Kleurrijke Antioquiaanse decoratie, topcomfort, prachtig uitzicht en zelfs een escape room.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">€90–150/nacht · COP 325K–540K</span>
       </div>
@@ -282,6 +341,7 @@
       <div class="hotel-name">Los Patios</div>
       <div class="hotel-desc">Flashpacker paradijs — industrieel-chic design, moderne dorms en geweldige open keuken.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Hostel</span>
         <span class="price">€35–80/nacht · COP 125K–290K</span>
       </div>
@@ -291,6 +351,7 @@
       <div class="hotel-name">Black Sheep Hostel</div>
       <div class="hotel-desc">Perfecte plek om mensen te leren kennen — uitnodigende gemeenschappelijke ruimtes, sociale sfeer.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Midden</span>
         <span class="price">€30–55/nacht · COP 110K–200K</span>
       </div>
@@ -300,6 +361,7 @@
       <div class="hotel-name">Celestino Boutique Hotel</div>
       <div class="hotel-desc">Chic design, huiselijke kamers en uitstekende service, midden in het leven van Poblado.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">€100–160/nacht · COP 360K–575K</span>
       </div>
@@ -309,6 +371,7 @@
       <div class="hotel-name">Hotel Dann Carlton</div>
       <div class="hotel-desc">Waardig gevestigde naam met toplocatie, ruim zwembad en smaakvol afgewerkte kamers.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Hotel</span>
         <span class="price">€100–170/nacht · COP 360K–610K</span>
       </div>
@@ -328,10 +391,10 @@
   </div>
   <div class="hotels-grid">
     <div class="hotel">
-      <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Hotel Guatatur</div>
       <div class="hotel-desc">Centraal gelegen hotel in het kleurrijke centrum van Guatapé. Comfortabele kamers met ontbijt.</div>
       <div class="hotel-meta">
+        <span class="src src-lisa" title="Bron">👩 Lisa</span>
         <span class="tier tier-mid">$$ Midden</span>
         <span class="price">€26/nacht · COP 95K</span>
       </div>
@@ -341,6 +404,7 @@
       <div class="hotel-name">Lake View Hostel</div>
       <div class="hotel-desc">Gezellig hostel met degelijke dorms en uitstekende privékamers op de 2e verdieping met waterzicht.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">€20–40/nacht · COP 70K–145K</span>
       </div>
@@ -350,6 +414,7 @@
       <div class="hotel-name">Mansion Oriente</div>
       <div class="hotel-desc">Hotelboerderij-stijl tussen water en rots, fijn uitzicht en ruime terrein.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Midden</span>
         <span class="price">€50–80/nacht · COP 180K–290K</span>
       </div>
@@ -359,6 +424,7 @@
       <div class="hotel-name">Hotel Portobelo</div>
       <div class="hotel-desc">Verzorgd hotel in het centrum met balkons en uitzicht over het waterfront.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Hotel</span>
         <span class="price">€90–150/nacht · COP 325K–540K</span>
       </div>
@@ -368,6 +434,7 @@
       <div class="hotel-name">Mumu Hotel</div>
       <div class="hotel-desc">Omringd door natuur maar op wandelafstand van het centrum. Moderne kamers en restaurant aan het water.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Hotel</span>
         <span class="price">€80–130/nacht · COP 290K–470K</span>
       </div>
@@ -377,6 +444,7 @@
       <div class="hotel-name">Sotavento Cabañas</div>
       <div class="hotel-desc">Hangmat-balkons met zicht op la Piedra — rustig gelegen op een fraaie baai, serene sfeer.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">€90–150/nacht · COP 325K–540K</span>
       </div>
@@ -386,6 +454,7 @@
       <div class="hotel-name">Tau House</div>
       <div class="hotel-desc">Lakeside luxe met luchtige, lichte kamers en chique buitenruimtes. Beste plekje aan het meer.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">€120–200/nacht · COP 430K–720K</span>
       </div>
@@ -410,10 +479,10 @@
   </div>
   <div class="hotels-grid">
     <div class="hotel">
-      <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Costeño River Minca</div>
       <div class="hotel-desc">Aan de rivier, vlakbij het dorpje. Hangmatten, groene omgeving en authentieke jungle-sfeer.</div>
       <div class="hotel-meta">
+        <span class="src src-lisa" title="Bron">👩 Lisa</span>
         <span class="tier tier-mid">$$ Midden</span>
         <span class="price">€59/nacht · COP 215K</span>
       </div>
@@ -423,6 +492,7 @@
       <div class="hotel-name">Minca La Candelaria</div>
       <div class="hotel-desc">Eco-lodge in jungleomgeving op de hellingen van de Sierra Nevada. Rustgevend en prachtig.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Eco-lodge</span>
         <span class="price">Prijs n.t.b.</span>
       </div>
@@ -432,6 +502,7 @@
       <div class="hotel-name">Casa Elemento</div>
       <div class="hotel-desc">Iconisch hostel op de heuvelkam — hangmatten met episch uitzicht over de Sierra Nevada.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">€25–45/nacht · COP 90K–160K</span>
       </div>
@@ -441,6 +512,7 @@
       <div class="hotel-name">Paraíso Minca</div>
       <div class="hotel-desc">Riverside eco-cabins aan de Río Minca. Koel, groen en idyllisch rustig.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Eco</span>
         <span class="price">€55–95/nacht · COP 200K–340K</span>
       </div>
@@ -450,6 +522,7 @@
       <div class="hotel-name">Punta de Vicio</div>
       <div class="hotel-desc">Serene eco-lodge in de jungle. Prachtige houten constructie, hangmatten en vogels.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Eco-lodge</span>
         <span class="price">€60–100/nacht · COP 215K–360K</span>
       </div>
@@ -459,6 +532,7 @@
       <div class="hotel-name">Hostel Casa Loma Minca</div>
       <div class="hotel-desc">Budget-hostel met fraai uitzicht over het landschap. Sociaal en goed bereikbaar.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">€20–35/nacht · COP 70K–125K</span>
       </div>
@@ -468,6 +542,7 @@
       <div class="hotel-name">Finca La Minca</div>
       <div class="hotel-desc">Overnachten op een werkende farm — rustiek, authentiek, vers eten uit de tuin.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Finca</span>
         <span class="price">€45–75/nacht · COP 160K–270K</span>
       </div>
@@ -487,10 +562,10 @@
   </div>
   <div class="hotels-grid">
     <div class="hotel">
-      <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Quetzal Dorado Eco-Lodge</div>
       <div class="hotel-desc">1,5 km wandelen tot parkIngang. Airco, zwembad en rustgevende jungle-setting.</div>
       <div class="hotel-meta">
+        <span class="src src-lisa" title="Bron">👩 Lisa</span>
         <span class="tier tier-mid">$$ Midden</span>
         <span class="price">€61/nacht · COP 220K</span>
       </div>
@@ -500,6 +575,7 @@
       <div class="hotel-name">Ecohabs Tequendama</div>
       <div class="hotel-desc">De beste luxe-optie in het park — tweelaagse hutten met uitzicht over Cañaveral-baai.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Eco-resort</span>
         <span class="price">Prijs n.t.b.</span>
       </div>
@@ -509,6 +585,7 @@
       <div class="hotel-name">Finca Barlovento</div>
       <div class="hotel-desc">Cabaña op zeeklif + riverfront maloka met ruime suites en semi-privézwembad.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">€100–170/nacht · COP 360K–610K</span>
       </div>
@@ -518,6 +595,7 @@
       <div class="hotel-name">Viajero Tayrona Hostel</div>
       <div class="hotel-desc">Resort-achtig hostel met ruime kamers, tal van activiteiten of gewoon luieren aan het strand.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Hostel-resort</span>
         <span class="price">€30–60/nacht · COP 110K–215K</span>
       </div>
@@ -527,6 +605,7 @@
       <div class="hotel-name">Camping Cabo San Juan</div>
       <div class="hotel-desc">Iconisch: kamperen of hangmat op het spectaculaire Cabo San Juan-strand. Pure natuur.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Camping</span>
         <span class="price">€10–20/nacht · COP 35K–70K</span>
       </div>
@@ -536,6 +615,7 @@
       <div class="hotel-name">Arimaca Hostel</div>
       <div class="hotel-desc">Eco-lodge stijl vlakbij de parkgrens. Goede prijs-kwaliteit, uitstekend voor surfers.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Eco</span>
         <span class="price">€25–45/nacht · COP 90K–160K</span>
       </div>
@@ -545,6 +625,7 @@
       <div class="hotel-name">Finca El Paraíso</div>
       <div class="hotel-desc">Rustieke cabins aan de rand van het park — groen, stil en goed gelegen voor vroege hikes.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Finca</span>
         <span class="price">€30–55/nacht · COP 110K–200K</span>
       </div>
@@ -564,10 +645,10 @@
   </div>
   <div class="hotels-grid">
     <div class="hotel">
-      <span class="lisa-badge">👩 Lisa</span>
       <div class="hotel-name">Casa del Pavo Real</div>
       <div class="hotel-desc">Sfeervol verblijf met zwembad en airco, op wandelafstand van het strand.</div>
       <div class="hotel-meta">
+        <span class="src src-lisa" title="Bron">👩 Lisa</span>
         <span class="tier tier-mid">$$ Midden</span>
         <span class="price">€122/nacht · COP 440K</span>
       </div>
@@ -577,6 +658,7 @@
       <div class="hotel-name">Casa Coraje</div>
       <div class="hotel-desc">Chic strandverblijf met tuin, zwembad en daybeds op het zand. Beste adres in Palomino.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-lux">$$$ Boutique</span>
         <span class="price">Prijs n.t.b.</span>
       </div>
@@ -586,6 +668,7 @@
       <div class="hotel-name">Kanta Sana Hostal</div>
       <div class="hotel-desc">Bamboe en touwconstructie geeft dit hostel een Swiss Family Robinson-vibe van buiten tot binnen.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Hostel</span>
         <span class="price">€40–70/nacht · COP 145K–250K</span>
       </div>
@@ -595,6 +678,7 @@
       <div class="hotel-name">Free Soul Hostel</div>
       <div class="hotel-desc">Gratis fietsen, gedeelde keuken en een warm ontbijt inbegrepen. Rustieke maar gezellige sfeer.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Hostel</span>
         <span class="price">€30–55/nacht · COP 110K–200K</span>
       </div>
@@ -604,6 +688,7 @@
       <div class="hotel-name">Dreamer Hostel Palomino</div>
       <div class="hotel-desc">Tropische tuin, hangmatten en riverfront sfeer. Populair bij backpackers en surfers.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">€20–35/nacht · COP 70K–125K</span>
       </div>
@@ -613,6 +698,7 @@
       <div class="hotel-name">Tulia Eco-lodge</div>
       <div class="hotel-desc">Duurzame eco-cabins in een groene setting, vlak bij het strand. Rustig en sfeervol.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-mid">$$ Eco</span>
         <span class="price">€50–80/nacht · COP 180K–290K</span>
       </div>
@@ -622,6 +708,7 @@
       <div class="hotel-name">El Matuy Eco-Hostel</div>
       <div class="hotel-desc">Rustiek eco-hostel aan de oever van de rivier. Goed voor budget-reizigers die de natuur opzoeken.</div>
       <div class="hotel-meta">
+        <span class="src src-gids" title="Bron">📖 Gids</span>
         <span class="tier tier-budget">$ Budget</span>
         <span class="price">€20–40/nacht · COP 70K–145K</span>
       </div>
@@ -630,7 +717,7 @@
   </div>
   </div>
 
-<p class="src-note">📚 Hotelbeschrijvingen gebaseerd op Lonely Planet Colombia (10e ed., 2023). Prijzen van de eerste keuzes zijn eigen ramingen (2026, via Booking.com); de alternatieven volgen de LP-tiers ($/$$/$$$ = budget/midden/boutique). Wisselkoers: 1 EUR ≈ COP 3.602 (koers 4 nov 2026, zelfde als op Praktisch). Prijzen zijn indicatief en per nacht voor 2 personen; controleer actuele tarieven via Booking.com.</p>
+<p class="src-note">Bron-labels: 📖 Gids (Lonely Planet) · 🤖 Claude · 🧔 Bert · 👩 Lisa. 📚 Hotelbeschrijvingen gebaseerd op Lonely Planet Colombia (10e ed., 2023). Prijzen van de eerste keuzes zijn eigen ramingen (2026, via Booking.com); de alternatieven volgen de LP-tiers ($/$$/$$$ = budget/midden/boutique). Wisselkoers: 1 EUR ≈ COP 3.602 (koers 4 nov 2026, zelfde als op Praktisch). Prijzen zijn indicatief en per nacht voor 2 personen; controleer actuele tarieven via Booking.com.</p>
 
 </div>
 

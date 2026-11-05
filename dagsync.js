@@ -4,6 +4,7 @@
 
    Gebruik in HTML (de bestaande tekst blijft staan als fallback):
      <span data-verblijf="hotel-salento" data-veld="dagen">Dag 3–6</span>
+       (aansluitende hotels op dezelfde locatie worden samengeteld tot één verblijf)
        veld: dagen | datums | dagen-datums | nachten | dagen-klein (svg: "dag 3–6")
      <span data-vlucht="vlucht-heen" data-veld="vertrek">10:05</span>
        veld: vertrek | aankomst | datum-vertrek | datum-aankomst | duur | vluchtnr | operator | ref
@@ -20,7 +21,24 @@
     if (da.getMonth() === db.getMonth()) return da.getDate() + '–' + db.getDate() + ' ' + MND[da.getMonth()];
     return da.getDate() + ' ' + MND[da.getMonth()] + ' – ' + db.getDate() + ' ' + MND[db.getMonth()];
   }
+  /* Aansluitende hotels op dezelfde locatie tellen als één verblijf
+     (bv. Salento: 1 nacht Salento Plaza + 3 nachten Casa Salento = dag 3–6, 4 nachten). */
+  function aansluitend(r){
+    var hotels = RESERVATIES.filter(function(x){ return x.type === 'hotel' && x.status !== 'vervallen' && x.locatie === r.locatie && x.totDag; });
+    var begin = r.dag, eind = r.totDag || r.dag, nachten = r.nachten || ((r.totDag || r.dag) - r.dag), gevonden = true;
+    var gebruikt = [r];
+    while (gevonden){
+      gevonden = false;
+      hotels.forEach(function(x){
+        if (gebruikt.indexOf(x) !== -1) return;
+        if (x.totDag === begin){ begin = x.dag; nachten += x.nachten || (x.totDag - x.dag); gebruikt.push(x); gevonden = true; }
+        else if (x.dag === eind){ eind = x.totDag; nachten += x.nachten || (x.totDag - x.dag); gebruikt.push(x); gevonden = true; }
+      });
+    }
+    return { dag:begin, totDag:eind, nachten:nachten };
+  }
   function verblijf(r){
+    if (r.type === 'hotel' && r.locatie) r = aansluitend(r);
     var van = r.dag, tot = r.totDag ? r.totDag - 1 : r.dag;
     if (r.totDag === LAATSTE) tot = LAATSTE;          /* laatste etappe: tot en met de vertrekdag */
     return { van:van, tot:tot, nachten:r.nachten || (r.totDag - r.dag) };

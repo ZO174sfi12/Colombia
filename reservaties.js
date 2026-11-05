@@ -95,7 +95,7 @@ var RESERVATIES = [
     bagage:'2 ruimkoffers + 2 handbagages inbegrepen',
     tarief:'Standard — gratis annuleren tot 24u vooraf',
     deadline:'Ophaal- en afzetadres aanpassen vóór 23 nov 10:00',
-    note:'Deur tot deur met eigen chauffeur, inclusief een stop van 1u30 in Manizales (12:06–13:36) om te lunchen. LET OP: het afzetadres staat nu op Plaza Botero in La Candelaria, niet in El Poblado — aanpassen zodra het hotel geboekt is. Hetzelfde voor het ophaaladres in Salento.' },
+    note:'Deur tot deur met eigen chauffeur, inclusief een stop van 1u30 in Manizales (12:06–13:36) om te lunchen. LET OP: in de boeking staat het ophaaladres nog op "Salento-Cocora" en het afzetadres op Plaza Botero (La Candelaria). Aanpassen naar Casa Salento (Calle 7 #4-43, Salento) en Landmark Hotel (Calle 14 #43D-85, El Poblado) — zie herinnering dag 5.' },
 
   { id:'bus-mde-gua', type:'bus', dag:10, status:'ter-plaatse',
     titel:'Medellín → Guatapé',
@@ -131,13 +131,26 @@ var RESERVATIES = [
     annuleren:'Gratis annuleren tot 16 nov 2026',
     note:'Uitchecken vrijdag 10:15 — dezelfde dag als de vlucht naar Armenia (13:30).' },
 
-  { id:'hotel-salento', type:'hotel', dag:3, totDag:7, status:'te-boeken',
-    titel:'Salento', locatie:'salento', datums:'20–24 nov', nachten:4, raming:45,
-    note:'⚠️ Casa Salento is VOLZET voor 20–24 nov (gecheckt 4 nov 2026). Booking biedt daar wel 21–24 nov aan, 3 nachten vanaf €151 (≈€50/nacht) — maar dan mis je een nacht. Beschikbaar én goedkoper in Salento: Hospedaje Camino Real (€146 voor 4 nachten, ≈€37/nacht, 8,8 met 570 reviews) of Hotel Campestre La Chiva (€132, ≈€33/nacht). Raming bijgesteld van €64 naar €45/nacht.' },
+  { id:'hotel-salento-plaza', type:'hotel', dag:3, totDag:4, status:'geboekt',
+    titel:'Hotel Salento Plaza', locatie:'salento',
+    datums:'20–21 nov', nachten:1, prijs:'≈€91 totaal · COP 327.860', ref:'6700033419',
+    kamer:'Deluxe kamer met kingsize bed, ontbijt inbegrepen',
+    annuleren:'Gratis annuleren tot 16 nov 2026 23:59',
+    note:'Brugnacht: Casa Salento was volzet op 20 nov. Carrera 7 #6-26, aan het plein · tel. +57 300 483 8877. Inchecken 14:00–18:00, uitchecken vóór 12:00. Betalen ter plaatse (kaart of cash). Za-ochtend te voet met de koffers naar Casa Salento, ±3 blokken.' },
 
-  { id:'hotel-medellin', type:'hotel', dag:7, totDag:10, status:'te-boeken',
-    titel:'Medellín (El Poblado)', locatie:'medellin', datums:'24–27 nov', nachten:3, raming:52,
-    note:'✅ 574 Hotel (El Poblado) is beschikbaar: €157 voor 3 nachten (van €185), ontbijt inbegrepen, gratis annuleren, niets vooruit betalen — ≈€52/nacht. 9,0 op Booking met 2.083 reviews. Gecheckt 4 nov 2026. Raming bijgesteld van €90 naar €52/nacht.' },
+  { id:'hotel-salento', type:'hotel', dag:4, totDag:7, status:'geboekt',
+    titel:'Casa Salento', locatie:'salento',
+    datums:'21–24 nov', nachten:3, prijs:'≈€153 totaal · €51/nacht · COP 550.000', ref:'6199996396',
+    kamer:'Tweepersoonskamer met eigen badkamer, ontbijt inbegrepen',
+    annuleren:'Gratis annuleren tot 21 nov 2026 18:00',
+    note:'Calle 7 #4-43 · tel. +57 313 686 7553. ⚠️ Alleen cash, geen kaarten — COP 550.000 klaarhouden. Inchecken 15:00–18:00: na Cocora op tijd terug zijn, of laat weten dat je later komt. Uitchecken vóór 12:00; de Daytrip-chauffeur haalt je hier op 24 nov om 10:00. Ze bieden ook tours aan (Cocora, koffie, La Carbonera, Filandia).' },
+
+  { id:'hotel-medellin', type:'hotel', dag:7, totDag:10, status:'geboekt',
+    titel:'Landmark Hotel', locatie:'medellin',
+    datums:'24–27 nov', nachten:3, prijs:'≈€293 totaal · €98/nacht · COP 1.054.820', ref:'6866440696',
+    kamer:'Queen room met balkon, zonder ontbijt',
+    annuleren:'Gratis annuleren tot 24 nov 2026 18:00',
+    note:'Calle 14 #43D-85, Manila (El Poblado) · tel. +57 304 234 3158. Inchecken 15:00–23:30 met paspoort én creditcard, uitchecken vóór 12:00. Betalen ter plaatse. Ontbijt niet inbegrepen: COP 53.560 p.p. per nacht. Dakzwembad, spa en fitness. Craft beer te voet: Bipolar ±6 min, Métropole ±10 min, Sierra Blanca ±15 min.' },
 
   { id:'hotel-guatape', type:'hotel', dag:10, totDag:12, status:'te-boeken',
     titel:'Guatapé', locatie:'guatape', datums:'27–29 nov', nachten:2,
@@ -170,7 +183,7 @@ var RESERVATIES = [
   { id:'herin-daytrip-adressen', type:'herinnering', dag:5, status:'te-boeken',
     titel:'Daytrip-adressen invullen — deadline morgen 10:00', locatie:'salento',
     deadline:'Vóór ma 23 nov 10:00',
-    note:'Vul in de boeking VRW7F2KW het echte ophaaladres in Salento in (staat nu op "Salento-Cocora") en het afzetadres in Medellín (staat nu op Plaza Botero in La Candelaria, moet El Poblado zijn). Na maandag 10:00 kan het niet meer, en dan rijdt de chauffeur je naar het verkeerde deel van de stad. Annuleren kan ook nog tot dat moment.' },
+    note:'Pas in de boeking VRW7F2KW beide adressen aan. Ophalen: Casa Salento, Calle 7 #4-43, Salento (staat nu op "Salento-Cocora"). Afzetten: Landmark Hotel, Calle 14 #43D-85, El Poblado (staat nu op Plaza Botero in La Candelaria). Na maandag 10:00 kan het niet meer. Annuleren kan ook nog tot dat moment.' },
 
   /* ------------------------------------------------- ACTIVITEITEN (res) -- */
   { id:'act-comuna13', type:'activiteit', dag:8, status:'te-boeken',

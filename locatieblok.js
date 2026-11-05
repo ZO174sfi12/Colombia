@@ -19,12 +19,13 @@
   /* overnachting(en) voor deze locatie binnen dit dagbereik */
   RESERVATIES.forEach(function(r){
     if (r.type !== 'hotel' || r.locatie !== loc || r.status === 'vervallen') return;
-    if (r.dag !== van) return;
+    if (r.dag < van || r.dag >= tot) return;      /* elk hotel dat binnen dit verblijf start */
     var d = [];
     if (r.datums)  d.push(esc(r.datums));
     if (r.nachten) d.push(r.nachten + ' nacht' + (r.nachten>1?'en':''));
     if (r.prijs)   d.push(esc(r.prijs));
     if (r.annuleren) d.push(esc(r.annuleren));
+    if (r.ref)       d.push('ref. ' + esc(r.ref));
     if (r.deadline)  d.push('<b>' + esc(r.deadline) + '</b>');
     regels.push({ ico:ICO.hotel, kop:r.titel, sub:d.join(' · '), status:r.status, link:'hotels.html#loc=' + loc });
   });
