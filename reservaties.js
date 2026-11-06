@@ -63,7 +63,7 @@ var RESERVATIES = [
     duur:'1u05 · direct', operator:'LATAM Airlines Colombia', vluchtnr:'LA4292',
     prijs:'€283,63 voor 2 personen', bagage:'23 kg ruimbagage + handbagage p.p. inbegrepen',
     via:'Booking.com', tarief:'Full fare',
-    note:'Annuleren en wijzigen toegestaan. Taxi El Edén → Salento ±45 min, ±COP 80.000 (≈€22), taxistand aan de luchthaven — de transfer van Salento Plaza (COP 200.000 cash) niet nodig. In Salento ±15:45. Vervangt de busrit: uitslapen, ontbijten in Botánico, uitchecken 10:15, Uber naar El Dorado 10:45.' },
+    note:'Annuleren en wijzigen toegestaan. Taxi El Edén → Salento ±45 min, ±COP 80.000 (≈€22), taxistand aan de luchthaven — de transfer van Salento Plaza (COP 200.000 (≈€56) cash) niet nodig. In Salento ±15:45. Vervangt de busrit: uitslapen, ontbijten in Botánico, uitchecken 10:15, Uber naar El Dorado 10:45.' },
 
   /* ------------------------------------------------------------ BUSSEN --- */
   /* Vervallen alternatief — bus Bogotá → Armenia. Bewaard als terugvaloptie
@@ -72,7 +72,7 @@ var RESERVATIES = [
     titel:'Bogotá → Armenia → Salento (bus, niet gekozen)',
     van:'Terminal Salitre', naar:'Terminal de Armenia',
     duur:'±7u30 + 1u colectivo',
-    advies:'Bolivariano 2G Gold 07:00 → Armenia 14:33 → Salento ±16:00 · COP 80.000 p.p.',
+    advies:'Bolivariano 2G Gold 07:00 → Armenia 14:33 → Salento ±16:00 · COP 80.000 (≈€22) p.p.',
     link:'https://www.redbus.co/en/bus-tickets/bogota-to-armenia?fromCityId=195201&fromCityName=Bogota%20(D.C)&toCityId=195230&toCityName=Armenia%20(Qui)&onward=20-Nov-2026&doj=20-Nov-2026&ref=search',
     note:'Terugvaloptie. Komt op hetzelfde uur in Salento aan als de vlucht, maar kost 7u30 bus en opstaan om 05:15.' },
 
@@ -81,7 +81,7 @@ var RESERVATIES = [
     van:'Terminal de Salento', naar:'Terminal del Sur',
     vertrek:'09:30', aankomst:'±16:00', duur:'±6u30',
     operator:'Flota Occidental · Línea Príncipe Star',
-    prijs:'COP 89.000 + 5.340 fee p.p.',
+    prijs:'COP 89.000 (≈€25) + 5.340 fee p.p.',
     link:'https://www.redbus.co/en/bus-tickets/salento-to-medellin?fromCityId=195231&fromCityName=Salento%20(Qui)&toCityId=195160&toCityName=Medellin%20(Ant)&onward=24-Nov-2026&doj=24-Nov-2026&ref=search',
     deadline:'URGENT — slechts 19 zitplaatsen',
     note:'Slechts één maatschappij op deze route en drie ritten per dag (09:30, 12:30, 22:15) — de 09:30 heeft 19 zitplaatsen. Vooraf boeken dus. Lukt dat online niet, laat je accommodatie in Salento de plaatsen vastleggen. Daarna Uber naar El Poblado.' },
@@ -99,7 +99,7 @@ var RESERVATIES = [
   { id:'bus-mde-gua', type:'bus', dag:10, status:'ter-plaatse',
     titel:'Medellín → Guatapé',
     van:'Terminal del Norte', naar:'Guatapé',
-    duur:'±2u', operator:'Sotrasanvicente', prijs:'±COP 18.000 p.p.',
+    duur:'±2u', operator:'Sotrasanvicente', prijs:'±COP 18.000 (≈€5) p.p.',
     note:'Niet online te boeken. Loket Terminal del Norte, ongeveer elk half uur. Enkele reis — de volgende dag ga je door naar Rionegro.' },
 
   { id:'bus-gua-mde-apt', type:'bus', dag:12, orde:1, status:'ter-plaatse',
@@ -110,7 +110,7 @@ var RESERVATIES = [
   { id:'bus-minca-tayrona', type:'bus', dag:16, status:'ter-plaatse',
     titel:'Minca → Santa Marta → El Zaíno (Tayrona)',
     duur:'±2u totaal',
-    note:'Collectivo Minca → Santa Marta (±45 min), taxi naar El Mercado, daar de bus van Cootraoriente richting Tayrona/Palomino (elk half uur, 6:00–18:00). Die stopt pal voor Quetzal Dorado. Alleen cash. Alternatief: taxi via de lodge, COP 200.000 vanaf de luchthaven van Santa Marta.' },
+    note:'Collectivo Minca → Santa Marta (±45 min), taxi naar El Mercado, daar de bus van Cootraoriente richting Tayrona/Palomino (elk half uur, 6:00–18:00). Die stopt pal voor Quetzal Dorado. Alleen cash. Alternatief: taxi via de lodge, COP 200.000 (≈€56) vanaf de luchthaven van Santa Marta.' },
 
   { id:'bus-tayrona-palomino', type:'bus', dag:18, status:'ter-plaatse',
     titel:'Tayrona → Palomino',
@@ -120,7 +120,7 @@ var RESERVATIES = [
   { id:'bus-palomino-smr', type:'bus', dag:22, orde:1, status:'ter-plaatse',
     titel:'Palomino → luchthaven SMR (hoteltransport)',
     vertrek:'11:30', duur:'±1u45',
-    note:'Hoteltransport Casa del Pavo Real COP 265.000 (≈€74) voor de rit — op dag 21 aan de receptie regelen en vragen of het tot SMR rijdt. Uber kost even veel (±COP 240.000–275.000) maar is in Palomino onzeker; bus + taxi ±3 uur. Dag na het Velitas-weekend, dus drukte op de kustweg — ruim tijd nemen voor de vlucht van 14:42.' },
+    note:'Hoteltransport Casa del Pavo Real COP 265.000 (≈€74) voor de rit — op dag 21 aan de receptie regelen en vragen of het tot SMR rijdt. Uber kost even veel (±COP 240.000–275.000 (≈€67–76)) maar is in Palomino onzeker; bus + taxi ±3 uur. Dag na het Velitas-weekend, dus drukte op de kustweg — ruim tijd nemen voor de vlucht van 14:42.' },
 
   /* ------------------------------------------------------------ HOTELS --- */
   { id:'hotel-bogota', type:'hotel', dag:1, totDag:3, status:'geboekt',
@@ -128,28 +128,28 @@ var RESERVATIES = [
     datums:'18–20 nov', nachten:2, prijs:'€150 totaal · €75/nacht',
     kamer:'Driepersoonskamer met eigen badkamer, voor 2 personen',
     annuleren:'Gratis annuleren tot 16 nov 2026',
-    note:'Inchecken 15:00–23:00 (receptie 24/7), uitchecken vóór 12:30. Wij vertrekken vrijdag 10:15 — vlucht naar Armenia om 13:30.' },
+    note:'Inchecken 15:00–23:00 (receptie 24/7), uitchecken vóór 12:30. Shuttle vanaf de luchthaven mogelijk: COP 75.000 (≈€21), cash aan de chauffeur, iemand met een bordje wacht je op — vooraf via de Booking-chat doorgeven (vluchtnr., aankomstuur, naam, WhatsApp). Wij vertrekken vrijdag 10:15 — vlucht naar Armenia om 13:30.' },
 
   { id:'hotel-salento-plaza', type:'hotel', dag:3, totDag:4, status:'geboekt',
     titel:'Hotel Salento Plaza', locatie:'salento',
     datums:'20–21 nov', nachten:1, prijs:'≈€91 totaal · COP 327.860', ref:'6700033419',
     kamer:'Deluxe kamer met kingsize bed, ontbijt inbegrepen',
     annuleren:'Gratis annuleren tot 16 nov 2026 23:59',
-    note:'Brugnacht: Casa Salento was volzet op 20 nov. Carrera 7 #6-26, aan het plein · tel. +57 300 483 8877. Inchecken 14:00–18:00, uitchecken vóór 12:00. Betalen ter plaatse (kaart of cash). Za-ochtend te voet met de koffers naar Casa Salento, ±3 blokken.' },
+    note:'Brugnacht: Casa Salento was volzet op 20 nov. Carrera 7 #6-26, aan het plein · tel. +57 300 483 8877. Inchecken 14:00–18:00, uitchecken vóór 12:00. Betalen ter plaatse (kaart of cash). ⚠️ Za 21 nov vroeg weg (downhill 07:20): bij inchecken vroeg uitchecken regelen, kamer vooraf afrekenen en koffers aan de receptie tot na de tour; daarna ±3 blokken naar Casa Salento.' },
 
   { id:'hotel-salento', type:'hotel', dag:4, totDag:7, status:'geboekt',
     titel:'Casa Salento', locatie:'salento',
     datums:'21–24 nov', nachten:3, prijs:'≈€153 totaal · €51/nacht · COP 550.000', ref:'6199996396',
     kamer:'Tweepersoonskamer met eigen badkamer, ontbijt inbegrepen',
     annuleren:'Gratis annuleren tot 21 nov 2026 18:00',
-    note:'Calle 7 #4-43 · tel. +57 313 686 7553. ⚠️ Alleen cash, geen kaarten — COP 550.000 klaarhouden. Inchecken 15:00–18:00: na de downhill (terug ±13:30) ruim op tijd, of laat weten dat je later komt. Uitchecken vóór 12:00; de Daytrip-chauffeur haalt je hier op 24 nov om 10:00. Ze bieden ook tours aan (Cocora, koffie, La Carbonera, Filandia).' },
+    note:'Calle 7 #4-43 · tel. +57 313 686 7553. ⚠️ Alleen cash, geen kaarten — COP 550.000 (≈€153) klaarhouden. Inchecken 15:00–18:00: na de downhill (terug ±13:30) ruim op tijd, of laat weten dat je later komt. Uitchecken vóór 12:00; de Daytrip-chauffeur haalt je hier op 24 nov om 10:00. Ze bieden ook tours aan (Cocora, koffie, La Carbonera, Filandia).' },
 
   { id:'hotel-medellin', type:'hotel', dag:7, totDag:10, status:'geboekt',
     titel:'Landmark Hotel', locatie:'medellin',
     datums:'24–27 nov', nachten:3, prijs:'≈€293 totaal · €98/nacht · COP 1.054.820', ref:'6866440696',
     kamer:'Queen room met balkon, zonder ontbijt',
     annuleren:'Gratis annuleren tot 24 nov 2026 18:00',
-    note:'Calle 14 #43D-85, Manila (El Poblado) · tel. +57 304 234 3158. Inchecken 15:00–23:30 met paspoort én creditcard, uitchecken vóór 12:00. Betalen ter plaatse. Ontbijt niet inbegrepen: COP 53.560 p.p. per nacht. Dakzwembad, spa en fitness. Craft beer te voet: Bipolar ±6 min, Métropole ±10 min, Sierra Blanca ±15 min.' },
+    note:'Calle 14 #43D-85, Manila (El Poblado) · tel. +57 304 234 3158. Inchecken 15:00–23:30 met paspoort én creditcard, uitchecken vóór 12:00. Betalen ter plaatse. Ontbijt niet inbegrepen: COP 53.560 (≈€15) p.p. per nacht. Dakzwembad, spa en fitness. Craft beer te voet: Bipolar ±6 min, Métropole ±10 min, Sierra Blanca ±15 min.' },
 
   { id:'hotel-guatape', type:'hotel', dag:10, totDag:12, status:'geboekt',
     titel:'La Madriguera Hotel', locatie:'guatape',
@@ -175,7 +175,7 @@ var RESERVATIES = [
     datums:'5–9 dec', nachten:4, prijs:'≈€285 totaal · €71/nacht · COP 1.026.800', ref:'6014679439',
     kamer:'Bungalow met 1 slaapkamer, ontbijt inbegrepen',
     annuleren:'Gratis annuleren tot 1 dec 2026 23:59',
-    note:'Calle 10 / km 72, Palomino (±300 m van het strand). Inchecken 14:00–22:00, uitchecken 07:00–11:00. Booking rekent het totaal aan binnen 3 dagen voor aankomst (kaart of cash). Receptie 7–21u, ontbijt 7:30–10:30, restaurant 12–14u en 18–21u, happy hour 17–19u (2-voor-1), zwembad tot 22u. Yoga dagelijks 8:30 (COP 50.000), 2 gratis fietsen, wasservice binnen 24u. Transport van of naar Santa Marta COP 265.000. Via de receptie: tubing, paardrijden, inheems dorp, paddleboarden, surflessen, Cabo de la Vela. Zonnepanelen, het water komt op kamertemperatuur. Keuze van Lisa. 7 dec is Día de las Velitas.' },
+    note:'Calle 10 / km 72, Palomino (±300 m van het strand). Inchecken 14:00–22:00, uitchecken 07:00–11:00. Booking rekent het totaal aan binnen 3 dagen voor aankomst (kaart of cash). Receptie 7–21u, ontbijt 7:30–10:30, restaurant 12–14u en 18–21u, happy hour 17–19u (2-voor-1), zwembad tot 22u. Yoga dagelijks 8:30 (COP 50.000 · ≈€14), 2 gratis fietsen, wasservice binnen 24u. Transport van of naar Santa Marta COP 265.000 (≈€74). Via de receptie: tubing, paardrijden, inheems dorp, paddleboarden, surflessen, Cabo de la Vela. Zonnepanelen, het water komt op kamertemperatuur. Keuze van Lisa. 7 dec is Día de las Velitas.' },
 
   { id:'hotel-bogota2', type:'hotel', dag:22, totDag:24, status:'te-boeken',
     titel:'Bogotá — laatste nachten', locatie:'bogota', datums:'9–11 dec', nachten:2,
@@ -191,7 +191,7 @@ var RESERVATIES = [
 
   { id:'act-catedral-sal', type:'activiteit', dag:24, status:'ter-plaatse',
     titel:'Catedral de Sal, Zipaquirá', locatie:'bogota',
-    prijs:'±COP 110.000–130.000 p.p. (buitenlanders)',
+    prijs:'±COP 110.000–130.000 (≈€31–36) p.p. (buitenlanders)',
     note:'Ticket aan de ingang. Laatste dag, vóór de nachtvlucht.' },
 
   { id:'act-claudio', type:'activiteit', dag:24, status:'te-boeken', locatie:'bogota',
@@ -212,15 +212,15 @@ var RESERVATIES = [
 
   { id:'act-filandia', type:'activiteit', dag:5, status:'ter-plaatse',
     titel:'Filandia — koffie, paardrijden, uitkijktoren', locatie:'salento',
-    note:'Voorkeur: A) paardrijden ±3u bij Rural Adventure (COP 220.000 p.p., Engelstalige gids gevraagd) — 6 nov David: Engelstalige gids OK; ophalen kost COP 150.000 per rit (Uber/taxi Salento–Filandia ±COP 60.000). Nog open: betaling, exacte startplek. Alternatief B) brulapen in Barbas-Bremen (start ±6u, 3–5u met gids, tour ±US$105 p.p.). Rest van de dag: willy vanaf de plaza van Salento (elk uur, ±COP 7.500 p.p., ±40 min) · koffie en zondagsmarkt op de plaza · lunch Helena Adentro (reserveren) · Mirador Colina Iluminada (COP 8.000–12.000, open tot 18:00) · laatste willy 18:10 terug, retourticket bij aankomst kopen.' },
+    note:'Voorkeur: A) paardrijden ±3u bij Rural Adventure (COP 220.000 (≈€61) p.p., Engelstalige gids gevraagd) — 6 nov David: Engelstalige gids OK; ophalen kost COP 150.000 (≈€42) per rit (Uber/taxi Salento–Filandia ±COP 60.000 (≈€17)). Boeking zo 22 nov 9:30 gevraagd + gevraagd of vooraf betalen via de website kan (6 nov). Nog open: betaling, pin van de finca. Alternatief B) brulapen in Barbas-Bremen (start ±6u, 3–5u met gids, tour ±US$105 p.p.). Rest van de dag: willy vanaf de plaza van Salento (elk uur, ±COP 7.500 (≈€2,1) p.p., ±40 min) · koffie en zondagsmarkt op de plaza · lunch Helena Adentro (reserveren) · Mirador Colina Iluminada (COP 8.000–12.000 (≈€2,2–3,3), open tot 18:00) · laatste willy 18:10 terug, retourticket bij aankomst kopen.' },
 
   { id:'act-downhill-salento', type:'activiteit', dag:4, status:'te-boeken',
     titel:'Downhill La Carbonera — Mountain Bike Salento', locatie:'salento',
     vertrek:'07:20 op kantoor (Cra 5 #6-24) · start 07:40 · terug ±13:30',
-    prijs:'COP 240.000 p.p. (≈€67) all-in · cash (kaart +6%)',
+    prijs:'COP 240.000 p.p. (≈€67) all-in · betalen met kaart (+6%)',
     link:'https://wa.me/573127696391',
-    deadline:'19–20 nov bevestigen met paspoortfoto’s via WhatsApp · gaat enkel door vanaf 4 deelnemers',
-    note:'Route paisajística intermedia: 2 afdalingen + 2 keer 4x4 naar boven, ±34 km grind, ontbijt op finca, waterval ±40 m. Regen bij de start of geen groep: wisselen met Cocora (dag 6). Salento Cycling volzet tot 3 dec.' },
+    deadline:'Vr 20 nov ’s ochtends WhatsAppen om te bevestigen (“escríbeme un día antes”) · paspoort Bert gestuurd · Ellens paspoort nog sturen · groep van 4 nog niet zeker',
+    note:'Route paisajística intermedia: 2 afdalingen + 2 keer 4x4 naar boven, ±34 km grind, ontbijt op finca, waterval ±40 m. Regen bij de start of geen groep: wisselen met Cocora (dag 6). Alternatief gevraagd via Booking-chat Casa Salento (6 nov): Trek Bike Adventure (Cl 7 #4-42, tegenover Casa Salento, ⭐5,0) — prijs, startuur, minimum, kaart? Salento Cycling volzet tot 3 dec.' },
 
   { id:'act-manizales', type:'activiteit', dag:7, status:'ter-plaatse',
     titel:'Manizales — lunchstop, twee opties', locatie:'medellin',

@@ -530,3 +530,9 @@ a.bs-link:hover .bs-num{color:#8A6418;}
   #budgetTabel .brow{grid-template-columns:minmax(0,1fr) 4.1rem 3.6rem 3.9rem;gap:0.3rem;padding:0.5rem 0.7rem;font-size:0.8rem;}
   #budgetTabel .bdet{padding-left:1rem;padding-right:0.7rem;}
 }
+
+/* rode, dringende regels in de dagplanning */
+.dag-rij.rood .dr-tijd, .dag-rij.rood .dr-titel{color:#DC2626;font-weight:800;}
+.dag-rij.rood{background:#FEF2F2;border-left:4px solid #DC2626;}
+.route-row.rood .route-time, .route-row.rood .route-label{color:#DC2626;font-weight:800;}
+.dag-alarm{background:#FEE2E2;border:2px solid #DC2626;color:#991B1B;border-radius:10px;padding:0.6rem 0.8rem;margin:0.4rem 0 0.7rem;font-size:0.85rem;font-weight:700;line-height:1.45;}

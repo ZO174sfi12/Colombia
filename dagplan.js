@@ -63,7 +63,7 @@
     /* 1. regels uit de handgeschreven timeline */
     var regels = [];
     if (route) Array.prototype.forEach.call(route.querySelectorAll('.route-row'), function(r){
-      regels.push({ tijd: txt(r.querySelector('.route-time')), titel: txt(r.querySelector('.route-label')), sub: (r.querySelector('.route-sub') ? r.querySelector('.route-sub').innerHTML.replace(/\s+/g,' ').trim() : ''), kaart: null });   /* innerHTML: links in de sub blijven klikbaar */
+      regels.push({ rood: r.classList.contains('rood'), tijd: txt(r.querySelector('.route-time')), titel: txt(r.querySelector('.route-label')), sub: (r.querySelector('.route-sub') ? r.querySelector('.route-sub').innerHTML.replace(/\s+/g,' ').trim() : ''), kaart: null });   /* innerHTML: links in de sub blijven klikbaar */
     });
     /* 2. kaarten koppelen of toevoegen */
     var kaarten = [];
@@ -85,9 +85,13 @@
     var h = document.createElement('div'); h.className = 'dag-kop';
     h.innerHTML = '<div class="dk-titel">' + kop.innerHTML + '</div><div class="dk-status">' + status(dag) + '</div>';
     wrap.appendChild(h);
+    /* extra blokken in de route-block (bv. een rode waarschuwing) blijven bovenaan staan */
+    if (route) Array.prototype.forEach.call(route.children, function(c){
+      if (c.tagName !== 'H3' && !c.classList.contains('route-row')) wrap.appendChild(c.cloneNode(true));
+    });
     var lijst = document.createElement('div'); lijst.className = 'dag-lijst';
     regels.forEach(function(r, ri){
-      var rij = document.createElement('div'); rij.className = 'dag-rij' + (r.kaart ? ' heeft-detail' : '');
+      var rij = document.createElement('div'); rij.className = 'dag-rij' + (r.kaart ? ' heeft-detail' : '') + (r.rood ? ' rood' : '');
       rij.innerHTML = '<div class="dr-tijd">' + r.tijd + '</div><div class="dr-body"><div class="dr-titel">' + r.titel + '</div>' +
                       (r.sub ? '<div class="dr-sub">' + r.sub + '</div>' : '') + '</div>' +
                       (r.kaart ? '<div class="dr-chev">▾</div>' : '');
