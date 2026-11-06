@@ -142,7 +142,7 @@ var RESERVATIES = [
     datums:'21–24 nov', nachten:3, prijs:'≈€153 totaal · €51/nacht · COP 550.000', ref:'6199996396',
     kamer:'Tweepersoonskamer met eigen badkamer, ontbijt inbegrepen',
     annuleren:'Gratis annuleren tot 21 nov 2026 18:00',
-    note:'Calle 7 #4-43 · tel. +57 313 686 7553. ⚠️ Alleen cash, geen kaarten — COP 550.000 klaarhouden. Inchecken 15:00–18:00: na Cocora op tijd terug zijn, of laat weten dat je later komt. Uitchecken vóór 12:00; de Daytrip-chauffeur haalt je hier op 24 nov om 10:00. Ze bieden ook tours aan (Cocora, koffie, La Carbonera, Filandia).' },
+    note:'Calle 7 #4-43 · tel. +57 313 686 7553. ⚠️ Alleen cash, geen kaarten — COP 550.000 klaarhouden. Inchecken 15:00–18:00: na de downhill (terug ±13:30) ruim op tijd, of laat weten dat je later komt. Uitchecken vóór 12:00; de Daytrip-chauffeur haalt je hier op 24 nov om 10:00. Ze bieden ook tours aan (Cocora, koffie, La Carbonera, Filandia).' },
 
   { id:'hotel-medellin', type:'hotel', dag:7, totDag:10, status:'geboekt',
     titel:'Landmark Hotel', locatie:'medellin',
@@ -206,7 +206,7 @@ var RESERVATIES = [
     titel:'Boottocht op het meer', locatie:'guatape',
     note:'Aan de kade regelen. Gaat door bij genoeg opvarenden.' },
 
-  { id:'act-cocora', type:'activiteit', dag:4, status:'ter-plaatse',
+  { id:'act-cocora', type:'activiteit', dag:6, status:'ter-plaatse',
     titel:'Valle de Cocora — 13 km lus', locatie:'salento',
     note:'Vroeg met de Willys-jeep vanaf de plaza. Rubberlaarzen te huur in het dorp; de paden langs de rivier zijn modderig.' },
 
@@ -214,12 +214,13 @@ var RESERVATIES = [
     titel:'Filandia — koffie, paardrijden, uitkijktoren', locatie:'salento',
     note:'Voorkeur: A) paardrijden ±3u bij Rural Adventure (COP 220.000 p.p., Engelstalige gids gevraagd) — 6 nov David: Engelstalige gids OK; ophalen kost COP 150.000 per rit (Uber/taxi Salento–Filandia ±COP 60.000). Nog open: betaling, exacte startplek. Alternatief B) brulapen in Barbas-Bremen (start ±6u, 3–5u met gids, tour ±US$105 p.p.). Rest van de dag: willy vanaf de plaza van Salento (elk uur, ±COP 7.500 p.p., ±40 min) · koffie en zondagsmarkt op de plaza · lunch Helena Adentro (reserveren) · Mirador Colina Iluminada (COP 8.000–12.000, open tot 18:00) · laatste willy 18:10 terug, retourticket bij aankomst kopen.' },
 
-  { id:'act-downhill-salento', type:'activiteit', dag:6, status:'te-boeken',
-    titel:'Downhill 30 km vanaf La Carbonera', locatie:'salento',
-    prijs:'±COP 240.000 p.p. (te bevestigen)',
+  { id:'act-downhill-salento', type:'activiteit', dag:4, status:'te-boeken',
+    titel:'Downhill La Carbonera — Mountain Bike Salento', locatie:'salento',
+    vertrek:'07:20 op kantoor (Cra 5 #6-24) · start 07:40 · terug ±13:30',
+    prijs:'COP 240.000 p.p. (≈€67) all-in · cash (kaart +6%)',
     link:'https://wa.me/573127696391',
-    deadline:'Salento Cycling volzet tot 3 dec (5 nov). Nu aanvragen bij Mountain Bike Salento (Cra 5 #6-24, WhatsApp +57 312 769 6391)',
-    note:'Voertuig naar La Carbonera op 3.400 m, daarna 30 km dalen door nevelwoud. 5 à 6 uur.' },
+    deadline:'19–20 nov bevestigen met paspoortfoto’s via WhatsApp · gaat enkel door vanaf 4 deelnemers',
+    note:'Route paisajística intermedia: 2 afdalingen + 2 keer 4x4 naar boven, ±34 km grind, ontbijt op finca, waterval ±40 m. Regen bij de start of geen groep: wisselen met Cocora (dag 6). Salento Cycling volzet tot 3 dec.' },
 
   { id:'act-manizales', type:'activiteit', dag:7, status:'ter-plaatse',
     titel:'Manizales — lunchstop, twee opties', locatie:'medellin',
