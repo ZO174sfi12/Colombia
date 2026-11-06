@@ -228,7 +228,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/palomino-tubing.html" data-name="palomino tubing rivier zwembanden drijven kogi seviaka sewiaka mamo inheems dorp" data-cat="avontuur" data-dag="19">
+  <div class="act-card" data-href="info/palomino-tubing.html" data-name="palomino tubing rivier zwembanden drijven kogi seviaka sewiaka mamo inheems dorp" data-cat="avontuur water" data-dag="19">
     <div class="card-img">
       <img src="img/tubing.webp" alt="Palomino tubing rivier" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🛟</span>Palomino Tubing</div>'">
@@ -246,7 +246,7 @@ a.loc-link.cat-tag:hover{background:rgba(255,255,255,0.25);border-bottom-color:w
     </div>
   </div>
 
-  <div class="act-card" data-href="info/palomino-surf.html" data-name="palomino surfen surfles strand golf" data-cat="avontuur" data-dag="20">
+  <div class="act-card" data-href="info/palomino-surf.html" data-name="palomino surfen surfles strand golf" data-cat="avontuur water" data-dag="20">
     <div class="card-img">
       <img src="img/surfing.webp" alt="Surfen Palomino" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=no-img><span>🏄</span>Surfen Palomino</div>'">
@@ -1265,7 +1265,7 @@ document.querySelectorAll('.act-card[data-href]').forEach(function(card){
       var name = (card.dataset.name||'').toLowerCase();
       var cat  = card.dataset.cat||'';
       var inPlan = !!card.dataset.dag;
-      var catOk = activeCat==='all' || (activeCat==='planning' ? inPlan : cat===activeCat);
+      var catOk = activeCat==='all' || (activeCat==='planning' ? inPlan : cat.split(' ').indexOf(activeCat)>=0);
       var show = catOk && (!q||name.includes(q));
       card.style.display = show ? '' : 'none';
       if(show) visible++;
