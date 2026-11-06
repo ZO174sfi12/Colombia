@@ -23,6 +23,12 @@
 .hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
 .hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
 .badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+a.badge{color:#fff;text-decoration:none;transition:background .15s;}
+a.badge:hover{background:rgba(255,255,255,0.26);}
+.prac-item[id]{scroll-margin-top:64px;}
+.prac-item:target{box-shadow:0 0 0 2px var(--gold);animation:pulse 1.6s ease-out 1;}
+@keyframes pulse{0%{box-shadow:0 0 0 3px var(--gold);}100%{box-shadow:0 0 0 2px transparent;}}
+@media(prefers-reduced-motion:reduce){.prac-item:target{animation:none;}}
 .day-header{background:linear-gradient(135deg,#263238,#37474F);border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.2rem;color:white;display:flex;align-items:center;gap:1rem;}
 .day-header .dn{font-size:2rem;font-weight:900;opacity:0.85;}
 .day-header h2{font-size:1.1rem;font-weight:700;}
@@ -99,12 +105,13 @@
   <p class="sub">Wat vastligt, wat nog moet, en met welke referentie</p>
   <div class="res-tellers" id="resTellers"></div>
   <div class="badges">
-    <span class="badge">💵 Geld & ATM</span>
-    <span class="badge">🚖 Transport</span>
-    <span class="badge">📱 Simkaart</span>
-    <span class="badge">🔒 Veiligheid</span>
-    <span class="badge">🌡️ Gezondheid</span>
-    <a class="badge" href="paklijst.html">🎒 Paklijst</a>
+    <a class="badge" href="#p-geld">💵 Geld &amp; ATM</a>
+    <a class="badge" href="#p-transport">🚖 Transport</a>
+    <a class="badge" href="#p-simkaart">📱 Simkaart</a>
+    <a class="badge" href="#p-veiligheid">🔒 Veiligheid</a>
+    <a class="badge" href="#p-gezondheid">🦟 Gezondheid</a>
+    <a class="badge" href="paklijst.html">🎒 Paklijst Bert</a>
+    <a class="badge" href="paklijst-ellen.html">🎒 Paklijst Ellen</a>
   </div>
 </div>
 
@@ -292,19 +299,19 @@
   <!-- ESSENTIËLE INFO -->
   <div class="sec-title">ℹ️ Essentiële Info</div>
   <div class="prac-grid">
-    <div class="prac-item">
+    <div class="prac-item" id="p-transport">
       <h4>🚖 Transport in Colombia</h4>
       <p><strong>Uber/Cabify:</strong> Altijd gebruiken in steden. Nooit officiële taxichauffeurs van de luchthaven nemen!<br>
       <strong>Bussen:</strong> Veilig en goedkoop voor lange afstanden.<br>
       <strong>Bogotá luchthaven (dag 22, aankomst uit Santa Marta):</strong> UBER nemen, nooit een bus!</p>
     </div>
-    <div class="prac-item">
+    <div class="prac-item" id="p-simkaart">
       <h4>📱 Simkaart & Internet</h4>
       <p>E-sim activeren op dag 1 in het hotel:<br>
       Verbindingen → SIM beheer → Sim1 Global → mobiel internet: roaming aan.<br>
       WiFi aanwezig in alle hotels.</p>
     </div>
-    <div class="prac-item">
+    <div class="prac-item" id="p-geld">
       <h4>💵 Geld & Betalen</h4>
       <p>Munteenheid: Colombiaanse peso (COP)<br>
       €1 ≈ 4500 COP (wisselkoers variabel)<br>
@@ -312,7 +319,7 @@
       Dollars: nuttig als backup<br>
       Kleine plaatsen: cash-only</p>
     </div>
-    <div class="prac-item">
+    <div class="prac-item" id="p-veiligheid">
       <h4>🔒 Veiligheid</h4>
       <p>Colombia is veilig voor toeristen als je voorzorgen neemt:<br>
       • Nooit telefoon ostentatief tonen<br>
@@ -333,7 +340,7 @@
       <strong>Tayrona/Palomino:</strong> 28–32°C</p>
       <p><strong>🌧️ Regenseizoen:</strong> november is in de Andes (Bogotá, Salento, Medellín) de natste maand van het jaar — meestal droge ochtenden en buien in de namiddag. Plan wandelingen en de downhill 's ochtends, regenjas altijd mee, Cocora is modderig (rubberlaarzen huren). Aan de kust is december het begin van het droge seizoen.</p>
     </div>
-    <div class="prac-item">
+    <div class="prac-item" id="p-gezondheid">
       <h4>🦟 Gezondheid & Vaccins</h4>
       <p>• Muggenspray DEET ≥30% meenemen<br>
       • Gele koorts: vaccinatiebewijs <strong>vereist</strong> voor Tayrona, Minca en Palomino — geel boekje meenemen<br>
