@@ -69,11 +69,6 @@
 .cash-bar{background:#FFF7ED;border:1px solid #FDB97D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.6rem;font-size:0.83rem;color:#92400E;line-height:1.5;}
 .warn-bar{background:#FEF3C7;border:1px solid #FCD34D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.6rem;font-size:0.83rem;color:#78350F;line-height:1.5;}
 
-.budget-table{background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1.6rem;}
-.budget-row{display:flex;padding:0.6rem 1rem;border-bottom:1px solid var(--border);font-size:0.83rem;}
-.budget-row:last-child{border-bottom:none;font-weight:700;background:#F5F2EE;}
-.budget-row .bl{flex:1;color:var(--muted);}
-.budget-row .bv{font-weight:600;color:var(--text);}
 
 /* Kaart preview */
 .kaart-preview-link{display:block;text-decoration:none;margin-bottom:1.6rem;border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,0.07);transition:box-shadow 0.15s;}
@@ -218,8 +213,9 @@
       </div>
       <div class="ov-content">
         <strong>Medellín — Eeuwige lente, Comuna 13, Parque Arvi</strong>
-        <span>Free tour Comuna 13 · Provenza &amp; Lleras · Kabelbaan Parque Arví · Botero · 3 Cordilleras</span>
+        <span>Lunchstop Manizales onderweg · Free tour Comuna 13 · Provenza &amp; Lleras · Kabelbaan Parque Arví · Botero · 3 Cordilleras</span>
         <div class="ov-tags">
+          <span class="ov-tag">🍽️ Manizales onderweg · dag 7</span>
           <a class="ov-tag ov-tag-link" href="info/medellin-comuna-13.html" onclick="event.stopPropagation()">🎨 Comuna 13</a>
           <a class="ov-tag ov-tag-link" href="info/medellin-parque-arvi.html" onclick="event.stopPropagation()">🚡 Parque Arvi</a>
           
@@ -255,13 +251,15 @@
       </div>
       <div class="ov-content">
         <strong>Minca — Jungle, Watervallen, Sierra Nevada</strong>
-        <span>Pozo Azul · Cascade de Marinka · Koffiefinca Hacienda La Victoria · Vogels spotten · Sierra Nevada uitzicht</span>
+        <span>Pozo Azul · Cascade de Marinka · Koffiefinca Hacienda La Victoria · Dag 15 Reserva El Dorado · Vogeltocht bij zonsopgang</span>
         <div class="ov-tags">
           <a class="ov-tag ov-tag-link" href="info/minca-pozo-azul.html" onclick="event.stopPropagation()">💧 Pozo Azul</a>
           <a class="ov-tag ov-tag-link" href="info/minca-marinka.html" onclick="event.stopPropagation()">🌊 Cascade Marinka</a>
           <a class="ov-tag ov-tag-link" href="info/minca-sierra.html" onclick="event.stopPropagation()">🏔️ Sierra Nevada</a>
           <span class="ov-tag">☕ Koffiefinca La Victoria</span>
-          <span class="ov-tag">🦜 Vogels</span>
+          <span class="ov-tag">🏞️ Reserva El Dorado · dag 15</span>
+          <span class="ov-tag">🦜 Vogeltocht zonsopgang</span>
+          <span class="ov-tag">🍺 Nevada Cervecería</span>
         </div>
       </div>
       <div class="ov-arrow">›</div>
@@ -277,6 +275,8 @@
         <div class="ov-tags">
           <a class="ov-tag ov-tag-link" href="info/tayrona-park.html" onclick="event.stopPropagation()">🏝️ Cabo San Juan</a>
           <a class="ov-tag ov-tag-link" href="info/tayrona-park.html" onclick="event.stopPropagation()">🥾 Jungle hike</a>
+          <span class="ov-tag">🏊 La Piscina</span>
+          <span class="ov-tag">🌊 El Mirador</span>
           </div>
       </div>
       <div class="ov-arrow">›</div>
@@ -323,10 +323,6 @@
     <span style="opacity:0.7">›</span>
   </a>
 
-  <!-- BUDGET -->
-  <div class="sec-title">💰 Budget Overzicht</div>
-  <div class="budget-table" id="budgetTabel"></div>
-  <p style="font-size:0.78rem;color:var(--muted);margin:0.5rem 0 1rem;">💸 <b>Splitwise:</b> alleen wat betaald is. Booking.com zonder vooruitbetaling pas na betaling.</p>
 
 
 </div>
@@ -370,7 +366,6 @@ function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(
 </script>
 <script src="reservaties.js"></script>
 <script src="dagsync.js"></script>
-<script src="budget.js"></script>
 <script>
 window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.dataset.was=d.open?'1':'';d.open=true;});});
 window.addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){if(d.dataset.was!=='1')d.open=false;});});

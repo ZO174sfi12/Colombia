@@ -212,13 +212,13 @@ var RESERVATIES = [
 
   { id:'act-filandia', type:'activiteit', dag:5, status:'ter-plaatse',
     titel:'Filandia — koffie, paardrijden, uitkijktoren', locatie:'salento',
-    note:'Voorkeur: A) paardrijden ±3u bij Rural Adventure (COP 220.000 p.p., Engelstalige gids gevraagd) — WhatsApp-aanvraag verstuurd 5 nov, wacht op antwoord over vervoer en betaling. Alternatief B) brulapen in Barbas-Bremen (start ±6u, 3–5u met gids, tour ±US$105 p.p.). Rest van de dag: willy vanaf de plaza van Salento (elk uur, ±COP 7.500 p.p., ±40 min) · koffie en zondagsmarkt op de plaza · lunch Helena Adentro (reserveren) · Mirador Colina Iluminada (COP 8.000–12.000, open tot 18:00) · laatste willy 18:10 terug, retourticket bij aankomst kopen.' },
+    note:'Voorkeur: A) paardrijden ±3u bij Rural Adventure (COP 220.000 p.p., Engelstalige gids gevraagd) — 6 nov David: Engelstalige gids OK; ophalen kost COP 150.000 per rit (Uber/taxi Salento–Filandia ±COP 60.000). Nog open: betaling, exacte startplek. Alternatief B) brulapen in Barbas-Bremen (start ±6u, 3–5u met gids, tour ±US$105 p.p.). Rest van de dag: willy vanaf de plaza van Salento (elk uur, ±COP 7.500 p.p., ±40 min) · koffie en zondagsmarkt op de plaza · lunch Helena Adentro (reserveren) · Mirador Colina Iluminada (COP 8.000–12.000, open tot 18:00) · laatste willy 18:10 terug, retourticket bij aankomst kopen.' },
 
   { id:'act-downhill-salento', type:'activiteit', dag:6, status:'te-boeken',
     titel:'Downhill 30 km vanaf La Carbonera', locatie:'salento',
-    prijs:'COP 240.000 p.p. + COP 15.000 entree natuurgebied',
-    link:'https://www.salentocycling.com',
-    deadline:'WhatsApp-aanvraag verstuurd 5 nov (+57 316 535 1792) — wacht op bevestiging',
+    prijs:'±COP 240.000 p.p. (te bevestigen)',
+    link:'https://wa.me/573127696391',
+    deadline:'Salento Cycling volzet tot 3 dec (5 nov). Nu aanvragen bij Mountain Bike Salento (Cra 5 #6-24, WhatsApp +57 312 769 6391)',
     note:'Voertuig naar La Carbonera op 3.400 m, daarna 30 km dalen door nevelwoud. 5 à 6 uur.' },
 
   { id:'act-manizales', type:'activiteit', dag:7, status:'ter-plaatse',

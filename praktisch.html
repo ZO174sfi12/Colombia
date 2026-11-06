@@ -51,6 +51,13 @@
 .cash-plan tr.tot td{border-top:2px solid #1A4A2E;font-weight:700;background:#F0FDF4;}
 .cash-note{font-size:0.75rem;color:var(--muted);line-height:1.6;margin:0.6rem 0 1.4rem;}
 .cash-note b{color:var(--text);}
+.budget-uit{margin-top:0.6rem;}
+.budget-uit>summary{cursor:pointer;font-size:0.78rem;font-weight:700;color:var(--muted);list-style:none;padding:0.2rem 0;}
+.budget-uit>summary::-webkit-details-marker{display:none;}
+.budget-uit>summary::before{content:'\25B8 ';}
+.budget-uit[open]>summary::before{content:'\25BE ';}
+.budget-uit>summary:hover{color:var(--text);}
+.budget-uit #budgetTabel{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:0.5rem;}
 .ov-table{background:white;border-radius:12px;border:1px solid var(--border);overflow:hidden;margin-bottom:1.6rem;}
 .ov-row{display:flex;gap:0;border-bottom:1px solid var(--border);align-items:stretch;}
 .ov-day{min-width:80px;padding:0.7rem 0.6rem;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;text-align:center;}
@@ -346,6 +353,10 @@
     <div class="prac-item">
       <h4>💰 Ons budget</h4>
       <p id="budgetKort">Wordt berekend uit reservaties.js…</p>
+      <details class="budget-uit">
+        <summary>Volledige tabel — nu tegenover het oorspronkelijke budget</summary>
+        <div id="budgetTabel"></div>
+      </details>
       <p style="font-size:0.8rem;margin-top:0.4rem;">💸 <b>Splitwise:</b> alleen wat betaald is. Booking.com zonder vooruitbetaling pas na betaling.</p>
     </div>
     <div class="prac-item">
@@ -427,6 +438,7 @@
 <div class="footer">🇨🇴 Colombia · 24 dagen · 2 personen</div>
 <script src="reservaties.js"></script>
 <script src="grootboek.js"></script>
+<script src="budget.js"></script>
 <script>
 (function(){
   if (typeof budgetOverzicht !== 'function') return;
@@ -443,7 +455,7 @@
     'Vervoer over land: ' + eur(p.grondvervoer.bedrag) + '<br>' +
     'Vluchten (geboekt): ' + eur(b.vluchten) + '<br>' +
     '<strong>Totaal: ' + eur(b.totaalInclEten) + ' voor 2 · ±' + eur(perDag) + ' p.p./dag excl. vluchten</strong><br>' +
-    '<small>Zelfde cijfers als de budgettabel op het overzicht — één bron (reservaties.js).</small>';
+    '<small>Één bron: reservaties.js. De volledige tabel staat hieronder.</small>';
 })();
 </script>
 <script>
