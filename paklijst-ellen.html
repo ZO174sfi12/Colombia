@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
+<title>🎒 Paklijst · Colombia 24 Dagen</title>
+<style>
+:root {
+  --navy:#1A4A2E; --gold:#C9962A; --red:#B91C1C;
+  --cream:#FAF8F4; --card:#FFFFFF; --border:#E5E0D8;
+  --text:#1C2A1E; --muted:#4A5E4D; --done:#9AA59D;
+}
+.topbar{background:var(--navy);padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.subnav a.active{color:var(--navy);border-bottom-color:var(--navy);}
+.hero{background:linear-gradient(135deg,#1A4A2E,#2F6B45,#4E7F5C);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.85;margin-top:0.4rem;}
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;}
+.pk-prog{position:sticky;top:52px;z-index:150;background:var(--cream);padding:0.6rem 0;display:flex;align-items:center;gap:0.8rem;margin-bottom:0.6rem;}
+.pk-bar{flex:1;height:7px;background:var(--border);border-radius:4px;overflow:hidden;}
+.pk-bar i{display:block;height:100%;width:0;background:var(--navy);transition:width .25s;}
+.pk-count{font-weight:800;font-size:0.85rem;font-variant-numeric:tabular-nums;min-width:4.5em;text-align:right;color:var(--navy);}
+.pk-regel{background:#FEF3C7;border:1px solid #FCD34D;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.4rem;font-size:0.83rem;color:#78350F;line-height:1.5;}
+.pk-groep{margin-bottom:1.4rem;}
+.pk-groep .sec-title{display:flex;justify-content:space-between;align-items:baseline;gap:0.5rem;margin-bottom:0.5rem;}
+.pk-groep .sec-title small{font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0;}
+.pk-lijst{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.pk-lijst li+li{border-top:1px solid var(--border);}
+.pk-lijst li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:0.3rem;padding-right:0.55rem;}
+.pk-lijst label{display:grid;grid-template-columns:22px 1fr;gap:0.65rem;align-items:start;padding:0.65rem 0.4rem 0.65rem 0.9rem;cursor:pointer;min-width:0;}
+.pk-acties{display:flex;align-items:center;gap:0.1rem;flex:0 0 auto;}
+.pk-step{font:inherit;font-weight:800;font-size:0.95rem;line-height:1;width:26px;height:26px;border-radius:7px;
+  background:#FFFDF8;border:1px solid var(--border);color:var(--navy);cursor:pointer;padding:0;}
+.pk-step:hover{background:#F3F0E8;}
+.pk-step:disabled{opacity:0.3;cursor:default;}
+.pk-del{font:inherit;font-size:1rem;line-height:1;width:26px;height:26px;margin-left:0.3rem;border-radius:7px;
+  background:transparent;border:1px solid transparent;color:var(--done);cursor:pointer;padding:0;}
+.pk-del:hover{background:#FEF2F2;border-color:#FCA5A5;color:var(--red);}
+.pk-herstel{font-size:0.74rem;color:var(--muted);padding:0.4rem 0.9rem 0;}
+.pk-herstel button{font:inherit;font-weight:700;background:none;border:none;color:var(--navy);cursor:pointer;text-decoration:underline;padding:0;}
+.pk-add{padding:0.5rem 0.9rem;border-top:1px solid var(--border);}
+.pk-add>button{font:inherit;font-size:0.8rem;font-weight:700;background:none;border:none;color:var(--muted);cursor:pointer;padding:0.15rem 0;}
+.pk-add>button:hover{color:var(--navy);}
+.pk-form{display:flex;gap:0.4rem;flex-wrap:wrap;align-items:center;}
+.pk-form input[type=text]{flex:1 1 150px;min-width:0;font:inherit;font-size:0.84rem;padding:0.4rem 0.55rem;border:1px solid var(--border);border-radius:8px;background:#FFFDF8;}
+.pk-form input[type=number]{width:60px;font:inherit;font-size:0.84rem;padding:0.4rem 0.4rem;border:1px solid var(--border);border-radius:8px;background:#FFFDF8;}
+.pk-form button{font:inherit;font-size:0.82rem;font-weight:700;border-radius:8px;padding:0.4rem 0.7rem;cursor:pointer;border:1px solid var(--navy);background:var(--navy);color:#fff;}
+.pk-form button.sec{background:#fff;color:var(--muted);border-color:var(--border);}
+li.eigen .pk-t{font-style:italic;}
+.pk-lijst input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--navy);}
+.pk-lijst input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.pk-t{min-width:0;font-size:0.88rem;font-weight:600;color:var(--text);}
+.pk-t em{display:block;font-style:normal;font-weight:400;font-size:0.76rem;color:var(--muted);line-height:1.4;margin-top:0.1rem;}
+.pk-q{font-weight:800;font-size:0.85rem;font-variant-numeric:tabular-nums;color:var(--gold);}
+.pk-lijst li.klaar .pk-t,.pk-lijst li.klaar .pk-q{color:var(--done);text-decoration:line-through;}
+.pk-lijst li.klaar .pk-t em{text-decoration:none;}
+.pk-voet{display:flex;justify-content:space-between;align-items:center;gap:0.8rem;flex-wrap:wrap;font-size:0.78rem;color:var(--muted);margin-top:1.6rem;}
+.pk-reset{font:inherit;font-weight:700;background:white;border:1px solid var(--border);color:var(--text);border-radius:8px;padding:0.45rem 0.8rem;cursor:pointer;}
+.pk-reset.let-op{border-color:var(--red);color:var(--red);}
+@media(prefers-reduced-motion:reduce){.pk-bar i{transition:none;}}
+@media print{.pk-prog,.pk-voet,.pk-step,.pk-del,.pk-add,.pk-herstel{display:none !important;}}
+</style>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
+  <div class="topbar-right">
+    <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
+  </div>
+</div>
+<div class="subnav subnav-locs">
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="bogota2.html">🏙️ Bogotá 2</a>
+</div>
+<div class="subnav subnav-info">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="culinair.html">🍽️ Culinair</a>
+  <a href="activiteiten.html">🎯 Activiteiten</a>
+  <a href="hotels.html">🏨 Hotels</a>
+  <a href="praktisch.html" class="active">📌 Praktisch</a>
+  <a href="routes.html">🗺️ Kaart &amp; Routes</a>
+</div>
+
+<div class="hero">
+  <h1>🎒 Paklijst Ellen</h1>
+  <p class="sub">Andes 8–27°C met buien, kust 23–32°C · kleding voor ±8 dagen · was in Medellín (dag 8) en Palomino (dag 19) + handwasjes · aantallen en items vrij aan te passen</p>
+  <div class="badges">
+    <a class="badge" href="praktisch.html">← Praktisch</a>
+    <span class="badge">🏔️ 2.640 m → zeeniveau</span>
+    <span class="badge">🌡️ 8–32 °C</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="pk-prog"><div class="pk-bar"><i id="pkFill"></i></div><span class="pk-count" id="pkCount">0 / 0</span></div>
+
+  <div class="pk-regel">🧺 <strong>Regel:</strong> alles sneldrogend of merino, geen katoen. Wat 's avonds in de lavabo gaat, moet 's ochtends droog zijn. Lagen in plaats van een dikke jas: Bogotá en Salento zijn fris en nat, Minca en Tayrona heet en vochtig.</div>
+
+  <div id="paklijst"></div>
+
+  <div class="pk-voet">
+    <span>Vinkjes, aantallen en je eigen items worden alleen op dít toestel bewaard — niet gedeeld met Bert.</span>
+    <button class="pk-reset" id="pkReset" type="button">Alles leegmaken</button>
+  </div>
+</div>
+<div class="footer">🇨🇴 Colombia · 24 dagen · paklijst Ellen</div>
+
+<script>
+/* Paklijst — basislijst. [naam, toelichting, aantal]
+   Aantallen, verwijderde items en eigen toevoegingen bewaart de browser apart;
+   wijzig je hieronder iets, dan blijven die aanpassingen gewoon staan. */
+var PAKLIJST = [
+ ["👗 Kleding", "voor ±8 dagen", [
+  ["T-shirts of tops, sneldrogend", "", "3"],
+  ["Tops merino", "ruiken dagen niet, ideaal voor reisdagen", "2"],
+  ["Hemd of blouse lange mouw, licht", "zon, muggen in Minca, schouders bedekt in de kerken", "1"],
+  ["Jurk of rok, licht en sneldrogend", "avond in Provenza, etentje in Medellín", "1"],
+  ["Legging", "paardrijden in Filandia, vliegtuig, koele avonden", "1"],
+  ["Lichte hike- of reisbroek", "Cocora, avonden, vliegtuig", "1"],
+  ["Short", "", "1"],
+  ["Fleece of dunne midlayer", "Bogotá 8–19°C, Salento en Guatapé ±13°C ’s avonds, La Carbonera 3.400 m fris", "1"],
+  ["Regenjas, licht en opvouwbaar", "november is de natste maand in de Andes · ook voor de downhill", "1"],
+  ["Sportbeha", "Cocora 13 km, downhill 30 km, paardrijden — één draagt, één droogt", "2"],
+  ["Gewone beha", "", "2"],
+  ["Onderbroeken sneldrogend", "handwas in 5 min, droog tegen de ochtend", "7"],
+  ["Sokken: 2 merino wandel + 3 sport enkel", "", "5"],
+  ["Bikini of badpak", "twee, zodat er altijd één droog is: tubing, watervallen, strand", "2"],
+  ["Pareo of sarong", "strand, handdoek, deken in de bus én schouderbedekking in de Zoutkathedraal", "1"],
+  ["Slaapshirt + short", "", "1"],
+  ["Pet of zonnehoed", "kust 30–32°C: Tayrona en Palomino", "1"],
+  ["Dunne handschoenen", "downhill La Carbonera: koud en nat op 3.400 m, betere grip", "1"],
+  ["Buff of nekwarmer", "hoogte, avonden in Bogotá, stof op de motortaxi", "1"]
+ ]],
+ ["👟 Schoenen", "zwaarste paar aan op het vliegtuig", [
+  ["Wandelschoenen mid, waterdicht", "Minca, Tayrona, El Peñol · aan op het vliegtuig · drogen traag als er water in komt", "1"],
+  ["Sneakers voor de stad", "Bogotá, Medellín, vlakke wandelingen", "1"],
+  ["Sportsandalen", "kust, rivieren, tubing in Palomino", "1"],
+  ["Waterschoenen met grip", "tubing + wandeling naar Seviaka, rotsige rivierbedding", "1"],
+  ["Teenslippers", "douches, strand", "1"]
+ ]],
+ ["🩸 Cyclus", "24 dagen — bevoorrading is lastig buiten de steden", [
+  ["Menstruatiecup + sterilisatiebekertje", "geen bevoorrading nodig in Minca of Palomino, weinig afval; uitkoken kan in het bekertje", "1"],
+  ["Tampons of maandverband als reserve", "je eigen merk; het aanbod buiten Bogotá en Medellín is beperkt", ""],
+  ["Inlegkruisjes", "", ""],
+  ["Kleine wetbag", "discreet en wasbaar", "1"],
+  ["Anticonceptie voor 24 dagen + reserve", "Colombia is 6 uur vroeger dan België — spreek af of je op Belgische of lokale tijd blijft", ""],
+  ["Pijnstiller naar keuze", "", ""]
+ ]],
+ ["🧴 Verzorging & haar", "vloeistoffen max. 100 ml in handbagage", [
+  ["Shampoo + conditioner", "zeepblokjes schelen plaats én de 100 ml-regel; zon en zout drogen je haar uit", "2"],
+  ["Haarelastiekjes + schuifjes", "neem er meer dan je denkt, ze verdwijnen", "6"],
+  ["Kam of borstel", "", "1"],
+  ["Droogshampoo klein", "in ruimbagage · handig op de lange reisdagen", "1"],
+  ["Haarklem of clip", "haar op in de hitte van de kust", "1"],
+  ["Zonnecrème SPF 50, biologisch afbreekbaar", "duur in Colombia; biologisch afbreekbaar is verplicht in Tayrona", "2"],
+  ["Gezichtscrème met SPF", "op 2.640 m brandt de zon sneller dan je voelt", "1"],
+  ["Lippenbalsem met SPF", "hoogte + zon", "1"],
+  ["Muggenspray DEET ≥ 30 %", "Minca, Tayrona, Palomino", "1"],
+  ["Aftersun", "", "1"],
+  ["Deo", "", ""],
+  ["Tandenborstel + tandpasta", "", ""],
+  ["Scheer- of epileerspullen", "", ""],
+  ["Make-up, beperkt", "wat je ook thuis dagelijks draagt", ""],
+  ["Handgel + vochtige doekjes", "lange busritten, Tayrona heeft weinig voorzieningen", ""],
+  ["Oordopjes + slaapmasker", "", "1"],
+  ["Nagelknipper", "in ruimbagage", "1"]
+ ]],
+ ["🧺 Wassen onderweg", "was in Medellín (dag 8) en Palomino (dag 19)", [
+  ["Reiswasmiddel", "Dr. Bronner’s of wasbladen; vloeistof max. 100 ml in handbagage", "1"],
+  ["Elastische waslijn zonder knijpers", "", "1"],
+  ["Universele lavabostop", "veel lavabo’s hebben er geen", "1"],
+  ["Opvouwbare emmer of waszak (dry bag)", "voor de handwas als de lavabo te klein is", "1"],
+  ["Waszak voor vuile was", "", "1"],
+  ["Microvezelhanddoek", "ook om was uit te wringen", "1"]
+ ]],
+ ["💊 Reisapotheek", "", [
+  ["Eigen medicatie", "voor 24 dagen + reserve, in originele verpakking", ""],
+  ["Middel tegen diarree + ORS-zakjes", "", ""],
+  ["Paracetamol / ibuprofen", "ook bij hoofdpijn op hoogte", ""],
+  ["Pleisters + blarenpleisters", "Cocora is 13 km", ""],
+  ["Ontsmettingsmiddel", "", ""],
+  ["Antihistaminicum", "muggenbeten", ""],
+  ["Geel vaccinatieboekje", "vereist voor Tayrona, Minca en Palomino", ""]
+ ]],
+ ["🔌 Tech", "", [
+  ["Telefoon + oplader + kabel", "", ""],
+  ["Powerbank", "in handbagage", "1"],
+  ["Stekkeradapter type A/B", "Amerikaanse stekkers, 110 V", "1"],
+  ["Oortjes", "", "1"],
+  ["Hoofdlamp", "Tayrona en Minca: weinig licht ’s avonds · Palomino: onverlichte straatjes terug van het strand", "1"],
+  ["eSIM geïnstalleerd", "activeren op dag 1, zie Praktisch", ""],
+  ["Offline kaarten gedownload", "", ""]
+ ]],
+ ["🛂 Documenten & geld", "", [
+  ["Paspoort (origineel)", "ook nodig aan de ingang van Tayrona", ""],
+  ["Check-MIG ingevuld", "aanbevolen · 72 tot 1 uur voor de vlucht · heen én terug apart", ""],
+  ["Reisverzekering + polisnummer", "", ""],
+  ["Kopie paspoort digitaal", "apart van het origineel", ""],
+  ["2 bankkaarten, apart bewaard", "", "2"],
+  ["±€100 cash als noodreserve", "briefjes voor als een automaat weigert — niet om te wisselen, zie cash-strategie", ""]
+ ]],
+ ["🎒 Tas & extra", "", [
+  ["Dagrugzak 20–25 l", "", "1"],
+  ["Crossbody tasje met rits", "stad en bus — voor onder je jas, niet op je rug", "1"],
+  ["Regenhoes voor rugzak", "", "1"],
+  ["Pakzakjes", "kleding per type", "3"],
+  ["Drybag", "regen, boot, strand", "1"],
+  ["Klein hangslot", "lockers", "1"],
+  ["Herbruikbare drinkfles", "", "1"],
+  ["Zonnebril", "", "1"],
+  ["Waterdichte telefoonhoes", "tubing, boottocht Guatapé, buien", "1"]
+ ]]
+];
+
+(function(){
+  var KEY = 'paklijst-ellen-v1', OUD = null;
+  var st = { vink:{}, aantal:{}, weg:{}, extra:{} };
+  try {
+    var raw = localStorage.getItem(KEY);
+    if (raw) { var p = JSON.parse(raw) || {};
+      st.vink = p.vink || {}; st.aantal = p.aantal || {}; st.weg = p.weg || {}; st.extra = p.extra || {};
+    }
+  } catch(e) {}
+  function bewaar(){ try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e) {} }
+
+  var wrap = document.getElementById('paklijst');
+
+  function items(gi){
+    var uit = [];
+    PAKLIJST[gi][2].forEach(function(it, ii){
+      uit.push({ id:'pk'+gi+'-'+ii, t:it[0], n:it[1], q:it[2], eigen:false });
+    });
+    (st.extra[gi] || []).forEach(function(ex){
+      uit.push({ id:ex.id, t:ex.t, n:ex.n || '', q:ex.q, eigen:true });
+    });
+    return uit;
+  }
+
+  function aantalVan(it){
+    if (st.aantal[it.id] != null) return st.aantal[it.id];
+    return it.q === '' ? '' : parseInt(it.q, 10);
+  }
+
+  function tekenGroep(gi){
+    var g = PAKLIJST[gi];
+    var sec = document.createElement('div');
+    sec.className = 'pk-groep';
+    sec.innerHTML = '<div class="sec-title">' + g[0] + (g[1] ? '<small>' + g[1] + '</small>' : '') + '</div>';
+
+    var ul = document.createElement('ul'); ul.className = 'pk-lijst';
+    var weg = 0;
+
+    items(gi).forEach(function(it){
+      if (st.weg[it.id]) { weg++; return; }
+      var li = document.createElement('li');
+      if (it.eigen) li.className = 'eigen';
+      var n = aantalVan(it);
+
+      var lab = document.createElement('label');
+      lab.setAttribute('for', it.id);
+      lab.innerHTML = '<input type="checkbox" id="' + it.id + '"><span class="pk-t"></span>';
+      lab.querySelector('.pk-t').textContent = it.t;
+      if (it.n) { var em = document.createElement('em'); em.textContent = it.n; lab.querySelector('.pk-t').appendChild(em); }
+
+      var act = document.createElement('div'); act.className = 'pk-acties';
+      if (n !== '') {
+        var min = document.createElement('button'); min.type='button'; min.className='pk-step'; min.textContent='−';
+        min.setAttribute('aria-label','Eén minder'); min.disabled = n <= 1;
+        var num = document.createElement('span'); num.className='pk-q'; num.textContent = n + '×';
+        var plus = document.createElement('button'); plus.type='button'; plus.className='pk-step'; plus.textContent='+';
+        plus.setAttribute('aria-label','Eén meer');
+        min.addEventListener('click', function(){ zet(it, Math.max(1, aantalVan(it) - 1), num, min); });
+        plus.addEventListener('click', function(){ zet(it, Math.min(99, aantalVan(it) + 1), num, min); });
+        act.appendChild(min); act.appendChild(num); act.appendChild(plus);
+      }
+      var del = document.createElement('button'); del.type='button'; del.className='pk-del';
+      del.innerHTML = '&times;'; del.title = 'Verwijderen'; del.setAttribute('aria-label','Verwijder ' + it.t);
+      del.addEventListener('click', function(){ st.weg[it.id] = true; bewaar(); herteken(); });
+      act.appendChild(del);
+
+      li.appendChild(lab); li.appendChild(act);
+      var cb = lab.querySelector('input');
+      cb.checked = !!st.vink[it.id];
+      li.classList.toggle('klaar', cb.checked);
+      cb.addEventListener('change', function(){
+        if (cb.checked) st.vink[it.id] = true; else delete st.vink[it.id];
+        li.classList.toggle('klaar', cb.checked); bewaar(); tel();
+      });
+      ul.appendChild(li);
+    });
+
+    /* toevoegen */
+    var add = document.createElement('li'); add.className = 'pk-add';
+    var knop = document.createElement('button'); knop.type='button'; knop.textContent = '+ item toevoegen';
+    add.appendChild(knop);
+    knop.addEventListener('click', function(){
+      add.innerHTML = '';
+      var f = document.createElement('div'); f.className = 'pk-form';
+      var tIn = document.createElement('input'); tIn.type='text'; tIn.placeholder='Wat neem je mee?'; tIn.maxLength=70;
+      var qIn = document.createElement('input'); qIn.type='number'; qIn.min='1'; qIn.max='99'; qIn.value='1'; qIn.setAttribute('aria-label','Aantal');
+      var ok = document.createElement('button'); ok.type='button'; ok.textContent='Toevoegen';
+      var an = document.createElement('button'); an.type='button'; an.className='sec'; an.textContent='Annuleer';
+      f.appendChild(tIn); f.appendChild(qIn); f.appendChild(ok); f.appendChild(an);
+      add.appendChild(f); tIn.focus();
+      function voegtoe(){
+        var tekst = tIn.value.trim(); if (!tekst) { tIn.focus(); return; }
+        var q = Math.min(99, Math.max(1, parseInt(qIn.value, 10) || 1));
+        if (!st.extra[gi]) st.extra[gi] = [];
+        st.extra[gi].push({ id:'ex' + gi + '-' + Date.now().toString(36), t:tekst, n:'', q:String(q) });
+        bewaar(); herteken();
+      }
+      ok.addEventListener('click', voegtoe);
+      tIn.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); voegtoe(); } });
+      an.addEventListener('click', herteken);
+    });
+    ul.appendChild(add);
+    sec.appendChild(ul);
+
+    if (weg) {
+      var h = document.createElement('div'); h.className = 'pk-herstel';
+      h.textContent = weg + (weg === 1 ? ' item verwijderd · ' : ' items verwijderd · ');
+      var hb = document.createElement('button'); hb.type='button'; hb.textContent='herstel';
+      hb.addEventListener('click', function(){
+        items(gi).forEach(function(it){ delete st.weg[it.id]; }); bewaar(); herteken();
+      });
+      h.appendChild(hb); sec.appendChild(h);
+    }
+    return sec;
+  }
+
+  function zet(it, n, num, min){
+    st.aantal[it.id] = n; num.textContent = n + '×'; min.disabled = n <= 1; bewaar();
+  }
+
+  function herteken(){
+    wrap.innerHTML = '';
+    PAKLIJST.forEach(function(g, gi){ wrap.appendChild(tekenGroep(gi)); });
+    tel();
+  }
+
+  function tel(){
+    var vak = wrap.querySelectorAll('.pk-lijst input[type=checkbox]');
+    var k = wrap.querySelectorAll('.pk-lijst input[type=checkbox]:checked').length;
+    var n = vak.length;
+    document.getElementById('pkCount').textContent = k + ' / ' + n;
+    document.getElementById('pkFill').style.width = (n ? k / n * 100 : 0) + '%';
+  }
+
+  herteken();
+
+  var btn = document.getElementById('pkReset'), scherp = false, t;
+  btn.addEventListener('click', function(){
+    if (!scherp) { scherp = true; btn.textContent = 'Zeker? Tik nog eens'; btn.classList.add('let-op');
+      t = setTimeout(function(){ scherp = false; btn.textContent = 'Alles leegmaken'; btn.classList.remove('let-op'); }, 3000); return; }
+    clearTimeout(t);
+    st = { vink:{}, aantal:{}, weg:{}, extra:{} };
+    bewaar(); herteken();
+    scherp = false; btn.textContent = 'Alles leegmaken'; btn.classList.remove('let-op');
+  });
+})();
+</script>
+<script>
+function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
+</script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
+<script src="lightbox.js"></script>
+</body>
+</html>
