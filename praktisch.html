@@ -57,6 +57,33 @@ a.badge:hover{background:rgba(255,255,255,0.26);}
 .cash-plan tr.tot td{border-top:2px solid #1A4A2E;font-weight:700;background:#F0FDF4;}
 .cash-note{font-size:0.75rem;color:var(--muted);line-height:1.6;margin:0.6rem 0 1.4rem;}
 .cash-note b{color:var(--text);}
+.cash-plan details.dekt>summary{cursor:pointer;list-style:none;color:#1A4A2E;font-weight:600;}
+.cash-plan details.dekt>summary::-webkit-details-marker{display:none;}
+.cash-plan details.dekt>summary::before{content:'▸ ';}
+.cash-plan details.dekt[open]>summary::before{content:'▾ ';}
+.cash-plan details.dekt>div{margin-top:0.3rem;}
+details.cash-more{margin:0.6rem 0 1.4rem;}
+details.cash-more>summary{cursor:pointer;list-style:none;font-size:0.8rem;font-weight:700;color:#1A4A2E;padding:0.3rem 0;}
+details.cash-more>summary::-webkit-details-marker{display:none;}
+details.cash-more>summary::before{content:'▸ ';}
+details.cash-more[open]>summary::before{content:'▾ ';}
+details.cash-more .cash-note{margin-top:0.3rem;}
+@media (max-width:640px){
+  .cash-plan thead{display:none;}
+  .cash-plan table,.cash-plan tbody{display:block;}
+  .cash-plan tr{display:grid;grid-template-columns:1fr auto;grid-template-areas:"when bedrag" "where eur" "what what";column-gap:0.8rem;row-gap:0.15rem;padding:0.65rem 0.8rem;border-top:1px solid var(--border);}
+  .cash-plan tbody tr:first-child{border-top:0;}
+  .cash-plan td{display:block;border:0 !important;padding:0;background:none !important;}
+  .cash-plan .c-when{grid-area:when;}
+  .cash-plan .c-where{grid-area:where;font-size:0.74rem;}
+  .cash-plan .bedrag{grid-area:bedrag;text-align:right;white-space:normal;}
+  .cash-plan .bedrag small{display:block;font-weight:600;}
+  .cash-plan .eur{grid-area:eur;text-align:right;}
+  .cash-plan .c-what{grid-area:what;margin-top:0.35rem;}
+  .cash-plan tr.groot{background:#FFF7ED;}
+  .cash-plan tr.tot{background:#F0FDF4;border-top:2px solid #1A4A2E;font-weight:700;}
+}
+
 .budget-uit{margin-top:0.6rem;}
 .budget-uit>summary{cursor:pointer;font-size:0.78rem;font-weight:700;color:var(--muted);list-style:none;padding:0.2rem 0;}
 .budget-uit>summary::-webkit-details-marker{display:none;}
@@ -135,7 +162,7 @@ a.badge:hover{background:rgba(255,255,255,0.26);}
 
   <!-- CASH STRATEGIE -->
   <div class="cash-bar">
-    💵 <strong>Cash-strategie:</strong> vijf opnames (op dag 2 elk één), want elke automaat vraagt ±€8 vast. Bij <strong>Davivienda</strong> of <strong>Servibanca</strong> (plafond COP 2.000.000 (≈€555)), niet bij BBVA (300.000). Altijd <strong>afrekenen in pesos</strong>.</div>
+    💵 <strong>Cash-strategie:</strong> vijf opnames (op dag 1 elk één, meteen op de luchthaven), want elke automaat vraagt ±€8 vast. Bij <strong>Davivienda</strong> of <strong>Servibanca</strong> (plafond COP 2.000.000 (≈€555)), niet bij BBVA (300.000). Altijd <strong>afrekenen in pesos</strong>.</div>
 
   <!-- CASH-PLAN -->
   <div class="cash-plan">
@@ -143,45 +170,52 @@ a.badge:hover{background:rgba(255,255,255,0.26);}
     <thead><tr><th>Wanneer</th><th>Waar</th><th>Hoeveel</th><th>≈ euro</th><th>Dekt</th></tr></thead>
     <tbody>
       <tr>
-        <td><b>Dag 2</b><br>do 19 nov</td>
-        <td>Bogotá centrum<br><small>Davivienda of Servibanca</small></td>
+        <td class="c-when"><b>Dag 1</b><br>wo 18 nov · ±20:00</td>
+        <td class="c-where">Luchthaven El Dorado<br><small>aankomsthal, rechts na de douane · Davivienda</small></td>
         <td class="bedrag">COP 2.300.000<br><small>Bert 2.000.000 + Ellen 300.000</small></td>
         <td class="eur">≈ €639</td>
-        <td>Bogotá (Monserrate, markt, fooien ±300.000) én heel Salento, dat grotendeels cash is: <b>Casa Salento 550.000</b> (alleen cash), downhill <b>met kaart</b> (+6% ≈ €8, niet in dit bedrag), <b>paarden 440.000</b> + taxi naar de finca ±70.000, taxi El Edén → Salento ±120.000, Cocora (jeeps + entree) ±80.000, Filandia (willy, uitkijktoren, lunch) ±185.000, koffiefinca ±40.000, eten en fooien ±350.000. In Salento staan twee Banco Agrario-automaten (Plaza Principal, Hotel Jardín) — enkel als noodbijvulling.</td>
+        <td class="c-what"><details class="dekt"><summary>Wat dekt dit?</summary><div>Bogotá (shuttle van de luchthaven 75.000, Monserrate, markt, fooien ±300.000) én heel Salento, dat grotendeels cash is: <b>Casa Salento 550.000</b> (alleen cash), downhill <b>met kaart</b> (+6% ≈ €8, niet in dit bedrag), <b>paarden 440.000</b> + taxi naar de finca ±70.000, taxi El Edén → Salento ±120.000, Cocora (jeeps + entree) ±80.000, Filandia (willy, uitkijktoren, lunch) ±185.000, koffiefinca ±40.000, eten en fooien ±350.000. In Salento staan twee Banco Agrario-automaten (Plaza Principal, Hotel Jardín) — enkel als noodbijvulling.</div></details></td>
       </tr>
       <tr>
-        <td><b>Dag 8 of 9</b><br>wo–do 25–26 nov</td>
-        <td>Medellín, El Poblado</td>
+        <td class="c-when"><b>Dag 8 of 9</b><br>wo–do 25–26 nov</td>
+        <td class="c-where">Medellín, El Poblado</td>
         <td class="bedrag">COP 600.000</td>
         <td class="eur">≈ €167</td>
-        <td>Fooi Comuna 13, metro, Botero, taxi naar Guatapé en Piedra del Peñón, taxi Guatapé → MDE (±COP 185.000 (≈€51)). Guatapé heeft één Banco Agrario (Cra 28 #31-15) plus een Bancolombia — reken er niet op.</td>
+        <td class="c-what"><details class="dekt"><summary>Wat dekt dit?</summary><div>Fooi Comuna 13, metro, Botero, taxi naar Guatapé en Piedra del Peñón, taxi Guatapé → MDE (±COP 185.000 (≈€51)). Guatapé heeft één Banco Agrario (Cra 28 #31-15) plus een Bancolombia — reken er niet op.</div></details></td>
       </tr>
       <tr class="groot">
-        <td><b>Dag 12</b><br>zo 29 nov</td>
-        <td><b>Santa Marta</b><br><small>automaat in de luchthaven (km 16,5) en tientallen in de stad — vóór je de berg op gaat</small></td>
+        <td class="c-when"><b>Dag 12</b><br>zo 29 nov</td>
+        <td class="c-where"><b>Santa Marta</b><br><small>automaat in de luchthaven (km 16,5) en tientallen in de stad — vóór je de berg op gaat</small></td>
         <td class="bedrag">COP 1.800.000<br><small>(plafond 2.000.000)</small></td>
         <td class="eur">≈ €500<br><small>(plafond ≈ €555)</small></td>
-        <td><b>De grote opname.</b> Tien dagen Minca, Tayrona en Palomino: in Minca staat geen automaat, en in heel La Guajira (Palomino) heeft Banco Agrario er één — in Urumita. Dekt: Tayrona-entree (≈ €57 samen), motortaxi’s, La Victoria, Marinka, tubing, alle maaltijden en het transport naar SMR op dag 22.</td>
+        <td class="c-what"><details class="dekt"><summary>Wat dekt dit?</summary><div><b>De grote opname.</b> Tien dagen Minca, Tayrona en Palomino: in Minca staat geen automaat, en in heel La Guajira (Palomino) heeft Banco Agrario er één — in Urumita. Dekt: Tayrona-entree (≈ €57 samen), motortaxi’s, La Victoria, Marinka, tubing, alle maaltijden en het transport naar SMR op dag 22.</div></details></td>
       </tr>
       <tr>
-        <td><b>Dag 22 of 23</b><br>wo–do 9–10 dec</td>
-        <td>Bogotá</td>
+        <td class="c-when"><b>Dag 22 of 23</b><br>wo–do 9–10 dec</td>
+        <td class="c-where">Bogotá</td>
         <td class="bedrag">COP 400.000</td>
         <td class="eur">≈ €111</td>
-        <td>Zipaquirá (≈ €61 samen), laatste diner, luchthaventransport.</td>
+        <td class="c-what"><details class="dekt"><summary>Wat dekt dit?</summary><div>Zipaquirá (≈ €61 samen), laatste diner, luchthaventransport.</div></details></td>
       </tr>
-      <tr class="tot"><td colspan="2">Totaal over 5 opnames</td><td class="bedrag">COP 5.100.000</td><td class="eur">≈ €1.416</td><td>Opnamekosten samen ±COP 140.000 (≈ €39)</td></tr>
+      <tr class="tot">
+        <td colspan="2" class="c-when">Totaal over 5 opnames</td>
+        <td class="bedrag">COP 5.100.000</td>
+        <td class="eur">≈ €1.416</td>
+        <td class="c-what">Opnamekosten samen ±COP 140.000 (≈ €39)</td>
+      </tr>
     </tbody>
   </table>
   </div>
 
+  <details class="cash-more"><summary>💡 Waarom zo weinig opnames · wat nog open is · waar de automaten staan</summary>
   <p class="cash-note">
     <b>Waarom zo weinig opnames?</b> Elke Colombiaanse automaat vraagt een <b>vast bedrag van ±COP 24.000–35.000 (≈ €7–10)</b>, ongeacht hoeveel je haalt. Het aantal opnames bepaalt dus de kost, niet de bank. Vijf keer kost ≈ €39; zou je per COP 300.000 moeten pinnen (het plafond van BBVA), dan waren het dertien opnames en ≈ €87.<br>
     <b>Dáárom het plafond.</b> <b>Davivienda</b> en <b>Servibanca</b> laten COP 2.000.000 (≈€555) per keer toe, Bancolombia 600.000–1.500.000 (bronnen verschillen) en BBVA maar 300.000. Davivienda’s eigen kost (±COP 28.000 (≈€7,8)) zit aan de hoge kant, maar één duurdere opname is goedkoper dan drie goedkope. Vermijd BBVA.<br>
     <b>Dit is de ruime versie.</b> Betaal je consequent met kaart waar het kan, dan kom je rond <b>COP 3.700.000 (≈ €1.027)</b> uit. De kustlus van dag 12 tot 22 valt niet te drukken: die is bijna volledig cash.<br>
-    <b>Nog open:</b> de paarden in Filandia (COP 220.000 (≈€61) p.p.) — David antwoordde nog niet of het via de website kan; zo ja, haal COP 440.000 van dag 2 af. De downhill betalen we met kaart: COP 240.000 p.p. + 6% (≈ €71 p.p.). Elk haalt zijn deel af en draagt zijn eigen cash; grootste deel in de hotelkluis. De Reserva El Dorado op dag 15 is nog een schatting.<br>
+    <b>Nog open:</b> de paarden in Filandia (COP 220.000 (≈€61) p.p.) — David antwoordde nog niet of het via de website kan; zo ja, haal COP 440.000 van dag 1 af. De downhill betalen we met kaart: COP 240.000 p.p. + 6% (≈ €71 p.p.). Elk haalt zijn deel af en draagt zijn eigen cash; grootste deel in de hotelkluis. De Reserva El Dorado op dag 15 is nog een schatting.<br>
     <b>Waar staan die automaten echt?</b> Nagekeken in het officiele register van Banco Agrario op <a href="https://www.datos.gov.co/resource/cx4p-wx4m.json" target="_blank" rel="noopener">datos.gov.co</a>: Salento 2, Guatapé 1, Santa Marta 36 (inclusief de luchthaven), Minca 0, heel La Guajira 1 (Urumita). Dat is één bank — Bancolombia en Servibanca hebben een ander net — maar het is de staatsbank met de breedste dekking op het platteland, dus waar die ontbreekt is de kans klein.<br><b>De euro’s zijn richtcijfers</b>, omgerekend aan 3.602 COP per euro (koers 4 november 2026). De pesobedragen zijn wat telt; kies aan de automaat altijd <b>pesos</b>, nooit euro’s. Tarieven zijn reizigersrapporten en verschillen per automaat — lees het scherm voor je bevestigt.
   </p>
+  </details>
 
 
 
