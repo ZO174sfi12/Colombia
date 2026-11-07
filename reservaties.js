@@ -142,7 +142,7 @@ var RESERVATIES = [
     datums:'21–24 nov', nachten:3, prijs:'≈€153 totaal · €51/nacht · COP 550.000', ref:'6199996396',
     kamer:'Tweepersoonskamer met eigen badkamer, ontbijt inbegrepen',
     annuleren:'Gratis annuleren tot 21 nov 2026 18:00',
-    note:'Calle 7 #4-43 · tel. +57 313 686 7553. ⚠️ Alleen cash, geen kaarten — COP 550.000 (≈€153) klaarhouden. Inchecken 15:00–18:00: na de downhill (terug ±13:30) ruim op tijd, of laat weten dat je later komt. Uitchecken vóór 12:00; de Daytrip-chauffeur haalt je hier op 24 nov om 10:00. Ze bieden ook tours aan (Cocora, koffie, La Carbonera, Filandia).' },
+    note:'Calle 7 #4-43 · tel. +57 313 686 7553. ⚠️ Alleen cash, geen kaarten (6 nov via Booking-chat nogmaals bevestigd, ook niet met 6% extra) — COP 550.000 (≈€153) klaarhouden. Inchecken 15:00–18:00: na de downhill (terug ±13:30) ruim op tijd, of laat weten dat je later komt. Uitchecken vóór 12:00; de Daytrip-chauffeur haalt je hier op 24 nov om 10:00. Ze bieden ook tours aan (Cocora, koffie, La Carbonera, Filandia).' },
 
   { id:'hotel-medellin', type:'hotel', dag:7, totDag:10, status:'geboekt',
     titel:'Landmark Hotel', locatie:'medellin',
