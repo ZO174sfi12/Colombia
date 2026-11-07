@@ -184,6 +184,10 @@ var RESERVATIES = [
     note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig. Raming €75/nacht (niveau Botánico); bagagebewaring op dag 24 afspreken.' },
 
   /* ----------------------------------------------------- HERINNERINGEN -- */
+  { id:'herin-koffie-pieter', type:'herinnering', dag:4, status:'te-boeken',
+    titel:'☕ ½ kg rauwe koffiebonen kopen voor Pieter', locatie:'salento',
+    note:'Bij het bezoek aan een koffiefinca (bv. Finca Las Acacías in Salento) een halve kilo rauwe, ongebrande bonen kopen. Lukt het niet in Salento: Hacienda La Victoria in Minca (dag 13).' },
+
   /* ------------------------------------------------- ACTIVITEITEN (res) -- */
   { id:'act-comuna13', type:'activiteit', dag:8, status:'te-boeken',
     titel:'Free walking tour Comuna 13', locatie:'medellin',
@@ -220,7 +224,7 @@ var RESERVATIES = [
     prijs:'COP 240.000 p.p. (≈€67) all-in · betalen met kaart (+6%)',
     link:'https://wa.me/573127696391',
     deadline:'Vr 20 nov ’s ochtends WhatsAppen om te bevestigen (“escríbeme un día antes”) · paspoort Bert gestuurd · Ellens paspoort nog sturen · groep van 4 nog niet zeker',
-    note:'Route paisajística intermedia: 2 afdalingen + 2 keer 4x4 naar boven, ±34 km grind, ontbijt op finca, waterval ±40 m. Regen bij de start of geen groep: wisselen met Cocora (dag 6). Alternatief gevraagd via Booking-chat Casa Salento (6 nov): Trek Bike Adventure (Cl 7 #4-42, tegenover Casa Salento, ⭐5,0) — prijs, startuur, minimum, kaart? Salento Cycling volzet tot 3 dec.' },
+    note:'Route paisajística intermedia: 2 afdalingen + 2 keer 4x4 naar boven, ±34 km grind, ontbijt op finca, waterval ±40 m. Regen bij de start of geen groep: wisselen met Cocora (dag 6). Alternatief: Trek Bike Adventure (Cl 7 #4-42, tegenover Casa Salento, ⭐5,0, WhatsApp +57 322 952 6119) — 7 nov geantwoord: tour La Carbonera ±6 uur, gids spreekt Engels en Spaans, kan vertrekken met enkel ons tweeën (geen minimum). Nog open: prijs, startuur, betalen met kaart? Salento Cycling volzet tot 3 dec.' },
 
   { id:'act-manizales', type:'activiteit', dag:7, status:'ter-plaatse',
     titel:'Manizales — lunchstop, twee opties', locatie:'medellin',
