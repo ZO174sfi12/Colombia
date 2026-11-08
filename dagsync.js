@@ -72,7 +72,7 @@
       case 'datum-aankomst': el.textContent = aankDag ? aankDag[1] : dagLabel(r.dag); break;
       case 'duur':           el.textContent = r.duur || ''; break;
       case 'operator':       el.textContent = r.operator || ''; break;
-      case 'ref':            el.textContent = r.ref ? 'Boekingsref. ' + r.ref : ''; break;
+      case 'ref':            el.textContent = ''; break; /* bewust leeg: referenties nooit online */
       case 'vluchtnr':
         el.innerHTML = String(r.vluchtnr || '').split(/\s*\+\s*/).map(function(n){ return '<span class="fl-chip nr">' + esc(n) + '</span>'; }).join('');
         break;

@@ -26,7 +26,6 @@
       if (r.advies)   det.push(esc(r.advies));
       if (r.prijs)    det.push(esc(r.prijs));
       if (r.pnr)      det.push('PNR ' + esc(r.pnr));
-      if (r.ref)      det.push('ref. ' + esc(r.ref));
 
       out += '<div class="ov-row" style="border-left:4px solid ' + KLEUR[r.type] + ';">' +
         '<div class="ov-day">' + ICO[r.type] + '<br><small>Dag ' + r.dag + '</small></div>' +

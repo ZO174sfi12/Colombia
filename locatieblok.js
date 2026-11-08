@@ -25,7 +25,6 @@
     if (r.nachten) d.push(r.nachten + ' nacht' + (r.nachten>1?'en':''));
     if (r.prijs)   d.push(esc(r.prijs));
     if (r.annuleren) d.push(esc(r.annuleren));
-    if (r.ref)       d.push('ref. ' + esc(r.ref));
     if (r.deadline)  d.push('<b>' + esc(r.deadline) + '</b>');
     regels.push({ ico:ICO.hotel, kop:r.titel, sub:d.join(' · '), status:r.status, link:'hotels.html#loc=' + loc });
   });
@@ -42,7 +41,6 @@
     if (r.vertrek)  d.push(esc(r.vertrek) + (r.aankomst ? ' → ' + esc(r.aankomst) : ''));
     if (r.duur)     d.push(esc(r.duur));
     if (r.advies)   d.push(esc(r.advies));
-    if (r.ref)      d.push('ref. ' + esc(r.ref));
     if (r.deadline) d.push('<b>' + esc(r.deadline) + '</b>');
     bewegingen.push({ ico:ICO[r.type], kop:rol + ' · ' + r.titel, sub:'Dag ' + r.dag + ' · ' + resDatum(r.dag) + (d.length ? ' · ' + d.join(' · ') : ''),
                   status:r.status, link:'routes.html' });
