@@ -158,9 +158,13 @@ var RESERVATIES = [
     annuleren:'Gratis annuleren tot 27 nov 2026 18:00',
     note:'Carrera 20 #27-01, aan het water · tel. +57 324 4148622. Inchecken vr 15:00–22:00 (laat je aankomsttijd weten), uitchecken zo 12:00–12:30. Geen vooruitbetaling: betalen ter plaatse, kaart of cash. Ontbijt in het café ernaast. ±7–10 min wandelen naar het plein; craft beer bij San Tropel en Del Origen (±800 m).' },
 
-  { id:'hotel-minca', type:'hotel', dag:12, totDag:16, status:'te-boeken',
-    titel:'Minca', locatie:'minca', datums:'29 nov – 3 dec', nachten:4, raming:59,
-    note:'Nagekeken op Booking op 5 nov: eerste keuze Costeño River Minca is vrij, €283 voor 4 nachten (≈€71/nacht, 8,7 met 1.335 reviews). Ook vrij: El Refugio (€178), Hostal Vista Verde (€178, met ontbijt), Casa de Hadas (€211). Alternatieven uit reisverslagen en de gidsen: Hostal Sierra Minca (1.600 m hoog, drie maaltijden per dag, zwembad en hangmatten met zicht tot Santa Marta), Casa del Pozo Azul (vijf minuten van de waterval, aan de rivier), Mini Cabaña TANOA (boscabañas, kwartier buiten het dorp bij Pozo Azul), Hotel Minca Express Relax (centrum, budget) en Masaya Casas Viejas (boutique met infinity pool, maar een half uur buiten Minca — staat ook in de Rough Guide).' },
+  { id:'hotel-minca', type:'hotel', dag:12, totDag:16, status:'geboekt',
+    titel:'Costeño River Minca', locatie:'minca',
+    datums:'29 nov – 3 dec', nachten:4, prijs:'≈€284 totaal · €71/nacht · COP 1.024.100',
+    kamer:'Double Room with Mountain View, ontbijt inbegrepen',
+    annuleren:'Gratis annuleren tot 23 nov 2026 23:59 — daarna de volledige COP 1.024.100',
+    deadline:'Vooruitbetaling gaat automatisch van de Visa binnen 5 dagen vóór aankomst',
+    note:'Urbanización Milagro Verde, Minca · tel. +57 300 344 2337. Inchecken 14:00–21:00, uitchecken 08:00–11:00 — je landt 12:46 in Santa Marta, dus met een uur de berg op zit je rond 14:30 goed. Ze vragen je verwachte aankomsttijd vooraf door te geven. Betalen met kaart of cash. Geen geldautomaat in Minca: pin in Santa Marta onderweg.' },
 
   { id:'hotel-tayrona', type:'hotel', dag:16, totDag:18, status:'geboekt',
     titel:'Quetzal Dorado Eco-Lodge', locatie:'tayrona',
