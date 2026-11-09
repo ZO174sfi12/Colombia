@@ -105,6 +105,17 @@
 @media(max-width:430px){.fl-mid{min-width:60px;}.fl-code{font-size:1rem;}}
 
 
+.mb-teaser{position:relative;display:flex;align-items:center;gap:0.9rem;min-height:104px;
+  border-radius:12px;overflow:hidden;text-decoration:none;color:#fff;margin-bottom:1.6rem;background:#1C2A1E;}
+.mb-teaser img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.mb-teaser-vlak{position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,16,11,.88) 0%,rgba(10,16,11,.62) 55%,rgba(10,16,11,.25) 100%);}
+.mb-teaser-tekst{position:relative;padding:0.9rem 0 0.9rem 1.1rem;display:flex;flex-direction:column;gap:0.12rem;}
+.mb-teaser-label{font-size:0.63rem;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;opacity:.85;}
+.mb-teaser-tekst b{font-family:'Playfair Display',Georgia,serif;font-size:1.08rem;}
+.mb-teaser-sub{font-size:0.76rem;opacity:.82;line-height:1.4;}
+.mb-teaser-pijl{position:relative;margin-left:auto;padding-right:1rem;font-size:1.3rem;opacity:.7;}
+.mb-teaser:hover .mb-teaser-pijl{opacity:1;}
+@media(max-width:430px){.mb-teaser-sub{display:none;}}
 </style>
 <link rel="stylesheet" href="site.css">
 </head>
@@ -134,6 +145,7 @@
   <a href="hotels.html">🏨 Hotels</a>
   <a href="praktisch.html">📌 Praktisch</a>
   <a href="routes.html">🗺️ Kaart &amp; Routes</a>
+  <a href="moodboard.html">🖼️ Moodboard</a>
 </div>
 
 <div class="hero">
@@ -163,6 +175,17 @@
   </a>
 
   <!-- DAGOVERZICHT -->
+  <a class="mb-teaser" href="moodboard.html">
+    <img src="img/cocora_hike.webp" alt="" loading="lazy" decoding="async">
+    <div class="mb-teaser-vlak"></div>
+    <div class="mb-teaser-tekst">
+      <span class="mb-teaser-label">🖼️ Moodboard</span>
+      <b>De reis in twaalf beelden</b>
+      <span class="mb-teaser-sub">Waspalmen, downhill, jungle, Caribische kust — etappe per etappe</span>
+    </div>
+    <span class="mb-teaser-pijl">›</span>
+  </a>
+
   <div class="sec-title">📅 Reisoverzicht</div>
   <div class="ov-table">
 

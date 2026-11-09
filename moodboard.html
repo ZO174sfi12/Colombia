@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<link rel="stylesheet" href="common.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A4A2E">
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Colombia">
+<title>🖼️ Moodboard · Colombia 24 Dagen</title>
+<style>
+.badge{background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.78rem;color:white;}
+:root{--cream:#FAF8F4;--card:#FFFFFF;--border:#E5E0D8;--text:#1C2A1E;--muted:#4A5E4D;}
+.topbar{background:#1A4A2E;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.subnav a.active{color:#1A4A2E;border-bottom-color:#1A4A2E;}
+.hero{background:linear-gradient(135deg,#0D2318,#1A4A2E,#2D6A4F);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;}
+.hero h1{font-size:1.9rem;font-weight:800;line-height:1.2;}
+.hero .sub{font-size:0.9rem;opacity:0.8;margin-top:0.4rem;}
+.day-banner{border-radius:14px;padding:1.1rem 1.4rem;margin-bottom:1.4rem;color:white;display:flex;align-items:center;gap:1rem;}
+.day-banner.bus{background:linear-gradient(135deg,#451A03,#92400E,#B45309);}
+.day-banner.fly{background:linear-gradient(135deg,#0F172A,#1E3A5F,#1D4ED8);}
+.day-banner.home{background:linear-gradient(135deg,#0D2318,#1A4A2E,#2D6A4F);}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.95rem 1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);margin-bottom:1.2rem;}
+.card h3{font-size:0.97rem;font-weight:700;margin-bottom:0.45rem;}
+.card .desc{font-size:0.85rem;color:var(--muted);line-height:1.6;}
+.chip.green{background:#ECFDF5;border-color:#6EE7B7;color:#065F46;}
+.chip.blue{background:#EFF6FF;border-color:#93C5FD;color:#1E40AF;}
+.warn-box h3{font-weight:700;font-size:1rem;margin-bottom:0.5rem;color:#991B1B;}
+.warn-box p{font-size:0.85rem;line-height:1.6;color:#7F1D1D;margin-bottom:0.4rem;}
+.warn-box p:last-child{margin-bottom:0;}
+.tip-card{background:linear-gradient(135deg,#0D2318,#1A4A2E);border-radius:14px;padding:1.2rem 1.4rem;color:white;margin-bottom:1.4rem;}
+.tip-card h3{font-weight:700;font-size:1rem;margin-bottom:0.7rem;}
+.tip-card p{font-size:0.84rem;line-height:1.65;opacity:0.92;margin-bottom:0.35rem;}
+.tip-card p:last-child{margin-bottom:0;}
+.sec-divider{font-size:0.85rem;font-weight:800;color:#1A4A2E;margin:1.8rem 0 0.8rem;text-transform:uppercase;border-top:2px solid var(--border);padding-top:1rem;letter-spacing:0.5px;}
+.nav-buttons{max-width:860px;margin:0 auto;padding:0 1rem 2rem;display:flex;gap:0.75rem;justify-content:space-between;}
+.nav-btn.next{color:white;background:#1A4A2E;}
+@media(min-width:580px){.info-grid{grid-template-columns:repeat(3,1fr);}.info-cell:nth-child(2n){border-right:1px solid var(--border);}.info-cell:nth-child(3n){border-right:none;}}
+</style>
+<link rel="stylesheet" href="site.css">
+</head>
+<style>
+.mb-wrap{max-width:1180px;margin:0 auto;padding:1.1rem 1rem 2rem;}
+.mb-intro{font-size:0.84rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;max-width:62ch;}
+.mb-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:1rem;}
+.mb-card{position:relative;display:block;aspect-ratio:9/16;border-radius:16px;overflow:hidden;
+  text-decoration:none;color:#fff;background:#1C2A1E;box-shadow:0 2px 10px rgba(0,0,0,.14);}
+.mb-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.mb-vlak{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(8,14,10,.72) 0%,rgba(8,14,10,.12) 34%,rgba(8,14,10,.30) 58%,rgba(8,14,10,.88) 100%);}
+.mb-top{position:absolute;top:0;left:0;right:0;padding:0.95rem 1rem 0;}
+.mb-datum{font-size:0.6rem;font-weight:800;letter-spacing:1.3px;opacity:.88;}
+.mb-card h2{font-family:'Playfair Display',Georgia,serif;font-size:1.65rem;line-height:1.05;margin:0.15rem 0 0.3rem;letter-spacing:-.5px;}
+.mb-temp{font-size:0.7rem;font-weight:700;opacity:.85;}
+.mb-woorden{position:absolute;left:1rem;right:1rem;bottom:2.9rem;display:flex;flex-direction:column;gap:0.1rem;}
+.mb-woorden span{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:1.12rem;line-height:1.3;
+  text-shadow:0 1px 10px rgba(0,0,0,.55);}
+.mb-voet{position:absolute;left:1rem;right:1rem;bottom:0.9rem;display:flex;align-items:center;gap:0.35rem;
+  font-size:0.68rem;font-weight:800;letter-spacing:.6px;}
+.mb-voet span{opacity:.6;font-weight:600;}
+.mb-voet i{margin-left:auto;font-style:normal;opacity:.75;}
+.mb-card:hover .mb-voet i{opacity:1;transform:translateX(2px);}
+.mb-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+@media(max-width:700px){
+  .mb-wrap{padding:0.9rem 0 2rem;}
+  .mb-intro{padding:0 1rem;}
+  .mb-strip{display:flex;gap:0.8rem;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:0 1rem 0.6rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .mb-strip::-webkit-scrollbar{display:none;}
+  .mb-card{flex:0 0 78vw;max-width:330px;scroll-snap-align:center;}
+  .mb-card h2{font-size:1.9rem;}
+  .mb-woorden span{font-size:1.2rem;}
+}
+@media(prefers-reduced-motion:reduce){.mb-card:hover .mb-voet i{transform:none;}}
+</style>
+<body>
+<div class="topbar">
+  <a class="logo" href="index.html" aria-label="Naar het overzicht">Colombia 2026</a>
+  <div class="topbar-right">
+    <button class="share-btn" onclick="shareURL(this)" aria-label="Kopieer link">📤 Deel</button>
+  </div>
+</div>
+<div class="subnav subnav-locs">
+  <a href="bogota.html">🏙️ Bogotá</a>
+  <a href="salento.html">☕ Salento</a>
+  <a href="medellin.html">🌆 Medellín</a>
+  <a href="guatape.html">🪨 Guatapé</a>
+  <a href="minca.html">🌿 Minca</a>
+  <a href="tayrona.html">🌴 Tayrona</a>
+  <a href="palomino.html">🏖️ Palomino</a>
+  <a href="bogota2.html" >🏙️ Bogotá 2</a>
+</div>
+<div class="subnav subnav-info">
+  <a href="index.html">🏠 Overzicht</a>
+  <a href="culinair.html">🍽️ Culinair</a>
+  <a href="activiteiten.html">🎯 Activiteiten</a>
+  <a href="hotels.html">🏨 Hotels</a>
+  <a href="praktisch.html">📌 Praktisch</a>
+  <a href="routes.html">🗺️ Kaart &amp; Routes</a>
+  <a href="moodboard.html">🖼️ Moodboard</a>
+</div>
+
+
+<div class="hero">
+  <h1>🖼️ Moodboard</h1>
+  <p class="sub">Twaalf kaarten · 24 dagen · waar het om te doen is</p>
+  <div class="badges">
+    <a class="badge" href="index.html">← Overzicht</a>
+    <span class="badge">📅 18 nov – 11 dec 2026</span>
+  </div>
+</div>
+
+<div class="mb-wrap">
+  <p class="mb-intro">De reis in beeld, etappe per etappe. Tik een kaart om naar de dagplanning te gaan. Op een telefoon swipe je er zijwaarts doorheen.</p>
+  <div class="mb-strip">
+      <a class="mb-card" id="kaart-1" href="bogota.html">
+        <img src="img/bogota_candelaria.webp" alt="Bogotá" loading="eager" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">WO 18 – DO 19 NOV</div>
+          <h2>BOGOTÁ</h2>
+          <div class="mb-temp">19° / 10°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Citytrip</span>
+          <span>Goudmuseum</span>
+          <span>Koloniale wijk</span>
+        </div>
+        <div class="mb-voet"><b>Dag 1–2</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-2" href="salento.html">
+        <img src="img/downhill.webp" alt="Salento" loading="eager" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">VR 20 – ZA 21 NOV</div>
+          <h2>SALENTO</h2>
+          <div class="mb-temp">20° / 12°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Downhill mountainbike</span>
+          <span>34 km</span>
+          <span>6 uur</span>
+        </div>
+        <div class="mb-voet"><b>Dag 3–4</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-3" href="salento.html">
+        <img src="img/filandia.webp" alt="Salento – Filandia" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">ZO 22 NOV · DAGUITSTAP</div>
+          <h2>SALENTO – FILANDIA</h2>
+          <div class="mb-temp">20° / 12°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Paardrijtocht (3 uur)</span>
+          <span>Koffie</span>
+          <span>Zondagsmarkt</span>
+          <span>Uitkijktoren</span>
+        </div>
+        <div class="mb-voet"><b>Dag 5</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-4" href="salento.html">
+        <img src="img/cocora_hike.webp" alt="Salento" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">MA 23 NOV · VALLE DE COCORA</div>
+          <h2>SALENTO</h2>
+          <div class="mb-temp">20° / 12°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Waspalmen</span>
+          <span>13 km wandeling</span>
+          <span>Willy-jeeps</span>
+        </div>
+        <div class="mb-voet"><b>Dag 6</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-5" href="medellin.html">
+        <img src="img/medellin_comuna13.webp" alt="Medellín" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">DI 24 – WO 25 NOV</div>
+          <h2>MEDELLÍN</h2>
+          <div class="mb-temp">25° / 16°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Lunch in Manizales</span>
+          <span>Street art wandeling</span>
+          <span>Uitgaan in El Poblado</span>
+        </div>
+        <div class="mb-voet"><b>Dag 7–8</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-6" href="medellin.html">
+        <img src="img/plaza_botero.webp" alt="Medellín" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">DO 26 NOV</div>
+          <h2>MEDELLÍN</h2>
+          <div class="mb-temp">25° / 16°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Botero-beelden</span>
+          <span>Bospark</span>
+          <span>Speciaalbier</span>
+        </div>
+        <div class="mb-voet"><b>Dag 9</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-7" href="guatape.html">
+        <img src="img/guatape_piedra.webp" alt="Guatapé" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">VR 27 – ZA 28 NOV</div>
+          <h2>GUATAPÉ</h2>
+          <div class="mb-temp">23° / 15°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>740 trappen rots</span>
+          <span>Kleurrijke huisjes</span>
+          <span>Boottocht op het stuwmeer</span>
+        </div>
+        <div class="mb-voet"><b>Dag 10–11</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-8" href="minca.html">
+        <img src="img/pozo_azul_minca.webp" alt="Minca" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">ZO 29 – MA 30 NOV</div>
+          <h2>MINCA</h2>
+          <div class="mb-temp">27° / 22°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Naar de kust</span>
+          <span>Jungle</span>
+          <span>Natuurlijke zwemplek</span>
+          <span>Koffieplantage</span>
+        </div>
+        <div class="mb-voet"><b>Dag 12–13</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-9" href="minca.html">
+        <img src="img/marinka.webp" alt="Minca" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">DI 1 – WO 2 DEC</div>
+          <h2>MINCA</h2>
+          <div class="mb-temp">27° / 22°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Vogels bij zonsopgang</span>
+          <span>Waterval Marinka</span>
+          <span>Reserva El Dorado</span>
+        </div>
+        <div class="mb-voet"><b>Dag 14–15</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-10" href="tayrona.html">
+        <img src="img/tayrona_cabo.webp" alt="Tayrona" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">DO 3 – VR 4 DEC</div>
+          <h2>TAYRONA</h2>
+          <div class="mb-temp">28 – 32 °C</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Junglepad naar Cabo San Juan</span>
+          <span>Palmen en zee</span>
+          <span>El Mirador</span>
+        </div>
+        <div class="mb-voet"><b>Dag 16–17</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-11" href="palomino.html">
+        <img src="img/tubing.webp" alt="Palomino" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">ZA 5 – DI 8 DEC</div>
+          <h2>PALOMINO</h2>
+          <div class="mb-temp">28 – 32 °C</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Tubing op de rivier</span>
+          <span>Surfen</span>
+          <span>Día de las Velitas</span>
+        </div>
+        <div class="mb-voet"><b>Dag 18–21</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+      <a class="mb-card" id="kaart-12" href="bogota2.html">
+        <img src="img/catedral_de_sal.webp" alt="Bogotá" loading="lazy" decoding="async">
+        <div class="mb-vlak"></div>
+        <div class="mb-top">
+          <div class="mb-datum">WO 9 – VR 11 DEC</div>
+          <h2>BOGOTÁ</h2>
+          <div class="mb-temp">19° / 10°</div>
+        </div>
+        <div class="mb-woorden">
+          <span>Zoutkathedraal Zipaquirá</span>
+          <span>Souvenirs</span>
+          <span>Afscheidspint</span>
+        </div>
+        <div class="mb-voet"><b>Dag 22–24</b> <span>/ 24</span><i>→</i></div>
+      </a>
+
+  </div>
+</div>
+<div class="footer">🇨🇴 Colombia · 24 dagen · moodboard</div>
+<script>
+function shareURL(btn){navigator.clipboard.writeText(window.location.href).then(function(){var o=btn.textContent;btn.textContent='✓ Gekopieerd!';setTimeout(function(){btn.textContent=o;},2000);});}
+</script>
+<script src="countdown.js"></script>
+<script src="navbar.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{scope:"./"}).catch(function(){});}</script>
+<script src="lightbox.js"></script>
+</body>
+</html>
