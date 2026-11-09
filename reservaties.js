@@ -197,14 +197,18 @@ var RESERVATIES = [
     titel:'Free walking tour Comuna 13', locatie:'medellin',
     vertrek:'13:30', note:'Vooraf aanmelden; tip in cash meenemen.' },
 
-  { id:'act-catedral-sal', type:'activiteit', dag:24, status:'ter-plaatse',
+  { id:'act-laatste-dag', type:'activiteit', dag:24, orde:2, status:'ter-plaatse',
+    titel:'Souvenirs en een laatste pint — La Candelaria', locatie:'bogota',
+    duur:'ochtend tot namiddag, op je gemak',
+    note:'Pasaje Rivas (Carrera 10 #10-54), de oudste ambachtenpassage van Bogotá, open vanaf 9:00 en te voet vanaf het hotel: manden, sombreros aguadeños, carrieles, zwarte loza de La Chamba. ⚠️ Het ligt tegen San Victorino aan — overdag gaan, telefoon weg. Mochilas wayuu koop je beter al in Palomino (dag 18–21): die komen uit La Guajira. Koffiebonen voor thuis bij Azahar of Café Matuca. Laatste bier op loopafstand: BBC La Candelaria (3,40★) of Cervecería Irlandesa in La Macarena. Koffers blijven bij het hotel tot 19:45.' },
+  { id:'act-catedral-sal', type:'activiteit', dag:23, status:'ter-plaatse',
     titel:'Catedral de Sal, Zipaquirá', locatie:'bogota',
     prijs:'±COP 110.000–130.000 (≈€31–36) p.p. (buitenlanders)',
-    note:'Ticket aan de ingang. Laatste dag, vóór de nachtvlucht.' },
+    note:'Verplaatst naar dag 23: op de vertrekdag zelf is een rit van 48 km heen én terug een onnodig risico. Nu heb je de hele donderdag, met je kamer nog beschikbaar. Open 9:00–16:40, laatste kaartverkoop 16:40. Entree buitenlanders ±COP 125.000 (bronnen verschillen, reken op 125.000–150.000). Neem een trui — ondergronds is het fris. Niet met de lijnbus: de gidsen melden diefstal op die route. Taxi of georganiseerde tour.' },
 
-  { id:'act-claudio', type:'activiteit', dag:24, status:'te-boeken', locatie:'bogota',
+  { id:'act-claudio', type:'activiteit', dag:23, status:'te-boeken', locatie:'bogota',
     titel:'Lunch met Claudio — Zipaquirá', deadline:'Vóór vertrek datum bevestigen',
-    note:'Claudio woont bij de Catedral de Sal en bood aan om iets te gaan eten. Dag 24 (Zipaquirá) past het best; dag 23 of dag 2 in Bogotá als alternatief.' },
+    note:'Claudio woont bij de Catedral de Sal en bood aan om iets te gaan eten. Afspraak is flexibel; dag 23 in Zipaquirá past nu het best — na de kathedraal, rond 13u in het koloniale centrum. Bevestig de datum met hem.' },
 
   { id:'act-3cordilleras', type:'activiteit', dag:9, status:'te-boeken',
     titel:'3 Cordilleras · Estación Central — tafel reserveren', locatie:'medellin',
