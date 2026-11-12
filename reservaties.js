@@ -188,6 +188,10 @@ var RESERVATIES = [
     note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig. Raming €75/nacht (niveau Botánico); bagagebewaring op dag 24 afspreken.' },
 
   /* ----------------------------------------------------- HERINNERINGEN -- */
+  { id:'herin-kbc-colombia', type:'herinnering', dag:1, status:'te-boeken',
+    titel:'💳 KBC Mobile: Colombia toevoegen voor bankkaart en kredietkaarten', locatie:'bogota',
+    note:'Op de luchthaven in Brussel, vóór het instappen om 10:05: in KBC Mobile Colombia toevoegen als gebruiksgebied, voor de bankkaart én de kredietkaarten — van Bert en van Ellen. Anders kan de Davivienda-automaat bij aankomst om 19:25 weigeren, en dan sta je zonder pesos.' },
+
   { id:'herin-koffie-pieter', type:'herinnering', dag:4, status:'te-boeken',
     titel:'☕ ½ kg rauwe koffiebonen kopen voor Pieter', locatie:'salento',
     note:'Bij het bezoek aan een koffiefinca (bv. Finca Las Acacías in Salento) een halve kilo rauwe, ongebrande bonen kopen. Lukt het niet in Salento: Hacienda La Victoria in Minca (dag 13).' },
@@ -212,7 +216,7 @@ var RESERVATIES = [
 
   { id:'act-3cordilleras', type:'activiteit', dag:9, status:'te-boeken',
     titel:'3 Cordilleras · Estación Central — tafel reserveren', locatie:'medellin',
-    note:'Estación Central is alleen open do–za 18:00–02:00; dag 10 vertrekken we, dus donderdag 26 nov is de enige avond. Tafel reserveren via 3cordilleras.com (reservatielink) of WhatsApp +57 315 818 3233; vragen of er een rondleiding/proeverij is.' },
+    note:'Estación Central is alleen open do–za 18:00–02:00; dag 10 vertrekken we, dus donderdag 26 nov is de enige avond. Adres Calle 30 #44-176 (La Candelaria/Perpetuo Socorro). ⚠️ De online reservatie op 3cordilleras.com is alleen voor hun Bogotá-vestiging (Toberín) — Medellín via WhatsApp +57 315 818 3233 (algemene lijn, vragen naar Medellín); vragen of er een rondleiding/proeverij is.' },
 
   { id:'act-guatape-boot', type:'activiteit', dag:11, status:'ter-plaatse',
     titel:'Boottocht op het meer', locatie:'guatape',
