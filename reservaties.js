@@ -184,7 +184,7 @@ var RESERVATIES = [
   { id:'hotel-bogota2', type:'hotel', dag:22, totDag:24, status:'te-boeken',
     titel:'Bogotá — laatste nachten', locatie:'bogota', datums:'9–11 dec', nachten:2,
     raming:75,
-    deadline:'Nog niet in de hotellijst opgenomen',
+    deadline:'Zo snel mogelijk — de enige nachten die nog niet vastliggen; kandidaten staan op de hotelpagina',
     note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig. Raming €75/nacht (niveau Botánico); bagagebewaring op dag 24 afspreken.' },
 
   /* ----------------------------------------------------- HERINNERINGEN -- */
