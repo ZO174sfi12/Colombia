@@ -47,7 +47,7 @@ var RESERVATIES = [
     van:'SMR', naar:'BOG', vertrek:'14:42', aankomst:'16:15',
     duur:'1u33', operator:'JetSMART', vluchtnr:'JA5171', prijs:'€283,69 voor 2 personen', bagage:'23 kg ruimbagage p.p.',
     via:'Booking.com',
-    note:'Vertrek uit Palomino om 11:30 om dit te halen.' },
+    note:'Vertrek uit Palomino om 10:30 om dit te halen.' },
 
   { id:'vlucht-terug', type:'vlucht', dag:24, status:'geboekt',
     titel:'Bogotá → Brussel',
@@ -119,7 +119,7 @@ var RESERVATIES = [
 
   { id:'bus-palomino-smr', type:'bus', dag:22, orde:1, status:'ter-plaatse',
     titel:'Palomino → luchthaven SMR (hoteltransport)',
-    vertrek:'11:30', duur:'±1u45',
+    vertrek:'10:30', duur:'±1u45',
     note:'Hoteltransport Casa del Pavo Real COP 265.000 (≈€74) voor de rit — op dag 21 aan de receptie regelen en vragen of het tot SMR rijdt. Uber kost even veel (±COP 240.000–275.000 (≈€67–76)) maar is in Palomino onzeker; bus + taxi ±3 uur. Dag na het Velitas-weekend, dus drukte op de kustweg — ruim tijd nemen voor de vlucht van 14:42.' },
 
   /* ------------------------------------------------------------ HOTELS --- */
