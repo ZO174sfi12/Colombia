@@ -7,3 +7,6 @@ img/_orig/
 
 # Privé: boekingsreferenties en PNRs
 referenties-prive.md
+
+# Lokale werkbestanden (paklijst-export)
+*.xlsx
