@@ -235,8 +235,7 @@ var RESERVATIES = [
     vertrek:'07:10 aanwezig (Calle 7 #4-42, naast Casa Salento) · vertrek 07:30 · ±6 uur, terug ±13:30',
     prijs:'COP 250.000 p.p. (≈€69) · ter plaatse betalen, kaart zonder toeslag',
     link:'https://wa.me/573229526119',
-    deadline:'Paspoortfoto (Bert én Ellen) sturen bij het inchecken in Salento, vr 20 nov',
-    note:'Bevestigd via WhatsApp met Eyder op 7 nov: za 21 nov, wij twee, geen minimum. Gids spreekt Engels en Spaans. Zij bewaren de koffers tijdens de tour. Mountain Bike Salento beleefd geannuleerd; Salento Cycling volzet. Regen bij de start: vragen of wisselen met Cocora (dag 6) kan.' },
+        note:'Bevestigd via WhatsApp met Eyder op 7 nov: za 21 nov, wij twee, geen minimum. Paspoortfoto’s al gestuurd. Gids spreekt Engels en Spaans. Zij bewaren de koffers tijdens de tour. Mountain Bike Salento beleefd geannuleerd; Salento Cycling volzet. Regen bij de start: vragen of wisselen met Cocora (dag 6) kan.' },
 
   { id:'act-manizales', type:'activiteit', dag:7, status:'ter-plaatse',
     titel:'Manizales — lunchstop, twee opties', locatie:'medellin',
