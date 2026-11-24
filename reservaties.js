@@ -182,19 +182,23 @@ var RESERVATIES = [
     note:'Calle 10 / km 72, Palomino (±300 m van het strand). Inchecken 14:00–22:00, uitchecken 07:00–11:00. Booking rekent het totaal aan binnen 3 dagen voor aankomst (kaart of cash). Receptie 7–21u, ontbijt 7:30–10:30, restaurant 12–14u en 18–21u, happy hour 17–19u (2-voor-1), zwembad tot 22u. Yoga dagelijks 8:30 (COP 50.000 · ≈€14), 2 gratis fietsen, wasservice binnen 24u. Transport van of naar Santa Marta COP 265.000 (≈€74). Via de receptie: tubing, paardrijden, inheems dorp, paddleboarden, surflessen, Cabo de la Vela. Zonnepanelen, het water komt op kamertemperatuur. Keuze van Lisa. 7 dec is Día de las Velitas.' },
 
   { id:'hotel-bogota2', type:'hotel', dag:22, totDag:24, status:'te-boeken',
-    titel:'Bogotá — laatste nachten', locatie:'bogota', datums:'9–11 dec', nachten:2,
-    raming:75,
-    deadline:'Zo snel mogelijk — de enige nachten die nog niet vastliggen; kandidaten staan op de hotelpagina',
-    note:'❓ Prijs en beschikbaarheid nog NIET gecheckt op Booking. Aankomst dag 22 om 16:15, vertrek dag 24 om 23:15. Twee nachten nodig. Raming €75/nacht (niveau Botánico); bagagebewaring op dag 24 afspreken.' },
+    titel:'Bogotá — laatste nachten · voorkeur Hotel Dios', locatie:'bogota', datums:'9–11 dec', nachten:2,
+    raming:73,
+    deadline:'Nog boeken — eerst de annuleringsvoorwaarden van het tarief "Dios’ Favor" nakijken',
+    note:'Voorkeur: Hotel Dios — bezocht op 19 nov, pas geopend, houtvuur-grill op de binnenkoer. Habitación Estándar, tarief "Dios’ Favor": COP 540.000 voor 2 nachten (≈€146; normaal 900.000), direct via Cloudbeds. Ontbijt inbegrepen, enkel kaartbetaling, receptie niet altijd bemand (deurcode bewaren), uitchecken 12:00 — bagagebewaring op dag 24 tot 19:15 afspreken. Tel. +57 314 3775493.' },
 
   /* ----------------------------------------------------- HERINNERINGEN -- */
   { id:'herin-kbc-colombia', type:'herinnering', dag:1, status:'te-boeken',
     titel:'💳 KBC Mobile: Colombia toevoegen voor bankkaart en kredietkaarten', locatie:'bogota',
     note:'Op de luchthaven in Brussel, vóór het instappen om 10:05: in KBC Mobile Colombia toevoegen als gebruiksgebied, voor de bankkaart én de kredietkaarten — van Bert en van Ellen. Anders kan de Davivienda-automaat bij aankomst om 19:25 weigeren, en dan sta je zonder pesos.' },
 
-  { id:'herin-koffie-pieter', type:'herinnering', dag:4, status:'te-boeken',
-    titel:'☕ ½ kg rauwe koffiebonen kopen voor Pieter', locatie:'salento',
-    note:'Bij het bezoek aan een koffiefinca (bv. Finca Las Acacías in Salento) een halve kilo rauwe, ongebrande bonen kopen. Lukt het niet in Salento: Hacienda La Victoria in Minca (dag 13).' },
+  { id:'herin-koffie-pieter', type:'herinnering', dag:13, status:'te-boeken',
+    titel:'☕ ½ kg rauwe koffiebonen voor Pieter — nog niet gekocht', locatie:'minca',
+    note:'Lukte niet in Salento. Probeer Hacienda La Victoria in Minca (dag 13): vraag naar "café verde / sin tostar". Backup: Café de la Fonda in Bogotá op 11 dec (branderij, stop van de fietstour, open 9–17u; buurt niet veilig: Uber heen en terug).' },
+
+  { id:'herin-souvenirs', type:'herinnering', dag:23, status:'te-boeken',
+    titel:'🛍️ Souvenirs: panela voor Pieter + Pokémonkaarten (Spaanstalig)', locatie:'bogota',
+    note:'Panela (blokken rietsuiker, voor BBQ-saus) in elke supermarkt (Éxito, Carulla, D1, Ara) — in de ruimbagage. Pokémonkaarten: Unlimited Hobby Center (Kr 13 #46-64, 2e verdieping, ±12:40–20:00) of Imperium TCG (CC Metrópolis, local 162A, 10–20u). Plus de koffiebonen als die in Minca niet lukten.' },
 
   /* ------------------------------------------------- ACTIVITEITEN (res) -- */
   { id:'act-comuna13', type:'activiteit', dag:8, status:'te-boeken',
@@ -228,7 +232,7 @@ var RESERVATIES = [
 
   { id:'act-filandia', type:'activiteit', dag:5, status:'geboekt',
     titel:'Paardrijden Finca Akila (Filandia) — Rural Adventure', locatie:'salento',
-    vertrek:'09:30 · ±3 uur · Engelstalige gids',
+    vertrek:'±10:00 · willy van 9:00 naar Filandia + taxi (±15 min) · ±3 uur · Engelstalige gids',
     prijs:'COP 220.000 p.p. · 50% voorschot betaald (COP 220.000 voor 2, 17 nov) · rest COP 220.000 cash ter plaatse',
     link:'https://wa.me/573128344386',
     deadline:'Nog vragen: bevestiging 9:30 en Google Maps-pin van de finca; gegevens van Ellen voor hun verzekering',
