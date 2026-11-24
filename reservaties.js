@@ -196,10 +196,6 @@ var RESERVATIES = [
     titel:'☕ ½ kg rauwe koffiebonen voor Pieter — nog niet gekocht', locatie:'minca',
     note:'Lukte niet in Salento. Probeer Hacienda La Victoria in Minca (dag 13): vraag naar "café verde / sin tostar". Backup: Café de la Fonda in Bogotá op 11 dec (branderij, stop van de fietstour, open 9–17u; buurt niet veilig: Uber heen en terug).' },
 
-  { id:'herin-souvenirs', type:'herinnering', dag:23, status:'te-boeken',
-    titel:'🛍️ Souvenirs: panela voor Pieter + Pokémonkaarten (Spaanstalig)', locatie:'bogota',
-    note:'Panela (blokken rietsuiker, voor BBQ-saus) in elke supermarkt (Éxito, Carulla, D1, Ara) — in de ruimbagage. Pokémonkaarten: Unlimited Hobby Center (Kr 13 #46-64, 2e verdieping, ±12:40–20:00) of Imperium TCG (CC Metrópolis, local 162A, 10–20u). Plus de koffiebonen als die in Minca niet lukten.' },
-
   /* ------------------------------------------------- ACTIVITEITEN (res) -- */
   { id:'act-comuna13', type:'activiteit', dag:8, status:'te-boeken',
     titel:'Free walking tour Comuna 13', locatie:'medellin',
